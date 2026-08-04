@@ -83,18 +83,42 @@ Tipos aceitos: `preset`, `cron` e `timedelta`. Quando uma DAG não aparece na va
 !!! note "Exceções"
     DAGs dbt com Astronomer Cosmos usam `schedule_interval` diretamente dentro da configuração `DbtDag`. Algumas DAGs legadas também podem ter schedule direto; ao tocar nelas, prefira migrar para o padrão dinâmico quando fizer sentido.
 
-## Variáveis e conexões locais
+## Variáveis, connections e secrets
 
-O `make dev` configura as variáveis e conexões básicas para desenvolvimento local:
+O `make dev` configura as variáveis e a connection básica do Airflow para desenvolvimento local. A referência prática fica no `Makefile` do [`data-application-gov-hub`](https://github.com/GovHub-br/data-application-gov-hub), nos alvos `dev` e `dev-check`.
 
-| Item | Uso |
+| Item | Tipo | Onde encontrar | Uso |
+| --- | --- | --- | --- |
+| `airflow_orgao` | Airflow Variable | `Makefile` (`make dev`) e UI do Airflow em Admin > Variables | Define o órgão alvo da execução local. |
+| `airflow_variables` | Airflow Variable | `Makefile` (`make dev`) e UI do Airflow em Admin > Variables | Guarda configurações por órgão em YAML/JSON, como `codigos_ug`. |
+| `dynamic_schedules` | Airflow Variable | `Makefile`, `airflow_lappis/plugins/schedule_loader.py` e UI do Airflow | Define schedules por `dag_id` sem alterar código da DAG. |
+| `postgres_default` | Airflow Connection | Importada pelo `Makefile` via `airflow connections import` | Connection padrão usada por `helpers/postgres_helpers.py`. |
+| Secrets de APIs, banco e certificados | Secret do ambiente | Kubernetes, GitHub Actions ou mecanismo definido pela infraestrutura | Armazena credenciais reais fora do Git. |
+
+No ambiente local, o `Makefile` escreve temporariamente um arquivo `/tmp/airflow-connections.json` dentro do container apenas para importar a connection `postgres_default`; esse arquivo não deve ser versionado.
+
+Para conferir as configurações locais:
+
+```bash
+make dev-check
+
+docker compose exec airflow airflow variables get airflow_orgao
+docker compose exec airflow airflow variables get airflow_variables
+docker compose exec airflow airflow variables get dynamic_schedules
+docker compose exec airflow airflow connections get postgres_default
+```
+
+Também é possível conferir pela UI do Airflow:
+
+| Configuração | Caminho na UI |
 | --- | --- |
-| `airflow_orgao` | órgão alvo da execução local |
-| `airflow_variables` | configurações por órgão, como `codigos_ug` |
-| `dynamic_schedules` | schedules por `dag_id` |
-| `postgres_default` | conexão padrão do Airflow para PostgreSQL |
+| Variables | Admin > Variables |
+| Connections | Admin > Connections |
 
-Algumas DAGs usam conexões nomeadas adicionais, como `postgres_mir`. Antes de criar ou alterar uma DAG, confira o domínio e a conexão usada pelas DAGs semelhantes.
+!!! warning "Sem segredos no Git"
+    Valores reais de senha, token, certificado, chave privada ou credencial de API não devem aparecer em documentação, código, exemplos versionados ou histórico Git. Use placeholders nos exemplos e mantenha os valores reais no mecanismo de secrets do ambiente.
+
+Algumas DAGs usam variables ou connections adicionais, como `airflow_orgao_ted`, `airflow_orgao_1`, `email_credentials`, `GITHUB_TOKEN`, `postgres_mir` ou conexões de SQL Server. Antes de criar ou alterar uma DAG, procure por DAGs semelhantes no domínio e confira quais configurações elas já esperam. Quando a configuração contiver credencial sensível, prefira Airflow Connections ou o mecanismo de secrets do ambiente em vez de criar uma nova Variable com segredo.
 
 ## Acesso local
 

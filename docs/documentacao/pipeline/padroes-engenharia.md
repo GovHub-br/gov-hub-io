@@ -183,13 +183,15 @@ ano_fim = params.get("ano_fim") or datetime.now().year
 
 ### Airflow Variables
 
+A referência operacional de onde encontrar e validar Variables, Connections e Secrets está em [Apache Airflow](airflow.md#variaveis-connections-e-secrets) e [Gerenciamento de Secrets](../infraestrutura/secrets.md). Esta seção define o padrão de uso no código das DAGs.
+
 O projeto usa três Airflow Variables principais:
 
 | Variable | Tipo | Descrição |
 |---|---|---|
 | `dynamic_schedules` | JSON | Schedules por `dag_id`. Lida por `get_dynamic_schedule()`. |
 | `airflow_orgao` | string | Código do órgão alvo para ingestão. |
-| `airflow_variables` | YAML | Configurações por órgão (ex: `codigos_ug`). |
+| `airflow_variables` | YAML/JSON | Configurações por órgão (ex: `codigos_ug`). |
 
 Sempre validar se as variáveis críticas foram encontradas antes de prosseguir:
 

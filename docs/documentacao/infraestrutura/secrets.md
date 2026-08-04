@@ -9,6 +9,25 @@ Gestão de credenciais e certificados no GovHub BR.
 - Certificados digitais (SIAFI/SIAPE) são críticos e tratados separadamente
 - Acesso por ambiente (preprod/prod) — consultar equipe de infra
 
+
+## Onde encontrar configurações sensíveis
+
+Nem toda configuração sensível fica no mesmo lugar. Antes de alterar uma DAG ou investigar erro de credencial, identifique o tipo da configuração:
+
+| Tipo | Onde procurar | Quando usar |
+| --- | --- | --- |
+| Airflow Variables | Airflow UI em Admin > Variables; localmente, alvo `make dev` do `data-application-gov-hub` | Parâmetros de execução, órgão alvo, schedules e configurações por fonte. |
+| Airflow Connections | Airflow UI em Admin > Connections; localmente, importação feita pelo `Makefile` | Dados de conexão com bancos, APIs e serviços externos. |
+| Kubernetes Secrets | Namespace do componente no cluster | Credenciais reais de ambientes compartilhados, staging ou produção. |
+| GitHub Actions Secrets | Settings > Secrets and variables > Actions no repositório | Tokens e credenciais usados por workflows de CI/CD. |
+| Arquivos locais `.env` | Criados a partir de `local.env` no desenvolvimento | Apenas valores de desenvolvimento local. |
+
+Para Airflow, use esta regra simples:
+
+- **Variable**: configuração lida pela DAG como parâmetro, por exemplo `airflow_orgao`, `airflow_variables` e `dynamic_schedules`.
+- **Connection**: credencial estruturada de acesso a serviço, por exemplo `postgres_default`.
+- **Secret do ambiente**: valor sensível real usado por produção, como senha, token, certificado ou chave privada.
+
 ## Criação de Secrets
 
 ### Via kubectl
@@ -73,8 +92,7 @@ Certificados para acesso a sistemas governamentais (Siape, Siafi):
 
 ## Ambiente Local
 
-Para desenvolvimento local, os valores padrão ficam em `local.env` e são
-copiados para `.env` pelo `make setup`:
+Para desenvolvimento local, os valores padrão ficam em `local.env` e são copiados para `.env` pelo `make setup`. O `make dev` também configura as Airflow Variables e importa a connection `postgres_default` no Airflow local.
 
 ```yaml
 environment:
@@ -83,6 +101,15 @@ environment:
   POSTGRES_USER_DW: postgres_dw
   POSTGRES_PASSWORD_DW: postgres_dw
   POSTGRES_DB_DW: data_warehouse
+```
+
+Validação local:
+
+```bash
+make dev-check
+
+docker compose exec airflow airflow variables list
+docker compose exec airflow airflow connections get postgres_default
 ```
 
 !!! note
