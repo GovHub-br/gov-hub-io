@@ -1,44 +1,170 @@
-## Documentação
+# Contribuindo com o GovHub BR
 
+Obrigado pelo interesse em contribuir! O GovHub BR é um projeto open source que busca transformar dados governamentais em ativos estratégicos para a gestão pública.
 
-Antes de começar, obrigado por considerar contribuir com o **Gov Hub BR**. Acreditamos que a colaboração é essencial para construir soluções públicas mais eficientes, transparentes e sustentáveis.
+---
 
-O **Gov Hub BR** é um projeto open-source com o propósito de transformar dados públicos em ativos estratégicos para a administração pública e a sociedade. Toda contribuição, seja código, documentação, ideias ou feedback, é bem-vinda.
+## Como Contribuir
 
-## Como contribuir
+1. **Abra uma issue** descrevendo o problema ou melhoria (ver [requisitos de issue](#requisitos-de-issue))
+2. **Fork** o repositório
+3. **Crie uma branch** com o prefixo correto (`feat/`, `fix/`, `docs/`, `refactor/`)
+4. **Faça suas alterações** com commits assinados (GPG)
+5. **Abra um PR** seguindo o [protocolo de documentação mínima](#protocolo-de-documentação-mínima-para-prs)
+6. Aguarde o review — PRs sem documentação mínima **não serão aprovados**
 
-### 1. Faça um fork do repositório
+---
 
-Clique em "fork" no canto superior direito da página do projeto e clone o repositório no seu ambiente local:
+## Áreas de Contribuição
 
-```bash
-git clone https://github.com/seu-usuario/govhub-br.git
+| Área | Descrição | Repo |
+|------|-----------|------|
+| Pipeline | Novas DAGs, models dbt | `data-application-gov-hub` |
+| Dashboards | Novos painéis Superset | `data-application-gov-hub` |
+| Infra | Manifests K8s, Helm | `continuous-deployment` |
+| Documentação | Melhorias nos docs | `gov-hub` ou este repo |
+| Pesquisa | POCs, IA, OCR | `govhub-research` |
+| Governança | OpenMetadata config | `openmetadata-declarative-governance` |
+
+---
+
+## Requisitos de Issue
+
+Toda issue deve conter no mínimo:
+
+- **Título claro** descrevendo o problema ou funcionalidade
+- **Descrição** explicando o contexto e o porquê
+- **Critérios de aceitação** — o que define que a issue está concluída?
+- **Labels** apropriadas (`bug`, `feature`, `docs`, `infra`, etc.)
+
+**Exemplo de issue bem descrita:**
+
+```
+Título: Adicionar DAG de ingestão do PNCP — itens de licitação
+
+Descrição:
+O PNCP disponibiliza endpoint com itens detalhados de licitações.
+Precisamos ingerir esses dados para alimentar o modelo gold de compras.
+
+Critérios de aceitação:
+- DAG criada em data_ingest/pncp/
+- Dados salvos na tabela pncp.itens_licitacoes no PostgreSQL
+- dbt run e dbt test passando
+- PR com descrição do que foi feito
 ```
 
-Crie uma nova branch. Recomendamos criar uma branch com um nome descritivo, como ajuste-na-doc ou feature-nova-transformacao:
+Issues sem critérios de aceitação podem ser fechadas ou devolvidas para complementação.
 
-```bash
-git checkout -b minha-contribuicao
+---
+
+## Protocolo de Documentação Mínima para PRs
+
+Todo PR deve obrigatoriamente conter:
+
+### 1. Descrição do porquê
+
+Explique a motivação da mudança — não apenas o que foi feito, mas **por que** foi necessário.
+
+```
+❌ "Adiciona DAG do PNCP"
+✅ "Adiciona DAG de ingestão do PNCP para cobrir dados de itens de licitação
+    que estavam ausentes no pipeline de compras públicas (issue #42)"
 ```
 
-### 2. faça suas alterações
+### 2. O que foi alterado
 
-Contribuições podem incluir:
+Liste os arquivos principais adicionados ou modificados e o que cada um faz.
 
--   melhorias no código ou em pipelines de dados
+```
+- airflow_lappis/dags/data_ingest/pncp/itens_licitacoes_ingest_dag.py — nova DAG
+- airflow_lappis/dags/dbt/ipea/models/contratos_dbt/bronze/itens_licitacoes.sql — novo modelo bronze
+- airflow_lappis/dags/dbt/ipea/models/contratos_dbt/bronze/schema.yml — testes adicionados
+```
 
--   ajustes ou acréscimos na documentação
+### 3. Como testar
 
--   sugestões de novas funcionalidades
+Descreva os passos mínimos para validar a mudança localmente.
 
--   correção de erros ou inconsistências
+```
+1. docker compose up -d
+2. Trigger manual da DAG pncp_itens_licitacoes_ingest_dag no Airflow
+3. Verificar registros em pncp.itens_licitacoes: SELECT COUNT(*) FROM pncp.itens_licitacoes;
+4. dbt run --select contratos_dbt.bronze.itens_licitacoes
+5. dbt test --select contratos_dbt.bronze.itens_licitacoes
+```
 
-Lembre-se de seguir as boas práticas de codificação e de escrever mensagens de commit claras e descritivas, neste projeto, utilize o seguinte [modelo de commit](../../.github/TEMPLATES/COMMIT_TEMPLATE.md). Teste e valide sua contribuição localmente antes de prosseguir.
+### 4. Issue relacionada
 
-### 3. Sobre o pull request
+Todo PR deve referenciar a issue que originou a mudança.
 
-Antes de enviar, certifique-se de que sua alteração está funcionando corretamente, sem quebrar funcionalidades existentes, e que segue os padrões definidos pelo projeto.
+```
+Closes #42
+```
 
-Envie um pull request utilizando o modelo disponível no repositório. Isso ajuda a equipe a entender rapidamente o contexto da sua contribuição e agiliza o processo de revisão.
+---
 
-Suba sua branch para o seu fork e abra um pull request direcionado ao repositório principal. Descreva de forma objetiva o que foi alterado, por que essa mudança é necessária e, sempre que possível, inclua prints, logs ou links relacionados.
+## Checklist de PR por Tipo
+
+Marque todos os itens aplicáveis antes de abrir o PR.
+
+### DAGs de ingestão
+
+- [ ] Nome da DAG segue o formato `<origem>_<dominio>_<acao>`
+- [ ] Usa TaskFlow API (`@dag`, `@task`)
+- [ ] Schedule via `get_dynamic_schedule()`
+- [ ] `owner` preenchido com nome da pessoa ou time
+- [ ] `catchup=False` declarado
+- [ ] Airflow Variables validadas antes do uso
+- [ ] Conexão PostgreSQL via `get_postgres_conn()`
+- [ ] DAG no diretório correto (`data_ingest/<origem>/`)
+- [ ] PR com descrição, o que foi alterado e como testar
+
+### Modelos dbt
+
+- [ ] Nome segue o prefixo da camada (`brz_`, `slv_`, `gld_`)
+- [ ] Modelo no diretório correto (`<dominio>_dbt/<camada>/`)
+- [ ] `schema.yml` atualizado com `description` e `meta.tags`
+- [ ] `dt_ingest` propagado
+- [ ] `dbt run` e `dbt test` passando localmente
+- [ ] PR com descrição, o que foi alterado e como testar
+
+### Documentação
+
+- [ ] Arquivo no caminho correto dentro de `docs/`
+- [ ] Links internos funcionando
+- [ ] Build do MkDocs sem erros (`docker run --rm -v .:/docs squidfunk/mkdocs-material build`)
+- [ ] PR com descrição do que foi adicionado ou corrigido
+
+### Infraestrutura
+
+- [ ] Manifests testados em pré-produção antes do PR para produção
+- [ ] Secrets não commitados
+- [ ] Overlay correto (`values.preprod.yaml` ou `values.prod.yaml`) atualizado
+- [ ] PR com descrição do impacto e como reverter se necessário
+
+---
+
+## Padrões de Código
+
+| Aspecto | Padrão |
+|---------|--------|
+| Branches | `feat/`, `fix/`, `refactor/`, `docs/` |
+| Commits | [Conventional Commits](https://www.conventionalcommits.org/) |
+| Assinatura | GPG recomendado; obrigatório apenas quando a ruleset do repositório exigir |
+| Code style | `make lint` deve passar sem erros |
+| Testes | `make test` deve passar antes do PR |
+
+Para detalhes de padrões de DAGs e modelos dbt, consulte [Padrões de Engenharia](pipeline/padroes-engenharia.md).
+
+---
+
+## Ambiente de Desenvolvimento
+
+Consulte [Instalação](instalacao.md) para configurar seu ambiente.
+
+---
+
+## Contato
+
+- **Issues**: GitHub de cada repositório
+- **Email**: lablivreunb@gmail.com

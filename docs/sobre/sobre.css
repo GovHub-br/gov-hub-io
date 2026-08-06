@@ -93,6 +93,65 @@ body {
     text-align: left;
 }
 
+/* Mission & Vision Section */
+.mission-vision-section {
+    background-color: #F7F7F7;
+    padding: 6rem 0;
+}
+
+/* Values Section */
+.values-section {
+    background-color: #FFFFFF;
+    padding: 6rem 0;
+}
+
+.mission-vision-section .vision-title {
+    color: #7A34F3;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: left;
+    text-shadow: 0 0 20px rgba(122, 52, 243, 0.1);
+}
+
+.values-title {
+    color: #202020;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.values-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.value-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.value-item h3 {
+    color: #202020;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+}
+
+.value-item p {
+    color: #202020;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+}
+
+
 /* Features Section */
 .features-section {
     background-color: #FFFFFF;
@@ -284,7 +343,7 @@ body {
 
 /* Construction Section */
 .construction-section {
-    background-color: #F7F7F7;
+    background-color: #FFFFFF;
     padding: 6rem 0;
 }
 
@@ -324,6 +383,15 @@ body {
         font-size: 2rem;
     }
     
+    .mission-vision-section .vision-title {
+        font-size: 2rem;
+    }
+    
+    .values-title {
+        font-size: 2rem;
+    }
+
+    
     .construction-content h2 {
         font-size: 2rem;
     }
@@ -344,6 +412,15 @@ body {
         padding: 6.25rem 1rem 2.5rem 1rem;
     }
     
+    .mission-vision-section {
+        padding: 6.25rem 1rem 2.5rem 1rem;
+    }
+    
+    .values-section {
+        padding: 6.25rem 1rem 2.5rem 1rem;
+    }
+
+    
     .content-section h2 {
         font-size: 1.8rem;
     }
@@ -355,6 +432,15 @@ body {
     .features-title {
         font-size: 1.8rem;
     }
+    
+    .mission-vision-section .vision-title {
+        font-size: 1.8rem;
+    }
+    
+    .values-title {
+        font-size: 1.8rem;
+    }
+
     
     .construction-section {
         padding: 6.25rem 1rem 2.5rem 1rem;
@@ -382,6 +468,19 @@ body {
         padding: 6.25rem 1rem 2rem 1rem;
     }
     
+    .mission-section {
+        padding: 6.25rem 1rem 2rem 1rem;
+    }
+
+    .vision-section {
+        padding: 6.25rem 1rem 2rem 1rem;
+    }
+    
+    .values-section {
+        padding: 6.25rem 1rem 2rem 1rem;
+    }
+
+    
     .features-section {
         padding: 6.25rem 1rem 2rem 1rem;
     }
@@ -405,6 +504,11 @@ body {
     .features-title {
         font-size: 1.6rem;
     }
+    
+    .values-title {
+        font-size: 1.6rem;
+    }
+
     
     .construction-content h2 {
         font-size: 1.6rem;

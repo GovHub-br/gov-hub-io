@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J72NDYMYFR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-J72NDYMYFR');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Gov Hub</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/govhub/land/dist/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/govhub/land/dist/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/govhub/land/dist/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/govhub/land/dist/favicon-16x16.png">
+
+    <link rel="stylesheet" crossorigin href="/govhub/global-assets/navbar.css">
+    <link rel="stylesheet" crossorigin href="/govhub/global-assets/banner.css">
+    <link rel="stylesheet" crossorigin href="./projetos.css">
+    <link rel="stylesheet" crossorigin href="/govhub/global-assets/footer.css">
+    <script src="/govhub/global-assets/main.js"></script>
+    <script src="./projetos.js"></script>
+
+    <link rel="preload" href="/govhub/land/dist/images/icons/github.svg" as="image" type="image/svg+xml">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div id="topo"></div>
+
+    <!-- Header -->
+    <header>
+        <nav class="custom-navbar">
+            <div class="container">
+                <div class="row align-items-center g-0">
+                    <!-- Logo Section -->
+                    <div class="col-auto">
+                        <a href="/govhub/home/" class="logo">
+                            <img src="/govhub/land/dist/images/logo.svg" alt="Gov Hub Logo" class="logo-img">
+                        </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="col d-none d-lg-flex justify-content-center">
+                        <div class="navbar-center">
+                            <a href="/govhub/home/" class="nav-link">HOME</a>
+                            <a href="/govhub/sobre/" class="nav-link">SOBRE</a>
+                            <a href="/govhub/quem-somos/" class="nav-link">QUEM SOMOS</a>
+                            <a href="/govhub/projetos/" class="nav-link active">PROJETOS</a>
+                            <a href="/govhub/publicacoes/" class="nav-link">PUBLICAÇÕES</a>
+                            <a href="/govhub/como-usar/" class="nav-link">COMO USAR</a>
+                            <a href="/govhub/comunidade/guia-contribuicao/" class="nav-link">DOCUMENTAÇÃO</a>
+                            <a href="/govhub/dashboards/" class="nav-link">DEMO</a>
+                        </div>
+                    </div>
+
+                    <!-- Right Section -->
+                    <div class="col-auto d-none d-md-flex">
+                        <!-- Social Icons -->
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/govhub.br" target="_blank" class="social-icon">
+                                <img src="/govhub/land/dist/images/icons/instagram.svg" alt="Instagram"
+                                    class="social-icon-img">
+                            </a>
+                            <a href="https://github.com/GovHub-br/gov-hub" target="_blank" class="social-icon">
+                                <img src="/govhub/land/dist/images/icons/github.svg" alt="GitHub"
+                                    class="social-icon-img">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="col-auto d-lg-none">
+                        <button class="mobile-menu-button" id="mobile-menu-toggle" type="button"
+                            aria-label="Toggle navigation">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Overlay -->
+                <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" id="mobile-menu">
+                    <!-- Botão de fechar -->
+                    <button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Fechar menu">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+
+                    <ul>
+                        <li><a href="/govhub/home/">HOME</a></li>
+                        <li><a href="/govhub/sobre/">SOBRE</a></li>
+                        <li><a href="/govhub/quem-somos/">QUEM SOMOS</a></li>
+                        <li><a href="/govhub/projetos/" class="active">PROJETOS</a></li>
+                        <li><a href="/govhub/publicacoes/">PUBLICAÇÕES</a></li>
+                        <li><a href="/govhub/como-usar/">COMO USAR</a></li>
+                        <li><a href="/govhub/comunidade/guia-contribuicao/">DOCUMENTAÇÃO</a></li>
+                        <li><a href="/govhub/dashboards/">DEMO</a></li>
+                    </ul>
+                    <!-- Social Icons dentro do menu mobile -->
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/govhub.br" target="_blank" class="social-icon">
+                            <img src="/govhub/land/dist/images/icons/instagram.svg" alt="Instagram"
+                                class="social-icon-img">
+                        </a>
+                        <a href="https://github.com/GovHub-br/gov-hub" target="_blank" class="social-icon">
+                            <img src="/govhub/land/dist/images/icons/github.svg" alt="GitHub" class="social-icon-img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Ministério da Gestão e da Inovação em Serviços Públicos (MGI)</h1>
+        </div>
+
+        <!-- Animated Circles -->
+        <div class="animated-circles">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="overview-content">
+                        <h2>Qual o objetivo do Gov Hub no MGI?</h2>
+
+                        <p>As compras do governo federal são públicas, mas os dados estão espalhados por diferentes sistemas e nem sempre seguem o mesmo padrão. 
+                            Isso dificulta responder perguntas simples, como quanto o país gasta com medicamentos, equipamentos de TI ou merenda escolar. 
+                            Também afeta o acompanhamento da política de Margem de Preferência (incentivo do governo para determinados tipos de compras, a 
+                            fim de impulsionar o mercado nacional), já que não há mecanismos para cruzar as declarações das empresas com informações sobre a origem dos produtos.</p>
+                        
+                        <p>Para resolver esse cenário, o Gov Hub está mapeando as principais bases de compras públicas e está apoiando no desenvolvimento do Observatório de 
+                            Contratações Públicas por meio da plataforma de software livre que integra, qualifica e organiza essas informações em um único ambiente.</p>
+
+                        <p>O projeto também está utilizando inteligência artificial para classificar automaticamente os itens adquiridos pelo governo e inclui um agente 
+                            conversacional que permitirá a qualquer pessoa consultar contratos, despesas e compras públicas usando linguagem natural. Sem a necessidade de navegar 
+                            por diferentes sistemas ou dominar bases de dados complexas, o usuário poderá simplesmente fazer perguntas e receber respostas baseadas nos dados oficiais. 
+                            Com isso, informações que antes estavam dispersas e eram acessíveis apenas para especialistas, passarão a ficar ao alcance de gestores públicos, 
+                            pesquisadores, jornalistas e da sociedade em geral.</p>
+                        
+                        <p>Como solução open source, todo o código do Gov Hub é livre, auditável e colaborativo,
+                            permitindo que qualquer órgão utilize, adapte e contribua para o seu aprimoramento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+
+            <!-- Row 1 - Initiative Text -->
+            <div class="row footer-middle g-4">
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-initiative-text">
+                        <p>Gov hub é uma iniciativa</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <!-- Coluna invisível para alinhamento -->
+                </div>
+                <div class="col-12 col-md-3">
+                    <!-- Coluna invisível para alinhamento -->
+                </div>
+                <div class="col-12 col-md-3">
+                    <!-- Coluna invisível para alinhamento -->
+                </div>
+            </div>
+
+            <!-- Row 2 - Logos: Lab Livre, UnB, Capibaribe, Cidade Democrática -->
+            <div class="row footer-middle g-4">
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-lablivre">
+                            <img src="/govhub/land/dist/images/lablivre_footer.png" alt="Lab Livre Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-unb">
+                            <img src="/govhub/land/dist/images/unb_footer.png" alt="UnB Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-capibaribe">
+                            <img src="/govhub/land/dist/images/capibaribe.png" alt="Capibaribe Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-cidade-democratica">
+                            <img src="/govhub/land/dist/images/Cidade_Democratica.png"
+                                alt="Instituto Cidade Democrática Logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3 - Support Text -->
+            <div class="row footer-middle footer-middle-compact g-4">
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-support-text">
+                        <p>Apoio</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4 - Support Logos (IPEA, Cidades, Igualdade Racial, MGI) -->
+            <div class="row footer-middle footer-middle-compact g-4">
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-ipea">
+                            <img src="/govhub/land/dist/images/ipea_footer.png" alt="IPEA Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-cidades">
+                            <img src="/govhub/land/dist/images/cidades.png" alt="Ministério das Cidades Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-igualdaderacial">
+                            <img src="/govhub/land/dist/images/igualdaderacial.png"
+                                alt="Ministério da Igualdade Racial Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-mgi">
+                            <img src="/govhub/land/dist/images/MGI_logo.png" alt="MGI Logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 5 - Support Logos (MINC) -->
+            <div class="row footer-middle g-4">
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-logo-section">
+                        <div class="footer-logo-minc">
+                            <img src="/govhub/land/dist/images/MINC_logo.png" alt="MINC Logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <!-- Coluna invisível para alinhamento -->
+                </div>
+                <div class="col-12 col-md-3">
+                    <!-- Coluna invisível para alinhamento -->
+                </div>
+                <div class="col-12 col-md-3">
+                    <!-- Coluna invisível para alinhamento -->
+                </div>
+            </div>
+
+            <!-- Row 4 - Navigation and Contact -->
+            <div class="row footer-middle g-4">
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-nav">
+                        <ul>
+                            <li><a href="/govhub/home/">Home</a></li>
+                            <li><a href="/govhub/sobre/">Sobre</a></li>
+                            <li><a href="/govhub/projetos/">Projetos</a></li>
+                            <li><a href="/govhub/publicacoes/">Publicações</a></li>
+                            <li><a href="/govhub/quem-somos/">Quem somos</a></li>
+                            <li><a href="/govhub/comunidade/guia-contribuicao/">Documentação</a></li>
+                            <li><a href="/govhub/dashboards/">DEMO</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-how-to-use">
+                        <h4>Como usar</h4>
+                        <ul>
+                            <li><a href="../sobre-projeto/replicacao/">Gov hub no meu órgão</a></li>
+                            <li><a href="../documentacao/tutoriais/infraestrutura/cicd">Tutoriais</a></li>
+                            <li><a href="../sobre-projeto/overview">Funcionalidades</a></li>
+                            <li><a href="../documentacao/instalacao">Documentação</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <!-- Coluna invisível para alinhamento -->
+                </div>
+                <div class="col-12 col-md-3 footer-column">
+                    <div class="footer-contact">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><a href="mailto:caguiar@unb.br">caguiar@unb.br</a></li>
+                        </ul>
+                        <div class="footer-social">
+                            <a href="https://github.com/GovHub-br" target="_blank" aria-label="GitHub">
+                                <img src="/govhub/land/dist/images/icons/github.svg" alt="GitHub"
+                                    class="social-icon-img">
+                            </a>
+                            <a href="https://www.linkedin.com/company/lappis-rocks/" target="_blank"
+                                aria-label="LinkedIn">
+                                <img src="/govhub/land/dist/images/icons/linkedin.svg" alt="LinkedIn"
+                                    class="social-icon-img">
+                            </a>
+                            <a href="https://www.instagram.com/lab.livre/" target="_blank" aria-label="Instagram">
+                                <img src="/govhub/land/dist/images/icons/instagram.svg" alt="Instagram"
+                                    class="social-icon-img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Footer Structure using Bootstrap Grid (hidden on desktop) -->
+            <div class="footer-mobile">
+                <!-- 1. Initiative Text -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="footer-mobile-initiative">Gov hub é uma iniciativa</p>
+                    </div>
+                </div>
+
+                <!-- 2. Logos: Lab Livre, UnB, Capibaribe e Cidade Democrática -->
+                <div class="row">
+                    <div class="col-3 text-center">
+                        <img src="/govhub/land/dist/images/lablivre_footer.png" alt="Lab Livre Logo"
+                            class="footer-mobile-logo">
+                    </div>
+                    <div class="col-3 text-center">
+                        <img src="/govhub/land/dist/images/unb_footer.png" alt="UnB Logo" class="footer-mobile-logo">
+                    </div>
+                    <div class="col-3 text-center">
+                        <img src="/govhub/land/dist/images/capibaribe.png" alt="Capibaribe Logo"
+                            class="footer-mobile-logo footer-mobile-logo-capibaribe">
+                    </div>
+                    <div class="col-3 text-center">
+                        <img src="/govhub/land/dist/images/Cidade_Democratica.png"
+                            alt="Instituto Cidade Democrática Logo"
+                            class="footer-mobile-logo footer-mobile-logo-cidade-democratica">
+                    </div>
+                </div>
+
+                <!-- 3. Support Text -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="footer-mobile-support">Apoio</p>
+                    </div>
+                </div>
+
+                <!-- 4. Support Logos (IPEA, Cidades, Igualdade Racial, MGI, MINC) -->
+                <div class="row mb-3">
+                    <div class="col-6 text-center mb-3">
+                        <img src="/govhub/land/dist/images/ipea_footer.png" alt="IPEA Logo" class="footer-mobile-logo">
+                    </div>
+                    <div class="col-6 text-center mb-3">
+                        <img src="/govhub/land/dist/images/cidades.png" alt="Ministério das Cidades Logo"
+                            class="footer-mobile-logo footer-logo-cidades">
+                    </div>
+                    <div class="col-6 text-center mb-3">
+                        <img src="/govhub/land/dist/images/igualdaderacial.png"
+                            alt="Ministério da Igualdade Racial Logo"
+                            class="footer-mobile-logo footer-logo-igualdaderacial">
+                    </div>
+                    <div class="col-6 text-center mb-3">
+                        <img src="/govhub/land/dist/images/MGI_logo.png" alt="MGI Logo"
+                            class="footer-mobile-logo footer-logo-mgi">
+                    </div>
+                    <div class="col-12 text-center mb-3">
+                        <img src="/govhub/land/dist/images/MINC_logo.png" alt="MINC Logo"
+                            class="footer-mobile-logo footer-logo-minc">
+                    </div>
+                </div>
+
+                <!-- 5. Contact -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h4 class="footer-mobile-contact-title">Contato</h4>
+                        <p><a href="mailto:caguiar@unb.br" class="footer-mobile-contact-link">caguiar@unb.br</a></p>
+                    </div>
+                </div>
+
+                <!-- 6. Copyright -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="footer-mobile-copyright">© 2025 Gov Hub - Uma iniciativa do Lab Livre - UnB.
+                            Licenciado sob Creative Commons.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

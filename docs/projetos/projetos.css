@@ -1,0 +1,441 @@
+/* Página de Publicações */
+
+/* Bootstrap Grid Customization - 12 colunas com gutter 20px */
+:root {
+    --bs-gutter-x: 20px;
+    --bs-gutter-y: 20px;
+}
+
+.container {
+    --bs-gutter-x: 20px;
+    --bs-gutter-y: 20px;
+}
+
+.row {
+    --bs-gutter-x: 20px;
+    --bs-gutter-y: 20px;
+}
+
+/* Publications Page Section */
+.publications-page-section {
+    background-color: #f8f9fa;
+    padding: 0 0 2rem 0;
+    min-height: 100vh;
+}
+
+/* Filter Bar */
+.filter-bar {
+    /* max-width: 1280px; */
+    /* margin: 0 auto 0 auto; */
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border-radius: 0;
+    padding: 1rem 0;
+    box-shadow: none;
+}
+
+/* Filtros e Pesquisa */
+.filtros-pesquisa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.filtros-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.filtro-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #9249CA;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.filtro-btn:hover {
+    color: #7c3aed;
+    transform: translateY(-1px);
+}
+
+.filtro-btn span {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.chevron-down {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.filtro-btn:hover .chevron-down {
+    transform: translateY(2px);
+}
+
+.pesquisa-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.pesquisa-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #9249CA;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.pesquisa-btn:hover {
+    color: #7c3aed;
+    transform: translateY(-1px);
+}
+
+.pesquisa-btn span {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.pesquisa-btn:hover .search-icon {
+    transform: scale(1.1);
+}
+
+/* Caixa de Input de Pesquisa */
+.pesquisa-input-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 2px solid #9249CA;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 8px 25px rgba(146, 73, 202, 0.2);
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    min-width: 300px;
+}
+
+.pesquisa-input-container.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pesquisa-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+}
+
+.pesquisa-input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.fechar-pesquisa-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: #9249CA;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.fechar-pesquisa-btn:hover {
+    background: #f0f0f0;
+    color: #7c3aed;
+}
+
+.fechar-pesquisa-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Publication Card */
+.publication-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 400px;
+}
+
+.publication-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Publication Image */
+.publication-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Publication Category */
+.publication-category {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: #7c3aed;
+    color: #f7f7f7;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Publication Content */
+.publication-content {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.publication-title {
+    color: #7A34F3;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.publication-caption {
+    color: #202020;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 1rem;
+}
+
+/* Publication Arrow */
+.publication-arrow {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    color: #1f2937;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.publication-card:hover .publication-arrow {
+    transform: translateX(5px);
+}
+
+/* Load More Button */
+.load-more-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.load-more-button {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.load-more-button:hover {
+    background: #6d28d9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+}
+
+.load-more-button:active {
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .filtros-container {
+        gap: 1rem;
+    }
+    
+    .filtro-btn {
+        padding: 0.375rem 0.75rem;
+    }
+    
+    .filtro-btn span {
+        font-size: 0.75rem;
+    }
+    
+    .pesquisa-input {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .publications-page-section {
+        padding: 2rem 0;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .filtros-pesquisa {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filtros-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .filtro-btn {
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .filtro-btn span {
+        font-size: 0.7rem;
+    }
+    
+    .pesquisa-container {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .pesquisa-input {
+        width: 100%;
+    }
+    
+    .publication-image {
+        height: 180px;
+    }
+    
+    .load-more-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .filtros-container {
+        gap: 0.25rem;
+    }
+    
+    .filtro-btn {
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .filtro-btn span {
+        font-size: 0.65rem;
+    }
+    
+    .pesquisa-input {
+        font-size: 0.8rem;
+    }
+    
+    .chevron-down, .search-icon {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Overview Section */
+.overview-section {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 6rem 0;
+}
+
+.overview-content {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.overview-content h2 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #7A34F3;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.overview-content h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #202020;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.overview-content p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #202020;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.overview-content p:last-child {
+    margin-bottom: 0;
+}

@@ -1,4 +1,4 @@
-# O que são modelos DBT?
+# Modelos dbt
 
 No **dbt (Data Build Tool)**, os **modelos** são arquivos SQL que definem como os dados devem ser transformados e estruturados.
 Cada modelo gera uma tabela, view ou outro objeto no banco de dados, e pode ser **referenciado** e **reutilizado** em outras partes do projeto.
@@ -264,5 +264,4 @@ Cada tipo tem um caso de uso específico, balanceando **performance, custo e nec
 
 Com o dbt, conseguimos **padronizar e automatizar transformações de dados**, trazendo rastreabilidade, escalabilidade e confiança para os pipelines analíticos.
 No contexto do projeto com o IPEA, isso garantiu que cada camada (bronze, silver, gold) tivesse processos bem definidos, organizados e facilmente auditáveis.
-
 

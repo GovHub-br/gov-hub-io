@@ -1,6 +1,6 @@
-Snapshots são uma funcionalidade do DBT que permite rastrear e registrar mudanças em dados ao longo do tempo, criando um histórico de alterações em tabelas específicas.
+# Snapshots no dbt
 
-https://docs.getdbt.com/docs/build/snapshots
+Snapshots são uma funcionalidade do dbt que permite rastrear e registrar mudanças em dados ao longo do tempo, criando um histórico de alterações em tabelas específicas.
 
 ## Principais características
 
@@ -22,13 +22,14 @@ Os snapshots funcionam através de duas estratégias principais:
 
 1. Timestamp Strategy
     - Utiliza colunas de timestamp para rastrear quando os registros foram atualizados pela última vez.
-    - É necessário de exista uma coluna que forneça o momento da alteração (data ou timestamp) para que o dbt compare com o registro anterior e detecte que houve alteração
+    - Exige uma coluna que informe o momento da alteração para comparação com a versão anterior.
 2. Check Strategy
     - Compara valores específicos das colunas para identificar mudanças nos registros. Se for detectada uma mudança em quaisquer dessas colunas, essa alteração será registrada como uma nova linha da tabela de snapshots
 
 ### Adicionando snapshots ao projeto
 
-Dentro da pasta `snapshots` , deve-se adicionar um arquivo `*.yml` descrevendo como o snapshot deverá ser feito. Por exemplo temos `tables_snapshot.yml` , que configura todos os snapshots para o pipe de contratos. 
+O projeto Ipea usa `airflow_lappis/dags/dbt/ipea/snapshots/tables_snapshot.yml`
+para declarar snapshots em YAML.
 
 ```yaml
 snapshots:
@@ -53,4 +54,9 @@ Para um uso efetivo dos snapshots, recomenda-se:
 - Manter uma política de retenção de dados
 - Documentar a configuração dos snapshots
 
-Os snapshots são uma ferramenta poderosa para manter a integridade e rastreabilidade dos dados em projetos DBT, especialmente em ambientes onde a análise histórica é crucial.
+Snapshots ajudam a manter rastreabilidade histórica quando alterações de estado
+precisam ser consultadas ao longo do tempo.
+
+## Referência
+
+- [Snapshots no dbt](https://docs.getdbt.com/docs/build/snapshots)

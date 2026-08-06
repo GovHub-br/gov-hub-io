@@ -1,10 +1,12 @@
-DBT Docs é uma funcionalidade do DBT que gera automaticamente documentação para seus projetos de transformação de dados.
+# Documentação com dbt Docs
 
-https://docs.getdbt.com/docs/build/documentation
+dbt Docs gera automaticamente documentação para projetos de transformação de dados.
 
 ## Exemplo de Documentação YAML
 
-Dentro da pasta `dags/dbt/ipea/models` está o arquivo `schema.yml` . O nome do arquivo pode ser alterado que ainda será corretamente processado. Abaixo está um trecho do código demonstrando como as informações devem constar.
+Arquivos YAML dentro de `airflow_lappis/dags/dbt/ipea/models/` descrevem
+modelos, colunas, testes e macros. O nome do arquivo pode variar, desde que use
+a extensão `.yml`.
 
 ```yaml
 version: 2
@@ -20,7 +22,7 @@ models:
         description: >
           Identificador único do contrato, utilizado para referenciar o contrato em outras tabelas e análises.
 macros:
-	- name: create_udfs
+  - name: create_udfs
     description: >
       Função que cria as UDFs necessárias para o funcionamento do projeto.
       Essa função deve ser chamada no início de cada run para garantir que todas as UDFs estejam disponíveis.
@@ -34,16 +36,16 @@ macros:
     dbt docs generate
     ```
     
-    Verifique se `catalog.json`  e `manifest.json`  foram criados na pastas target
+    Verifique se `catalog.json` e `manifest.json` foram criados em `target/`.
     
 2. Garanta que você criou os modelos com `dbt run` ou `dbt build` para visualizar a documentação de todas as colunas, não apenas aquelas descritas no seu projeto.
 3. Inicie o servidor local de documentação:
     
     ```bash
-    dbt docs serve
+    dbt docs serve --port 8081
     ```
     
-4. Acesse a documentação no navegador (geralmente em http://localhost:8080)
+4. Acesse a documentação em <http://localhost:8081>.
 
 ## Principais Recursos
 
@@ -58,3 +60,7 @@ macros:
 - Adicione descrições detalhadas para colunas importantes
 - Mantenha a documentação atualizada conforme o projeto evolui
 - Use tags para organizar melhor seus modelos
+
+## Referência
+
+- [Documentação de projetos dbt](https://docs.getdbt.com/docs/build/documentation)

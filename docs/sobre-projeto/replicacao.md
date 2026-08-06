@@ -12,19 +12,19 @@ A plataforma foi desenvolvida para ser **flexível, modular e baseada em softwar
 
 Esta seção está dividida em tópicos que cobrem desde os pré-requisitos técnicos até desafios enfrentados e recomendações práticas:
 
-- [Pré-requisitos](../comunidade/pre-requisitos.md)  
+- [Pré-requisitos](../comunidade/pre-requisitos.md)
   Tecnologias, infraestrutura e conhecimentos mínimos recomendados para iniciar a replicação.
 
-- [Arquitetura da Solução](../documentacao/arquitetura.md)  
+- [Arquitetura da Solução](../documentacao/arquitetura.md)
   Visão geral da arquitetura da plataforma, incluindo o fluxo de dados e os componentes utilizados.
 
-- [Processo de Instalação](../documentacao/instalacao.md)  
+- [Processo de Instalação](../documentacao/instalacao.md)
   Etapas de instalação e configuração da plataforma, incluindo o processo de ETL.
 
-- [Dashboards e Templates](../comunidade/dashboards-templates.md)  
+- [Dashboards e Templates](../comunidade/dashboards-templates.md)
   Apresentação de templates genéricos para a camada Gold e dashboards no Superset.
 
-- [Documentação](../comunidade/guia-contribuicao.md)  
+- [Documentação](../documentacao/index.md)
   Boas práticas e sugestões para facilitar a adaptação da plataforma em diferentes contextos organizacionais.
 
 ---

@@ -73,6 +73,29 @@
     width: auto;
 }
 
+.footer-logo-cidades,
+.footer-logo-igualdaderacial,
+.footer-logo-mgi,
+.footer-logo-minc {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer-logo-cidades img,
+.footer-logo-igualdaderacial img,
+.footer-logo-mgi img {
+    height: 45px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.footer-logo-minc img {
+    height: 55px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
 .footer-logo-capibaribe {
     display: flex;
     align-items: center;
@@ -100,6 +123,10 @@
 /* Main Content Section */
 .footer-middle {
     margin-bottom: 2.5rem;
+}
+
+.footer-middle-compact {
+    margin-bottom: 1rem;
 }
 
 .footer-nav,
@@ -255,8 +282,10 @@
     
     /* 2. Logos: Lab Livre, UnB e Capibaribe */
     .footer-mobile-logo {
-        height: 30px;
+        height: 40px;
         width: auto;
+        max-width: 100%;
+        object-fit: contain;
         margin: 0 auto; /* Centralizar logo IPEA */
     }
     
@@ -274,6 +303,14 @@
         font-weight: 700;
         margin: 0;
         color: #fff;
+    }
+    
+    /* 4. Support Logos */
+    .footer-mobile-logo.footer-logo-cidades,
+    .footer-mobile-logo.footer-logo-igualdaderacial,
+    .footer-mobile-logo.footer-logo-mgi,
+    .footer-mobile-logo.footer-logo-minc {
+        filter: brightness(0) invert(1);
     }
     
     /* 5. Contact */

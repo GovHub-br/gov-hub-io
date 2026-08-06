@@ -1,6 +1,6 @@
-Macros no DBT (Data Build Tool) são blocos de código reutilizáveis escritos em SQL e Jinja que podem ser chamados em diferentes modelos do projeto. Eles funcionam como funções que encapsulam lógicas complexas ou repetitivas, tornando o código mais limpo e manutenível.
+# Macros no dbt
 
-https://docs.getdbt.com/docs/build/jinja-macros
+Macros no dbt são blocos de código reutilizáveis escritos em SQL e Jinja que podem ser chamados em diferentes modelos do projeto. Eles funcionam como funções que encapsulam lógicas complexas ou repetitivas, tornando o código mais limpo e manutenível.
 
 ## Principais características das Macros
 
@@ -10,9 +10,9 @@ https://docs.getdbt.com/docs/build/jinja-macros
 
 ## Tipos comuns de Macros
 
-Existem diferentes tipos de macros que podem ser utilizadas no DBT:
+Existem diferentes tipos de macros que podem ser utilizadas no dbt:
 
-- **Macros nativas:** Fornecidas pelo próprio DBT, como current_timestamp() e generate_schema_name()
+- **Macros nativas:** fornecidas pelo próprio dbt, como `generate_schema_name()`
 - **Macros personalizadas:** Criadas pelo usuário para atender necessidades específicas do projeto
 - **Macros de pacotes:** Disponibilizadas através de pacotes dbt, como dbt_utils
 
@@ -33,7 +33,7 @@ SELECT
 FROM users
 ```
 
-Veja que a coluna é passada como string, pois o compilador do DBT irá fazer a substituição textual do modelo e no target aparecerá como
+Veja que a coluna é passada como string, pois o compilador do dbt faz a substituição textual do modelo e o SQL compilado será:
 
 ```sql
 SELECT 
@@ -44,7 +44,7 @@ FROM users
 
 ## Macros presentes no projeto
 
-As macros estão armazenadas no diretório `macros/` dentro do projeto `dbt/ipea`. 
+As macros estão em `airflow_lappis/dags/dbt/ipea/macros/`.
 
 ```
 macros/
@@ -58,7 +58,9 @@ macros/
 
 ## User-Defined-Functions (UDF)
 
-À primeira vista UDFs e macros parecem ser substituíveis, porém a primeira possui um potencial muito maior quanto à complexidade. Caso a transformação tenha muitas etapas é recomendado usar UDF, mas sua utilização no DBT necessita algumas etapas extras. As UDFs ficam na pasta `/udfs` , tendo o formato `f_<nome da função>` . Aqui está um exemplo usado no projeto
+Macros geram trechos de SQL durante a compilação. UDFs são funções criadas no
+banco e executadas durante a consulta. No projeto, as macros que definem UDFs
+ficam em `macros/udfs/` e seguem o formato `f_<nome_da_funcao>.sql`.
 
 ```sql
 {% macro create_f_format_nc() %}
@@ -106,4 +108,8 @@ on-run-start:
   - '{{create_udfs()}}'
 ```
 
-Isso irá criar as funções sempre quando um modelo for executado.
+Isso cria as funções no início de cada execução do projeto.
+
+## Referência
+
+- [Macros e Jinja no dbt](https://docs.getdbt.com/docs/build/jinja-macros)

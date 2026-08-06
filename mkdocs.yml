@@ -1,16 +1,14 @@
-site_name: ""
-site_url: "https://govhub.github.io/govhub/"
+site_name: Gov Hub
+site_url: "https://gov-hub.io/govhub/"
 site_author: Lab Livre
 site_description: >-
-  Gov Hub - plataforma livre de integração de dados e informações governamentais - Explore como a gestão orientada a dados pode transformar a administração pública, 
-  integrando e qualificando dados de sistemas estruturantes essenciais. 
-  Este projeto aborda os desafios da fragmentação e inconsistência de dados, promovendo eficiência, 
-  transparência e melhor tomada de decisão no âmbito governamental.
+  Gov Hub - plataforma livre de integração de dados e informações governamentais.
+  Explore como a gestão orientada a dados pode transformar a administração pública,
+  integrando e qualificando dados de sistemas estruturantes essenciais.
 
 # Repository
-repo_name: GovHub-br/govhub
-repo_url: https://github.com/GovHub-br/govhub
-repo_branch: main
+repo_name: GovHub-br/gov-hub
+repo_url: https://github.com/GovHub-br/gov-hub
 edit_uri: edit/main/docs/
 
 # Copyright
@@ -19,75 +17,50 @@ copyright: Lab Livre 2025
 # Configuration
 theme:
   name: material
-  custom_dir: material/overrides
+  language: pt-BR
   features:
-    - announce.dismiss
-    - content.action.edit
-    - content.action.view
-    - content.code.annotate
     - content.code.copy
-    # - content.code.select
-    # - content.footnote.tooltips
-    # - content.tabs.link
+    - content.code.annotate
     - content.tooltips
-    # - header.autohide
-    # - navigation.expand
     - navigation.footer
     - navigation.indexes
-    # - navigation.instant
-    # - navigation.instant.prefetch
-    # - navigation.instant.progress
-    # - navigation.prune
     - navigation.sections
     - navigation.tabs
-    # - navigation.tabs.sticky
     - navigation.top
     - navigation.tracking
     - search.highlight
     - search.share
     - search.suggest
     - toc.follow
-    # - toc.integrate
   palette:
-  - media: "(prefers-color-scheme)"
-    toggle:
-      icon: material/brightness-4
-      name: Switch to system preference
-  - media: "(prefers-color-scheme: light)"
-    scheme: default
-    primary: purple
-    accent: purple
-    toggle:
-      icon: material/weather-night
-      name: Switch to dark mode
-  - media: "(prefers-color-scheme: dark)"
-    scheme: slate
-    primary: purple
-    accent: purple
-    toggle:
-      icon: material/weather-sunny
-      name: Switch to light mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-4
+        name: Alternar tema
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: purple
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: purple
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
   font:
     text: Inter
-    code: 'JetBrains Mono'
-  favicon: assets/favicon-96x96.png
+    code: JetBrains Mono
   logo: assets/logo.svg
-  language: pt-BR
+  favicon: assets/favicon.png
 
 # Plugins
 plugins:
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"\`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  - blog:
-      blog_dir: blog
-      blog_toc: true
-      post_dir: "{blog}/posts"
-      post_date_format: full
-      post_url_date_format: yyyy/MM/dd
-      post_url_format: "{date}/{slug}"
-      pagination_per_page: 10
-      archive_toc: true
-      categories_toc: true
 
 # Hooks
 hooks:
@@ -98,15 +71,10 @@ hooks:
 
 # Additional configuration
 extra:
-  status:
-    new: Recently added
-    deprecated: Deprecated
-  analytics:
-    provider: google
-    property: !ENV GOOGLE_ANALYTICS_KEY
+  homepage: /govhub/home/
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/GovHub-br/govhub.githubio
+      link: https://github.com/GovHub-br
 
 extra_javascript:
   - https://www.googletagmanager.com/gtag/js?id=G-J72NDYMYFR
@@ -116,8 +84,15 @@ extra_javascript:
 # Custom CSS for Inter font and footer styling
 extra_css:
   - https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap
-  - assets/custom-footer.css
-  - assets/pdf-viewer.css
+  - documentacao/stylesheets/custom.css
+
+exclude_docs: |
+  /blog/
+  /comunidade/
+  /dicionario-dados/
+  /guiasUso/
+  /sobre-projeto/
+  /index.md
 
 # Extensions
 markdown_extensions:
@@ -170,52 +145,62 @@ markdown_extensions:
   - pymdownx.tilde
 
 nav:
-  - Introdução:
-    - O que é o GovHub: sobre-projeto/overview.md
-    - Por que o GovHub: 
-      - sobre-projeto/por-que-o-govhub.md
-      - Sistemas Estruturantes: sobre-projeto/sistemas-estruturantes.md
-      - Gestão Orientada a Dados: sobre-projeto/gestao-dados.md
-    - Como adotar o GovHub: 
-      - sobre-projeto/como-adotar-o-govhub.md
-  - Getting Started:
+  - Home: documentacao/index.md
+  - Onboarding:
     - Instalação: documentacao/instalacao.md
-    - Arquitetura: documentacao/arquitetura.md
-    - Tutoriais: 
-      - Arquitetura de Implantação: 
-        - CI/CD: documentacao/tutoriais/infraestrutura/cicd.md
-        - Docker: documentacao/tutoriais/infraestrutura/docker.md
-        - Kubernetes: documentacao/tutoriais/infraestrutura/kubernetes.md
-        - Jupyter: documentacao/tutoriais/infraestrutura/jupyter.md
-        - Airflow: documentacao/tutoriais/infraestrutura/airflow.md
-        - PostgreSQL: documentacao/tutoriais/infraestrutura/postgresql.md
-      - Integração de dados com DBT: 
-        - Modelos: documentacao/tutoriais/dbt/modelos.md
-        - Arquitetura Medallion: documentacao/tutoriais/dbt/arquitetura-medallion.md
-        - Astronomer Cosmos: documentacao/tutoriais/dbt/cosmos.md
-        - Testes: documentacao/tutoriais/dbt/testes.md
-        - Macros: documentacao/tutoriais/dbt/macros.md
-        - Snaphots: documentacao/tutoriais/dbt/snapshots.md
-        - DBT Docs: documentacao/tutoriais/dbt/dbt-docs.md
-      - Acesso a Sistemas estruturantes: 
-        - Interface dos Sistemas Estruturantes (APIs): documentacao/tutoriais/sistemas-estruturantes/importar_bancos.md
-        - Credenciais de acesso: documentacao/tutoriais/sistemas-estruturantes/acesso-apis-siafi-siape.md
-        - DAG de ingestão: documentacao/tutoriais/sistemas-estruturantes/sistemas-estruturantes.md
-        - Integrando novas bases de dados: documentacao/tutoriais/sistemas-estruturantes/integracao_bases.md
-    - Jornada dos dados:
-      - Visão geral: guiasUso/jornada-dados/visao-geral.md
-      - Domínio Orçamentário: guiasUso/jornada-dados/dominio-orcamentario.md
-      - Domínio de Pessoal: guiasUso/jornada-dados/dominio-pessoal.md
-  - Tutoriais de Uso:
-    - Criar Dashboards: 
-      - Configuração inicial: guiasUso/superset/conexoes.md
-      - Criando um gráfico: guiasUso/superset/criando-chart.md
-      - Criando um dashboard: guiasUso/superset/criando-dashboard.md
-      - Importando e exportando dashboards: guiasUso/superset/import-export.md
-    - Criar novas tabelas Gold: guiasUso/tabelas-gold/index.md
+    - Roteiro do Contribuidor: documentacao/onboarding/roteiro.md
+    - Git Workflow: documentacao/onboarding/git-workflow.md
+    - Troubleshooting: documentacao/onboarding/troubleshooting.md
+  - Arquitetura:
+    - Visão Geral: documentacao/arquitetura/visao-geral.md
+    - Fluxo de Dados: documentacao/arquitetura/fluxo-de-dados.md
+    - Arquitetura Medallion: documentacao/arquitetura/medallion.md
+    - Componentes: documentacao/arquitetura/componentes.md
+    - Fontes de Dados: documentacao/arquitetura/fontes-de-dados.md
+  - Pipeline de Dados:
+    - Apache Airflow: documentacao/pipeline/airflow.md
+    - dbt:
+      - Visão Geral: documentacao/pipeline/dbt.md
+      - Modelos: documentacao/tutoriais/dbt/modelos.md
+      - Testes: documentacao/tutoriais/dbt/testes.md
+      - Macros: documentacao/tutoriais/dbt/macros.md
+      - Snapshots: documentacao/tutoriais/dbt/snapshots.md
+      - Documentação: documentacao/tutoriais/dbt/dbt-docs.md
+    - Ingestão de Dados: documentacao/pipeline/ingestao.md
+    - Qualidade de Dados: documentacao/pipeline/qualidade.md
+    - Observabilidade: documentacao/pipeline/observabilidade.md
+    - Padrões de Engenharia: documentacao/pipeline/padroes-engenharia.md
+    - Revisão de PRs: documentacao/pipeline/protocolo-mr.md
   - Dicionário de Dados:
-    - Sistemas Estruturantes: dicionario-dados/sistemas-estruturantes.md
-  - Comunidade: 
-    - Guia de Contribuição: comunidade/guia-contribuicao.md
-    - Dashboards Templates: comunidade/dashboards-templates.md
-    - Pré-requisitos: comunidade/pre-requisitos.md
+    - Visão Geral: documentacao/dados/dicionario.md
+    - TransfereGov: documentacao/dados/transferegov.md
+    - Siape: documentacao/dados/siape.md
+    - Siafi: documentacao/dados/siafi.md
+    - ComprasGov: documentacao/dados/comprasgov.md
+    - Siorg: documentacao/dados/siorg.md
+  - Infraestrutura:
+    - Kubernetes: documentacao/infraestrutura/kubernetes.md
+    - Argo CD (GitOps): documentacao/infraestrutura/argocd.md
+    - MinIO: documentacao/infraestrutura/minio.md
+    - PostgreSQL: documentacao/infraestrutura/postgres.md
+    - Gerenciamento de Secrets: documentacao/infraestrutura/secrets.md
+  - Adoção:
+    - Requisitos: documentacao/adocao/requisitos.md
+    - Deploy Inicial: documentacao/adocao/deploy-inicial.md
+    - Conectar Fontes: documentacao/adocao/conectar-fontes.md
+    - Forks Temáticos:
+      - Visão Geral: documentacao/forks/index.md
+      - Guia de Criação: documentacao/forks/guia-criar-fork.md
+      - Cidades: documentacao/forks/cidades.md
+      - MinC: documentacao/forks/minc.md
+  - Visualização:
+    - Apache Superset: documentacao/visualizacao/superset.md
+    - JupyterHub: documentacao/visualizacao/jupyterhub.md
+  - Governança:
+    - OpenMetadata: documentacao/governanca/openmetadata.md
+    - Trino + Ranger: documentacao/governanca/trino-ranger.md
+    - Controle de Acesso: documentacao/governanca/acesso.md
+    - Segurança: documentacao/governanca/seguranca.md
+  - Comunidade:
+    - Contribuir: documentacao/CONTRIBUTING.md
+    - Pesquisa: documentacao/comunidade/pesquisa.md

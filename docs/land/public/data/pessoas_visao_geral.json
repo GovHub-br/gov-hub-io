@@ -1,34 +1,34 @@
 {
   "meta": {
-    "atualizado_em": "2026-05-11T09:00:24.435669Z"
+    "atualizado_em": "2026-06-26T09:01:41.723649Z"
   },
   "kpis": {
-    "total_servidores": 1177,
-    "servidores_ativos_permanentes": 324,
-    "aposentados": 705,
-    "estagiarios": 24,
+    "total_servidores": 1182,
+    "servidores_ativos_permanentes": 321,
+    "aposentados": 707,
+    "estagiarios": 26,
     "terceirizados": 638
   },
   "genero": {
-    "masculino_percent": 72.9,
-    "feminino_percent": 27.1
+    "masculino_percent": 74.4,
+    "feminino_percent": 25.6
   },
   "raca_cor": [
     {
       "nome_cor": "BRANCA",
-      "valor": 760
+      "valor": 248
     },
     {
       "nome_cor": "PARDA",
-      "valor": 233
+      "valor": 74
     },
     {
       "nome_cor": "PRETA",
-      "valor": 67
+      "valor": 31
     },
     {
       "nome_cor": "AMARELA",
-      "valor": 24
+      "valor": 6
     },
     {
       "nome_cor": "INDIGENA",
@@ -68,7 +68,7 @@
     },
     "DF": {
       "nome": "DISTRITO FEDERAL",
-      "valor": 1161,
+      "valor": 1076,
       "percentual": "99%"
     },
     "ES": {
@@ -128,7 +128,7 @@
     },
     "RJ": {
       "nome": "RIO DE JANEIRO",
-      "valor": 14,
+      "valor": 13,
       "percentual": "1%"
     },
     "RN": {
@@ -175,35 +175,35 @@
   "situacao_funcional": [
     {
       "label": "APOSENTADO",
-      "valor": 42439
-    },
-    {
-      "label": "ATIVO EM OUTRO ORGAO",
-      "valor": 1829
+      "valor": 643
     },
     {
       "label": "ATIVO PERMANENTE",
-      "valor": 1255
+      "valor": 318
     },
     {
-      "label": "INSTITUIDOR PENSAO",
-      "valor": 669
+      "label": "ATIVO EM OUTRO ORGAO",
+      "valor": 49
     },
     {
       "label": "EXERC DESCENT CARREI",
-      "valor": 352
-    },
-    {
-      "label": "CEDIDO/REQUISITADO",
-      "valor": 182
+      "valor": 28
     },
     {
       "label": "ESTAGIARIO SIGEPE",
-      "valor": 59
+      "valor": 26
+    },
+    {
+      "label": "CEDIDO/REQUISITADO",
+      "valor": 12
+    },
+    {
+      "label": "INSTITUIDOR PENSAO",
+      "valor": 9
     },
     {
       "label": "EXERC. 7  ART93 8112",
-      "valor": 4
+      "valor": 3
     },
     {
       "label": "NOMEADO CARGO COMIS.",
@@ -217,7 +217,7 @@
       "situacao": "Ativo Permanente",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 207
+      "total": 205
     },
     {
       "cargo": "TECNICO DE PLANEJAMENTO E PESQUISA",
@@ -225,7 +225,7 @@
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 187
+      "total": 170
     },
     {
       "cargo": "TECNICO DE PLANEJAMENTO E PESQUISA",
@@ -233,7 +233,7 @@
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 86
+      "total": 77
     },
     {
       "cargo": "SECRETARIO",
@@ -241,19 +241,11 @@
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 73
+      "total": 69
     },
     {
       "cargo": "AUXILIAR TECNICO",
       "genero": "Masculino",
-      "situacao": "Aposentado",
-      "cidade": "Brasilia",
-      "estado": "DF",
-      "total": 56
-    },
-    {
-      "cargo": "AUXILIAR TECNICO",
-      "genero": "Feminino",
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
@@ -265,7 +257,15 @@
       "situacao": "Ativo Permanente",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 53
+      "total": 52
+    },
+    {
+      "cargo": "AUXILIAR TECNICO",
+      "genero": "Feminino",
+      "situacao": "Aposentado",
+      "cidade": "Brasilia",
+      "estado": "DF",
+      "total": 48
     },
     {
       "cargo": "ASSESSOR ESPECIALIZADO",
@@ -273,7 +273,7 @@
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 30
+      "total": 29
     },
     {
       "cargo": "AUXILIAR ADMINISTRATIVO",
@@ -281,15 +281,7 @@
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 27
-    },
-    {
-      "cargo": "TECNICO DE DESENVOL E ADMINISTRACAO",
-      "genero": "Masculino",
-      "situacao": "Aposentado",
-      "cidade": "Brasilia",
-      "estado": "DF",
-      "total": 25
+      "total": 26
     },
     {
       "cargo": "AUXILIAR ADMINISTRATIVO",
@@ -297,7 +289,7 @@
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 24
+      "total": 23
     },
     {
       "cargo": "AUXILIAR DE SERVICOS GERAIS",
@@ -313,15 +305,7 @@
       "situacao": "Ativo em outro órgão",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 21
-    },
-    {
-      "cargo": "ANALISTA DE SISTEMAS",
-      "genero": "Masculino",
-      "situacao": "Aposentado",
-      "cidade": "Brasilia",
-      "estado": "DF",
-      "total": 19
+      "total": 20
     },
     {
       "cargo": "TECNICO DE DESENVOL E ADMINISTRACAO",
@@ -329,7 +313,23 @@
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 19
+      "total": 16
+    },
+    {
+      "cargo": "TECNICO DE DESENVOL E ADMINISTRACAO",
+      "genero": "Masculino",
+      "situacao": "Aposentado",
+      "cidade": "Brasilia",
+      "estado": "DF",
+      "total": 16
+    },
+    {
+      "cargo": "ANALISTA DE SISTEMAS",
+      "genero": "Masculino",
+      "situacao": "Aposentado",
+      "cidade": "Brasilia",
+      "estado": "DF",
+      "total": 15
     },
     {
       "cargo": "MOTORISTA",
@@ -353,15 +353,7 @@
       "situacao": "Ativo Permanente",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 12
-    },
-    {
-      "cargo": "TEC DE PLANEJ E PESQUISA-QUADRO SUPLEMEN",
-      "genero": "Feminino",
-      "situacao": "Aposentado",
-      "cidade": "Brasilia",
-      "estado": "DF",
-      "total": 12
+      "total": 11
     },
     {
       "cargo": "ANALISTA DE SISTEMAS",
@@ -372,12 +364,12 @@
       "total": 9
     },
     {
-      "cargo": "ASSESSOR ESPECIALIZADO",
-      "genero": "Masculino",
+      "cargo": "TEC DE PLANEJ E PESQUISA-QUADRO SUPLEMEN",
+      "genero": "Feminino",
       "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 8
+      "total": 9
     },
     {
       "cargo": "AUXILIAR TECNICO",
@@ -404,17 +396,17 @@
       "total": 7
     },
     {
-      "cargo": "AUXILIAR DE SERVICOS GERAIS",
+      "cargo": "ASSESSOR ESPECIALIZADO",
       "genero": "Masculino",
-      "situacao": "Ativo em outro órgão",
+      "situacao": "Aposentado",
       "cidade": "Brasilia",
       "estado": "DF",
       "total": 7
     },
     {
-      "cargo": "TEC DE PLANEJ E PESQUISA-QUADRO SUPLEMEN",
+      "cargo": "AUXILIAR DE SERVICOS GERAIS",
       "genero": "Masculino",
-      "situacao": "Aposentado",
+      "situacao": "Ativo em outro órgão",
       "cidade": "Brasilia",
       "estado": "DF",
       "total": 7
@@ -428,17 +420,25 @@
       "total": 7
     },
     {
+      "cargo": "TEC DE PLANEJ E PESQUISA-QUADRO SUPLEMEN",
+      "genero": "Masculino",
+      "situacao": "Aposentado",
+      "cidade": "Brasilia",
+      "estado": "DF",
+      "total": 6
+    },
+    {
       "cargo": "TECNICO DE PLANEJAMENTO E PESQUISA",
       "genero": "Feminino",
       "situacao": "Ativo em outro órgão",
       "cidade": "Brasilia",
       "estado": "DF",
-      "total": 7
+      "total": 6
     },
     {
-      "cargo": "AUXILIAR TECNICO",
+      "cargo": "TECNICO DE PLANEJAMENTO E PESQUISA",
       "genero": "Masculino",
-      "situacao": "Ativo em outro órgão",
+      "situacao": "INSTITUIDOR PENSAO",
       "cidade": "Brasilia",
       "estado": "DF",
       "total": 5
@@ -452,17 +452,17 @@
       "total": 4
     },
     {
-      "cargo": "TECNICO DE DESENVOL E ADMINISTRACAO",
-      "genero": "Feminino",
-      "situacao": "Ativo Permanente",
+      "cargo": "AUXILIAR TECNICO",
+      "genero": "Masculino",
+      "situacao": "Ativo em outro órgão",
       "cidade": "Brasilia",
       "estado": "DF",
       "total": 4
     },
     {
-      "cargo": "TECNICO DE PLANEJAMENTO E PESQUISA",
-      "genero": "Masculino",
-      "situacao": "INSTITUIDOR PENSAO",
+      "cargo": "TECNICO DE DESENVOL E ADMINISTRACAO",
+      "genero": "Feminino",
+      "situacao": "Ativo em outro órgão",
       "cidade": "Brasilia",
       "estado": "DF",
       "total": 4
@@ -486,7 +486,7 @@
     {
       "cargo": "TECNICO DE DESENVOL E ADMINISTRACAO",
       "genero": "Feminino",
-      "situacao": "Ativo em outro órgão",
+      "situacao": "Ativo Permanente",
       "cidade": "Brasilia",
       "estado": "DF",
       "total": 3
@@ -532,14 +532,6 @@
       "total": 2
     },
     {
-      "cargo": "TECNICO DE DESENVOL E ADMINISTRACAO",
-      "genero": "Feminino",
-      "situacao": "Ativo Permanente",
-      "cidade": "Rio De Janeiro",
-      "estado": "RJ",
-      "total": 2
-    },
-    {
       "cargo": "TECNICO ESPECIALIZADO",
       "genero": "Masculino",
       "situacao": "Aposentado",
@@ -574,7 +566,7 @@
     {
       "cargo": "ASSESSOR ESPECIALIZADO",
       "genero": "Feminino",
-      "situacao": "Ativo Permanente",
+      "situacao": "Ativo em outro órgão",
       "cidade": "Brasilia",
       "estado": "DF",
       "total": 1
@@ -582,7 +574,7 @@
     {
       "cargo": "ASSESSOR ESPECIALIZADO",
       "genero": "Feminino",
-      "situacao": "Ativo em outro órgão",
+      "situacao": "Ativo Permanente",
       "cidade": "Brasilia",
       "estado": "DF",
       "total": 1
@@ -678,6 +670,14 @@
     {
       "cargo": "SECRETARIO",
       "genero": "Feminino",
+      "situacao": "Ativo em outro órgão",
+      "cidade": "Brasilia",
+      "estado": "DF",
+      "total": 1
+    },
+    {
+      "cargo": "SECRETARIO",
+      "genero": "Feminino",
       "situacao": "Aposentado",
       "cidade": "Rio De Janeiro",
       "estado": "RJ",
@@ -692,11 +692,11 @@
       "total": 1
     },
     {
-      "cargo": "SECRETARIO",
+      "cargo": "TECNICO DE DESENVOL E ADMINISTRACAO",
       "genero": "Feminino",
-      "situacao": "Ativo em outro órgão",
-      "cidade": "Brasilia",
-      "estado": "DF",
+      "situacao": "Ativo Permanente",
+      "cidade": "Rio De Janeiro",
+      "estado": "RJ",
       "total": 1
     },
     {
