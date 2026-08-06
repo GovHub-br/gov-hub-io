@@ -273,12 +273,10 @@ Custom CSS for MkDocs styling to match landing page
 /* Source repository link */
 .md-source {
     color: white !important;
-    background: transparent !important;
 }
 
 .md-source:hover {
     color: #e5e7eb !important;
-    background: transparent !important;
 }
 
 .md-source__icon {
@@ -287,78 +285,6 @@ Custom CSS for MkDocs styling to match landing page
 
 .md-source__repository {
     color: white !important;
-}
-
-.md-source__repository--active {
-    color: white !important;
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-/* Specific styling for all repository link elements */
-.md-header .md-source,
-.md-header .md-source * {
-    color: white !important;
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-.md-header .md-source:hover,
-.md-header .md-source:hover * {
-    color: #e5e7eb !important;
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-/* Repository icon (SVG) */
-.md-source__icon svg,
-.md-source__icon .md-icon svg {
-    fill: white !important;
-    color: white !important;
-}
-
-.md-source:hover .md-source__icon svg,
-.md-source:hover .md-source__icon .md-icon svg {
-    fill: #e5e7eb !important;
-    color: #e5e7eb !important;
-}
-
-/* Repository stats (stars/forks) */
-.md-source__facts,
-.md-source__fact,
-.md-source__fact--stars,
-.md-source__fact--forks {
-    color: white !important;
-}
-
-.md-source:hover .md-source__facts,
-.md-source:hover .md-source__fact,
-.md-source:hover .md-source__fact--stars,
-.md-source:hover .md-source__fact--forks {
-    color: #e5e7eb !important;
-}
-
-/* Force white color for all possible repository elements */
-.md-header .md-source__repository,
-.md-header .md-source__repository--active,
-.md-header .md-source__icon,
-.md-header .md-source__facts,
-.md-header .md-source__fact,
-.md-header .md-source__fact--stars,
-.md-header .md-source__fact--forks {
-    color: white !important;
-    background: transparent !important;
-}
-
-/* Hover states for all elements */
-.md-header .md-source:hover .md-source__repository,
-.md-header .md-source:hover .md-source__repository--active,
-.md-header .md-source:hover .md-source__icon,
-.md-header .md-source:hover .md-source__facts,
-.md-header .md-source:hover .md-source__fact,
-.md-header .md-source:hover .md-source__fact--stars,
-.md-header .md-source:hover .md-source__fact--forks {
-    color: #e5e7eb !important;
 }
 
 /* Mobile hamburger menu styling - ONLY for mobile devices */
@@ -425,7 +351,7 @@ Custom CSS for MkDocs styling to match landing page
 
 /* Header/title area of mobile menu */
 .md-nav--primary .md-nav__title {
-    background: #7A34F3 !important;
+    background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%) !important;
     color: white !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-weight: 900 !important;
