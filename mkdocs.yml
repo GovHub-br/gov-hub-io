@@ -92,7 +92,6 @@ exclude_docs: |
   /dicionario-dados/
   /guiasUso/
   /sobre-projeto/
-  /ebook.md
   /index.md
 
 # Extensions

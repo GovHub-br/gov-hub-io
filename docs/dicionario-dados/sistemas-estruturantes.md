@@ -14,6 +14,43 @@ Os sistemas estruturantes são as bases de dados centrais que suportam as opera�
 
 ## Sistemas Documentados
 
+## Contratos
+Instrumento administrativo entre um órgão público e uma pessoa física ou jurídica para gerir contratação de obras, serviços ou compras. Contrato é o acordo recíproco de vontades que tem por fim gerar obrigações recíprocas entre as partes do contrato.
+
+### Empenhos
+
+É o primeiro estágio da despesa e precede sua realização, estando o seu valor restrito ao limite do crédito orçamentário. A formalização do empenho dá-se com a emissão da Nota de Empenho (NE), comprometendo dessa forma os créditos orçamentários e tornando-os indisponíveis para nova utilização.
+
+### Contratos_Empenhos
+Tabela que relaciona a tabela de Empenhos com a tabela Contratos.
+
+### Históricos
+Registro das alterações contratuais.  Eventos gerados a partir de Termos Aditivos, Termos de Apostilamentos, Termos de Rescisões ou Termos de Encerramento.
+
+### Cronogramas
+Descrição da execução financeira do contrato durante um determinado intervalo de tempo.
+
+### Garantias
+Registro das garantias do contrato, como, por exemplo, Fiança Bancária, Seguro Garantia, Depósito Caução ou Título da Dívida Pública.
+
+### Itens do Contrato
+Informações com detalhamento dos itens contratados como quantidade, valor unitário, valor total, descrição do item no catmat (catálogo de materiais) / catser (catálogo de serviços), etc.
+
+###  Prepostos
+Dados dos indivíduos nomeados para representar a entidade contratada pela Administração Pública.
+
+### Responsáveis
+Dados dos agentes públicos responsáveis pela gestão e/ou fiscalização de contratos.
+
+### Despesas Acessórias
+Relação de despesas vinculadas ao contrato, como, por exemplo, Taxas, Tributos ou Seguros.
+### Faturas
+Informações sobre as faturas geradas durante a execução contratual.
+
+### Terceirizados
+Dados cadastrais de funcionários terceirizados vinculados a contratos públicos.
+             
+
 ### SIAFI (Sistema Integrado de Administração Financeira)
 
 O SIAFI é o principal sistema de execução orçamentária e financeira do governo federal.

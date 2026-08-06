@@ -13,8 +13,7 @@ function preloadHomeImages() {
         '/govhub/land/dist/images/img-infos-gov.jpg',
         '/govhub/land/dist/images/lablivre.png',
         '/govhub/land/dist/images/unb.png',
-        '/govhub/land/dist/images/ipea.png',
-        '/govhub/land/dist/images/book.png'
+        '/govhub/land/dist/images/ipea.png'
     ];
     
     console.log('🏠 Iniciando preload das imagens da home...');
