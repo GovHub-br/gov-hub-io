@@ -18,8 +18,7 @@ A arquitetura do Gov Hub BR é baseada na Arquitetura Medallion,  em um fluxo de
 
 ![Fluxo de Dados](fluxo_dados.jpg)
 
-Para mais informações sobre o projeto, veja o nosso [e-book](docs/land/dist/ebook/GovHub_Livro-digital_0905.pdf).
-E temos também alguns slides falando do projeto e como ele pode ajudar a transformar a gestão pública.
+Temos também alguns slides falando do projeto e como ele pode ajudar a transformar a gestão pública.
 
 [Slides](https://www.figma.com/slides/PlubQE0gaiBBwFAV5GcVlH/Gov-Hub---F%C3%B3rum-IA---Giga-candanga?node-id=5-131&t=hlLiJiwfyPEPRFys-1)
 
