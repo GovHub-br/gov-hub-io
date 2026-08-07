@@ -155,3 +155,16 @@
     }
 }
 
+/* ==============================
+   OCULTAR SEÇÃO DE APOIO (PERÍODO DE DEFESO)
+   ============================== */
+
+/* Oculta as linhas de apoio (segunda e terceira linhas) da seção de parceiros na home */
+.partners-section .row:has(img[src*="ipea.png"]),
+.partners-section .row:has(img[src*="cidades.png"]),
+.partners-section .row:has(img[src*="MINC_logo.png"]) {
+    display: none !important;
+}
+
+
+

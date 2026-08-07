@@ -343,5 +343,33 @@
     }
 }
 
+/* ==============================
+   OCULTAR SEÇÃO DE APOIO E LOGOS (PERÍODO DE DEFESO)
+   ============================== */
+
+/* Desktop: Oculta o título "Apoio" */
+.footer-support-text {
+    display: none !important;
+}
+
+/* Desktop: Oculta as linhas de logos de apoio (linhas 3, 4 e 5 do footer) */
+.footer .row:has(.footer-logo-ipea),
+.footer .row:has(.footer-logo-minc) {
+    display: none !important;
+}
+
+/* Mobile: Oculta o título "Apoio" no mobile */
+.footer-mobile-support {
+    display: none !important;
+}
+
+/* Mobile: Oculta a linha de logos de apoio no mobile */
+.footer-mobile .row:has(img[src*="ipea_footer.png"]),
+.footer-mobile .row:has(img[src*="cidades.png"]) {
+    display: none !important;
+}
+
+
+
 
 
