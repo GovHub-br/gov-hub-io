@@ -87,13 +87,13 @@
 .footer-logo-mgi img {
     height: 45px;
     width: auto;
-    filter: brightness(0) invert(1);
+    /* Sem filtro: os SVGs já trazem o texto branco e a bandeira do Governo Federal com as cores corretas */
 }
 
 .footer-logo-minc img {
     height: 55px;
     width: auto;
-    filter: brightness(0) invert(1);
+    /* Sem filtro: o SVG já traz o texto branco e a bandeira do Governo Federal com as cores corretas */
 }
 
 .footer-logo-capibaribe {
@@ -305,14 +305,8 @@
         color: #fff;
     }
     
-    /* 4. Support Logos */
-    .footer-mobile-logo.footer-logo-cidades,
-    .footer-mobile-logo.footer-logo-igualdaderacial,
-    .footer-mobile-logo.footer-logo-mgi,
-    .footer-mobile-logo.footer-logo-minc {
-        filter: brightness(0) invert(1);
-    }
-    
+    /* 4. Support Logos: sem filtro, os SVGs já trazem o texto branco e a bandeira do Governo Federal com as cores corretas */
+
     /* 5. Contact */
     .footer-mobile-contact-title {
         font-size: 1rem;
