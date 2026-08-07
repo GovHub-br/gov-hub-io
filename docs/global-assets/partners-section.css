@@ -86,6 +86,12 @@
     transform: scale(1.1);
 }
 
+/* Logos de ministério que já trazem a bandeira do Governo Federal incorporada -
+   mantêm as cores originais (não aplica o filtro que torna as imagens pretas) */
+.partner-logo.partner-logo-flag {
+    filter: none;
+}
+
 
 
 @media (max-width: 768px) {
@@ -154,17 +160,5 @@
         max-width: 170px;
     }
 }
-
-/* ==============================
-   OCULTAR SEÇÃO DE APOIO (PERÍODO DE DEFESO)
-   ============================== */
-
-/* Oculta as linhas de apoio (segunda e terceira linhas) da seção de parceiros na home */
-.partners-section .row:has(img[src*="ipea.png"]),
-.partners-section .row:has(img[src*="cidades.png"]),
-.partners-section .row:has(img[src*="MINC_logo.png"]) {
-    display: none !important;
-}
-
 
 
