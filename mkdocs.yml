@@ -61,6 +61,16 @@ theme:
 plugins:
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"\`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - blog:
+      blog_dir: blog
+      blog_toc: true
+      post_dir: "{blog}/posts"
+      post_date_format: full
+      post_url_date_format: yyyy/MM/dd
+      post_url_format: "{date}/{slug}"
+      pagination_per_page: 10
+      archive_toc: true
+      categories_toc: true
 
 # Hooks
 hooks:
@@ -87,7 +97,6 @@ extra_css:
   - documentacao/stylesheets/custom.css
 
 exclude_docs: |
-  /blog/
   /comunidade/
   /dicionario-dados/
   /guiasUso/
