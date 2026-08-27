@@ -10,7 +10,7 @@ Obrigado pelo interesse em contribuir! O GovHub BR é um projeto open source que
 2. **Fork** o repositório
 3. **Crie uma branch** com o prefixo correto (`feat/`, `fix/`, `docs/`, `refactor/`)
 4. **Faça suas alterações** com commits assinados (GPG)
-5. **Abra um PR** seguindo o [protocolo de documentação mínima](#protocolo-de-documentação-mínima-para-prs)
+5. **Abra um PR** seguindo o [protocolo de documentação mínima](#protocolo-de-documentacao-minima-para-prs)
 6. Aguarde o review — PRs sem documentação mínima **não serão aprovados**
 
 ---
@@ -40,15 +40,15 @@ Toda issue deve conter no mínimo:
 **Exemplo de issue bem descrita:**
 
 ```
-Título: Adicionar DAG de ingestão do PNCP — itens de licitação
+Título: Adicionar DAG de ingestão do ComprasGov — itens de contratação
 
 Descrição:
-O PNCP disponibiliza endpoint com itens detalhados de licitações.
+O ComprasGov disponibiliza endpoint com itens detalhados de contratações.
 Precisamos ingerir esses dados para alimentar o modelo gold de compras.
 
 Critérios de aceitação:
-- DAG criada em data_ingest/pncp/
-- Dados salvos na tabela pncp.itens_licitacoes no PostgreSQL
+- DAG criada em data_ingest/compras_gov/
+- Dados salvos na landing zone ou tabela raw correspondente
 - dbt run e dbt test passando
 - PR com descrição do que foi feito
 ```
@@ -66,8 +66,8 @@ Todo PR deve obrigatoriamente conter:
 Explique a motivação da mudança — não apenas o que foi feito, mas **por que** foi necessário.
 
 ```
-❌ "Adiciona DAG do PNCP"
-✅ "Adiciona DAG de ingestão do PNCP para cobrir dados de itens de licitação
+❌ "Adiciona DAG do ComprasGov"
+✅ "Adiciona DAG de ingestão do ComprasGov para cobrir dados de itens de contratação
     que estavam ausentes no pipeline de compras públicas (issue #42)"
 ```
 
@@ -76,9 +76,9 @@ Explique a motivação da mudança — não apenas o que foi feito, mas **por qu
 Liste os arquivos principais adicionados ou modificados e o que cada um faz.
 
 ```
-- airflow_lappis/dags/data_ingest/pncp/itens_licitacoes_ingest_dag.py — nova DAG
-- airflow_lappis/dags/dbt/ipea/models/contratos_dbt/bronze/itens_licitacoes.sql — novo modelo bronze
-- airflow_lappis/dags/dbt/ipea/models/contratos_dbt/bronze/schema.yml — testes adicionados
+- airflow/dags/data_ingest/compras_gov/itens_contratacoes_ingest_dag.py — nova DAG
+- airflow/dags/dbt/compras_gov/models/bronze/sources.yml — source atualizado
+- airflow/dags/dbt/compras_gov/models/silver/contratacoes/schema.yml — testes adicionados
 ```
 
 ### 3. Como testar
@@ -87,10 +87,10 @@ Descreva os passos mínimos para validar a mudança localmente.
 
 ```
 1. docker compose up -d
-2. Trigger manual da DAG pncp_itens_licitacoes_ingest_dag no Airflow
-3. Verificar registros em pncp.itens_licitacoes: SELECT COUNT(*) FROM pncp.itens_licitacoes;
-4. dbt run --select contratos_dbt.bronze.itens_licitacoes
-5. dbt test --select contratos_dbt.bronze.itens_licitacoes
+2. Trigger manual da DAG itens_contratacoes_ingest_dag no Airflow
+3. Verificar registros na área raw correspondente
+4. dbt run --select silver.contratacoes
+5. dbt test --select silver.contratacoes
 ```
 
 ### 4. Issue relacionada
@@ -122,7 +122,7 @@ Marque todos os itens aplicáveis antes de abrir o PR.
 ### Modelos dbt
 
 - [ ] Nome segue o prefixo da camada (`brz_`, `slv_`, `gld_`)
-- [ ] Modelo no diretório correto (`<dominio>_dbt/<camada>/`)
+- [ ] Modelo no diretório correto dentro de `models/`
 - [ ] `schema.yml` atualizado com `description` e `meta.tags`
 - [ ] `dt_ingest` propagado
 - [ ] `dbt run` e `dbt test` passando localmente

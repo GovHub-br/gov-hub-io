@@ -45,7 +45,7 @@ kill -9 <PID>
 **Causas possíveis**:
 
 1. Erro de sintaxe no Python
-2. Arquivo fora de `airflow_lappis/dags/`
+2. Arquivo fora de `airflow/dags/`
 3. Import error
 
 **Solução**:

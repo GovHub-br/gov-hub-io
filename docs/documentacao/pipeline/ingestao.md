@@ -1,74 +1,49 @@
 # Ingestão de Dados
 
-Esta página resume como as fontes governamentais entram no pipeline do GovHub BR. A fonte de verdade do código é o repositório `data-application-gov-hub`, especialmente `airflow_lappis/dags/data_ingest/`, `airflow_lappis/plugins/` e `airflow_lappis/helpers/`.
+Esta página resume como as fontes governamentais entram no pipeline do GovHub BR. A fonte de verdade do código atual é o repositório `gov-hub`, especialmente `airflow/dags/data_ingest/`, `airflow/plugins/` e `airflow/helpers/`.
 
 ## Organização por origem
 
 ```text
-airflow_lappis/dags/data_ingest/
+airflow/dags/data_ingest/
   compras_gov/
-  dados_abertos/
-  ibge/
-  ipea_pro/
-  pncp/
-  sgac/
-  siafi/
-  siape/
-  siconv/
-  siorg/
-  sisbolsas/
-  tesouro_gerencial/
-  transfere_gov/
-  transferegov_emendas/
 ```
 
-Os clientes de API e integrações ficam em `airflow_lappis/plugins/`, por exemplo `cliente_contratos.py`, `cliente_siafi.py`, `cliente_siape.py`, `cliente_siorg.py`, `cliente_pncp.py` e `cliente_postgres.py`.
+Os clientes de API e integrações ficam em `airflow/plugins/`, por exemplo `cliente_compras_gov.py`, `cliente_postgres.py`, `cliente_storage.py`, `cliente_superset.py` e `cliente_email.py`.
 
 ## Fontes documentadas
 
 | Origem | Caminho principal | Observação |
 | --- | --- | --- |
-| ComprasGov | `data_ingest/compras_gov/` | contratos, faturas, empenhos, cronogramas e terceirizados |
-| SIAFI | `data_ingest/siafi/` e `data_ingest/tesouro_gerencial/` | notas, empenhos e arquivos do Tesouro Gerencial |
-| SIAPE | `data_ingest/siape/` | dados de pessoal; exige cuidado com dados sensíveis |
-| SIORG | `data_ingest/siorg/` | estrutura organizacional, unidades, cargos e funções |
-| TransfereGov | `data_ingest/transfere_gov/` | programas, planos de ação e programação financeira |
-| TransfereGov Emendas | `data_ingest/transferegov_emendas/` | recortes específicos de emendas e planos especiais |
-| PNCP | `data_ingest/pncp/` | licitações e itens/resultados |
-| Dados Abertos Legislativo | `data_ingest/dados_abertos/` | deputados, senadores, partidos e histórico parlamentar |
-| IBGE | `data_ingest/ibge/` | recortes específicos usados pelo projeto |
-| SisBolsas, SGAC, Ipea Pro | pastas dedicadas | integrações institucionais específicas |
+| ComprasGov | `data_ingest/compras_gov/` | contratações, contratos, itens, fornecedores, órgãos, UASGs, catálogo e pesquisa de preços |
 
 ## Fluxo comum
 
 Nem toda DAG segue exatamente os mesmos passos, mas o desenho recorrente é:
 
-1. Ler configuração do Airflow (`airflow_orgao`, `airflow_variables`, `dynamic_schedules`).
+1. Ler configuração do Airflow e parâmetros do intervalo de execução.
 2. Chamar cliente de API, arquivo, e-mail ou banco externo em `plugins/`.
 3. Validar retorno e registrar logs com volume processado.
-4. Inserir ou atualizar dados no PostgreSQL via `ClientPostgresDB`.
+4. Persistir dados na landing zone ou no PostgreSQL, conforme o contrato da DAG.
 5. Quando necessário, disparar DAGs dependentes ou deixar o Cosmos/dbt transformar as camadas analíticas.
 
 ## Configuração por órgão
 
-O desenvolvimento local usa `airflow_orgao` para selecionar o órgão alvo e `airflow_variables` para mapear parâmetros por órgão, como códigos de UG.
+O desenvolvimento local pode usar variáveis do Airflow para parametrizar escopos de execução, como órgãos, domínios e schedules.
 
 ```json
 {
-  "ipea": {
-    "codigos_ug": [113601, 113602]
-  },
-  "unb": {
-    "codigos_ug": [154040]
+  "mgi": {
+    "codigos_orgao": ["26000"]
   }
 }
 ```
 
-Essas variáveis são configuradas pelo `make dev` no ambiente local.
+Essas variáveis devem ser configuradas pelo setup local ou pelo ambiente de execução antes da DAG depender delas.
 
 ## Persistência
 
-O padrão atual usa PostgreSQL como destino principal das tabelas ingeridas. Use sempre:
+Quando a DAG persistir dados no PostgreSQL, use os helpers e clientes compartilhados:
 
 ```python
 from postgres_helpers import get_postgres_conn
@@ -77,7 +52,7 @@ from cliente_postgres import ClientPostgresDB
 db = ClientPostgresDB(get_postgres_conn())
 ```
 
-Quando a DAG pertencer a um domínio com conexão própria, passe o `conn_id` explicitamente, como `get_postgres_conn("postgres_mir")`.
+Quando a DAG pertencer a um domínio com conexão própria, passe o `conn_id` explicitamente.
 
 ## Dados sensíveis
 

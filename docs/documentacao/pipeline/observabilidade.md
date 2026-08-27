@@ -75,8 +75,8 @@ O projeto usa conexões nomeadas distintas por domínio. Sempre especificar o `c
 
 | Conn ID | Domínio |
 |---|---|
-| `postgres_default` | Dados gerais / IPEA |
-| `postgres_mir` | Dados do MIR (parlamentares, emendas, transferências) |
+| `postgres_default` | Banco relacional padrão usado pelas DAGs locais |
+| Conexões específicas | Domínios que exigirem credenciais, bancos ou permissões próprios |
 
 Usar a conexão errada não gera erro imediato mas insere dados no banco errado. Sempre verificar qual `conn_id` o domínio usa antes de implementar uma nova DAG.
 
@@ -147,7 +147,7 @@ default_args = {
 
 ### Canais de alerta
 
-O cliente IMAP em `airflow_lappis/plugins/cliente_email.py` é usado para
+O cliente IMAP em `airflow/plugins/cliente_email.py` é usado para
 ingestão de anexos e não envia alertas. Notificações por e-mail exigem SMTP ou
 outro provedor configurado no Airflow, com credenciais armazenadas no mecanismo
 de secrets do ambiente.

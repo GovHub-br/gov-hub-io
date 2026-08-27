@@ -23,7 +23,7 @@ flowchart TB
 
 ## 1. Ingestão
 
-As DAGs em `airflow_lappis/dags/data_ingest/` extraem dados de APIs, arquivos, e-mails ou bancos externos. A lógica de comunicação com cada provedor fica nos clientes em `airflow_lappis/plugins/`.
+As DAGs em `airflow/dags/data_ingest/` extraem dados de APIs, arquivos, e-mails ou bancos externos. A lógica de comunicação com cada provedor fica nos clientes em `airflow/plugins/`.
 
 Responsabilidades da ingestão:
 
@@ -36,12 +36,13 @@ Responsabilidades da ingestão:
 
 ## 2. Transformação
 
-Os projetos dbt ficam em `airflow_lappis/dags/dbt/` e são executados por DAGs Cosmos:
+Os projetos dbt ficam em `airflow/dags/dbt/` e os projetos de órgão são executados por DAGs Cosmos em `airflow/dags/data_transform/`:
 
 | Projeto | DAG | Caminho |
 | --- | --- | --- |
-| `ipea` | `ipea_cosmos_dag` | `airflow_lappis/dags/dbt/ipea` |
-| `mir` | `mir_cosmos_dag` | `airflow_lappis/dags/dbt/mir` |
+| `mgi` | `mgi_transform_dag` | `airflow/dags/dbt/mgi` |
+| `compras_gov` | consumido via packages dbt | `airflow/dags/dbt/compras_gov` |
+| `gov_bricks` | pacote compartilhado | `airflow/dags/dbt/gov_bricks` |
 
 O dbt organiza os dados em camadas Bronze, Silver e Gold conforme o domínio. Nem todo domínio possui todas as camadas, e isso deve seguir a necessidade real de análise.
 
@@ -64,9 +65,9 @@ Exemplo de configuração local:
 
 ```json
 {
-  "empenhos_tesouro_ingest_dag": {
+  "contratos_ingest_dag": {
     "type": "cron",
-    "value": "0 13 * * 1-6"
+    "value": "0 5 * * *"
   }
 }
 ```
