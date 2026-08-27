@@ -16,8 +16,8 @@ oferece quatro testes nativos:
 | `relationships` | integridade referencial entre modelos |
 
 O GovHub também possui testes genéricos próprios em
-`airflow_lappis/dags/dbt/ipea/macros/data_quality/`, como validação de tipos e
-comparação de contagem entre camadas.
+`airflow/dags/dbt/gov_bricks/macros/`, para regras compartilhadas entre
+projetos dbt.
 
 Exemplo em `schema.yml`:
 
@@ -59,7 +59,7 @@ genérico reutilizável.
 Execute os comandos dentro do projeto dbt alterado:
 
 ```bash
-cd airflow_lappis/dags/dbt/ipea
+cd airflow/dags/dbt/mgi
 
 dbt test
 dbt test --select contratos
