@@ -52,6 +52,46 @@ Este documento define as boas práticas para garantir qualidade, consistência e
 
 ---
 
+## Padrões de Issue
+
+### Objetivo de uma Issue
+
+Uma Issue deve:
+
+- Descrever claramente o problema, tarefa ou sugestão
+
+- Contextualizar por que isso é importante
+
+- Permitir que qualquer pessoa consiga assumir a tarefa
+
+- Servir como referência para Pull Requests futuros
+
+- Issues bem estruturadas ajudam a equipe a priorizar, discutir e resolver demandas com mais eficiência.
+
+### Template Oficial de Issue
+
+Todo envio de issue deve seguir o template padrão do repositório:
+
+[Template de Issue](.github/ISSUE_TEMPLATE/issue-template.md)
+
+### Boas práticas gerais
+
+- Use títulos claros e específicos
+Ex.: "Erro 500 ao buscar emendas sem parâmetro de ano", e não "Bug no endpoint".
+
+- Adicione labels adequados
+(bug, enhancement, documentation, good first issue, etc.)
+
+- Inclua contexto e referências, como PRs, erros de log, links de dados.
+
+- Se houver dependências, mencione:
+“Depende da issue #42”
+
+- Evite criar issues duplicadas
+Sempre pesquise antes de abrir uma nova.
+
+- Se a issue tiver impacto relevante, indique na descrição.
+
 ## Padrões de Commit
 
 As mensagens de commit devem ser claras, consistentes e descritivas, facilitando o histórico e o rastreamento de mudanças.
@@ -106,19 +146,57 @@ Utilize nomes descritivos, sempre em minúsculo e com hífens para separar palav
 
 ## Padrões de Pull Request
 
-Os Pull Requests (PRs) devem ser claros, completos e revisáveis.
+### Objetivo de um PR
 
-### Boas práticas
+Um Pull Request deve comunicar de forma clara:
 
-- Garanta que seu PR não quebre funcionalidades existentes.
-- Descreva de forma objetiva:
-  - O que foi alterado
-  - Por que a mudança foi necessária
-  - Evidências (prints, logs ou links)
+- O que foi alterado
 
-Use o modelo de PR do repositório, se disponível, para manter a padronização.
+- Por que foi alterado
+
+- Como foi alterado (quando relevante)
+
+- Quais impactos podem ocorrer
+
+- Como validar/testar a alteração
+
+O PR deve permitir que qualquer pessoa, mesmo sem contexto prévio, consiga revisar e entender a contribuição.
+
+### Template Oficial de Pull Request
+
+Todo PR deve obrigatoriamente utilizar o template oficial do repositório:
+
+[Template de PR](.github/ISSUE_TEMPLATE/PULL_REQUEST_TEMPLATE.md)
+
+### Não abra PRs que:
+
+- Possuem erros conhecidos ou código não testado
+
+- Alteram funcionalidades sem explicação
+
+- Não seguem o template obrigatório
+
+- Contêm múltiplas mudanças não relacionadas
+
+- Possuem commits temporários como “WIP”, “teste”, “quick fix”, etc.
+
+### Boas práticas gerais
+
+- PRs pequenos são mais fáceis de revisar.
+Evite misturar múltiplos assuntos.
+
+- Sempre relacione a issue correspondente, quando existir.
+Use: resolve #123.
+
+- Evite commits irrelevantes no PR.
+Antes de abrir, faça squash ou limpe a branch, se necessário.
+
+- Inclua evidências da mudança
+
+- Garanta que o PR esteja claro para quem não participou da implementação.
 
 ---
+
 
 ## Testes
 
