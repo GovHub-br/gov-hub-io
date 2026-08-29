@@ -1,39 +1,47 @@
-# título do pull request
+# 📝 Título do Pull Request
 
-> escreva um título claro e objetivo para a sua contribuição
+ Escreva um título claro, direto e descritivo para a sua contribuição.
 
-## descrição
 
-descreva resumidamente o que foi feito nesta contribuição. explique o contexto da mudança, o problema resolvido ou a funcionalidade adicionada.
+## 🔗 Issue relacionada
 
-exemplo:
-- ajusta o layout da seção de visualização de dados no painel de controle
-- adiciona transformação no pipeline de dados da folha de pagamento
-- corrige erro de conexão com o banco de dados no ambiente de produção
+Caso esta contribuição esteja relacionada a uma issue, mencione o número correspondente. Exemplo: `resolve #42`
 
-## tipo de mudança
 
-marque com um "x" o tipo de mudança que se aplica:
+## 📄 Descrição
 
-- [ ] correção de bug  
-- [ ] nova funcionalidade  
-- [ ] melhoria de código ou refatoração  
-- [ ] atualização de documentação  
-- [ ] outra (descreva abaixo)
+Descreva brevemente o que foi feito nesta contribuição. Explique o contexto da mudança, o problema resolvido ou a funcionalidade adicionada.
 
-## checklist
+**Exemplos:**
 
-- [ ] o código segue os padrões definidos no projeto  
-- [ ] os testes existentes não foram quebrados  
-- [ ] a documentação foi atualizada (se aplicável)  
-- [ ] o ambiente de desenvolvimento foi testado com as mudanças  
-- [ ] o pull request está vinculado a uma issue (se aplicável)
+- Ajusta o layout da seção de visualização de dados no painel de controle  
+- Adiciona transformação no pipeline de dados da folha de pagamento  
+- Corrige erro de conexão com o banco de dados em ambiente de produção  
 
-## issue relacionada
 
-> caso esta contribuição esteja relacionada a uma issue, mencione aqui o número correspondente.  
-exemplo: resolve #42
+## 🔍 Tipo de mudança
 
-## considerações finais
+Marque com um “x” o tipo de alteração que se aplica:
 
-adicione aqui qualquer observação extra, print, link de referência ou contexto adicional que ajude na revisão da contribuição.
+- [ ] 🐛 Correção de bug  
+- [ ] ✨ Nova funcionalidade  
+- [ ] 🔧 Melhoria de código ou refatoração  
+- [ ] 🧾 Atualização de documentação  
+- [ ] ⚙️ Outra (descrever abaixo)
+
+
+## ✅ Checklist
+
+- [ ] O código segue os padrões definidos pelo projeto  
+- [ ] Os testes existentes continuam passando corretamente  
+- [ ] A documentação foi atualizada (se aplicável)  
+- [ ] O ambiente de desenvolvimento foi testado com as mudanças
+
+
+## 🧪 Testes Realizados
+
+Descreva como você testou suas alterações e como os revisores podem reproduzir os testes.
+
+## 💬 Considerações finais
+
+Adicione aqui qualquer observação adicional, captura de tela, link de referência ou contexto que possa ajudar na revisão da contribuição.
