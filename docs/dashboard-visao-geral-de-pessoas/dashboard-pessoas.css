@@ -469,7 +469,7 @@ body {
 }
 
 .bar-fill.masculino {
-    background: #22D3EE;
+    background: #0A005A;
 }
 
 .bar-value {
@@ -514,7 +514,7 @@ body {
 }
 
 .legend-masculino {
-    background-color: #22D3EE;
+    background-color: #0A005A;
 }
 
 .legend-feminino {
@@ -862,7 +862,7 @@ body {
 
 .brazil-map svg path:hover {
     fill: #613EFF;
-    stroke: #6B46C1;
+    stroke: #613EFF;
     stroke-width: 2;
 }
 
@@ -878,7 +878,7 @@ body {
 .legend-gradient {
     width: 100%;
     height: 20px;
-    background: linear-gradient(to right, #66BB6A, #9C27B0);
+    background: linear-gradient(to right, #F2F1F6, #613EFF);
     border-radius: 10px;
     margin-bottom: 0.5rem;
 }
@@ -896,7 +896,7 @@ body {
 /* Tooltip para o mapa */
 .map-tooltip {
     position: absolute;
-    background: #66BB6A;
+    background: #F2F1F6;
     color: white;
     padding: 8px 12px;
     border-radius: 6px;
@@ -1298,7 +1298,7 @@ body {
 }
 
 .servidores-search-input:focus {
-    border-color: #6B2EE8;
+    border-color: #613EFF;
     box-shadow: 0 0 0 2px rgba(97, 62, 255, 0.1);
 }
 
@@ -1342,7 +1342,7 @@ body {
 }
 
 .teds-table-wrapper::-webkit-scrollbar-thumb:hover {
-    background: #6B2EE8;
+    background: #613EFF;
 }
 
 /* Cabeçalho fixo da tabela */
@@ -1461,7 +1461,7 @@ body {
 }
 
 .servidores-load-more-btn:hover {
-    background: #8243B5;
+    background: #3F28A6;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(97, 62, 255, 0.4);
 }

@@ -1710,7 +1710,7 @@
 }
 
 .race-chart-legend::-webkit-scrollbar-thumb:hover {
-    background: #6B2AE8;
+    background: #613EFF;
 }
 
 .race-chart-legend > div {
@@ -2028,7 +2028,7 @@
 }
 
 .bar-fill.masculino {
-    background: #22D3EE;
+    background: #0A005A;
 }
 
 .bar-value {
@@ -2045,7 +2045,7 @@
 }
 
 .legend-masculino {
-    background-color: #22D3EE;
+    background-color: #0A005A;
 }
 
 .legend-feminino {

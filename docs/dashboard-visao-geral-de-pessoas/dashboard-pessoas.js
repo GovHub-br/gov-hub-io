@@ -8,13 +8,13 @@ const PESSOAS_DATA_PATHS = [
 
 // Cores para raça/cor
 const colorMap = {
-    'BRANCA': '#BE006E',
-    'PARDA': '#BE006E', 
-    'PRETA': '#8A2BE2',
-    'AMARELA': '#9370DB',
-    'INDÍGENA': '#9932CC',
-    'NÃO DECLARADA': '#DDA0DD',
-    'NAO INFORMADO': '#DDA0DD'
+    'BRANCA': '#613EFF',
+    'PARDA': '#0A005A', 
+    'PRETA': '#9C88FF',
+    'AMARELA': '#3F28A6',
+    'INDÍGENA': '#E57AB4',
+    'NÃO DECLARADA': '#C9BFFF',
+    'NAO INFORMADO': '#C9BFFF'
 };
 
 async function fetchPessoasData() {
@@ -117,7 +117,7 @@ function createRaceTreemapFromData(data) {
         name: item.nome_cor,
         value: item.valor,
         itemStyle: { 
-            color: colorMap[item.nome_cor] || '#DDA0DD',
+            color: colorMap[item.nome_cor] || '#C9BFFF',
             borderColor: '#ffffff',
             borderWidth: 2
         }
@@ -261,7 +261,7 @@ function initializeMapInteractivity() {
     };
     
     // Cores para o gradiente (0% -> 100%)
-    const START_HEX = '#67A95E'; // verde
+    const START_HEX = '#F2F1F6'; // claro da marca
     const END_HEX = '#613EFF';   // roxo
     
     paths.forEach((path) => {

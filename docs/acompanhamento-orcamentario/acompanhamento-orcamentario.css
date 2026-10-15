@@ -246,11 +246,11 @@
 }
 
 .subsection-title-purple {
-    color: #A95EA1;
+    color: #613EFF;
 }
 
 .subsection-title-orange {
-    color: #9F5528;
+    color: #0A005A;
 }
 
 .indicator-card {
@@ -279,7 +279,7 @@
 }
 
 .indicator-card-orange {
-    background: #FFF3EC;
+    background: #F2F1F6;
 }
 
 .indicator-label {
@@ -295,11 +295,11 @@
 }
 
 .indicator-label-purple {
-    color: #A95EA1;
+    color: #613EFF;
 }
 
 .indicator-label-orange {
-    color: #9F5528;
+    color: #0A005A;
 }
 
 .indicator-value {
@@ -409,11 +409,11 @@
 
 /* Estilos específicos para o gráfico ComprasNet */
 .budgetary-history-section .row.g-4 > div.col-12.col-lg-6:nth-child(2) .chart-title {
-    color: #9F5528 !important;
+    color: #0A005A !important;
 }
 
 .budgetary-history-section .row.g-4 > div.col-12.col-lg-6:nth-child(2) .chart-subtitle {
-    color: #9F5528 !important;
+    color: #0A005A !important;
 }
 
 .chart-container {

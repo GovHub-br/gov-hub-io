@@ -54,16 +54,19 @@ h1, h2, h3 { letter-spacing: -0.025em; }
 .glow-circle-3 { display: none !important; }
 
 /* ---------- Banner das páginas internas: navy + formas oficiais ---------- */
-.hero-section {
+/* .ipea-hero e .header-section são os heros das páginas da Demo */
+.hero-section, .ipea-hero, .header-section {
     background: var(--gh-quarto-roxo) right top / auto 100% no-repeat,
                 var(--gh-anel-claro) right 30vw bottom -70px / 170px no-repeat,
                 var(--gh-ponto-rosa) right 38vw top 34% / 22px no-repeat,
                 var(--dark-navy) !important;
 }
-.hero-section h1 { font-weight: 800 !important; letter-spacing: -0.025em; }
+/* os heros da Demo eram faixas finas: altura mínima para as formas caberem */
+.ipea-hero, .header-section { min-height: 300px !important; }
+.hero-section h1, .ipea-hero-title, .header-title { font-weight: 800 !important; letter-spacing: -0.025em; }
 .hero-section .animated-circles { display: none !important; }
 @media (max-width: 768px) {
-    .hero-section {
+    .hero-section, .ipea-hero, .header-section {
         background: var(--gh-quarto-roxo) right top / auto 70% no-repeat,
                     var(--gh-anel-claro) right 6vw bottom -50px / 110px no-repeat,
                     var(--dark-navy) !important;

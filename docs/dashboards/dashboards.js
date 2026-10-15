@@ -2,6 +2,9 @@
 // DASHBOARDS PAGE - JAVASCRIPT FILE
 // ========================================
 
+// Fonte da IDV nos rótulos desenhados em canvas
+if (window.Chart) Chart.defaults.font.family = "'Reddit Sans', sans-serif";
+
 // Função para criar o gráfico de rosca
 function createBudgetChart() {
     const ctx = document.getElementById('budgetChart');
@@ -10,7 +13,7 @@ function createBudgetChart() {
     // Destruir gráfico existente se houver
     destroyChartIfExists('budgetChart');
 
-    const palette = ['#AB2D2D', '#E24747', '#FB8585', '#31652B', '#67A95E', '#AFD1AA', '#0A005A', '#326879', '#8B4513', '#F59E0B', '#22c55e'];
+    const palette = ['#613EFF', '#3F28A6', '#9C88FF', '#0A005A', '#BE006E', '#E57AB4', '#C9BFFF', '#5A5670', '#D9D2FF', '#8B72FF', '#F2A7CF'];
 
     function formatMillions(value) {
         const m = value / 1_000_000;
@@ -122,7 +125,7 @@ function externalDoughnutTooltipHandler(context) {
         tooltipEl.style.border = '1px solid #613EFF';
         tooltipEl.style.borderRadius = '8px';
         tooltipEl.style.padding = '8px 10px';
-        tooltipEl.style.fontFamily = 'Inter, sans-serif';
+        tooltipEl.style.fontFamily = "'Reddit Sans', sans-serif";
         tooltipEl.style.fontSize = '12px';
         tooltipEl.style.boxShadow = '0 6px 20px rgba(0,0,0,0.18)';
         tooltipEl.style.whiteSpace = 'nowrap';
@@ -358,12 +361,12 @@ function loadContractsBars() {
     function getCorNatureza(natureza) {
         const cores = {
             'Locação de mão de obra': '#613EFF',
-            'Outros serviços de terceiros - Pessoa Jurídica': '#31652B',
-            'Passagens e despesas com locomoção': '#F59E0B',
-            'Serviços de TI - Pessoa Jurídica': '#AB2D2D',
-            'Não especificado': '#326879'
+            'Outros serviços de terceiros - Pessoa Jurídica': '#0A005A',
+            'Passagens e despesas com locomoção': '#BE006E',
+            'Serviços de TI - Pessoa Jurídica': '#9C88FF',
+            'Não especificado': '#5A5670'
         };
-        return cores[natureza] || '#326879';
+        return cores[natureza] || '#5A5670';
     }
 
     fetch(urlWithBust, { cache: 'no-store' })
@@ -505,7 +508,7 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [retirementData[0].filled, retirementData[0].empty],
-                        backgroundColor: ['#AA79FE', '#F2F1F6'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -559,7 +562,7 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [salaryData[0].filled, salaryData[0].empty],
-                        backgroundColor: ['#AA79FE', '#F2F1F6'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -613,7 +616,7 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [detailData[0].filled, detailData[0].empty],
-                        backgroundColor: ['#AB2D2D', '#F2F1F6'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -627,7 +630,7 @@ function createDashboardCharts() {
                     },
                     {
                         data: [detailData[2].filled, detailData[2].empty],
-                        backgroundColor: ['#E7D551', '#F2F1F6'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -663,14 +666,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [retirementChart2Data[0].filled, retirementChart2Data[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [retirementChart2Data[1].filled, retirementChart2Data[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -704,14 +707,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [salaryChart2Data[0].filled, salaryChart2Data[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [salaryChart2Data[1].filled, salaryChart2Data[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -745,14 +748,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [scholarshipData[0].filled, scholarshipData[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [scholarshipData[1].filled, scholarshipData[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -786,14 +789,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [retirementChart3Data[0].filled, retirementChart3Data[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [retirementChart3Data[1].filled, retirementChart3Data[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -827,14 +830,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [retirementChart4Data[0].filled, retirementChart4Data[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [retirementChart4Data[1].filled, retirementChart4Data[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -868,14 +871,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [salaryChart3Data[0].filled, salaryChart3Data[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [salaryChart3Data[1].filled, salaryChart3Data[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -909,14 +912,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [salaryChart4Data[0].filled, salaryChart4Data[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [salaryChart4Data[1].filled, salaryChart4Data[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -950,14 +953,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [detailChart2Data[0].filled, detailChart2Data[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [detailChart2Data[1].filled, detailChart2Data[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -991,14 +994,14 @@ function createDashboardCharts() {
                 datasets: [
                     {
                         data: [detailChart3Data[0].filled, detailChart3Data[0].empty],
-                        backgroundColor: ['#AFD1AA', '#B2D1DA'],
+                        backgroundColor: ['#9C88FF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '50%'
                     },
                     {
                         data: [detailChart3Data[1].filled, detailChart3Data[1].empty],
-                        backgroundColor: ['#31652B', '#B2D1DA'],
+                        backgroundColor: ['#613EFF', '#F2F1F6'],
                         borderWidth: 1,
                         borderColor: '#F2F1F6',
                         cutout: '60%'
@@ -1070,12 +1073,12 @@ function createContractsChart() {
                 datasets: [{
                     data: percentages,
                     backgroundColor: [
-                        '#AB2D2D',
-                        '#FB8585',
-                        '#31652B',
-                        '#67A95E',
-                        '#326879',
-                        '#8B4513'
+                        '#613EFF',
+                        '#9C88FF',
+                        '#0A005A',
+                        '#BE006E',
+                        '#5A5670',
+                        '#C9BFFF'
                     ],
                     borderWidth: 0,
                     cutout: '60%'
@@ -1147,12 +1150,12 @@ function createContractsChart() {
                 datasets: [{
                     data: [59.54, 24.81, 8.78, 3.82, 2.67, 0.38],
                     backgroundColor: [
-                        '#AB2D2D',
-                        '#FB8585',
-                        '#31652B',
-                        '#67A95E',
-                        '#326879',
-                        '#8B4513'
+                        '#613EFF',
+                        '#9C88FF',
+                        '#0A005A',
+                        '#BE006E',
+                        '#5A5670',
+                        '#C9BFFF'
                     ],
                     borderWidth: 0,
                     cutout: '60%'
@@ -1216,9 +1219,9 @@ function loadExpenseElementCharts() {
     // Mantém o esquema de cores original por gráfico
     function getRingColors(canvasId) {
         // [empenhado, pagas, aPagar]
-        const purple = ['#AA79FE', '#613EFF', '#0A005A'];
-        const green = ['#AFD1AA', '#31652B', '#B2D1DA'];
-        const warm  = ['#AB2D2D', '#BE006E', '#E7D551'];
+        const purple = ['#9C88FF', '#613EFF', '#0A005A'];
+        const green = ['#9C88FF', '#613EFF', '#0A005A'];
+        const warm  = ['#9C88FF', '#613EFF', '#0A005A'];
         switch (canvasId) {
             case 'retirementChart':
             case 'salaryChart':
@@ -1564,13 +1567,13 @@ function mapServidoresCorToChartData(jsonData) {
 
     // Mapeamento de cores para cada raça/cor
     const colorMap = {
-        'BRANCA': '#BE006E',
-        'PARDA': '#BE006E', 
-        'PRETA': '#8A2BE2',
-        'AMARELA': '#9370DB',
-        'NAO INFORMADO': '#DDA0DD',
-        'INDIGENA': '#9932CC',
-        '': '#DDA0DD' // Para valores vazios
+        'BRANCA': '#613EFF',
+        'PARDA': '#0A005A', 
+        'PRETA': '#9C88FF',
+        'AMARELA': '#3F28A6',
+        'NAO INFORMADO': '#C9BFFF',
+        'INDIGENA': '#E57AB4',
+        '': '#C9BFFF' // Para valores vazios
     };
 
     // Filtrar dados válidos e mapear para o formato do gráfico
@@ -1580,7 +1583,7 @@ function mapServidoresCorToChartData(jsonData) {
             name: item.nome_cor,
             value: item.cor_ou_raca,
             itemStyle: { 
-                color: colorMap[item.nome_cor] || '#DDA0DD',
+                color: colorMap[item.nome_cor] || '#C9BFFF',
                 borderColor: '#ffffff',
                 borderWidth: 2
             }
@@ -1615,7 +1618,7 @@ function createRaceTreemap() {
                 borderWidth: 1,
                 textStyle: {
                     color: '#ffffff',
-                    fontFamily: 'Inter'
+                    fontFamily: "'Reddit Sans', sans-serif"
                 },
                 formatter: function(params) {
                     return params.name + '<br/>' + params.value + ' funcionários';
@@ -1654,7 +1657,7 @@ function createRaceTreemap() {
                         },
                         fontWeight: 'bold',
                         color: '#ffffff',
-                        fontFamily: 'Inter',
+                        fontFamily: "'Reddit Sans', sans-serif",
                         textShadowColor: 'rgba(0,0,0,0.5)',
                         textShadowBlur: 2,
                         position: 'inside',

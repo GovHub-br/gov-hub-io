@@ -1,3 +1,6 @@
+// Fonte da IDV nos rótulos desenhados em canvas
+if (window.Chart) Chart.defaults.font.family = "'Reddit Sans', sans-serif";
+
 /* ===================================
    ACOMPANHAMENTO ORÇAMENTÁRIO - GOVHUB
    =================================== */
@@ -278,17 +281,17 @@ function initializeCharts(historico = DEFAULT_HISTORICO) {
             createDataset(
                 'SUM (coalesce(comprasgov_valor_pago, 0))',
                 comprasNetPagoData,
-                '#9F5528',
+                '#0A005A',
                 'rgba(159, 85, 40, 0.1)'
             ),
             createDataset(
                 'SUM (coalesce(comprasgov_valor_cronograma, 0))',
                 comprasNetCronogramaData,
-                '#F59E0B',
+                '#BE006E',
                 'rgba(245, 158, 11, 0.1)'
             )
         ],
-        '#F59E0B',
+        '#BE006E',
         baseOptions
     );
 }
