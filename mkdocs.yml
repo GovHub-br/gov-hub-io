@@ -80,6 +80,7 @@ hooks:
   - material/overrides/hooks/translations.py
   - material/overrides/hooks/copy_static_assets.py
   - material/overrides/hooks/copy_index.py
+  - material/overrides/hooks/publicacoes_cards.py
 
 # Additional configuration
 extra:
