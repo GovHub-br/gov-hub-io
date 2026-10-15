@@ -17,6 +17,8 @@ copyright: Lab Livre 2025
 # Configuration
 theme:
   name: material
+  # templates próprios (página de publicação no padrão do site)
+  custom_dir: overrides
   language: pt-BR
   features:
     - content.code.copy

@@ -1,0 +1,43 @@
+/* Página de publicação (post do blog): hero do padrão .gh-page + texto do .md.
+   O título vem no hero, então o primeiro h1 do conteúdo é escondido. */
+.gh-post .post-meta{display:flex;flex-wrap:wrap;gap:6px 24px;margin:24px 0 0;padding:0;list-style:none;color:var(--muted,#5A5670);font-size:15px;font-weight:600}
+.gh-post .post-meta li{display:flex;align-items:center;gap:10px}
+.gh-post .post-meta li+li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--purple)}
+
+.gh-post .post-body{max-width:760px;font-size:17px;line-height:1.7;color:var(--fg)}
+.gh-post .post-body > h1:first-child{display:none}
+.gh-post .post-body h2{font-size:clamp(26px,3vw,36px);margin:56px 0 16px}
+.gh-post .post-body h3{font-size:clamp(20px,2.2vw,24px);margin:36px 0 12px}
+.gh-post .post-body h2:first-of-type{margin-top:40px}
+.gh-post .post-body p,.gh-post .post-body ul,.gh-post .post-body ol{margin:0 0 18px}
+.gh-post .post-body ul,.gh-post .post-body ol{padding-left:22px}
+.gh-post .post-body li{margin-bottom:6px}
+.gh-post .post-body li::marker{color:var(--purple)}
+.gh-post .post-body strong{color:var(--head);font-weight:700}
+.gh-post .post-body a{color:var(--link);text-underline-offset:3px}
+.gh-post .post-body .headerlink{display:none}
+.gh-post .post-body abbr{text-decoration:underline dotted;cursor:help}
+.gh-post .post-body img{max-width:100%;height:auto;border-radius:16px}
+.gh-post .post-body hr{border:0;border-top:2px solid var(--line);margin:40px 0}
+.gh-post .post-body blockquote{margin:0 0 18px;padding:4px 0 4px 20px;border-left:3px solid var(--purple);color:var(--head)}
+
+/* código: bloco branco sobre a faixa clara */
+.gh-post .post-body code{font-family:'Roboto Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:#fff;color:var(--head);padding:2px 6px;border-radius:6px}
+.gh-post .post-body pre{margin:0 0 24px;background:#fff;border-radius:16px;padding:20px 22px;overflow-x:auto}
+.gh-post .post-body pre code{background:none;padding:0;font-size:14px;line-height:1.6;color:#2D3748}
+.gh-post .post-body pre > span:empty{display:none}
+.gh-post .post-body .md-clipboard{display:none}
+/* realce mínimo de sintaxe (classes do Pygments) na paleta da marca */
+.gh-post .post-body .highlight .k,.gh-post .post-body .highlight .kd,.gh-post .post-body .highlight .kn,.gh-post .post-body .highlight .nt{color:#613EFF;font-weight:600}
+.gh-post .post-body .highlight .s,.gh-post .post-body .highlight .s1,.gh-post .post-body .highlight .s2{color:#BE006E}
+.gh-post .post-body .highlight .c,.gh-post .post-body .highlight .c1,.gh-post .post-body .highlight .cm{color:#5A5670;font-style:italic}
+.gh-post .post-body .highlight .mi,.gh-post .post-body .highlight .m{color:#3F28A6}
+
+.gh-post .post-body table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:15px;background:#fff;border-radius:12px;overflow:hidden}
+.gh-post .post-body th{background:var(--navy);color:#fff;text-align:left;padding:10px 14px}
+.gh-post .post-body td{padding:10px 14px;border-top:1px solid var(--line)}
+
+.gh-post .post-back{display:inline-block;margin-top:40px;font-weight:700;color:var(--head);text-decoration:none}
+.gh-post .post-back:hover{text-decoration:underline;text-underline-offset:5px}
+/* o realce de sintaxe embrulha cada palavra num span, e o govhub-idv.css dá Reddit Sans a todo span */
+.gh-post .post-body pre *,.gh-post .post-body code *{font-family:inherit}

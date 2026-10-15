@@ -38,10 +38,9 @@
 .gh-page .hero .lead{font-size:clamp(18px,2vw,22px);line-height:1.55;max-width:60ch;color:var(--fg)}
 .gh-page .art{position:absolute;right:0;top:0;bottom:250px;width:min(42vw,560px);pointer-events:none}
 .gh-page .art svg{position:absolute;display:block}
-.gh-page .art .p{right:0;bottom:2%;width:46%;color:var(--shape-c)}
 .gh-page .art .q{right:0;top:0;width:78%;color:var(--shape-a);transform:scaleX(-1)}
 .gh-page .art .a{left:20%;bottom:6%;width:26%;color:var(--shape-b)}
-@media(max-width:900px){.gh-page .art{width:34vw;bottom:auto;height:420px}.gh-page .hero .copy{max-width:100%}.gh-page .art .q{width:90%}.gh-page .art .a,.gh-page .art .p{display:none}}
+@media(max-width:900px){.gh-page .art{width:34vw;bottom:auto;height:420px}.gh-page .hero .copy{max-width:100%}.gh-page .art .q{width:90%}.gh-page .art .a{display:none}}
 @media(max-width:620px){.gh-page .art{display:none}}
 .gh-page .caps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px;position:relative;z-index:1}
 .gh-page .cap{border-top:2px solid var(--head);padding-top:16px;font-weight:600;color:var(--head);line-height:1.35;font-size:18px}
@@ -136,3 +135,7 @@
 /* nomes longos de órgão (páginas de projeto) */
 .gh-page .hero.compact h1.long{font-size:clamp(34px,4.4vw,58px)}
 @media(max-width:620px){.gh-page .hero.compact{min-height:0}}
+
+/* pílula #F2F1F6 entrando pela borda esquerda, acima do título (como na capa da IDV) */
+.gh-page .hero .pl{position:absolute;left:-72px;top:78px;width:210px;color:var(--shape-c);pointer-events:none}
+@media(max-width:620px){.gh-page .hero .pl{display:none}}
