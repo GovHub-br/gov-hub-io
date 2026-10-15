@@ -23,25 +23,29 @@
 }
 
 [data-md-color-scheme="slate"] {
-  --md-hue: 247;
-  --md-default-bg-color: #0A005A;
-  --md-primary-fg-color: #613EFF;
+  /* Modo escuro: fundo preto do tema (sem --md-default-bg-color próprio);
+     o navy entra onde o roxo entrava, na barra superior e nos destaques.
+     Texto de link e títulos ficam em lilás claro para manter o contraste. */
+  --md-primary-fg-color: #0A005A;
   --md-primary-fg-color--light: #B9ABFF;
-  --md-primary-fg-color--dark: #3F28A6;
+  --md-primary-fg-color--dark: #07003F;
   --md-accent-fg-color: #B9ABFF;
   --md-typeset-a-color: #B9ABFF;
-  --md-footer-bg-color: #07003F;
-  --md-footer-bg-color--dark: #050030;
-  --govhub-purple-50: #150A6B;
-  --govhub-purple-100: #1E1280;
-  --govhub-purple-200: #2A1A9A;
-  --govhub-purple-300: #613EFF;
+  --govhub-purple-50: #0F0840;
+  --govhub-purple-100: #150A6B;
+  --govhub-purple-200: #1E1280;
+  --govhub-purple-300: #2A1A9A;
   --govhub-purple-600: #B9ABFF;
   --govhub-purple-700: #D9D4FF;
   --govhub-purple-800: #E9DFFF;
   --govhub-purple-900: #F2F1F6;
   --govhub-ink: #FFFFFF;
   --govhub-border: #2A1A9A;
+}
+
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #0A005A !important;
 }
 
 .md-typeset h1, .md-typeset h2, .md-typeset h3 { font-weight: 800; letter-spacing: -0.025em; }
@@ -208,7 +212,7 @@ body {
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
-  background-color: #5235D9 !important;
+  background-color: #0A005A !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) {
@@ -220,11 +224,11 @@ body {
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) td {
-  background-color: rgba(97, 62, 255, 0.08);
+  background-color: rgba(10, 0, 90, 0.35);
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover td {
-  background-color: rgba(97, 62, 255, 0.14);
+  background-color: rgba(10, 0, 90, 0.6);
 }
 
 .md-typeset code:not(.highlight code) {
