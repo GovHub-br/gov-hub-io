@@ -183,3 +183,25 @@ header :focus-visible, .hero-section :focus-visible, .interactive-section :focus
 /* MinC sozinho na terceira fileira: sem o espaçador de rótulo */
 .partners-content:last-child .partners-spacer { display: none; }
 .partners-content:last-child { margin-top: 8px; }
+
+/* ---------- Rodapé: logos de parceiros com o mesmo tamanho e espaçamento da home ---------- */
+.footer .footer-logo-section { height: 90px; margin-bottom: 0; }
+.footer .footer-logo-section img {
+    height: 90px !important;
+    max-height: 90px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+}
+.footer .footer-column { gap: 0; }
+.footer .footer-middle { margin-bottom: 0; }
+.footer .footer-initiative-text p, .footer .footer-support-text p {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: #fff; margin: 32px 0 12px; white-space: nowrap;
+}
+.footer .footer-initiative-text p::before, .footer .footer-support-text p::before {
+    content: ""; width: 9px; height: 9px; border-radius: 50%; background: #BE006E; flex: none;
+}
+/* links do rodapé descolados dos logos */
+.footer .row:has(.footer-nav) { margin-top: 48px; }
