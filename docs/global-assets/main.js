@@ -172,7 +172,7 @@ function preloadGlobalImages() {
         '/govhub/land/dist/images/icons/github.svg',
         '/govhub/land/dist/images/icons/linkedin.svg',
         '/govhub/land/dist/images/logo.png',
-        '/govhub/land/dist/images/lablivre_footer.png',
+        '/govhub/land/dist/images/lab-livre-white.svg',
         '/govhub/land/dist/images/unb_footer.png',
         '/govhub/land/dist/images/ipea_footer.png'
     ];

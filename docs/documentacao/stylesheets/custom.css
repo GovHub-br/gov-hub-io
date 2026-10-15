@@ -24,28 +24,28 @@
 
 [data-md-color-scheme="slate"] {
   /* Modo escuro: fundo preto do tema (sem --md-default-bg-color próprio);
-     o navy entra onde o roxo entrava, na barra superior e nos destaques.
-     Texto de link e títulos ficam em lilás claro para manter o contraste. */
-  --md-primary-fg-color: #0A005A;
+     o roxo da marca fica na barra superior e nos destaques, como na home e
+     nas trilhas. Links e títulos em lilás claro para manter o contraste. */
+  --md-primary-fg-color: #613EFF;
   --md-primary-fg-color--light: #B9ABFF;
-  --md-primary-fg-color--dark: #07003F;
+  --md-primary-fg-color--dark: #5235D9;
   --md-accent-fg-color: #B9ABFF;
   --md-typeset-a-color: #B9ABFF;
-  --govhub-purple-50: #0F0840;
-  --govhub-purple-100: #150A6B;
-  --govhub-purple-200: #1E1280;
-  --govhub-purple-300: #2A1A9A;
+  --govhub-purple-50: #1D1640;
+  --govhub-purple-100: #271C5E;
+  --govhub-purple-200: #33247D;
+  --govhub-purple-300: #613EFF;
   --govhub-purple-600: #B9ABFF;
   --govhub-purple-700: #D9D4FF;
   --govhub-purple-800: #E9DFFF;
   --govhub-purple-900: #F2F1F6;
   --govhub-ink: #FFFFFF;
-  --govhub-border: #2A1A9A;
+  --govhub-border: #33247D;
 }
 
 [data-md-color-scheme="slate"] .md-header,
 [data-md-color-scheme="slate"] .md-tabs {
-  background-color: #0A005A !important;
+  background-color: #613EFF !important;
 }
 
 .md-typeset h1, .md-typeset h2, .md-typeset h3 { font-weight: 800; letter-spacing: -0.025em; }
@@ -212,7 +212,7 @@ body {
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
-  background-color: #0A005A !important;
+  background-color: #5235D9 !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) {
@@ -224,11 +224,11 @@ body {
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) td {
-  background-color: rgba(10, 0, 90, 0.35);
+  background-color: rgba(97, 62, 255, 0.08);
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover td {
-  background-color: rgba(10, 0, 90, 0.6);
+  background-color: rgba(97, 62, 255, 0.14);
 }
 
 .md-typeset code:not(.highlight code) {
