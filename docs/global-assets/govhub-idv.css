@@ -126,8 +126,9 @@ header :focus-visible, .hero-section :focus-visible, .interactive-section :focus
 .publication-title { color: #0A005A !important; font-weight: 800 !important; letter-spacing: -0.015em; }
 .publication-caption { color: #2D3748 !important; }
 .publication-arrow { margin-top: auto; color: #0A005A !important; }
-/* a faixa dos cards fica branca, como as bandas da Sobre */
-.publications-page-section { background-color: #fff !important; }
+/* faixa dos cards em claro, para contrastar com o hero branco; cards brancos */
+.publications-page-section { background-color: #F2F1F6 !important; padding-top: clamp(48px, 6vw, 80px) !important; }
+.publications-page-section .publication-card { background: #fff !important; }
 /* todas as fileiras com a altura da mais alta */
 .row:has(> [class*="col"] > .publication-card) {
     display: grid;
@@ -168,6 +169,17 @@ header :focus-visible, .hero-section :focus-visible, .interactive-section :focus
 .partners-bold-text {
     display: flex; align-items: center; gap: 10px;
     font-size: 13px !important; font-weight: 700 !important; letter-spacing: .12em;
-    text-transform: uppercase; color: #3F28A6 !important; margin: 32px 0 16px !important;
+    text-transform: uppercase; color: #3F28A6 !important; margin: 0 !important; white-space: nowrap;
 }
+/* logos alinhados: rótulo e espaçador com a mesma altura, logo centrado numa caixa fixa */
+.partners-initiative-text, .partners-support-text, .partners-spacer {
+    height: 24px; display: flex; align-items: center; margin: 32px 0 12px;
+}
+.partners-spacer p { margin: 0 !important; line-height: 1; }
+.partners-logo-section { height: 90px; padding-left: 0 !important; }
+/* botão alinhado à esquerda, com os cards */
+.publications-button-container { text-align: left !important; margin-top: 32px; padding-left: 0 !important; }
 .partners-bold-text::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #BE006E; flex: none; }
+/* MinC sozinho na terceira fileira: sem o espaçador de rótulo */
+.partners-content:last-child .partners-spacer { display: none; }
+.partners-content:last-child { margin-top: 8px; }
