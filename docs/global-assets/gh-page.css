@@ -139,3 +139,7 @@
 /* pílula #F2F1F6 entrando pela borda esquerda, acima do título (como na capa da IDV) */
 .gh-page .hero .pl{position:absolute;left:-72px;top:78px;width:210px;color:var(--shape-c);pointer-events:none}
 @media(max-width:620px){.gh-page .hero .pl{display:none}}
+
+/* link de volta para a listagem (páginas de projeto e de publicação) */
+.gh-page .back-link{display:inline-block;margin-top:40px;font-weight:700;color:var(--head);text-decoration:none}
+.gh-page .back-link:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}

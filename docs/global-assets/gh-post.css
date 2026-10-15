@@ -37,7 +37,5 @@
 .gh-post .post-body th{background:var(--navy);color:#fff;text-align:left;padding:10px 14px}
 .gh-post .post-body td{padding:10px 14px;border-top:1px solid var(--line)}
 
-.gh-post .post-back{display:inline-block;margin-top:40px;font-weight:700;color:var(--head);text-decoration:none}
-.gh-post .post-back:hover{text-decoration:underline;text-underline-offset:5px}
 /* o realce de sintaxe embrulha cada palavra num span, e o govhub-idv.css dá Reddit Sans a todo span */
 .gh-post .post-body pre *,.gh-post .post-body code *{font-family:inherit}
