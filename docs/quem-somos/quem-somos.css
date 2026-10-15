@@ -416,3 +416,35 @@ body {
     .squads-grid { grid-template-columns: 1fr; }
     .squad-card.wide { grid-column: span 1; }
 }
+
+/* ── IDV: padrão da página Sobre (tipografia navy, eyebrow com ponto, cards em #F2F1F6) ── */
+.team-section { background: #fff; padding: clamp(56px, 8vw, 104px) 0; }
+.team-content h2 {
+    color: #0A005A; font-weight: 800; letter-spacing: -0.025em; line-height: 1.06;
+    font-size: clamp(30px, 4.4vw, 52px); margin-bottom: 20px;
+}
+.team-content p { font-size: 17px; line-height: 1.6; color: #2D3748; max-width: 62ch; margin-bottom: 0; }
+.section-eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; letter-spacing: .12em; color: #3F28A6;
+    margin: 64px 0 12px;
+}
+.section-eyebrow::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #BE006E; }
+.section-title {
+    font-size: clamp(22px, 2.6vw, 30px); color: #0A005A; letter-spacing: -0.02em; line-height: 1.15;
+    margin-bottom: 28px;
+}
+.coord-card { background: #F2F1F6; border: 0; border-radius: 16px; }
+.coord-card .member-name, .member-mini .member-name { color: #0A005A; }
+.squads-desc {
+    font-size: clamp(18px, 2vw, 21px); line-height: 1.5; font-weight: 600; color: #0A005A;
+    max-width: 46ch; padding: 0; background: none; border: 0; border-radius: 0;
+}
+.squads-desc strong { font-weight: 800; }
+.section-divider::before, .section-divider::after { height: 2px; background: #E9DFFF; }
+.section-divider-label { font-size: 13px; letter-spacing: .12em; }
+.squad-card { background: #F2F1F6; border: 0; border-radius: 16px; }
+.squad-card[class*="strip-"] { border-top: 0; }
+.squad-header { border-bottom: 2px solid #fff; padding: 16px 20px; }
+.squad-title { color: #0A005A; font-weight: 800; letter-spacing: -0.01em; }
+.squad-count { background: #fff; border: 0; border-radius: 999px; padding: 4px 12px; color: #0A005A; }
