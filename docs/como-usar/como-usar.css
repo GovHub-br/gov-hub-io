@@ -4,7 +4,7 @@
 
 /* Estilos base */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     line-height: 1.6;
     color: #333;
     margin: 0;
@@ -37,7 +37,7 @@ body {
 }
 
 .gh-card {
-    background: #7A34F3;
+    background: #613EFF;
     color: #fff;
     border-radius: 16px;
     padding: 1.5rem;
@@ -45,14 +45,14 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 0 8px 25px rgba(122, 52, 243, 0.25);
+    box-shadow: 0 8px 25px rgba(97, 62, 255, 0.25);
     transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 .gh-card:hover {
     transform: translateY(-2px);
     background: #6a2fd8;
-    box-shadow: 0 14px 35px rgba(122, 52, 243, 0.35);
+    box-shadow: 0 14px 35px rgba(97, 62, 255, 0.35);
 }
 
 .gh-card-head {

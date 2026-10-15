@@ -2,7 +2,7 @@ Custom CSS for MkDocs styling to match landing page
 
 /* Header/Navigation styling */
 .md-header {
-    background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%) !important;
+    background: #0A005A !important;
     color: white !important;
 }
 
@@ -44,7 +44,7 @@ Custom CSS for MkDocs styling to match landing page
 
 .md-header__title {
     color: white !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 /* Navigation tabs */
@@ -55,7 +55,7 @@ Custom CSS for MkDocs styling to match landing page
 
 .md-tabs__link {
     color: white !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 .md-tabs__link:hover {
@@ -84,12 +84,12 @@ Custom CSS for MkDocs styling to match landing page
 
 /* Footer styling */
 .md-footer {
-    background: #7A34F3 !important;
+    background: #613EFF !important;
     color: white !important;
 }
 
 .md-footer__inner {
-    background: #7A34F3 !important;
+    background: #613EFF !important;
     color: white !important;
 }
 
@@ -103,12 +103,12 @@ Custom CSS for MkDocs styling to match landing page
 
 .md-footer__title {
     color: white !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 .md-footer__direction {
     color: white !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 /* Social links in footer */
@@ -126,9 +126,9 @@ Custom CSS for MkDocs styling to match landing page
 
 /* Copyright section */
 .md-footer-copyright {
-    background: #7A34F3 !important;
+    background: #613EFF !important;
     color: white !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 .md-footer-copyright__highlight {
@@ -137,14 +137,14 @@ Custom CSS for MkDocs styling to match landing page
 
 /* Meta information */
 .md-footer-meta {
-    background: #7A34F3 !important;
+    background: #613EFF !important;
     color: white !important;
 }
 
 .md-footer-meta__inner {
-    background: #7A34F3 !important;
+    background: #613EFF !important;
     color: white !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 /* Navigation buttons in footer */
@@ -158,43 +158,43 @@ Custom CSS for MkDocs styling to match landing page
 
 /* Ensure all text elements use Inter font */
 .md-footer *, .md-header *, .md-tabs * {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
 /* Additional responsive styling */
 @media screen and (max-width: 76.1875em) {
     .md-header {
-        background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%) !important;
+        background: #0A005A !important;
     }
     
     .md-tabs {
-        background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%) !important;
+        background: #0A005A !important;
     }
     
     .md-footer {
-        background: #7A34F3 !important;
+        background: #613EFF !important;
     }
     
     .md-footer__inner {
-        background: #7A34F3 !important;
+        background: #613EFF !important;
     }
 }
 
 @media screen and (max-width: 44.9375em) {
     .md-header {
-        background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%) !important;
+        background: #0A005A !important;
     }
     
     .md-tabs {
-        background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%) !important;
+        background: #0A005A !important;
     }
     
     .md-footer {
-        background: #7A34F3 !important;
+        background: #613EFF !important;
     }
     
     .md-footer__inner {
-        background: #7A34F3 !important;
+        background: #613EFF !important;
     }
 }
 
@@ -207,7 +207,7 @@ Custom CSS for MkDocs styling to match landing page
 .md-footer-copyright,
 .md-footer-meta,
 .md-footer-meta__inner {
-    background-color: #7A34F3 !important;
+    background-color: #613EFF !important;
 }
 
 .md-header,
@@ -221,7 +221,7 @@ Custom CSS for MkDocs styling to match landing page
 .md-footer-copyright,
 .md-footer-meta,
 .md-footer-meta__inner {
-    background: #7A34F3 !important;
+    background: #613EFF !important;
 }
 
 /* Ensure proper contrast for all elements */
@@ -351,9 +351,9 @@ Custom CSS for MkDocs styling to match landing page
 
 /* Header/title area of mobile menu */
 .md-nav--primary .md-nav__title {
-    background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%) !important;
+    background: #0A005A !important;
     color: white !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-weight: 900 !important;
     padding: 0.75rem 1rem !important;
     margin: 0 !important;
@@ -383,21 +383,21 @@ Custom CSS for MkDocs styling to match landing page
 .md-nav--primary .md-nav__item:not(.md-nav__item--section) > .md-nav__link {
     /* color: #374151 !important; */
     padding: 0.75rem 1rem !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-weight: 400 !important;
-    border-left: 4px solid #7A34F3 !important;
+    border-left: 4px solid #613EFF !important;
 }
 
 .md-nav--primary .md-nav__link:hover {
-    color: #7A34F3 !important;
-    background-color: rgba(122, 52, 243, 0.1) !important;
+    color: #613EFF !important;
+    background-color: rgba(97, 62, 255, 0.1) !important;
 }
 
 .md-nav--primary .md-nav__link--active {
-    color: #7A34F3 !important;
-    background-color: rgba(122, 52, 243, 0.15) !important;
+    color: #613EFF !important;
+    background-color: rgba(97, 62, 255, 0.15) !important;
     font-weight: 600 !important;
-    border-right: 3px solid #7A34F3 !important;
+    border-right: 3px solid #613EFF !important;
 }
 
 .md-nav--primary .md-nav__item {
@@ -410,12 +410,12 @@ Custom CSS for MkDocs styling to match landing page
 }
 
 .md-nav--primary .md-nav__icon:hover {
-    color: #7A34F3 !important;
+    color: #613EFF !important;
 }
 
 /* Mobile search in drawer */
 .md-nav--primary .md-search {
-    background: #f9fafb !important;
+    background: #F2F1F6 !important;
     border: 1px solid #e5e7eb !important;
     margin: 0.5rem !important;
     border-radius: 0.375rem !important;

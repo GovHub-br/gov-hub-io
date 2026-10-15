@@ -1,7 +1,7 @@
 /* Dashboard de Visão Geral de Pessoas - Estilos Customizados */
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -9,7 +9,7 @@ body {
 }
 
 .header-section {
-    background: #7A34F3;
+    background: #613EFF;
     color: white;
     padding: 2rem 0;
     min-height: 15vh;
@@ -22,7 +22,7 @@ body {
 }
 
 .header-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 3.75rem;
     font-weight: 300;
     color: #ffffff;
@@ -62,14 +62,14 @@ body {
 
 .nav-tabs .nav-link:hover {
     border: none;
-    color: #7A34F3;
+    color: #613EFF;
 }
 
 .nav-tabs .nav-link.active {
-    color: #7A34F3;
+    color: #613EFF;
     background: none;
     border: none;
-    border-bottom: 3px solid #7A34F3;
+    border-bottom: 3px solid #613EFF;
 }
 
 .nav-tabs .nav-link.active::after {
@@ -79,7 +79,7 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background-color: #7A34F3;
+    background-color: #613EFF;
 }
 
 .content-section {
@@ -90,7 +90,7 @@ body {
 
 /* Seção da tabela com fundo cinza */
 .servidores-table-section {
-    background: #F7F7F7;
+    background: #F2F1F6;
 }
 
 .dashboard-card {
@@ -109,7 +109,7 @@ body {
 .metric-value {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #7A34F3;
+    color: #613EFF;
     margin-bottom: 0.5rem;
 }
 
@@ -124,7 +124,7 @@ body {
    ============================== */
 
 .budget-section-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
     color: #202020;
@@ -149,7 +149,7 @@ body {
 .budget-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    border-color: #7A34F3;
+    border-color: #613EFF;
 }
 
 .budget-card-header {
@@ -170,10 +170,10 @@ body {
 }
 
 .budget-card-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #7A34F3;
+    color: #613EFF;
     margin: 0;
     line-height: 1.3;
     text-transform: uppercase;
@@ -188,7 +188,7 @@ body {
 }
 
 .budget-value {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: #202020;
@@ -375,7 +375,7 @@ body {
 /* Linha principal removida - agora está no bars-container */
 
 .axis-labels span {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     color: #6B7280;
@@ -420,7 +420,7 @@ body {
 }
 
 .bar-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
     color: #374151;
@@ -433,7 +433,7 @@ body {
     flex: 1;
     position: relative;
     height: 24px;
-    background: #F3F4F6;
+    background: #F2F1F6;
     border-radius: 4px;
     overflow: hidden;
     margin-left: 0;
@@ -465,7 +465,7 @@ body {
 }
 
 .bar-fill.feminino {
-    background: #8B5CF6;
+    background: #613EFF;
 }
 
 .bar-fill.masculino {
@@ -477,7 +477,7 @@ body {
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 700;
     color: #000000;
@@ -493,7 +493,7 @@ body {
     transform: none !important;
     text-shadow: none !important;
     z-index: auto !important;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     color: #000000;
@@ -518,7 +518,7 @@ body {
 }
 
 .legend-feminino {
-    background-color: #8B5CF6;
+    background-color: #613EFF;
 }
 
 /* ==============================
@@ -551,10 +551,10 @@ body {
 }
 
 .chart-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1rem;
     font-weight: 700;
-    color: #7A34F3;
+    color: #613EFF;
     margin: 0;
     line-height: 1;
     margin-bottom: 1rem;
@@ -594,7 +594,7 @@ body {
 }
 
 .legend-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     color: #6B7280;
@@ -853,7 +853,7 @@ body {
 }
 
 .brazil-map svg path {
-    fill: #F3F4F6;
+    fill: #F2F1F6;
     stroke: #D1D5DB;
     stroke-width: 1;
     transition: all 0.3s ease;
@@ -861,7 +861,7 @@ body {
 }
 
 .brazil-map svg path:hover {
-    fill: #8B5CF6;
+    fill: #613EFF;
     stroke: #6B46C1;
     stroke-width: 2;
 }
@@ -887,7 +887,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
     color: #6B7280;
@@ -900,7 +900,7 @@ body {
     color: white;
     padding: 8px 12px;
     border-radius: 6px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
     pointer-events: none;
@@ -957,7 +957,7 @@ body {
 }
 
 .functional-situation-chart .bar-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
     color: #374151;
@@ -968,7 +968,7 @@ body {
 }
 
 .functional-situation-chart .bar-value {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     color: #000000;
@@ -1011,7 +1011,7 @@ body {
 
 .functional-situation-chart .bar-fill.functional-bar {
     height: 12px;
-    background: #7A34F3;
+    background: #613EFF;
     border-radius: 6px;
     transition: width 0.3s ease;
     display: block;
@@ -1049,7 +1049,7 @@ body {
 }
 
 .functional-situation-chart .axis-labels span {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     color: #D3D3D3;
@@ -1229,7 +1229,7 @@ body {
 }
 
 .servidores-table-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 36px;
     font-weight: 600;
     color: #202020;
@@ -1238,7 +1238,7 @@ body {
 }
 
 .servidores-table-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 26px;
     font-weight: 600;
     color: #202020;
@@ -1265,19 +1265,19 @@ body {
 }
 
 .servidores-search-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #7A34F3;
+    color: #613EFF;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .servidores-search-input {
     display: none;
-    border: 1px solid #7A34F3;
+    border: 1px solid #613EFF;
     background: #ffffff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     color: #202020;
     outline: none;
@@ -1299,7 +1299,7 @@ body {
 
 .servidores-search-input:focus {
     border-color: #6B2EE8;
-    box-shadow: 0 0 0 2px rgba(122, 52, 243, 0.1);
+    box-shadow: 0 0 0 2px rgba(97, 62, 255, 0.1);
 }
 
 .servidores-search-input::placeholder {
@@ -1308,7 +1308,7 @@ body {
 
 .servidores-search-icon {
     font-size: 1rem;
-    color: #7A34F3;
+    color: #613EFF;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1332,12 +1332,12 @@ body {
 }
 
 .teds-table-wrapper::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #F2F1F6;
     border-radius: 4px;
 }
 
 .teds-table-wrapper::-webkit-scrollbar-thumb {
-    background: #7A34F3;
+    background: #613EFF;
     border-radius: 4px;
 }
 
@@ -1363,9 +1363,9 @@ body {
 }
 
 .teds-table thead th {
-    background: #7A34F3;
+    background: #613EFF;
     color: #ffffff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 700;
     padding: 0.75rem 1rem;
@@ -1410,7 +1410,7 @@ body {
 
 .teds-table tbody td {
     color: #202020;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.9rem;
     padding: 0.9rem 1rem;
     vertical-align: middle;
@@ -1425,11 +1425,11 @@ body {
 }
 
 .teds-table tbody tr:nth-child(even) td {
-    background: #F7F7F7;
+    background: #F2F1F6;
 }
 
 .teds-table tbody tr + tr td {
-    border-top: 1px solid #eef2f7;
+    border-top: 1px solid #F2F1F6;
 }
 
 .teds-table-wrapper { 
@@ -1445,9 +1445,9 @@ body {
 }
 
 .servidores-load-more-btn {
-    background: #9249CA;
+    background: #613EFF;
     color: #ffffff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -1457,18 +1457,18 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(146, 73, 202, 0.3);
+    box-shadow: 0 2px 4px rgba(97, 62, 255, 0.3);
 }
 
 .servidores-load-more-btn:hover {
     background: #8243B5;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(146, 73, 202, 0.4);
+    box-shadow: 0 4px 8px rgba(97, 62, 255, 0.4);
 }
 
 .servidores-load-more-btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(146, 73, 202, 0.3);
+    box-shadow: 0 2px 4px rgba(97, 62, 255, 0.3);
 }
 
 /* Responsividade da tabela */

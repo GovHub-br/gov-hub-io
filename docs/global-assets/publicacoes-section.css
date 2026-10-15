@@ -3,7 +3,7 @@
    ============================== */
 
 .publicacoes-section {
-    background-color: #F7F7F7;
+    background-color: #F2F1F6;
     padding: 4rem 2rem;
     width: 100%;
 }
@@ -17,7 +17,7 @@
 .publicacoes-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #7A34F3;
+    color: #613EFF;
     margin-bottom: 1rem;
 }
 
@@ -76,12 +76,12 @@
 }
 
 .categoria-roxa {
-    background-color: #7A34F3;
+    background-color: #613EFF;
     color: white;
 }
 
 .categoria-laranja {
-    background-color: #FF6B35;
+    background-color: #BE006E;
     color: white;
 }
 
@@ -112,7 +112,7 @@
     right: 1.5rem;
     width: 24px;
     height: 24px;
-    color: #7A34F3;
+    color: #613EFF;
     transition: transform 0.3s ease;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .publicacoes-button {
-    background: #9249CA;
+    background: #613EFF;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -137,7 +137,7 @@
 .publicacoes-button:hover {
     background: #6a2fd8;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(122, 52, 243, 0.3);
+    box-shadow: 0 4px 15px rgba(97, 62, 255, 0.3);
 }
 
 /* Responsividade */

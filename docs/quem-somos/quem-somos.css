@@ -4,7 +4,7 @@
 
 /* Estilos base */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     line-height: 1.6;
     color: #333;
     margin: 0;
@@ -42,7 +42,7 @@ body {
 .overview-content h2 {
     font-size: 2.25rem;
     font-weight: 600;
-    color: #7A34F3;
+    color: #613EFF;
     margin-bottom: 2rem;
     text-align: left;
 }
@@ -98,12 +98,12 @@ body {
 /* Team Section */
 .team-section {
     width: 100%;
-    background-color: #F7F7F7;
+    background-color: #F2F1F6;
     padding: 6rem 0;
 }
 
 .team-content h2 {
-    color: #7A34F3;
+    color: #613EFF;
     font-size: 2.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -145,7 +145,7 @@ body {
 }
 
 .team-card-info {
-    background: #7A34F3;
+    background: #613EFF;
     padding: 0.75rem 1rem;
     color: #ffffff;
     display: flex;
@@ -155,8 +155,8 @@ body {
     border-bottom-right-radius: 10px;
 }
 
-.team-card-info.purple { background: #7A34F3; }
-.team-card-info.orange { background: #FF6B35; }
+.team-card-info.purple { background: #613EFF; }
+.team-card-info.orange { background: #BE006E; }
 
 .team-card-info .name {
     font-size: 1rem;
@@ -183,7 +183,7 @@ body {
     margin-top: 1rem;
 }
 .section-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 800;
     color: #2D1170;
@@ -200,7 +200,7 @@ body {
 .coord-card {
     background: #fff;
     border-radius: 18px;
-    border: 1.5px solid #E2D9F8;
+    border: 1.5px solid #E9DFFF;
     padding: 2rem 1.5rem 1.5rem;
     text-align: center;
     position: relative;
@@ -208,7 +208,7 @@ body {
 .coord-badge {
     position: absolute;
     top: 14px; right: 14px;
-    background: #EDE8FD;
+    background: #F2F1F6;
     color: #4E20B2;
     font-size: 9px;
     font-weight: 700;
@@ -216,13 +216,13 @@ body {
     text-transform: uppercase;
     padding: 4px 10px;
     border-radius: 12px;
-    border: 1px solid #D4C8FA;
+    border: 1px solid #E9DFFF;
 }
 .photo-slot-lg {
     width: 130px;
     height: 130px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #EDE8FD, #F6F3FF);
+    background: #F2F1F6;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -237,17 +237,17 @@ body {
     object-fit: cover;
     image-rendering: -webkit-optimize-contrast;
 }
-.photo-slot-lg svg { width: 28px; height: 28px; stroke: #B09AF2; fill: none; }
+.photo-slot-lg svg { width: 28px; height: 28px; stroke: #E9DFFF; fill: none; }
 .photo-hint {
     font-size: 8px;
     font-weight: 600;
-    color: #B09AF2;
+    color: #E9DFFF;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     margin-top: 3px;
 }
 .coord-card .member-name {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     color: #202020;
@@ -255,7 +255,7 @@ body {
 }
 .coord-card .member-role {
     font-size: 0.9rem;
-    color: #7B6AAA;
+    color: #3F28A6;
     font-weight: 700;
 }
 
@@ -274,14 +274,14 @@ body {
     content: '';
     flex: 1;
     height: 1px;
-    background: #E2D9F8;
+    background: #E9DFFF;
 }
 .section-divider-label {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #7B6AAA;
+    color: #3F28A6;
     white-space: nowrap;
 }
 
@@ -293,7 +293,7 @@ body {
     max-width: 700px;
     margin-bottom: 2rem;
     padding: 1rem 1.25rem;
-    background: #F6F3FF;
+    background: #F2F1F6;
     border-left: 3px solid #9B7BF0;
     border-radius: 0 8px 8px 0;
 }
@@ -307,7 +307,7 @@ body {
 .squad-card {
     background: #fff;
     border-radius: 14px;
-    border: 1px solid #E2D9F8;
+    border: 1px solid #E9DFFF;
     overflow: hidden;
 }
 .squad-card.wide { grid-column: span 2; }
@@ -317,7 +317,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 1px solid #E2D9F8;
+    border-bottom: 1px solid #E9DFFF;
 }
 .squad-icon {
     width: 34px; height: 34px;
@@ -327,7 +327,7 @@ body {
 }
 .squad-icon svg { width: 17px; height: 17px; fill: none; stroke-width: 1.8; }
 .squad-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     color: #2D1170;
@@ -336,11 +336,11 @@ body {
     margin-left: auto;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #7B6AAA;
-    background: #F6F3FF;
+    color: #3F28A6;
+    background: #F2F1F6;
     padding: 3px 9px;
     border-radius: 10px;
-    border: 1px solid #D4C8FA;
+    border: 1px solid #E9DFFF;
     white-space: nowrap;
 }
 
@@ -360,7 +360,7 @@ body {
 .photo-slot-sm {
     width: 130px; height: 130px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #EDE8FD, #F6F3FF);
+    background: #F2F1F6;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     flex-shrink: 0;
@@ -373,44 +373,44 @@ body {
     image-rendering: -webkit-optimize-contrast;
 }
 .member-mini .member-name { font-size: 1rem; color: #202020; font-weight: 700; }
-.member-mini .member-role { font-size: 0.8rem; color: #7B6AAA; }
+.member-mini .member-role { font-size: 0.8rem; color: #3F28A6; }
 
 /* Squad accent strips */
 .strip-lideranca { border-top: 3px solid #1E0A4A; }
-.strip-produto   { border-top: 3px solid #5429C4; }
+.strip-produto   { border-top: 3px solid #5235D9; }
 .strip-gestao    { border-top: 3px solid #00916E; }
 .strip-arq       { border-top: 3px solid #7E22CE; }
-.strip-dados     { border-top: 3px solid #C4610A; }
+.strip-dados     { border-top: 3px solid #BE006E; }
 .strip-ciencia   { border-top: 3px solid #B5184A; }
 .strip-pesquisa  { border-top: 3px solid #0E7EA8; }
 .strip-cyber     { border-top: 3px solid #C0291F; }
 .strip-comun     { border-top: 3px solid #3A6E17; }
 .strip-comunidade{ border-top: 3px solid #A66B00; }
-.strip-gerente   { border-top: 3px solid #5429C4; }
+.strip-gerente   { border-top: 3px solid #5235D9; }
 .strip-financeiro{ border-top: 3px solid #6B2FA8; }
 .strip-gov       { border-top: 3px solid #0C6D4E; }
-.strip-cap       { border-top: 3px solid #CC5B00; }
+.strip-cap       { border-top: 3px solid #BE006E; }
 .strip-conhec    { border-top: 3px solid #3737B0; }
 .strip-ipea      { border-top: 3px solid #4A3A7A; }
-.strip-parceiros { border-top: 3px solid #FF6B35; }
+.strip-parceiros { border-top: 3px solid #BE006E; }
 
-.icon-lideranca  { background: #EAE6F5; } .icon-lideranca svg { stroke: #1E0A4A; }
-.icon-produto    { background: #EEE8FF; } .icon-produto   svg { stroke: #5429C4; }
+.icon-lideranca  { background: #F2F1F6; } .icon-lideranca svg { stroke: #1E0A4A; }
+.icon-produto    { background: #F2F1F6; } .icon-produto   svg { stroke: #5235D9; }
 .icon-gestao     { background: #EEF8F4; } .icon-gestao    svg { stroke: #00916E; }
 .icon-arq        { background: #F3EDFF; } .icon-arq       svg { stroke: #7E22CE; }
-.icon-dados      { background: #FFF4EA; } .icon-dados     svg { stroke: #C4610A; }
+.icon-dados      { background: #FFF4EA; } .icon-dados     svg { stroke: #BE006E; }
 .icon-ciencia    { background: #FEF0F5; } .icon-ciencia   svg { stroke: #B5184A; }
 .icon-pesquisa   { background: #E8F6FB; } .icon-pesquisa  svg { stroke: #0E7EA8; }
 .icon-cyber      { background: #FFF0EF; } .icon-cyber     svg { stroke: #C0291F; }
 .icon-comun      { background: #F1F8EA; } .icon-comun     svg { stroke: #3A6E17; }
 .icon-comunidade { background: #FFFBEA; } .icon-comunidade svg { stroke: #A66B00; }
-.icon-gerente    { background: #EEE8FF; } .icon-gerente   svg { stroke: #5429C4; }
+.icon-gerente    { background: #F2F1F6; } .icon-gerente   svg { stroke: #5235D9; }
 .icon-financeiro { background: #F4EEFF; } .icon-financeiro svg { stroke: #6B2FA8; }
 .icon-gov        { background: #EDF9F5; } .icon-gov       svg { stroke: #0C6D4E; }
-.icon-cap        { background: #FFF4EC; } .icon-cap       svg { stroke: #CC5B00; }
+.icon-cap        { background: #FFF4EC; } .icon-cap       svg { stroke: #BE006E; }
 .icon-conhec     { background: #EEEEFF; } .icon-conhec    svg { stroke: #3737B0; }
-.icon-ipea       { background: #EAE6F5; } .icon-ipea      svg { stroke: #4A3A7A; }
-.icon-parceiros  { background: #FFF0EB; } .icon-parceiros svg { stroke: #FF6B35; }
+.icon-ipea       { background: #F2F1F6; } .icon-ipea      svg { stroke: #4A3A7A; }
+.icon-parceiros  { background: #FFF0EB; } .icon-parceiros svg { stroke: #BE006E; }
 
 @media (max-width: 720px) {
     .squads-grid { grid-template-columns: 1fr; }

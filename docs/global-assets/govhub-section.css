@@ -46,7 +46,7 @@
     left: -10%;
     width: 320px;
     height: 320px;
-    background: radial-gradient(circle, rgba(124,58,237,0.4) 0%, rgba(124,58,237,0.0) 70%);
+    background: radial-gradient(circle, rgba(97, 62, 255,0.4) 0%, rgba(97, 62, 255,0.0) 70%);
     filter: blur(50px);
     z-index: -1;
     pointer-events: none;
@@ -60,7 +60,7 @@
     right: 5%;
     width: 280px;
     height: 280px;
-    background: radial-gradient(circle, rgba(124,58,237,0.4) 0%, rgba(124,58,237,0.0) 70%);
+    background: radial-gradient(circle, rgba(97, 62, 255,0.4) 0%, rgba(97, 62, 255,0.0) 70%);
     filter: blur(45px);
     z-index: -1;
     pointer-events: none;
@@ -97,9 +97,9 @@
     font-size: 2.25rem;
     font-weight: 600;
     line-height: 1.2;
-    color: #7A34F3;
+    color: #613EFF;
     letter-spacing: -0.025em;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
 }
 
 /* Descrição principal */
@@ -109,7 +109,7 @@
     font-size: 1rem;
     line-height: 24px;
     color: #202020;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
 }
 
 /* Compactação do conteúdo textual para reduzir o espaçamento visual entre tópicos */
@@ -123,12 +123,12 @@
     align-items: center;
     font-size: 14px;
     font-weight: 400;
-    color: #7A34F3;
+    color: #613EFF;
     text-decoration: none;
     margin-top: 2rem;
     margin-bottom: 2rem;
     transition: color 0.3s ease;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
 }
 
 .govhub-link:hover {
@@ -172,7 +172,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 1.4;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
 }
 
 @media (max-width: 768px) {    

@@ -8,8 +8,8 @@ const PESSOAS_DATA_PATHS = [
 
 // Cores para raça/cor
 const colorMap = {
-    'BRANCA': '#FF8C00',
-    'PARDA': '#FFA500', 
+    'BRANCA': '#BE006E',
+    'PARDA': '#BE006E', 
     'PRETA': '#8A2BE2',
     'AMARELA': '#9370DB',
     'INDÍGENA': '#9932CC',
@@ -147,7 +147,7 @@ function createRaceTreemapFromData(data) {
                 },
                 upperLabel: { show: false },
                 itemStyle: { borderColor: '#ffffff', borderWidth: 2, gapWidth: 2 },
-                emphasis: { itemStyle: { borderColor: '#7A34F3', borderWidth: 3 } }
+                emphasis: { itemStyle: { borderColor: '#613EFF', borderWidth: 3 } }
             }
         ]
     };
@@ -262,7 +262,7 @@ function initializeMapInteractivity() {
     
     // Cores para o gradiente (0% -> 100%)
     const START_HEX = '#67A95E'; // verde
-    const END_HEX = '#7A34F3';   // roxo
+    const END_HEX = '#613EFF';   // roxo
     
     paths.forEach((path) => {
         let stateId = path.getAttribute('id');

@@ -93,7 +93,7 @@ header.fixed {
     color: black;
     text-align: center;
     line-height: 1.4;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
 }
 
 .features-grid {
@@ -124,7 +124,7 @@ header.fixed {
 }
 
 .feature-card {
-    background: #F7F7F7;
+    background: #F2F1F6;
     box-shadow: 0 3px 8px 1.5px rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
     padding: 1.2rem 2rem;
@@ -179,9 +179,9 @@ header.fixed {
 .feature-title {
     font-size: 1rem;
     font-weight: 400;
-    color: #7A34F3;
+    color: #613EFF;
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     line-height: 1.2;
 }
 
@@ -624,7 +624,7 @@ header.fixed {
 .hero-mobile-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-color: #7A34F3;
+    border-color: #613EFF;
 }
 
 /* Imagem do card mobile */
@@ -648,7 +648,7 @@ header.fixed {
 .hero-mobile-card-title {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #7A34F3;
+    color: #613EFF;
     margin: 0;
     line-height: 1.1;
 }

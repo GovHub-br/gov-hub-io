@@ -6,17 +6,17 @@
 .ipea-hero-title {
     font-size: 3.75rem; /* 60px */
     font-weight: 300; /* Light */
-    color: #F7F7F7;
+    color: #F2F1F6;
     text-align: left;
     line-height: 1.1;
 }
 
 /* Hero Section - Subtitle */
 .ipea-hero-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1.5rem; /* 24px */
     font-weight: 600; /* Semi-bold */
-    color: #F7F7F7;
+    color: #F2F1F6;
     margin-top: 1rem;
     margin-bottom: 0;
     text-align: left;
@@ -63,10 +63,10 @@
 }
 
 .contract-detail-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #7A34F3;
+    color: #613EFF;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 0.5rem;
@@ -74,7 +74,7 @@
 }
 
 .contract-detail-value {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: #202020;
@@ -111,7 +111,7 @@
 }
 
 .contractual-data-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
     color: #202020;
@@ -145,10 +145,10 @@
 }
 
 .contractual-data-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #7A34F3;
+    color: #613EFF;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -171,7 +171,7 @@
 }
 
 .contractual-data-value {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: #202020;
@@ -179,7 +179,7 @@
 }
 
 .info-note {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     color: #202020;
@@ -229,7 +229,7 @@
 }
 
 .budgetary-indicators-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
     color: #202020;
@@ -238,7 +238,7 @@
 }
 
 .subsection-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -275,7 +275,7 @@
 }
 
 .indicator-card-purple {
-    background: #FFF2FE;
+    background: #F2F1F6;
 }
 
 .indicator-card-orange {
@@ -283,7 +283,7 @@
 }
 
 .indicator-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
@@ -303,7 +303,7 @@
 }
 
 .indicator-value {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: #202020;
@@ -350,7 +350,7 @@
 }
 
 .budgetary-history-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
     color: #202020;
@@ -359,7 +359,7 @@
 }
 
 .budgetary-history-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1.25rem;
     font-weight: 500;
     color: #202020;
@@ -368,7 +368,7 @@
 }
 
 .budgetary-history-description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1rem;
     color: #202020;
     margin-bottom: 1rem;
@@ -391,17 +391,17 @@
 }
 
 .chart-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #66308F;
+    color: #0A005A;
     margin-bottom: 0.5rem;
 }
 
 .chart-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.875rem;
-    color: #66308F;
+    color: #0A005A;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -454,7 +454,7 @@
 }
 
 .legend-text {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     color: #202020;

@@ -1,7 +1,7 @@
 /* Seção Principais Parceiros */
 
 .partners-section {
-    background-color: #f7f7f7;
+    background-color: #F2F1F6;
     padding: 7.5rem 0;
     position: relative;
 }
@@ -14,10 +14,10 @@
 
 /* Título */
 .partners-title {
-    color: #7A34F3;
+    color: #613EFF;
     font-size: 2.25rem;
     font-weight: 600;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     margin-bottom: 3rem;
 }
 

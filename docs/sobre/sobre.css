@@ -4,7 +4,7 @@
 
 /* Estilos base */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     line-height: 1.6;
     color: #333;
     margin: 0;
@@ -15,7 +15,7 @@ body {
 
 /* Content Section */
 .content-section {
-    background-color: #F7F7F7;
+    background-color: #F2F1F6;
     padding: 6rem 0;
 }
 
@@ -95,7 +95,7 @@ body {
 
 /* Mission & Vision Section */
 .mission-vision-section {
-    background-color: #F7F7F7;
+    background-color: #F2F1F6;
     padding: 6rem 0;
 }
 
@@ -106,12 +106,12 @@ body {
 }
 
 .mission-vision-section .vision-title {
-    color: #7A34F3;
+    color: #613EFF;
     font-size: 2.25rem;
     font-weight: 600;
     margin-bottom: 2rem;
     text-align: left;
-    text-shadow: 0 0 20px rgba(122, 52, 243, 0.1);
+    text-shadow: 0 0 20px rgba(97, 62, 255, 0.1);
 }
 
 .values-title {
@@ -164,12 +164,12 @@ body {
 }
 
 .features-title {
-    color: #7A34F3;
+    color: #613EFF;
     font-size: 2.25rem;
     font-weight: 600;
     margin: 0;
     text-align: left;
-    text-shadow: 0 0 20px rgba(122, 52, 243, 0.3);
+    text-shadow: 0 0 20px rgba(97, 62, 255, 0.3);
     white-space: nowrap;
 }
 
@@ -204,7 +204,7 @@ body {
 
 /* Technologies Section */
 .technologies-section {
-    background-color: #F7F7F7;
+    background-color: #F2F1F6;
     padding: 6rem 0;
 }
 
@@ -254,13 +254,13 @@ body {
 .tech-name {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #7A34F3;
+    color: #613EFF;
     text-transform: uppercase;
     text-decoration: none;
 }
 
 .arrow {
-    color: #7A34F3;
+    color: #613EFF;
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -272,7 +272,7 @@ body {
 }
 
 .how-to-use-content h2 {
-    color: #7A34F3;
+    color: #613EFF;
     font-size: 2.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -330,7 +330,7 @@ body {
 }
 
 .how-to-use-link {
-    color: #7A34F3;
+    color: #613EFF;
     font-size: 0.875rem;
     font-weight: 500;
     text-decoration: none;

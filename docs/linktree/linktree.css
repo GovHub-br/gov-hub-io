@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,11 +7,10 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     /* Purple gradient theme using GovHub's IDV */
     background: 
-        radial-gradient(circle at 10% 20%, rgba(255, 193, 7, 0.25) 0%, transparent 50%),
-        linear-gradient(135deg, #4c1d95 0%, #7A34F3 50%, #8b5cf6 100%);
+        #0A005A;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -24,12 +23,12 @@ body {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(124, 58, 237, 0.15); /* Purple tint border */
+    border: 1px solid rgba(97, 62, 255, 0.15); /* Purple tint border */
     border-radius: 20px;
     width: 100%;
     max-width: 420px;
     padding: 2rem;
-    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.08);
+    box-shadow: 0 8px 32px rgba(97, 62, 255, 0.08);
     animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -49,10 +48,10 @@ body {
     width: 64px;
     height: 64px;
     border-radius: 14px;
-    background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%);
+    background: #613EFF;
     padding: 4px;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 4px 12px rgba(97, 62, 255, 0.2);
 }
 
 .avatar img {
@@ -66,7 +65,7 @@ body {
 .title-container h1 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #7A34F3;
+    color: #613EFF;
     letter-spacing: -0.025em;
     margin-bottom: 4px;
     text-transform: uppercase;
@@ -90,7 +89,7 @@ body {
 .section-title {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #7A34F3;
+    color: #613EFF;
     letter-spacing: 1px;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -129,8 +128,8 @@ body {
     align-items: center;
     background: #ffffff;
     border: 1px solid #e5e7eb;
-    /* Linha lateral inspirada no menu mobile da IDV (.md-nav--primary ... border-left: 4px solid #7A34F3) */
-    border-left: 4px solid #7A34F3;
+    /* Linha lateral inspirada no menu mobile da IDV (.md-nav--primary ... border-left: 4px solid #613EFF) */
+    border-left: 4px solid #613EFF;
     padding: 12px 16px;
     border-radius: 14px;
     text-decoration: none;
@@ -139,16 +138,16 @@ body {
 }
 
 .link-item:hover {
-    background: rgba(124, 58, 237, 0.05);
-    border-color: rgba(124, 58, 237, 0.3);
-    border-left-color: #8b5cf6;
+    background: rgba(97, 62, 255, 0.05);
+    border-color: rgba(97, 62, 255, 0.3);
+    border-left-color: #613EFF;
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.12);
+    box-shadow: 0 4px 16px rgba(97, 62, 255, 0.12);
 }
 
 /* Card em Destaque */
 .link-item.featured {
-    background: linear-gradient(135deg, #7A34F3 0%, #8b5cf6 100%);
+    background: #613EFF;
     color: #ffffff;
     border: none;
     padding-left: 20px; /* Compensa a falta da borda esquerda pra manter alinhamento */
@@ -160,7 +159,7 @@ body {
 }
 
 .link-item.featured:hover {
-    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+    box-shadow: 0 8px 20px rgba(97, 62, 255, 0.3);
     border: none;
 }
 
@@ -178,7 +177,7 @@ body {
 /* Cores padroes de icones */
 .bg-github { background: #24292e; color: #fff;}
 .bg-web { background: #10b981; color: #fff; } /* Green like the standard feature icon */
-.bg-project { background: #f3f4f6; color: #4b5563; }
+.bg-project { background: #F2F1F6; color: #4b5563; }
 
 .link-item.featured .bg-docs {
     background: rgba(255,255,255,0.2);
@@ -226,7 +225,7 @@ body {
 
 .link-item:hover .link-arrow {
     transform: translateX(4px) translateY(-4px);
-    stroke: #7A34F3;
+    stroke: #613EFF;
 }
 
 .link-item.featured:hover .link-arrow {
@@ -235,7 +234,7 @@ body {
 
 .divider {
     height: 1px;
-    background: rgba(124, 58, 237, 0.1);
+    background: rgba(97, 62, 255, 0.1);
     margin: 16px 0 24px 0;
 }
 
@@ -248,13 +247,13 @@ body {
 
 /* Tags the follow the highlight logic of the GovHub features */
 .tag {
-    background: rgba(124, 58, 237, 0.08);
-    border: 1px solid rgba(124, 58, 237, 0.15);
+    background: rgba(97, 62, 255, 0.08);
+    border: 1px solid rgba(97, 62, 255, 0.15);
     border-radius: 20px;
     padding: 6px 12px;
     font-size: 0.72rem;
     font-weight: 500;
-    color: #7A34F3;
+    color: #613EFF;
     transition: all 0.3s ease;
     cursor: default;
 }

@@ -19,10 +19,10 @@ header.fixed {
 
 /* Variáveis CSS locais para a navbar */
 :root {
-    --primary-purple: #7A34F3;
-    --secondary-purple: #8b5cf6;
-    --accent-orange: #f97316;
-    --accent-orange-hover: #ea580c;
+    --primary-purple: #613EFF;
+    --secondary-purple: #613EFF;
+    --accent-orange: #BE006E; /* acento sóbrio (era laranja) */
+    --accent-orange-hover: #9E005B;
     --text-white: #ffffff;
     --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@ header {
 
 /* Navbar principal */
 .custom-navbar {
-    background: #7A34F3 !important;
+    background: #613EFF !important;
     height: 60px !important;
     position: relative !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
@@ -129,7 +129,7 @@ header .nav-link {
 }
 
 header .nav-link:hover {
-    background: #F19F42 !important;
+    background: rgba(255, 255, 255, 0.14) !important;
     transform: translateY(-2px) !important;
     color: #ffffff !important;
 }
@@ -176,8 +176,8 @@ header .nav-link:hover {
 
 /* Estilos para página ativa na navbar */
 header .nav-link.active {
-    background: #F19F42 !important;
-    color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0A005A !important;
     border-radius: 8px !important;
     padding: 0.5rem 1rem !important;
     font-weight: 600 !important;
@@ -189,8 +189,8 @@ header .nav-link.active:hover {
 
 /* Estilos para página ativa no menu mobile */
 .mobile-menu li a.active {
-    background: #F19F42 !important;
-    color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0A005A !important;
     border-radius: 8px !important;
     padding: 0.75rem 1rem !important;
     font-weight: 600 !important;
@@ -263,7 +263,7 @@ header .nav-link.active:hover {
     top: -100vh !important;
     left: 0 !important;
     right: 0 !important;
-    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%) !important;
+    background: var(--primary-purple) !important;
     box-shadow: var(--shadow-lg) !important;
     z-index: 9998 !important;
     transition: top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
@@ -519,7 +519,7 @@ header .nav-link.active:hover {
         top: 100%;
         left: 0;
         right: 0;
-        background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+        background: var(--primary-purple);
         box-shadow: var(--shadow-lg);
         z-index: 1000;
         border-top: 1px solid rgba(255, 255, 255, 0.1);

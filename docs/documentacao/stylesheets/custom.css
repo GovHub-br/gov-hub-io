@@ -2,48 +2,49 @@
 /* Matching visual identity from gov-hub.io */
 
 :root {
-  --md-primary-fg-color: #7b2ff7;
-  --md-primary-fg-color--light: #9b68fa;
-  --md-primary-fg-color--dark: #6020c8;
-  --md-accent-fg-color: #7b2ff7;
-  --govhub-purple-50: #f7f2ff;
-  --govhub-purple-100: #eee5ff;
-  --govhub-purple-200: #ddccff;
-  --govhub-purple-300: #bd9aff;
-  --govhub-purple-600: #8b45f7;
-  --govhub-purple-700: #7b2ff7;
-  --govhub-purple-800: #6724d4;
-  --govhub-purple-900: #541cab;
-  --govhub-ink: #2d1457;
-  --govhub-border: #d8c5ff;
+  /* Identidade visual Gov Hub, modo sóbrio: roxo #613EFF, navy #0A005A, claro #F2F1F6 */
+  --md-primary-fg-color: #613EFF;
+  --md-primary-fg-color--light: #5235D9;
+  --md-primary-fg-color--dark: #3F28A6;
+  --md-accent-fg-color: #5235D9;
+  --md-typeset-a-color: #3F28A6;
+  --md-footer-bg-color: #0A005A;
+  --md-footer-bg-color--dark: #07003F;
+  --govhub-purple-50: #F2F1F6;
+  --govhub-purple-100: #E9DFFF;
+  --govhub-purple-200: #E9DFFF;
+  --govhub-purple-300: #B9ABFF;
+  --govhub-purple-600: #613EFF;
+  --govhub-purple-700: #3F28A6;
+  --govhub-purple-800: #3F28A6;
+  --govhub-purple-900: #0A005A;
+  --govhub-ink: #0A005A;
+  --govhub-border: #E9DFFF;
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #7b2ff7;
-  --md-primary-fg-color--light: #a77bfa;
-  --md-primary-fg-color--dark: #6020c8;
-  --md-accent-fg-color: #a77bfa;
-  --govhub-purple-50: #211337;
-  --govhub-purple-100: #2f1854;
-  --govhub-purple-200: #4a155d;
-  --govhub-purple-300: #7b1fa2;
-  --govhub-purple-600: #ba68c8;
-  --govhub-purple-700: #ce93d8;
-  --govhub-purple-800: #e1bee7;
-  --govhub-purple-900: #ede9fe;
-  --govhub-ink: #f5f3ff;
-  --govhub-border: #7b1fa2;
+  --md-hue: 247;
+  --md-default-bg-color: #0A005A;
+  --md-primary-fg-color: #613EFF;
+  --md-primary-fg-color--light: #B9ABFF;
+  --md-primary-fg-color--dark: #3F28A6;
+  --md-accent-fg-color: #B9ABFF;
+  --md-typeset-a-color: #B9ABFF;
+  --md-footer-bg-color: #07003F;
+  --md-footer-bg-color--dark: #050030;
+  --govhub-purple-50: #150A6B;
+  --govhub-purple-100: #1E1280;
+  --govhub-purple-200: #2A1A9A;
+  --govhub-purple-300: #613EFF;
+  --govhub-purple-600: #B9ABFF;
+  --govhub-purple-700: #D9D4FF;
+  --govhub-purple-800: #E9DFFF;
+  --govhub-purple-900: #F2F1F6;
+  --govhub-ink: #FFFFFF;
+  --govhub-border: #2A1A9A;
 }
 
-[data-md-color-primary="purple"] {
-  --md-primary-fg-color: #7b2ff7;
-  --md-primary-fg-color--light: #9b68fa;
-  --md-primary-fg-color--dark: #6020c8;
-}
-
-[data-md-color-accent="purple"] {
-  --md-accent-fg-color: #7b2ff7;
-}
+.md-typeset h1, .md-typeset h2, .md-typeset h3 { font-weight: 800; letter-spacing: -0.025em; }
 
 /* Typography */
 body {
@@ -53,8 +54,8 @@ body {
 
 /* Header */
 .md-header {
-  background-color: #7b2ff7 !important;
-  box-shadow: 0 2px 14px rgba(96, 32, 200, 0.24);
+  background-color: #613EFF !important;
+  box-shadow: 0 2px 14px rgba(97, 62, 255, 0.24);
 }
 
 .md-header__button.md-logo {
@@ -97,7 +98,7 @@ body {
 
 /* Navigation tabs */
 .md-tabs {
-  background-color: #7b2ff7 !important;
+  background-color: #613EFF !important;
 }
 
 .md-tabs__link {
@@ -185,11 +186,11 @@ body {
   border: 1px solid var(--govhub-purple-200);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 26px rgba(123, 47, 247, 0.08);
+  box-shadow: 0 10px 26px rgba(97, 62, 255, 0.08);
 }
 
 .md-typeset table:not([class]) th {
-  background-color: #7b2ff7 !important;
+  background-color: #613EFF !important;
   color: #ffffff !important;
   font-weight: 700;
 }
@@ -207,7 +208,7 @@ body {
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
-  background-color: #6020c8 !important;
+  background-color: #5235D9 !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) {
@@ -219,11 +220,11 @@ body {
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) td {
-  background-color: rgba(123, 47, 247, 0.08);
+  background-color: rgba(97, 62, 255, 0.08);
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover td {
-  background-color: rgba(123, 47, 247, 0.14);
+  background-color: rgba(97, 62, 255, 0.14);
 }
 
 .md-typeset code:not(.highlight code) {
@@ -240,7 +241,7 @@ body {
 .md-typeset .admonition,
 .md-typeset details {
   border-color: var(--govhub-purple-200);
-  box-shadow: 0 8px 22px rgba(123, 47, 247, 0.06);
+  box-shadow: 0 8px 22px rgba(97, 62, 255, 0.06);
 }
 
 /* Mermaid diagrams */
@@ -254,8 +255,8 @@ body {
   overflow-x: auto;
   border: 1px solid var(--govhub-border);
   border-radius: 8px;
-  background: linear-gradient(180deg, #ffffff 0%, var(--govhub-purple-50) 100%);
-  box-shadow: 0 14px 34px rgba(76, 29, 149, 0.1);
+  background: var(--govhub-purple-50);
+  box-shadow: 0 14px 34px rgba(10, 0, 90, 0.10);
 }
 
 .mermaid svg {
@@ -291,7 +292,7 @@ body {
 .mermaid .titleText {
   color: var(--govhub-ink) !important;
   fill: var(--govhub-ink) !important;
-  font-family: Inter, system-ui, sans-serif !important;
+  font-family: 'Reddit Sans', system-ui, sans-serif !important;
   font-weight: 600 !important;
 }
 
@@ -340,7 +341,7 @@ body {
 }
 
 [data-md-color-scheme="slate"] .mermaid {
-  background: linear-gradient(180deg, #1b1229 0%, #25143d 100%);
+  background: #150A6B;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
 }
 

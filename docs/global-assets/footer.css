@@ -3,10 +3,10 @@
    ============================== */
 
 .footer {
-    background: #7A34F3;
+    background: #0A005A;
     color: #fff;
     padding: 6rem 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Reddit Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Header Section - Initiative and Support text */

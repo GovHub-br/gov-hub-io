@@ -1,9 +1,9 @@
 /* Seção de publicações em Destaque */
 
 .publications-section {
-    background-color: #f8f9fa;
+    background-color: #F2F1F6;
     padding: 6.25rem 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Reddit Sans', sans-serif;
     position: relative;
     z-index: 10;
 }
@@ -17,7 +17,7 @@
 .publications-title {
     font-size: 2.25rem;
     font-weight: 600;
-    color: #7A34F3;
+    color: #613EFF;
     margin-bottom: 1rem;
     text-align: left;
 }
@@ -78,7 +78,7 @@
     position: absolute;
     bottom: 12px;
     left: 12px;
-    background: #7A34F3;
+    background: #613EFF;
     color: white;
     padding: 4px 12px;
     border-radius: 20px;
@@ -97,7 +97,7 @@
 .publication-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #7A34F3;
+    color: #613EFF;
     margin-bottom: 0.75rem;
     line-height: 1.3;
 }
@@ -114,7 +114,7 @@
     position: absolute;
     bottom: 1.5rem;
     right: 1.5rem;
-    color: #9249CA;
+    color: #613EFF;
     font-size: 1.2rem;
     font-weight: bold;
     transition: transform 0.3s ease;
@@ -131,7 +131,7 @@
 
 .publications-button {
     display: inline-block;
-    background: #9249CA;
+    background: #613EFF;
     color: white;
     padding: 1rem 2rem;
     border-radius: 8px;

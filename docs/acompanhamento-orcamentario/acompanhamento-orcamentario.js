@@ -263,11 +263,11 @@ function initializeCharts(historico = DEFAULT_HISTORICO) {
             createDataset(
                 'SUM (coalesce(siafi_valor_pago, 0))',
                 tesouroGerencialData,
-                '#66308F',
+                '#0A005A',
                 'rgba(102, 48, 143, 0.1)'
             )
         ],
-        '#66308F',
+        '#0A005A',
         baseOptions
     );
 

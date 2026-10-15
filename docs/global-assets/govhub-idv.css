@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Identidade visual Gov Hub, modo sóbrio (2026-09-30).
+   Carregado por último em todas as páginas: tokens da skill
+   govhub-visual-identity (references/tokens.css) e os ajustes que trocam
+   gradientes, brilhos e contornos pelas formas oficiais sólidas.
+   Paleta: roxo #613EFF (assinatura), navy #0A005A, claro #F2F1F6,
+   #BE006E só em detalhe. Reddit Sans em tudo.
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+    --primary-purple: #613EFF;
+    --dark-navy: #0A005A;
+    --bg-soft: #F2F1F6;
+    --accent-rose: #BE006E;
+    --purple-600: #5235D9;
+    --purple-700: #3F28A6;
+    --text-strong: #202020;
+    --text-body: #2D3748;
+    --text-on-navy: #D9D4FF;
+    --border-soft: #E9DFFF;
+    --font-family-base: 'Reddit Sans', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Bootstrap 5 */
+    --bs-body-font-family: var(--font-family-base);
+    --bs-primary: #613EFF;
+    --bs-primary-rgb: 97, 62, 255;
+    --bs-link-color: #3F28A6;
+    --bs-link-color-rgb: 63, 40, 166;
+    --bs-link-hover-color: #5235D9;
+
+    /* Formas oficiais (SVG sólidos da paleta) */
+    --gh-quarto-roxo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23613EFF' d='M100 0H0a100 100 0 0 0 100 100z'/%3E%3C/svg%3E");
+    --gh-anel-claro: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23F2F1F6' fill-rule='evenodd' d='M50 0a50 50 0 1 0 0 100a50 50 0 1 0 0-100zM50 25.6a24.4 24.4 0 1 1 0 48.8a24.4 24.4 0 1 1 0-48.8z'/%3E%3C/svg%3E");
+    --gh-ponto-rosa: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23BE006E'/%3E%3C/svg%3E");
+}
+
+body,
+button, input, select, textarea,
+h1, h2, h3, h4, h5, h6, p, a, li, span, small, label, th, td {
+    font-family: var(--font-family-base);
+}
+code, pre, kbd, samp { font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+body { -webkit-font-smoothing: antialiased; }
+
+/* Chamadas: Reddit Sans 800, caixa alta e baixa */
+h1, h2, h3 { letter-spacing: -0.025em; }
+
+/* Brilhos desfocados atrás de letras e imagens: fora (formas são sempre sólidas) */
+.blur-letter > span,
+.govhub-image-container::before,
+.govhub-image-container::after,
+.glow-circle-3 { display: none !important; }
+
+/* ---------- Banner das páginas internas: navy + formas oficiais ---------- */
+.hero-section {
+    background: var(--gh-quarto-roxo) right top / auto 100% no-repeat,
+                var(--gh-anel-claro) right 30vw bottom -70px / 170px no-repeat,
+                var(--gh-ponto-rosa) right 38vw top 34% / 22px no-repeat,
+                var(--dark-navy) !important;
+}
+.hero-section h1 { font-weight: 800 !important; letter-spacing: -0.025em; }
+.hero-section .animated-circles { display: none !important; }
+@media (max-width: 768px) {
+    .hero-section {
+        background: var(--gh-quarto-roxo) right top / auto 70% no-repeat,
+                    var(--gh-anel-claro) right 6vw bottom -50px / 110px no-repeat,
+                    var(--dark-navy) !important;
+    }
+}
+
+/* ---------- Hero da home: navy + formas, cartão claro ---------- */
+.interactive-section {
+    background: var(--gh-quarto-roxo) right top / auto 72% no-repeat,
+                var(--gh-anel-claro) left 4vw bottom -90px / 220px no-repeat,
+                var(--dark-navy) !important;
+}
+.interactive-bg { display: none !important; }
+.glass-container {
+    background: var(--bg-soft) !important;
+    backdrop-filter: none !important;
+    box-shadow: 0 8px 30px rgba(10, 0, 90, 0.16);
+}
+.glass-title { color: var(--dark-navy) !important; font-weight: 800 !important; }
+.hero-mobile,
+.hero-mobile-bg {
+    background: var(--dark-navy) !important;
+    opacity: 1 !important;
+}
+
+/* ---------- Logo oficial (horizontal branca): proporção 4,3:1 ---------- */
+.logo-img,
+a.logo img {
+    height: 30px !important;
+    max-height: 30px !important;
+    width: auto !important;
+}
+@media (max-width: 480px) {
+    .logo-img, a.logo img { height: 26px !important; max-height: 26px !important; }
+}
+
+/* ---------- Rodapé navy ---------- */
+.footer { background: var(--dark-navy) !important; }
+
+/* Foco visível (WCAG 2.4.7) */
+:focus-visible { outline: 3px solid var(--purple-700); outline-offset: 2px; }
+header :focus-visible, .hero-section :focus-visible, .interactive-section :focus-visible, .footer :focus-visible { outline-color: #fff; }
