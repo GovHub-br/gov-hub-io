@@ -39,3 +39,7 @@
 
 /* o realce de sintaxe embrulha cada palavra num span, e o govhub-idv.css dá Reddit Sans a todo span */
 .gh-post .post-body pre *,.gh-post .post-body code *{font-family:inherit}
+/* figuras (diagramas): ocupam a largura do conteúdo, não só a coluna de texto; clicáveis para o tamanho original */
+.gh-post .post-body p:has(> a > img), .gh-post .post-body p:has(> img){width:min(1116px, calc(100vw - 48px));max-width:none;margin:28px 0 8px}
+.gh-post .post-body p:has(> a > img) img{display:block;width:100%;background:#fff;border-radius:16px}
+.gh-post .post-body p:has(> a > img) + p > em:only-child{display:block;font-style:normal;font-size:14px;color:var(--muted,#5A5670);margin-bottom:28px}
