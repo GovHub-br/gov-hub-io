@@ -17,7 +17,7 @@ Como uma necessidade dentro de um órgão público vira compra. O fluxo operacio
 <!-- Guia interativo (lupas com rolagem, explorador e glossário). Estilo e script em
      docs/global-assets/fluxo-compras/ (IDV do Gov Hub). -->
 <div class="fc">
-<link rel="stylesheet" href="/govhub/global-assets/fluxo-compras/fluxo.css?v=20261016b">
+<link rel="stylesheet" href="/govhub/global-assets/fluxo-compras/fluxo.css?v=20261016c">
 
 <div class="fc-intro wrap">
   <svg class="hero-mark" viewBox="0 0 560 44" aria-hidden="true">
@@ -52,9 +52,16 @@ Como uma necessidade dentro de um órgão público vira compra. O fluxo operacio
 <section class="wrap scrolly" id="lupas" aria-label="O fluxo bloco a bloco">
   <div class="stage-wrap">
     <div class="stage">
-      <svg class="dg" id="stageSvg" role="img" aria-label="Fluxo da política de compras públicas, em duas raias: fornecedor e órgão público"></svg>
+      <svg class="dg interactive" id="stageSvg" role="group" aria-label="Fluxo da política de compras públicas, em duas raias: fornecedor e órgão público; cada etapa é um botão"></svg>
       <div class="stage-cap" id="stageCap">Visão geral</div>
       <div class="minimap" aria-hidden="true"><svg class="dg mini" id="miniSvg"></svg></div>
+      <div class="pz" role="group" aria-label="Navegar no desenho">
+        <button type="button" class="pz-b" id="stOut" aria-label="Afastar">−</button>
+        <button type="button" class="pz-b" id="stIn" aria-label="Aproximar">+</button>
+        <button type="button" class="pz-b pz-reset" id="stReset" hidden>Voltar à lupa</button>
+      </div>
+      <p class="pz-dica" aria-hidden="true">Arraste para mover · Ctrl + rolagem para zoom · toque numa etapa</p>
+      <aside class="stage-card" id="stageCard" aria-live="polite" hidden></aside>
     </div>
   </div>
 
@@ -222,8 +229,10 @@ Como uma necessidade dentro de um órgão público vira compra. O fluxo operacio
         <button type="button" id="mConc" aria-pressed="false">Conceitos</button>
       </div>
       <div class="zoom" role="group" aria-label="Tamanho do desenho"><span>Desenho:</span>
-        <button type="button" id="zIn" aria-pressed="true">Ampliado</button>
-        <button type="button" id="zFit" aria-pressed="false">Inteiro</button>
+        <button type="button" id="zOut" aria-label="Afastar">−</button>
+        <button type="button" id="zIn" aria-label="Aproximar">+</button>
+        <button type="button" id="zFit">Inteiro</button>
+        <span class="pz-dica-ex">arraste para mover · Ctrl + rolagem para zoom</span>
       </div>
     </div>
     <div class="ex-panel" id="exPanel"></div>
@@ -256,5 +265,5 @@ Como uma necessidade dentro de um órgão público vira compra. O fluxo operacio
 </section>
 <footer class="wrap">Guia de leitura do fluxo da política de compras públicas · versão interativa</footer>
 
-<script src="/govhub/global-assets/fluxo-compras/fluxo.js?v=20261016b"></script>
+<script src="/govhub/global-assets/fluxo-compras/fluxo.js?v=20261016c"></script>
 </div>

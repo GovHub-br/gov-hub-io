@@ -241,6 +241,87 @@ function animateView(R, to){
   R.raf = requestAnimationFrame(step);
 }
 
+/* ---------- ARRASTAR E ZOOM (viewBox) ----------
+   Mouse: arrastar move; Ctrl + rodinha (ou pinça no trackpad) aproxima em torno do cursor.
+   Toque: dois dedos movem e aproximam; um dedo continua rolando a página (as lupas dependem dela).
+   A rodinha sozinha não é capturada, para não travar a rolagem da página. */
+function panZoom(R, {onUser} = {}){
+  const svg = R.svg, pts = new Map();
+  let drag = null, pinch = null, moved = false;
+  svg.classList.add('pz-on');
+  const box = () => svg.getBoundingClientRect();
+  function escala(){ const r = box(); return Math.min(r.width / R.vb[2], r.height / R.vb[3]); }
+  function paraSvg(cx, cy){
+    const r = box(), s = escala(), [x, y, w, h] = R.vb;
+    return [x + (cx - r.left - (r.width - w*s)/2) / s, y + (cy - r.top - (r.height - h*s)/2) / s];
+  }
+  function limitar([x, y, w, h]){
+    const ar = h / w;
+    w = Math.max(220, Math.min(W * 1.25, w)); h = w * ar;
+    x = Math.max(-w * .6, Math.min(W - w * .4, x));
+    y = Math.max(-h * .6, Math.min(H - h * .4, y));
+    return [x, y, w, h];
+  }
+  function usuario(){ if (onUser) onUser(); }
+  function zoom(f, cx, cy){
+    cancelAnimationFrame(R.raf);
+    const [x, y, w, h] = R.vb;
+    const [px, py] = cx == null ? [x + w/2, y + h/2] : paraSvg(cx, cy);
+    setView(R, limitar([px - (px - x)/f, py - (py - y)/f, w/f, h/f]));
+    usuario();
+  }
+  svg.addEventListener('wheel', e => {
+    if (!(e.ctrlKey || e.metaKey)) return;
+    e.preventDefault();
+    zoom(Math.exp(-e.deltaY * 0.0025), e.clientX, e.clientY);
+  }, {passive: false});
+  function centroDist(){
+    const [a, b] = [...pts.values()];
+    return {cx: (a.x + b.x)/2, cy: (a.y + b.y)/2, d: Math.hypot(a.x - b.x, a.y - b.y)};
+  }
+  svg.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    pts.set(e.pointerId, {x: e.clientX, y: e.clientY});
+    moved = false;
+    if (e.pointerType === 'mouse') drag = {x: e.clientX, y: e.clientY, vb: R.vb.slice()};
+    if (pts.size === 2) { pinch = centroDist(); drag = null; }
+  });
+  svg.addEventListener('pointermove', e => {
+    if (!pts.has(e.pointerId)) return;
+    pts.set(e.pointerId, {x: e.clientX, y: e.clientY});
+    if (pinch && pts.size >= 2) {
+      const c = centroDist(), s = escala();
+      cancelAnimationFrame(R.raf);
+      const [x, y, w, h] = R.vb;
+      setView(R, limitar([x - (c.cx - pinch.cx)/s, y - (c.cy - pinch.cy)/s, w, h]));
+      if (pinch.d > 0) zoom(c.d / pinch.d, c.cx, c.cy);
+      pinch = c; moved = true; usuario();
+      return;
+    }
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!moved && Math.hypot(dx, dy) < 5) return;
+    if (!moved) { moved = true; svg.setPointerCapture(e.pointerId); svg.classList.add('arrastando'); cancelAnimationFrame(R.raf); }
+    const s = escala();
+    setView(R, limitar([drag.vb[0] - dx/s, drag.vb[1] - dy/s, drag.vb[2], drag.vb[3]]));
+    usuario();
+  });
+  function soltar(e){
+    pts.delete(e.pointerId);
+    if (pts.size < 2) pinch = null;
+    if (!pts.size) { drag = null; svg.classList.remove('arrastando'); }
+  }
+  svg.addEventListener('pointerup', soltar);
+  svg.addEventListener('pointercancel', soltar);
+  // um arrasto não vira clique na etapa onde o mouse foi solto
+  svg.addEventListener('click', e => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
+  return {zoom};
+}
+function centrarEm(R, id){
+  const [, , w, h] = R.vb;
+  animateView(R, [N[id].x - w/2, N[id].y - h/2, w, h]);
+}
+
 const lupaNodes = n => ALL.filter(id => N[id].lupa === n);
 const PNCP = ALL.filter(id => (N[id].tags||[]).includes('PNCP'));
 const VIEWS = {
@@ -260,15 +341,45 @@ const FOCI = {
 };
 
 /* ---------- PALCO (SCROLLY) ---------- */
-const stage = render(document.getElementById('stageSvg'), {pfx:'st'});
+const stage = render(document.getElementById('stageSvg'), {pfx:'st', interactive:true});
 const mini = render(document.getElementById('miniSvg'), {pfx:'mn', mini:true});
 const vp = mk('rect', {class:'vp', x:0,y:0,width:W,height:H}, mini.svg);
 stage.onView = v => { vp.setAttribute('x',v[0]); vp.setAttribute('y',v[1]); vp.setAttribute('width',v[2]); vp.setAttribute('height',v[3]); };
 const cap = document.getElementById('stageCap');
 const steps = [...document.querySelectorAll('.step')];
 let active = -1;
+const stCard = document.getElementById('stageCard'), stReset = document.getElementById('stReset');
+let stSel = null;
+function fecharCardPalco(){
+  stCard.hidden = true; stCard.innerHTML = '';
+  if (stSel) { stage.nodes[stSel].classList.remove('sel'); stSel = null; }
+}
+const stagePZ = panZoom(stage, {onUser: () => { stReset.hidden = false; }});
+document.getElementById('stIn').onclick = () => stagePZ.zoom(1.4);
+document.getElementById('stOut').onclick = () => stagePZ.zoom(1/1.4);
+stReset.onclick = () => {
+  const s = steps[active];
+  animateView(stage, VIEWS[s.dataset.view] || VIEWS.all);
+  stReset.hidden = true;
+};
+function abrirCardPalco(id){
+  if (stSel) stage.nodes[stSel].classList.remove('sel');
+  stSel = id; stage.nodes[id].classList.add('sel');
+  stCard.innerHTML = `<button type="button" class="stage-card-fechar" aria-label="Fechar detalhes">×</button>` + detalheHTML(id);
+  stCard.hidden = false;
+  stCard.querySelector('.stage-card-fechar').onclick = fecharCardPalco;
+}
+stage.svg.addEventListener('click', e => { const g = e.target.closest('.node'); if (g) abrirCardPalco(g.dataset.id); });
+stage.svg.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const g = e.target.closest('.node'); if (!g) return;
+  e.preventDefault(); abrirCardPalco(g.dataset.id);
+});
+addEventListener('keydown', e => { if (e.key === 'Escape' && !stCard.hidden) fecharCardPalco(); });
 function activate(i){
   if (i === active) return; active = i;
+  // nova lupa: volta ao enquadramento dela e fecha o card
+  fecharCardPalco(); stReset.hidden = true;
   steps.forEach((s,j)=>s.classList.toggle('active', j===i));
   const s = steps[i], f = FOCI[s.dataset.focus];
   focus(stage, f ? f[0] : null, f ? f[1] : {});
@@ -369,7 +480,7 @@ const detail = document.getElementById('detail');
 function emptyDetail(){
   detail.innerHTML = `<p class="kicker">Etapa</p><p class="empty">Toque em qualquer forma do desenho para ver <b>o que acontece</b>, <b>quem faz</b> e os <b>termos</b> ligados a ela.</p><p class="empty">As etiquetas em rosa-escuro e rosa-claro indicam o sistema em que a etapa é registrada.</p>`;
 }
-function showDetail(id){
+function detalheHTML(id){
   const n = N[id], d = D[id] || {p:[]}, [tn, tc] = TYPE[n.t];
   const title = n.title || n.label.replace(/\n/g,' ');
   const tags = (n.tags||[]).map(t=>`<span class="sys${t==='PNCP'?'':' p'}">${t}</span>`).join(' ');
@@ -383,8 +494,9 @@ function showDetail(id){
     else h += d.g.map(k=>`<div class="gloss"><span class="lbl">Glossário</span><b>${G[k].term}.</b> ${G[k].def}</div>`).join('');
   }
   h += `<p class="ui" style="font-size:13px;color:var(--muted);margin-top:14px">Lupa ${n.lupa} · ${LUPA[n.lupa]}</p>`;
-  detail.innerHTML = h;
+  return h;
 }
+function showDetail(id){ detail.innerHTML = detalheHTML(id); }
 
 /* ---------- CONCEITOS ---------- */
 const C = [
@@ -422,7 +534,7 @@ cWrap.addEventListener('click', e=>{
 
 /* ---------- EXPLORADOR ---------- */
 const exSvg = document.getElementById('exSvg');
-exSvg.dataset.par = 'xMinYMin meet';
+exSvg.dataset.par = 'xMidYMid meet';
 const ex = render(exSvg, {pfx:'ex', interactive:true});
 const canvas = document.getElementById('exCanvas');
 const panel = document.getElementById('exPanel');
@@ -486,10 +598,9 @@ panel.addEventListener('click', e=>{
 });
 
 function scrollToNode(id){
-  if (canvas.classList.contains('fit')) return;
-  const sc = exSvg.getBoundingClientRect().width / W;
-  const left = N[id].x*sc - canvas.clientWidth/2;
-  canvas.scrollTo({left: Math.max(0,left), behavior: reduce?'auto':'smooth'});
+  // com o desenho inteiro à vista não há o que centralizar
+  if (ex.vb[2] >= W * .98) return;
+  centrarEm(ex, id);
 }
 function select(id){
   if (selected) ex.nodes[selected].classList.remove('sel');
@@ -503,9 +614,12 @@ exSvg.addEventListener('keydown', e=>{
   const g = e.target.closest('.node'); if (!g) return;
   e.preventDefault(); select(g.dataset.id);
 });
-const zIn = document.getElementById('zIn'), zFit = document.getElementById('zFit');
-zIn.onclick = ()=>{ canvas.classList.remove('fit'); zIn.setAttribute('aria-pressed','true'); zFit.setAttribute('aria-pressed','false'); };
-zFit.onclick = ()=>{ canvas.classList.add('fit'); zFit.setAttribute('aria-pressed','true'); zIn.setAttribute('aria-pressed','false'); };
+const exPZ = panZoom(ex);
+document.getElementById('zIn').onclick = () => exPZ.zoom(1.4);
+document.getElementById('zOut').onclick = () => exPZ.zoom(1/1.4);
+document.getElementById('zFit').onclick = () => animateView(ex, [0, 0, W, H]);
+// começa aproximado no início do fluxo, como o antigo "Ampliado"
+setView(ex, [0, 120, W/2, H/2 * 1.25]);
 
 emptyDetail();
 setMode('path');
