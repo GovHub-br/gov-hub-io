@@ -1,5 +1,7 @@
 ---
 date: 2026-10-16
+# Escondida por enquanto: rascunho não entra no build (nem nos cards de Publicações e da home).
+draft: true
 categories:
   - Políticas públicas
   - Compras públicas

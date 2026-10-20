@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" width="720" height="260" role="img" aria-labelledby="t d">
+  <title id="t">Quando tudo se destaca, nada se destaca</title>
+  <desc id="d">Três painéis com os mesmos doze indicadores. No primeiro, todos têm o mesmo peso visual e é preciso procurar. No segundo, todos estão coloridos e a disputa por atenção continua. No terceiro, um único indicador recebe destaque e é encontrado de imediato.</desc>
+  <defs>
+    <style>
+      .rot{font:600 12.5px Reddit Sans,system-ui,sans-serif;fill:#202020}
+      .leg{font:11.5px Reddit Sans,system-ui,sans-serif;fill:#666666}
+    </style>
+  </defs>
+  <rect width="720" height="260" fill="#ffffff"/>
+
+  <!-- 1 · tudo igual -->
+  <text class="rot" x="24" y="24">Tudo com o mesmo peso</text>
+  <rect x="24" y="36" width="204" height="150" rx="8" fill="#fff" stroke="#E9DFFF"/>
+  <g fill="#E9DFFF">
+    <rect x="40" y="52" width="40" height="28" rx="4"/><rect x="88" y="52" width="40" height="28" rx="4"/>
+    <rect x="136" y="52" width="40" height="28" rx="4"/><rect x="184" y="52" width="28" height="28" rx="4"/>
+    <rect x="40" y="90" width="40" height="28" rx="4"/><rect x="88" y="90" width="40" height="28" rx="4"/>
+    <rect x="136" y="90" width="40" height="28" rx="4"/><rect x="184" y="90" width="28" height="28" rx="4"/>
+    <rect x="40" y="128" width="40" height="28" rx="4"/><rect x="88" y="128" width="40" height="28" rx="4"/>
+    <rect x="136" y="128" width="40" height="28" rx="4"/><rect x="184" y="128" width="28" height="28" rx="4"/>
+  </g>
+  <text class="leg" x="24" y="208">É preciso ler tudo</text>
+  <text class="leg" x="24" y="226">para achar o que importa.</text>
+
+  <!-- 2 · tudo colorido -->
+  <text class="rot" x="258" y="24">Tudo colorido</text>
+  <rect x="258" y="36" width="204" height="150" rx="8" fill="#fff" stroke="#E9DFFF"/>
+  <g>
+    <rect x="274" y="52" width="40" height="28" rx="4" fill="#C7200C"/><rect x="322" y="52" width="40" height="28" rx="4" fill="#168821"/>
+    <rect x="370" y="52" width="40" height="28" rx="4" fill="#F19F42"/><rect x="418" y="52" width="28" height="28" rx="4" fill="#1351B4"/>
+    <rect x="274" y="90" width="40" height="28" rx="4" fill="#0F7B8F"/><rect x="322" y="90" width="40" height="28" rx="4" fill="#A21CAF"/>
+    <rect x="370" y="90" width="40" height="28" rx="4" fill="#C7200C"/><rect x="418" y="90" width="28" height="28" rx="4" fill="#168821"/>
+    <rect x="274" y="128" width="40" height="28" rx="4" fill="#F19F42"/><rect x="322" y="128" width="40" height="28" rx="4" fill="#1351B4"/>
+    <rect x="370" y="128" width="40" height="28" rx="4" fill="#A21CAF"/><rect x="418" y="128" width="28" height="28" rx="4" fill="#0F7B8F"/>
+  </g>
+  <text class="leg" x="258" y="208">Doze destaques competindo:</text>
+  <text class="leg" x="258" y="226">o olhar continua sem rumo.</text>
+
+  <!-- 3 · um destaque -->
+  <text class="rot" x="492" y="24">Um destaque</text>
+  <rect x="492" y="36" width="204" height="150" rx="8" fill="#fff" stroke="#E9DFFF"/>
+  <g fill="#E9DFFF">
+    <rect x="508" y="52" width="40" height="28" rx="4"/><rect x="556" y="52" width="40" height="28" rx="4"/>
+    <rect x="604" y="52" width="40" height="28" rx="4"/><rect x="652" y="52" width="28" height="28" rx="4"/>
+    <rect x="508" y="90" width="40" height="28" rx="4"/>
+    <rect x="604" y="90" width="40" height="28" rx="4"/><rect x="652" y="90" width="28" height="28" rx="4"/>
+    <rect x="508" y="128" width="40" height="28" rx="4"/><rect x="556" y="128" width="40" height="28" rx="4"/>
+    <rect x="604" y="128" width="40" height="28" rx="4"/><rect x="652" y="128" width="28" height="28" rx="4"/>
+  </g>
+  <rect x="556" y="90" width="40" height="28" rx="4" fill="#BE006E"/>
+  <text class="leg" x="492" y="208">A exceção é encontrada</text>
+  <text class="leg" x="492" y="226">antes de qualquer leitura.</text>
+</svg>

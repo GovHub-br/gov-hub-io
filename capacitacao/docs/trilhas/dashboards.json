@@ -1,0 +1,337 @@
+{
+  "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
+  "slug": "dashboards",
+  "titulo": "Dashboards no Gov Hub",
+  "descricao": "Do \"por que um dashboard\" à escolha do gráfico certo, com Apache Superset e Power BI.",
+  "categoria": "negocial",
+  "chamada": "Um dashboard ruim some na rotina de quem devia usá-lo. Um dashboard bom muda decisão. Aprenda a construir o seu: dos fundamentos e do design à escolha do gráfico certo, com Apache Superset e Power BI.",
+  "etapas": [
+    {
+      "rotulo": "Por quê",
+      "caixa": "Fundamentos conceituais"
+    },
+    {
+      "rotulo": "O quê",
+      "caixa": "Princípios mínimos de design"
+    },
+    {
+      "rotulo": "Como",
+      "caixa": "Gráficos"
+    },
+    {
+      "rotulo": "Prática",
+      "caixa": "Mão na massa"
+    }
+  ],
+  "etapas_subtitulo": "Quatro etapas em sequência: do \"por quê\" à prática",
+  "etapas_nota": "**Mão na massa** chega em breve: vídeos mostrando como aplicar tudo isso no Superset e no Power BI.",
+  "quiz": "quiz/dashboards.json",
+  "niveis": [
+    {
+      "numero": 1,
+      "titulo": "Fundamentos conceituais",
+      "descricao": "O vocabulário e o raciocínio crítico antes de tocar na ferramenta: o que um dashboard resolve, o que o diferencia de um relatório ou de um painel operacional, e quais perguntas ele precisa responder.",
+      "etapa": "Por quê",
+      "icone": "assets/icones/light-bulb-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/por-que-fazer-um-dashboard",
+          "titulo": "Por que fazer um dashboard?",
+          "doc": "docs/explicacao/por-que-fazer-um-dashboard.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/o-que-faz-um-dashboard-ruim",
+          "titulo": "O que faz um dashboard ruim",
+          "doc": "docs/explicacao/o-que-faz-um-dashboard-ruim.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/percepcao-visual-e-carga-cognitiva",
+          "titulo": "Percepção visual e carga cognitiva",
+          "doc": "docs/explicacao/percepcao-visual-e-carga-cognitiva.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/dashboard-relatorio-painel-operacional",
+          "titulo": "Dashboard, relatório analítico e painel operacional",
+          "doc": "docs/explicacao/dashboard-relatorio-painel-operacional.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "referencia/perguntas-que-um-dashboard-deve-responder",
+          "titulo": "Perguntas que um dashboard deve responder",
+          "doc": "docs/referencia/perguntas-que-um-dashboard-deve-responder.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/glossario",
+          "titulo": "Glossário",
+          "doc": "docs/referencia/glossario.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Princípios mínimos de design",
+      "descricao": "Como organizar o conteúdo para que quem lê encontre a resposta sem esforço: fluxo de leitura, contexto, navegação do geral para o detalhe, filtros e o que deve se destacar primeiro.",
+      "etapa": "O quê",
+      "icone": "assets/icones/rectangle-group-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/arquitetura-da-informacao",
+          "titulo": "Arquitetura da informação — visão geral",
+          "doc": "docs/explicacao/arquitetura-da-informacao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/fluxo-de-leitura-f-e-z",
+          "titulo": "Fluxo de leitura: padrões F e Z",
+          "doc": "docs/explicacao/fluxo-de-leitura-f-e-z.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/indicacao-de-contexto",
+          "titulo": "Indicação de contexto",
+          "doc": "docs/explicacao/indicacao-de-contexto.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/estrutura-de-navegacao",
+          "titulo": "Estrutura de navegação: overview, zoom e detalhe",
+          "doc": "docs/explicacao/estrutura-de-navegacao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/organizacao-de-paginas-e-abas",
+          "titulo": "Organização de páginas e abas",
+          "doc": "docs/explicacao/organizacao-de-paginas-e-abas.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/filtros-e-segmentacao",
+          "titulo": "Filtros e segmentação",
+          "doc": "docs/explicacao/filtros-e-segmentacao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/hierarquia-visual",
+          "titulo": "Hierarquia visual",
+          "doc": "docs/explicacao/hierarquia-visual.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/kpis-e-big-numbers",
+          "titulo": "KPIs e Big Numbers",
+          "doc": "docs/explicacao/kpis-e-big-numbers.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Gráficos",
+      "descricao": "O catálogo de consulta: qual visual responde qual pergunta, no Superset e no Power BI. Comece pelo raciocínio (as três primeiras aulas) e volte às referências sempre que estiver construindo.",
+      "etapa": "Como",
+      "icone": "assets/icones/chart-pie-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/qual-e-o-grafico-certo",
+          "titulo": "Qual é o gráfico certo para o meu dado?",
+          "doc": "docs/explicacao/qual-e-o-grafico-certo.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/erros-comuns-na-escolha-do-grafico",
+          "titulo": "Erros mais comuns na escolha do gráfico",
+          "doc": "docs/explicacao/erros-comuns-na-escolha-do-grafico.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "referencia/guia-rapido-pergunta-para-grafico",
+          "titulo": "Guia rápido: pergunta → gráfico",
+          "doc": "docs/referencia/guia-rapido-pergunta-para-grafico.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/graficos-tabelas",
+          "titulo": "Tabelas: Table e Pivot Table / Matrix",
+          "doc": "docs/referencia/graficos-tabelas.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/graficos-series-temporais",
+          "titulo": "Séries temporais: Line e Area Chart",
+          "doc": "docs/referencia/graficos-series-temporais.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/graficos-comparacao-entre-categorias",
+          "titulo": "Comparação entre categorias: Bar e Horizontal Bar",
+          "doc": "docs/referencia/graficos-comparacao-entre-categorias.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/graficos-distribuicao",
+          "titulo": "Distribuição: Histogram e Box Plot",
+          "doc": "docs/referencia/graficos-distribuicao.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/graficos-partes-de-um-todo",
+          "titulo": "Partes de um todo: Pie, Donut e Treemap",
+          "doc": "docs/referencia/graficos-partes-de-um-todo.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/graficos-correlacao",
+          "titulo": "Correlação: Scatter Plot",
+          "doc": "docs/referencia/graficos-correlacao.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/graficos-geoespaciais",
+          "titulo": "Geoespacial: Maps e Bubble Maps",
+          "doc": "docs/referencia/graficos-geoespaciais.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/graficos-avancados-power-bi",
+          "titulo": "Visuais avançados do Power BI: Funnel, Decomposition Tree e Waterfall",
+          "doc": "docs/referencia/graficos-avancados-power-bi.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/azure-maps",
+          "titulo": "Azure Maps (Power BI)",
+          "doc": "docs/referencia/azure-maps.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "pesquisa/mapas-superset-vs-power-bi",
+          "titulo": "Mapas: Superset vs. Power BI",
+          "doc": "docs/pesquisa/mapas-superset-vs-power-bi.md",
+          "tipo": "pesquisa",
+          "tipo_nome": "Pesquisa",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/beaker-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Mão na massa no Superset e no Power BI",
+      "descricao": "Vídeos mostrando, passo a passo, como aplicar os fundamentos, o design e a escolha do gráfico na construção de um dashboard no Apache Superset e no Power BI.",
+      "etapa": "Prática",
+      "icone": "assets/icones/play-circle-sober.svg",
+      "status": "em-breve",
+      "itens": []
+    }
+  ]
+}

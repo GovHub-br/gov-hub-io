@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/govhub.css">
+<link rel="stylesheet" href="assets/paginas.css">
+<title>Quiz de revisão · Gov Hub</title>
+</head>
+<body>
+<a class="pular" href="#principal">Pular para o conteúdo</a>
+<header class="site" id="topo"></header>
+
+<main id="principal">
+  <div class="topbar">
+    <a href="index.html#trilhas" id="voltar-trilha" class="btn-link"><span id="voltar-icone"></span>Voltar para a trilha</a>
+  </div>
+  <div class="quiz-final-wrap">
+    <h1 class="quiz-final-title" id="quiz-titulo" tabindex="-1">Quiz de revisão da trilha</h1>
+    <p class="quiz-final-intro" id="quiz-intro">Carregando…</p>
+    <form id="quiz" novalidate hidden>
+      <div id="quiz-perguntas"></div>
+      <button type="submit" class="btn-primario" id="quiz-enviar" disabled>Enviar respostas</button>
+    </form>
+    <div class="quiz-result" id="quiz-resultado" role="status" hidden></div>
+  </div>
+</main>
+
+<script type="module" src="assets/quiz.js"></script>
+</body>
+</html>

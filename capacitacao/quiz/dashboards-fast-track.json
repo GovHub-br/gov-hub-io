@@ -1,0 +1,85 @@
+{
+  "_sobre": "Quiz de revisão do fast track de Dashboards: as perguntas de quiz/dashboards.json das aulas desta trilha. correta = índice em opcoes. Editado à mão.",
+  "perguntas": {
+    "explicacao/por-que-fazer-um-dashboard": {
+      "pergunta": "Qual é a principal diferença entre uma planilha e um dashboard?",
+      "opcoes": [
+        "A planilha mostra os dados, o dashboard mostra o significado dos dados",
+        "O dashboard armazena mais dados que a planilha",
+        "A planilha é sempre mais rápida de atualizar",
+        "Não há diferença, são a mesma coisa"
+      ],
+      "correta": 0
+    },
+    "explicacao/o-que-faz-um-dashboard-ruim": {
+      "pergunta": "Qual das opções abaixo é um sinal característico de um dashboard ruim?",
+      "opcoes": [
+        "Poucos indicadores bem escolhidos",
+        "Excesso de gráficos e cores sem propósito",
+        "Uso de filtros simples",
+        "Poucas cores na tela"
+      ],
+      "correta": 1
+    },
+    "explicacao/arquitetura-da-informacao": {
+      "pergunta": "O que é arquitetura da informação em um dashboard?",
+      "opcoes": [
+        "A forma como os dados são estruturados, agrupados e apresentados para que o usuário encontre rapidamente o que procura",
+        "O código por trás da ferramenta de BI",
+        "A escolha de cores do dashboard",
+        "O servidor onde os dados ficam armazenados"
+      ],
+      "correta": 0
+    },
+    "explicacao/kpis-e-big-numbers": {
+      "pergunta": "Qual é a diferença entre um KPI e um Big Number?",
+      "opcoes": [
+        "KPI define o que acompanhar, Big Number define como apresentar essa informação",
+        "São sinônimos, não há diferença entre eles",
+        "KPI é visual, Big Number é numérico",
+        "Big Number é sempre mais importante que um KPI"
+      ],
+      "correta": 0
+    },
+    "explicacao/qual-e-o-grafico-certo": {
+      "pergunta": "Segundo a \"regra prática\" do levantamento, qual gráfico é indicado quando o objetivo é mostrar uma evolução?",
+      "opcoes": [
+        "Pizza",
+        "Linha",
+        "Scatter Plot",
+        "Mapa"
+      ],
+      "correta": 1
+    },
+    "referencia/guia-rapido-pergunta-para-grafico": {
+      "pergunta": "Qual gráfico é recomendado quando a resposta desejada é \"participação\"?",
+      "opcoes": [
+        "Histograma",
+        "Pizza, Donut ou Treemap",
+        "Linha",
+        "Tabela"
+      ],
+      "correta": 1
+    },
+    "explicacao/indicacao-de-contexto": {
+      "pergunta": "Por que um número isolado como \"5.280\" não é suficiente em um dashboard?",
+      "opcoes": [
+        "Porque números grandes são difíceis de ler",
+        "Porque sem contexto (meta, período anterior, média) é impossível saber se é um bom ou mau resultado",
+        "Porque deveria estar em formato de gráfico",
+        "Porque usuários preferem texto a números"
+      ],
+      "correta": 1
+    },
+    "explicacao/filtros-e-segmentacao": {
+      "pergunta": "Qual pergunta ajuda a decidir se um filtro deve existir?",
+      "opcoes": [
+        "\"Esse filtro deixa o dashboard mais bonito?\"",
+        "\"Os usuários realmente vão utilizar isso para tomar decisões?\"",
+        "\"Quantos filtros a ferramenta permite criar?\"",
+        "\"O filtro combina com a paleta de cores?\""
+      ],
+      "correta": 1
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" width="720" height="270" role="img" aria-labelledby="t d">
+  <title id="t">Os instrumentos da hierarquia visual</title>
+  <desc id="d">Dois painéis com a mesma informação. À esquerda, seis indicadores do mesmo tamanho, cor e espaçamento, sem ponto de partida. À direita, um indicador principal maior, com cor de destaque e espaço em branco ao redor, e os demais reduzidos a apoio.</desc>
+  <defs>
+    <style>
+      .rot{font:600 12.5px Reddit Sans,system-ui,sans-serif;fill:#202020}
+      .leg{font:11.5px Reddit Sans,system-ui,sans-serif;fill:#666666}
+      .m{font:700 15px Reddit Sans,system-ui,sans-serif;fill:#2D3748}
+      .ml{font:9.5px Reddit Sans,system-ui,sans-serif;fill:#666666}
+      .big{font:700 34px Reddit Sans,system-ui,sans-serif;fill:#3F28A6}
+      .bigl{font:11px Reddit Sans,system-ui,sans-serif;fill:#666666}
+      .s{font:700 13px Reddit Sans,system-ui,sans-serif;fill:#666666}
+      .sl{font:9px Reddit Sans,system-ui,sans-serif;fill:#666666}
+    </style>
+  </defs>
+  <rect width="720" height="270" fill="#ffffff"/>
+
+  <!-- sem hierarquia -->
+  <text class="rot" x="24" y="24">Sem hierarquia · por onde começar?</text>
+  <rect x="24" y="36" width="320" height="180" rx="8" fill="#fff" stroke="#E9DFFF"/>
+  <g>
+    <rect x="40" y="52" width="92" height="48" rx="5" fill="#F2F1F6" stroke="#E9DFFF"/>
+    <text class="m" x="52" y="76">12.480</text><text class="ml" x="52" y="90">atendimentos</text>
+    <rect x="142" y="52" width="92" height="48" rx="5" fill="#F2F1F6" stroke="#E9DFFF"/>
+    <text class="m" x="154" y="76">94%</text><text class="ml" x="154" y="90">da meta</text>
+    <rect x="244" y="52" width="86" height="48" rx="5" fill="#F2F1F6" stroke="#E9DFFF"/>
+    <text class="m" x="256" y="76">318</text><text class="ml" x="256" y="90">em aberto</text>
+    <rect x="40" y="110" width="92" height="48" rx="5" fill="#F2F1F6" stroke="#E9DFFF"/>
+    <text class="m" x="52" y="134">27</text><text class="ml" x="52" y="148">unidades</text>
+    <rect x="142" y="110" width="92" height="48" rx="5" fill="#F2F1F6" stroke="#E9DFFF"/>
+    <text class="m" x="154" y="134">4,2 d</text><text class="ml" x="154" y="148">tempo médio</text>
+    <rect x="244" y="110" width="86" height="48" rx="5" fill="#F2F1F6" stroke="#E9DFFF"/>
+    <text class="m" x="256" y="134">-7%</text><text class="ml" x="256" y="148">vs. mês ant.</text>
+  </g>
+  <text class="leg" x="24" y="240">Mesmo tamanho, mesma cor, mesmo espaçamento:</text>
+  <text class="leg" x="24" y="257">seis destaques equivalem a nenhum.</text>
+
+  <!-- com hierarquia -->
+  <text class="rot" x="376" y="24">Com hierarquia · o olhar tem destino</text>
+  <rect x="376" y="36" width="320" height="180" rx="8" fill="#fff" stroke="#E9DFFF"/>
+  <rect x="392" y="52" width="288" height="76" rx="6" fill="#F2F1F6" stroke="#E9DFFF"/>
+  <text class="big" x="410" y="98">94%</text>
+  <text class="bigl" x="410" y="116">da meta de atendimentos no mês</text>
+  <g>
+    <rect x="392" y="138" width="90" height="40" rx="5" fill="#fff" stroke="#F2F1F6"/>
+    <text class="s" x="402" y="158">12.480</text><text class="sl" x="402" y="170">atendimentos</text>
+    <rect x="491" y="138" width="90" height="40" rx="5" fill="#fff" stroke="#F2F1F6"/>
+    <text class="s" x="501" y="158">318</text><text class="sl" x="501" y="170">em aberto</text>
+    <rect x="590" y="138" width="90" height="40" rx="5" fill="#fff" stroke="#F2F1F6"/>
+    <text class="s" x="600" y="158">-7%</text><text class="sl" x="600" y="170">vs. mês ant.</text>
+  </g>
+  <text class="leg" x="376" y="240">Tamanho, cor, posição e espaço em branco somados</text>
+  <text class="leg" x="376" y="257">em um único elemento — os outros viram apoio.</text>
+</svg>

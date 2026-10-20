@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/govhub.css">
+<link rel="stylesheet" href="assets/mapa.css">
+<title>Mapa da trilha · Gov Hub</title>
+</head>
+<body>
+<a class="pular" href="#painel">Pular para a trilha</a>
+<header class="site" id="topo"></header>
+
+<main id="principal">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Trilha</div>
+      <h1 id="trilha-titulo">Carregando…</h1>
+      <p id="trilha-chamada"></p>
+      <a class="btn-pdf btn-pdf--hero" id="trilha-pdf" href="#" download hidden></a>
+    </div>
+  </section>
+
+  <section class="logic-card" id="logica" aria-labelledby="logica-titulo" hidden>
+    <div class="logic-head">
+      <h2 id="logica-titulo">A lógica da trilha</h2>
+      <button class="logic-toggle" id="logica-botao" type="button" aria-expanded="true" aria-controls="logica-corpo">
+        <span id="logica-rotulo">Ocultar</span>
+        <span class="seta" id="logica-seta"></span>
+      </button>
+    </div>
+    <div class="logic-body" id="logica-corpo">
+      <p class="logic-sub" id="logica-sub"></p>
+      <ol class="stage-row" id="etapas"></ol>
+      <p class="logic-foot" id="logica-nota" hidden></p>
+    </div>
+  </section>
+
+  <div class="progress-bar-wrap">
+    <span class="progress-count" id="progresso-texto">Carregando…</span>
+    <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progresso-barra"></div></div>
+    <button class="btn-reset" id="limpar" type="button">limpar progresso</button>
+  </div>
+
+  <a href="#" class="trail-quiz-banner" id="banner-quiz" hidden>
+    <span class="trail-quiz-banner-text"><strong>Você concluiu toda a trilha.</strong> Revise o que aprendeu no quiz final.</span>
+    <span class="trail-quiz-banner-cta">Fazer o quiz de revisão →</span>
+  </a>
+
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot"></span> Essencial</span>
+    <span class="legend-item"><span class="legend-dot outline"></span> Apoio / opcional</span>
+    <span class="legend-item"><span class="legend-dot rose"></span> Marco</span>
+  </div>
+
+  <div class="layout">
+    <nav class="trail-nav" aria-labelledby="niveis-titulo">
+      <div class="trail-nav-title" id="niveis-titulo">Níveis da trilha</div>
+      <ol id="niveis"></ol>
+    </nav>
+    <div class="main-panel" id="painel" tabindex="-1"></div>
+  </div>
+</main>
+
+<div class="modal-overlay" id="confirmar" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="confirmar-titulo" aria-describedby="confirmar-texto">
+    <h2 id="confirmar-titulo">Limpar o progresso desta trilha?</h2>
+    <p id="confirmar-texto"></p>
+    <div class="modal-actions">
+      <button type="button" class="btn-secundario" id="confirmar-nao">Cancelar</button>
+      <button type="button" class="btn-perigo" id="confirmar-sim">Sim, limpar progresso</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="assets/mapa.js"></script>
+</body>
+</html>

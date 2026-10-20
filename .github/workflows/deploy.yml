@@ -139,6 +139,47 @@ jobs:
           echo "🏗️ Building MkDocs site..."
           mkdocs build --verbose
 
+      # ---- Capacitação: capacitacao/, publicada em /capacitacao/ (ver capacitacao/README.md) ----
+      - name: Capacitação - dependências (PDFs)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q libpango-1.0-0 libpangoft2-1.0-0 fonts-dejavu-core
+          pip install markdown beautifulsoup4 lxml weasyprint
+          # mermaid-cli usa o Chrome que já vem no runner
+          echo '{"executablePath":"/usr/bin/google-chrome","args":["--no-sandbox"]}' > "$RUNNER_TEMP/puppeteer.json"
+
+      - name: Capacitação - testes
+        working-directory: capacitacao
+        run: |
+          node --test tests/*.test.js
+          python3 -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Capacitação - trilhas geradas em dia
+        working-directory: capacitacao
+        run: |
+          python3 tools/gen_roadmap.py
+          pendente=$(git status --porcelain --untracked-files=all -- docs/)
+          if [ -n "$pendente" ]; then
+            echo "::error::Rodar 'python3 tools/gen_roadmap.py' (em capacitacao/) mudou arquivos versionados: uma trilha foi editada sem regenerar, ou falta commitar o esqueleto de uma página nova."
+            echo "$pendente"
+            git --no-pager diff -- docs/
+            exit 1
+          fi
+
+      - name: Capacitação - PDFs das aulas e das trilhas
+        working-directory: capacitacao
+        env:
+          MMDC: npx -y @mermaid-js/mermaid-cli@11
+          MMDC_PUPPETEER: ${{ runner.temp }}/puppeteer.json
+          PUPPETEER_SKIP_DOWNLOAD: '1'
+        run: python3 tools/gen_pdf.py --saida pdf
+
+      - name: Capacitação - copiar para o site
+        run: |
+          # As páginas vão como estão: doc.html lê os .md das aulas em tempo de execução.
+          rsync -a --exclude tests --exclude tools --exclude package.json capacitacao/ site/capacitacao/
+          test -f site/capacitacao/index.html && test -f site/capacitacao/pdf/trilhas/dashboards.pdf
+
       - name: Generate build report
         run: |
           echo "📊 Generating build report..."

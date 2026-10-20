@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /progresso/{uid} {
+      allow read, delete: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['feitos', 'ultimaAula', 'avaliadas', 'atualizadoEm']);
+    }
+    match /feedback/{id} {
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['trilha', 'aula', 'clareza', 'uso', 'comentario', 'periodo'])
+        && request.resource.data.keys().hasAll(['trilha', 'aula', 'clareza', 'uso', 'periodo'])
+        && request.resource.data.trilha is string && request.resource.data.trilha.size() <= 60
+        && request.resource.data.aula is string && request.resource.data.aula.size() <= 200
+        && request.resource.data.clareza in ['confuso', 'claro', 'muito-claro']
+        && request.resource.data.uso in ['sim', 'talvez', 'nao']
+        && (!('comentario' in request.resource.data)
+            || (request.resource.data.comentario is string && request.resource.data.comentario.size() <= 1000))
+        && request.resource.data.periodo is string
+        && request.resource.data.periodo.matches('^[0-9]{4}-[0-9]{2}$');
+    }
+    match /avaliacao_trilha/{id} {
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['trilha', 'nota', 'periodo'])
+        && request.resource.data.keys().hasAll(['trilha', 'nota', 'periodo'])
+        && request.resource.data.trilha is string && request.resource.data.trilha.size() <= 60
+        && request.resource.data.nota is int && request.resource.data.nota >= 1 && request.resource.data.nota <= 5
+        && request.resource.data.periodo is string
+        && request.resource.data.periodo.matches('^[0-9]{4}-[0-9]{2}$');
+    }
+  }
+}

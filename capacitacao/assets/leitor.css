@@ -1,0 +1,94 @@
+/* Página da aula (doc.html): voltar para a trilha, aulas do nível à esquerda, aula em Markdown,
+   avaliação e sequência. Desenho do protótipo da designer (2_6). Cores: assets/govhub.css. */
+.topbar{max-width:var(--largura);margin:0 auto;padding:20px 24px 0}
+.topbar .btn-link span{display:flex}
+
+.layout{max-width:var(--largura);margin:20px auto 0;padding:0 24px 40px;display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;min-width:0}
+body.sem-nivel .layout{grid-template-columns:minmax(0,1fr);max-width:920px}   /* página fora da trilha */
+.level-sidebar{display:flex;flex-direction:column;gap:16px;position:sticky;top:84px;min-width:0}
+.main-panel{min-width:0}
+
+.content-nav-card{background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-md);padding:16px}
+.content-nav-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.content-nav-title{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);line-height:1.3}
+.content-nav-toggle{background:var(--bg-soft);border:none;width:28px;height:28px;border-radius:50%;padding:0;display:flex;align-items:center;
+    justify-content:center;flex:none;cursor:pointer;color:var(--dark-navy)}
+.content-nav-toggle:hover{background:var(--border-soft)}
+.content-nav-toggle svg{width:12px;height:12px;transition:transform .2s}
+.content-nav-card:not(.collapsed) .content-nav-toggle svg{transform:rotate(180deg)}
+.content-nav-card.collapsed .content-nav-list{display:none}
+.content-nav-list{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+.content-nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;
+    color:var(--text-body);border-left:3px solid transparent}
+.content-nav-item:hover{background:var(--bg-soft)}
+.content-nav-item[aria-current="page"]{background:var(--bg-soft);border-left-color:var(--primary-purple);color:var(--text-strong);font-weight:700}
+.content-nav-dot{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--text-muted);display:flex;align-items:center;justify-content:center;color:#fff}
+.content-nav-dot svg{width:10px;height:10px}
+.content-nav-item.complete .content-nav-dot{background:var(--color-success);border-color:var(--color-success)}
+
+.content-main{background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-md);padding:28px 32px;min-width:0}
+.content-meta-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.content-meta-row .btn-pdf{margin-left:auto}
+.conteudo{line-height:1.7;color:var(--text-body);font-size:15.5px}
+.conteudo:focus{outline:none}
+.conteudo h1{font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.15;color:var(--dark-navy);margin:0 0 .7em}
+.conteudo h1:focus{outline:none}
+.conteudo h2{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--primary-purple);margin:1.6em 0 .5em}
+.conteudo h3{font-size:1.12rem;font-weight:700;color:var(--dark-navy);margin:1.3em 0 .4em}
+.conteudo h4{font-size:1rem;font-weight:700;color:var(--dark-navy);margin:1em 0 .3em}
+.conteudo a{color:var(--purple-700);text-decoration:underline;text-underline-offset:2px}
+.conteudo a:hover{color:var(--primary-purple)}
+.conteudo code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg-soft);color:var(--dark-navy);
+    padding:.12em .4em;border-radius:var(--radius-sm);font-size:.86em}
+.conteudo pre{background:var(--dark-navy);color:#fff;border-radius:var(--radius-md);padding:16px 18px;overflow:auto}
+.conteudo pre code{background:none;color:inherit;padding:0;font-size:.85em}
+.conteudo blockquote{margin:1.2em 0;padding:.5em 1.1em;border-left:4px solid var(--primary-purple);background:var(--bg-soft);
+    border-radius:0 var(--radius-md) var(--radius-md) 0;color:var(--dark-navy)}
+.conteudo blockquote p{margin:.4em 0}
+.conteudo table{display:block;overflow-x:auto;border-collapse:collapse;width:100%;margin:1.2em 0;font-size:.92rem}
+.conteudo th,.conteudo td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--border-soft)}
+.conteudo thead th{background:var(--dark-navy);color:#fff;font-weight:700}
+.conteudo tbody tr:nth-child(even){background:var(--bg-soft)}
+.conteudo hr{border:0;border-top:1px solid var(--border-soft);margin:1.8em 0}
+.conteudo img{max-width:100%;height:auto}
+.conteudo ul,.conteudo ol{padding-left:1.5em}
+.conteudo figure{margin:1.4em 0;text-align:center}
+.conteudo figcaption{font-size:.85rem;color:var(--text-muted);margin-top:.5em}
+.conteudo p > img:only-child{display:block;width:100%;height:auto;margin:1.2em auto}
+.conteudo .mermaid{margin:1.6em 0;text-align:center;overflow-x:auto}
+.conteudo .mermaid svg{max-width:100%;height:auto}
+/* O Mermaid dimensiona cada caixa medindo o rótulo a 15px, mas o rótulo é HTML dentro do
+   SVG e herdaria o tamanho da página — o texto estouraria a caixa. */
+.conteudo .mermaid foreignObject div,.conteudo .mermaid foreignObject span,
+.conteudo .mermaid foreignObject p{font-size:15px;line-height:1.35;margin:0}
+.msg{color:var(--text-muted)}
+
+
+/* Sequência da trilha */
+.content-bottom-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px;flex-wrap:wrap}
+.btn-content-prev{display:flex;align-items:center;gap:10px;color:var(--text-body);max-width:55%;min-width:0}
+.btn-content-prev .seta-voltar{display:flex;color:var(--purple-700)}
+.btn-content-prev svg{width:18px;height:18px;flex:none}
+.nav-btn-stack{display:flex;flex-direction:column;min-width:0}
+.nav-btn-eyebrow{font-size:11px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.btn-content-prev .nav-btn-label{font-size:13.5px;font-weight:700;color:var(--text-strong);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn-content-prev:hover .nav-btn-label{text-decoration:underline}
+.btn-content-next{display:flex;align-items:center;gap:8px;background:var(--primary-purple);color:#fff;border:none;font-size:14px;font-weight:700;
+    padding:12px 22px;border-radius:999px;cursor:pointer;margin-left:auto;white-space:nowrap}
+.btn-content-next:hover{background:var(--purple-600)}
+.btn-content-next:active{background:var(--purple-700)}
+.btn-content-next .seta-avancar{display:flex}
+.btn-content-next svg{width:17px;height:17px;flex:none}
+
+@media(max-width:860px){
+  .layout{grid-template-columns:1fr}
+  .level-sidebar{position:static}
+  .content-layout .main-panel{order:-1}   /* a aula vem antes da lista do nível */
+}
+@media(max-width:680px){
+  .content-main{padding:20px}
+  .conteudo h1{font-size:21px}
+  .btn-content-prev{max-width:100%}
+  .content-bottom-nav{flex-direction:column-reverse;align-items:stretch}
+  .btn-content-next{margin-left:0;justify-content:center}
+}

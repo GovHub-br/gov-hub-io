@@ -1,0 +1,11 @@
+{
+  "theme": "base",
+  "fontFamily": "Reddit Sans, sans-serif",
+  "flowchart": { "padding": 12, "nodeSpacing": 45, "rankSpacing": 55 },
+  "themeVariables": {
+    "primaryColor": "#F2F1F6", "primaryTextColor": "#0A005A", "primaryBorderColor": "#613EFF",
+    "secondaryColor": "#FFFFFF", "secondaryTextColor": "#0A005A", "secondaryBorderColor": "#BE006E",
+    "tertiaryColor": "#FFFFFF", "tertiaryBorderColor": "#E9DFFF",
+    "lineColor": "#0A005A", "textColor": "#2D3748", "fontSize": "15px"
+  }
+}

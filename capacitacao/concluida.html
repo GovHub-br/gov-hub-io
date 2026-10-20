@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Trilha · Gov Hub</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>
+  // A conclusão da trilha virou um modal no mapa e na aula; links antigos vão para o mapa da trilha.
+  const t = new URLSearchParams(location.search).get('trilha');
+  location.replace(t ? 'mapa.html?trilha=' + encodeURIComponent(t) : 'index.html#trilhas');
+</script>
+</head>
+<body>
+<p><a href="index.html#trilhas">Ver as trilhas</a></p>
+</body>
+</html>

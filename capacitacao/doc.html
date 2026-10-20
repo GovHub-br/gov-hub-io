@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/govhub.css">
+<link rel="stylesheet" href="assets/leitor.css">
+<link rel="stylesheet" href="assets/feedback.css">
+<title>Trilhas de capacitação · Gov Hub</title>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="site" id="topo"></header>
+
+<main id="principal">
+  <div class="topbar">
+    <a href="index.html#trilhas" id="voltar-trilha" class="btn-link"><span id="voltar-icone"></span>Voltar para a trilha</a>
+  </div>
+
+  <div class="layout content-layout">
+    <div class="level-sidebar" id="lateral">
+      <nav class="content-nav-card" id="nivel-card" aria-labelledby="nivel-card-titulo">
+        <div class="content-nav-head">
+          <span class="content-nav-title" id="nivel-card-titulo">Conteúdos do nível</span>
+          <button type="button" class="content-nav-toggle" id="nivel-card-botao" aria-expanded="true" aria-controls="nivel-lista"
+                  aria-label="Recolher a lista de aulas do nível"></button>
+        </div>
+        <ol class="content-nav-list" id="nivel-lista"></ol>
+      </nav>
+    </div>
+
+    <div class="main-panel">
+      <article class="content-main">
+        <div class="content-meta-row" id="aula-meta" hidden></div>
+        <div class="conteudo" id="conteudo" tabindex="-1"><p class="msg">Carregando…</p></div>
+      </article>
+
+      <section class="feedback" id="feedback" aria-labelledby="feedback-titulo" hidden></section>
+
+      <nav class="content-bottom-nav" id="rodape-aula" aria-label="Sequência da trilha" hidden>
+        <a href="#" id="aula-anterior" class="btn-content-prev">
+          <span class="seta-voltar"></span>
+          <span class="nav-btn-stack"><span class="nav-btn-eyebrow">Voltar</span><span class="nav-btn-label"></span></span>
+        </a>
+        <button type="button" class="btn-content-next" id="aula-cta"><span class="nav-btn-label">Concluir e avançar</span><span class="seta-avancar"></span></button>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script type="module" src="assets/leitor.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+{
+  "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
+  "slug": "dashboards-fast-track",
+  "titulo": "Fast track: Dashboards no Gov Hub",
+  "descricao": "As 10 aulas mais importantes da trilha de Dashboards, em dois níveis: do essencial à escolha do gráfico.",
+  "categoria": "negocial",
+  "chamada": "Pouco tempo? Aqui está o essencial da trilha de Dashboards em 10 aulas: o que faz um bom painel, como organizar o que se vê primeiro e como escolher o gráfico certo.",
+  "status": "oculta",
+  "etapas": [
+    {
+      "rotulo": "Entender",
+      "caixa": "O essencial"
+    },
+    {
+      "rotulo": "Escolher",
+      "caixa": "Do dado ao gráfico"
+    }
+  ],
+  "etapas_subtitulo": "Duas etapas: do essencial à escolha do gráfico",
+  "etapas_nota": "Quer se aprofundar? A trilha completa **Dashboards no Gov Hub** tem 27 aulas, e o que você concluir aqui já conta lá.",
+  "quiz": "quiz/dashboards-fast-track.json",
+  "niveis": [
+    {
+      "numero": 1,
+      "titulo": "O essencial",
+      "descricao": "O que um dashboard resolve, o que estraga um painel e como organizar o que se vê primeiro: a arquitetura da informação, a hierarquia visual e os números-chave no topo.",
+      "etapa": "Entender",
+      "icone": "assets/icones/light-bulb-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/por-que-fazer-um-dashboard",
+          "titulo": "Por que fazer um dashboard?",
+          "doc": "docs/explicacao/por-que-fazer-um-dashboard.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/o-que-faz-um-dashboard-ruim",
+          "titulo": "O que faz um dashboard ruim",
+          "doc": "docs/explicacao/o-que-faz-um-dashboard-ruim.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/arquitetura-da-informacao",
+          "titulo": "Arquitetura da informação — visão geral",
+          "doc": "docs/explicacao/arquitetura-da-informacao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/hierarquia-visual",
+          "titulo": "Hierarquia visual",
+          "doc": "docs/explicacao/hierarquia-visual.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/kpis-e-big-numbers",
+          "titulo": "KPIs e Big Numbers",
+          "doc": "docs/explicacao/kpis-e-big-numbers.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Do dado ao gráfico",
+      "descricao": "Qual visual responde qual pergunta, os erros que mais distorcem a leitura, e como dar contexto aos números e oferecer só os filtros que ajudam.",
+      "etapa": "Escolher",
+      "icone": "assets/icones/chart-pie-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/qual-e-o-grafico-certo",
+          "titulo": "Qual é o gráfico certo para o meu dado?",
+          "doc": "docs/explicacao/qual-e-o-grafico-certo.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "referencia/guia-rapido-pergunta-para-grafico",
+          "titulo": "Guia rápido: pergunta → gráfico",
+          "doc": "docs/referencia/guia-rapido-pergunta-para-grafico.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "explicacao/erros-comuns-na-escolha-do-grafico",
+          "titulo": "Erros mais comuns na escolha do gráfico",
+          "doc": "docs/explicacao/erros-comuns-na-escolha-do-grafico.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/indicacao-de-contexto",
+          "titulo": "Indicação de contexto",
+          "doc": "docs/explicacao/indicacao-de-contexto.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/filtros-e-segmentacao",
+          "titulo": "Filtros e segmentação",
+          "doc": "docs/explicacao/filtros-e-segmentacao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        }
+      ]
+    }
+  ]
+}

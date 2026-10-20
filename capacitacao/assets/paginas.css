@@ -1,0 +1,63 @@
+/* Página inicial, lista de trilhas e quiz de revisão. Cores e tipografia: assets/govhub.css. */
+
+/* ---------- Página inicial ---------- */
+/* o hero (fundo, formas, título) vem de .landing-hero em govhub.css, igual ao das páginas do site */
+.landing-lede{margin-bottom:32px !important}
+.landing-cta{padding:12px 28px;font-size:14.5px}
+/* Seção de trilhas (#trilhas), logo abaixo do hero: título e texto à esquerda, login à direita, cards embaixo */
+.trilhas-secao{max-width:var(--largura);margin:0 auto;padding:clamp(48px,6vw,80px) 24px 64px;scroll-margin-top:130px}
+.trilhas-cabeca{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px 48px;align-items:end;margin-bottom:32px}
+.trilhas-cabeca h2{font-size:clamp(28px,3.6vw,44px);color:var(--dark-navy);margin-bottom:12px}
+.trilhas-cabeca p{font-size:16px;line-height:1.55;margin:0;max-width:62ch}
+.landing-login-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:24px;text-align:center}
+@media(max-width:860px){.trilhas-cabeca{grid-template-columns:1fr}}
+.landing-login-card .btn-google{margin:0 auto 14px}
+.landing-login-hint{font-size:13px;color:var(--text-muted);margin:0;line-height:1.5}
+.landing-logado{display:flex;flex-direction:column;align-items:center;gap:10px}
+.landing-logado p{margin:0;font-size:14.5px}
+.check-verde{width:40px;height:40px;border-radius:50%;background:var(--success-soft);color:var(--success-text);display:flex;align-items:center;justify-content:center}
+.check-verde svg{width:20px;height:20px}
+
+/* ---------- Lista de trilhas (dentro de .trilhas-secao) ---------- */
+.track-grid{margin:0;padding:0;position:relative;z-index:2;display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.track-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:28px;display:flex;flex-direction:column;gap:4px;position:relative}
+.track-badge{align-self:flex-start;background:var(--bg-soft);color:var(--dark-navy);font-size:11px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;padding:5px 12px;border-radius:999px;margin-bottom:14px}
+.track-card h2{font-size:21px;color:var(--dark-navy);margin-bottom:10px}
+.track-card>p{font-size:14px;line-height:1.55;margin:0 0 16px}
+.track-meta{font-size:12.5px;color:var(--text-muted);font-weight:600;margin-bottom:14px}
+.track-progress-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.track-progress-pct{font-size:12.5px;font-weight:700;color:var(--dark-navy);white-space:nowrap}
+.track-card .btn-primario{margin-top:auto}
+.track-continue-link{text-align:center;font-size:13px;font-weight:700;color:var(--purple-700);margin-top:12px}
+.track-continue-link:hover{text-decoration:underline}
+.track-card-disabled{background:var(--bg-soft)}
+.track-card-disabled h2{color:var(--text-muted)}
+.track-soon-badge{position:absolute;top:28px;right:28px;background:var(--border-soft);color:var(--purple-700);font-size:10.5px;font-weight:800;
+    text-transform:uppercase;letter-spacing:.03em;padding:5px 10px;border-radius:999px}
+
+/* ---------- Quiz de revisão ---------- */
+.topbar{max-width:var(--largura);margin:0 auto;padding:20px 24px 0}
+.quiz-final-wrap{max-width:760px;margin:0 auto;padding:24px 24px 40px}
+.quiz-final-title{font-size:26px;color:var(--dark-navy);margin:0 0 8px}
+.quiz-final-intro{font-size:14px;line-height:1.5;margin:0 0 28px}
+.quiz-final-level-head{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--purple-700);margin:28px 0 12px}
+.quiz-question{background:#fff;border-radius:var(--radius-md);box-shadow:var(--shadow-md);padding:16px;margin:0 0 12px;border:0}
+.quiz-q-text{float:left;width:100%;font-size:14px;font-weight:700;color:var(--text-strong);margin:0 0 10px;line-height:1.4;padding:0}
+.quiz-options{clear:both}
+.quiz-options{display:flex;flex-wrap:wrap;gap:6px}
+.quiz-pill{position:relative}
+.quiz-pill input{position:absolute;opacity:0;width:1px;height:1px}
+.quiz-pill>span{display:inline-block;background:#fff;border:1.5px solid var(--text-muted);color:var(--text-body);font-size:13px;font-weight:700;
+    padding:9px 16px;border-radius:999px;cursor:pointer}
+.quiz-pill input:not(:disabled)+span:hover{border-color:var(--primary-purple)}
+.quiz-pill input:checked+span{background:var(--primary-purple);border-color:var(--primary-purple);color:#fff}
+.quiz-pill input:focus-visible+span{outline:3px solid var(--purple-700);outline-offset:2px}
+.quiz-pill input:disabled+span{cursor:default}
+.quiz-pill.correta>input+span{background:var(--success-soft);border-color:var(--color-success);color:var(--success-text)}
+.quiz-pill.errada>input+span{background:var(--danger-soft);border-color:var(--color-danger);color:var(--color-danger)}
+.quiz-pill .marca-resultado{font-weight:800;margin-left:6px}
+.quiz-result{margin-top:14px;padding-top:14px;border-top:1px solid var(--border-soft)}
+.quiz-score{font-size:15px;font-weight:700;color:var(--dark-navy);margin:0 0 10px}
+.quiz-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}

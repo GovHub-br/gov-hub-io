@@ -1,0 +1,245 @@
+{
+  "_sobre": "Quiz de revisão da trilha dashboards: uma pergunta por aula (chave = id da aula). correta = índice em opcoes. Editado à mão.",
+  "perguntas": {
+    "explicacao/por-que-fazer-um-dashboard": {
+      "pergunta": "Qual é a principal diferença entre uma planilha e um dashboard?",
+      "opcoes": [
+        "A planilha mostra os dados, o dashboard mostra o significado dos dados",
+        "O dashboard armazena mais dados que a planilha",
+        "A planilha é sempre mais rápida de atualizar",
+        "Não há diferença, são a mesma coisa"
+      ],
+      "correta": 0
+    },
+    "explicacao/o-que-faz-um-dashboard-ruim": {
+      "pergunta": "Qual das opções abaixo é um sinal característico de um dashboard ruim?",
+      "opcoes": [
+        "Poucos indicadores bem escolhidos",
+        "Excesso de gráficos e cores sem propósito",
+        "Uso de filtros simples",
+        "Poucas cores na tela"
+      ],
+      "correta": 1
+    },
+    "explicacao/percepcao-visual-e-carga-cognitiva": {
+      "pergunta": "O que é \"carga cognitiva\" no contexto de um dashboard?",
+      "opcoes": [
+        "A quantidade de dados armazenados no banco",
+        "O esforço mental necessário para compreender uma informação",
+        "O tempo de carregamento da página",
+        "O número de gráficos na tela"
+      ],
+      "correta": 1
+    },
+    "explicacao/dashboard-relatorio-painel-operacional": {
+      "pergunta": "Qual pergunta um Relatório Analítico busca responder?",
+      "opcoes": [
+        "\"Estamos indo na direção certa?\"",
+        "\"O que precisa ser feito agora?\"",
+        "\"Por que isso aconteceu?\"",
+        "\"Quantos atendimentos tivemos hoje?\""
+      ],
+      "correta": 2
+    },
+    "referencia/perguntas-que-um-dashboard-deve-responder": {
+      "pergunta": "Qual das perguntas abaixo se encaixa na categoria \"Priorização\"?",
+      "opcoes": [
+        "\"O resultado está crescendo ou diminuindo?\"",
+        "\"Onde devemos agir primeiro?\"",
+        "\"Qual unidade apresenta melhor desempenho?\"",
+        "\"Qual é o resultado atual?\""
+      ],
+      "correta": 1
+    },
+    "explicacao/arquitetura-da-informacao": {
+      "pergunta": "O que é arquitetura da informação em um dashboard?",
+      "opcoes": [
+        "A forma como os dados são estruturados, agrupados e apresentados para que o usuário encontre rapidamente o que procura",
+        "O código por trás da ferramenta de BI",
+        "A escolha de cores do dashboard",
+        "O servidor onde os dados ficam armazenados"
+      ],
+      "correta": 0
+    },
+    "explicacao/fluxo-de-leitura-f-e-z": {
+      "pergunta": "O padrão de leitura em \"Z\" é mais indicado para:",
+      "opcoes": [
+        "Dashboards corporativos com grande quantidade de informação",
+        "Layouts simples e apresentações executivas",
+        "Tabelas extensas de detalhamento",
+        "Dashboards sem KPIs"
+      ],
+      "correta": 1
+    },
+    "explicacao/indicacao-de-contexto": {
+      "pergunta": "Por que um número isolado como \"5.280\" não é suficiente em um dashboard?",
+      "opcoes": [
+        "Porque números grandes são difíceis de ler",
+        "Porque sem contexto (meta, período anterior, média) é impossível saber se é um bom ou mau resultado",
+        "Porque deveria estar em formato de gráfico",
+        "Porque usuários preferem texto a números"
+      ],
+      "correta": 1
+    },
+    "explicacao/estrutura-de-navegacao": {
+      "pergunta": "Qual é a ordem correta da abordagem \"Overview First → Zoom and Filter → Details on Demand\"?",
+      "opcoes": [
+        "Detalhe → Filtro → Visão geral",
+        "Visão geral → Refinar com filtros → Acessar detalhes somente quando necessário",
+        "Filtro → Detalhe → Visão geral",
+        "Visão geral e detalhe ao mesmo tempo, sem filtros"
+      ],
+      "correta": 1
+    },
+    "explicacao/organizacao-de-paginas-e-abas": {
+      "pergunta": "Quando faz mais sentido usar múltiplas páginas em vez de uma única página no dashboard?",
+      "opcoes": [
+        "Quando o assunto é simples",
+        "Quando existem diferentes temas de análise ou públicos distintos",
+        "Quando o público precisa de uma visão rápida",
+        "Sempre, independente do conteúdo"
+      ],
+      "correta": 1
+    },
+    "explicacao/filtros-e-segmentacao": {
+      "pergunta": "Qual pergunta ajuda a decidir se um filtro deve existir?",
+      "opcoes": [
+        "\"Esse filtro deixa o dashboard mais bonito?\"",
+        "\"Os usuários realmente vão utilizar isso para tomar decisões?\"",
+        "\"Quantos filtros a ferramenta permite criar?\"",
+        "\"O filtro combina com a paleta de cores?\""
+      ],
+      "correta": 1
+    },
+    "explicacao/kpis-e-big-numbers": {
+      "pergunta": "Qual é a diferença entre um KPI e um Big Number?",
+      "opcoes": [
+        "KPI define o que acompanhar, Big Number define como apresentar essa informação",
+        "São sinônimos, não há diferença entre eles",
+        "KPI é visual, Big Number é numérico",
+        "Big Number é sempre mais importante que um KPI"
+      ],
+      "correta": 0
+    },
+    "explicacao/qual-e-o-grafico-certo": {
+      "pergunta": "Segundo a \"regra prática\" do levantamento, qual gráfico é indicado quando o objetivo é mostrar uma evolução?",
+      "opcoes": [
+        "Pizza",
+        "Linha",
+        "Scatter Plot",
+        "Mapa"
+      ],
+      "correta": 1
+    },
+    "referencia/guia-rapido-pergunta-para-grafico": {
+      "pergunta": "Qual gráfico é recomendado quando a resposta desejada é \"participação\"?",
+      "opcoes": [
+        "Histograma",
+        "Pizza, Donut ou Treemap",
+        "Linha",
+        "Tabela"
+      ],
+      "correta": 1
+    },
+    "referencia/graficos-tabelas": {
+      "pergunta": "Qual é a principal limitação de usar uma tabela como ferramenta principal de análise?",
+      "opcoes": [
+        "Ela exige maior esforço visual e dificulta a percepção de tendências e padrões",
+        "Ela não pode ser exportada",
+        "Ela não permite nenhum tipo de filtro",
+        "Ela só funciona no Power BI"
+      ],
+      "correta": 0
+    },
+    "referencia/graficos-series-temporais": {
+      "pergunta": "Qual gráfico é mais indicado quando o volume acumulado e a participação entre séries são importantes, não apenas a tendência?",
+      "opcoes": [
+        "Line Chart",
+        "Area Chart",
+        "Bar Chart",
+        "Scatter Plot"
+      ],
+      "correta": 1
+    },
+    "referencia/graficos-comparacao-entre-categorias": {
+      "pergunta": "Quando o Horizontal Bar é mais recomendado do que o Bar Chart vertical?",
+      "opcoes": [
+        "Quando existem poucas categorias com nomes curtos",
+        "Quando existem muitas categorias com nomes/rótulos longos",
+        "Quando não há necessidade de comparação",
+        "Quando os dados são temporais"
+      ],
+      "correta": 1
+    },
+    "referencia/graficos-distribuicao": {
+      "pergunta": "Para que serve um Histograma?",
+      "opcoes": [
+        "Comparar duas métricas em um plano cartesiano",
+        "Visualizar a distribuição de valores numéricos, agrupados em intervalos",
+        "Mostrar localização geográfica",
+        "Mostrar etapas sequenciais de um processo"
+      ],
+      "correta": 1
+    },
+    "referencia/graficos-partes-de-um-todo": {
+      "pergunta": "Por que o Treemap costuma ser melhor do que o Pie Chart quando existem muitas categorias?",
+      "opcoes": [
+        "Porque usa cores mais vibrantes",
+        "Porque utiliza melhor o espaço da tela e suporta mais categorias sem perder legibilidade",
+        "Porque é mais fácil de configurar na ferramenta",
+        "Porque não precisa de legenda"
+      ],
+      "correta": 1
+    },
+    "referencia/graficos-correlacao": {
+      "pergunta": "No Scatter Plot, o que indica uma \"correlação negativa\"?",
+      "opcoes": [
+        "Pontos espalhados sem padrão evidente",
+        "Pontos que sobem da esquerda para a direita",
+        "Pontos que descem da esquerda para a direita, indicando que uma variável aumenta enquanto a outra diminui",
+        "Ausência de pontos no gráfico"
+      ],
+      "correta": 2
+    },
+    "referencia/graficos-geoespaciais": {
+      "pergunta": "Qual é a principal diferença entre Maps e Bubble Maps no Superset?",
+      "opcoes": [
+        "Maps mostram só texto, Bubble Maps mostram só números",
+        "Bubble Maps acrescentam o tamanho da bolha para representar volume, além da localização",
+        "Maps só funcionam no Power BI",
+        "Não há diferença entre eles"
+      ],
+      "correta": 1
+    },
+    "referencia/graficos-avancados-power-bi": {
+      "pergunta": "Qual desses gráficos ajuda a responder \"por que esse resultado aconteceu?\", explorando as causas de um indicador?",
+      "opcoes": [
+        "Funnel",
+        "Waterfall",
+        "Decomposition Tree",
+        "Bar Chart"
+      ],
+      "correta": 2
+    },
+    "referencia/azure-maps": {
+      "pergunta": "O que o Azure Maps oferece além dos mapas tradicionais do Superset?",
+      "opcoes": [
+        "Recursos avançados como mapas de calor, rotas e múltiplas camadas geográficas",
+        "Apenas uma cor diferente para o mapa",
+        "Funciona exclusivamente offline",
+        "Substitui a necessidade de qualquer outro gráfico"
+      ],
+      "correta": 0
+    },
+    "pesquisa/mapas-superset-vs-power-bi": {
+      "pergunta": "Segundo o resumo comparativo, quando o Azure Maps se destaca em relação aos Maps/Bubble Maps do Superset?",
+      "opcoes": [
+        "Em qualquer situação, é sempre superior",
+        "Quando a geografia é parte central da análise e as decisões dependem de relações espaciais mais complexas",
+        "Apenas quando o dashboard não tem KPIs",
+        "Nunca, os recursos são idênticos"
+      ],
+      "correta": 1
+    }
+  }
+}

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Maps ou Azure Maps</title>
+<style>
+/* govhub-diagramas — CSS base dos diagramas.
+   Tokens ESPELHADOS de 01-govhub/govhub-visual-identity/references/tokens.css
+   (2026-09-21). Se a IDV mudar, atualize aqui também. */
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary-purple: #613EFF;
+  --dark-navy: #0A005A;
+  --purple-600: #5235D9;
+  --purple-700: #3F28A6;
+  --accent-magenta: #EF41FF;
+  --accent-pink: #F9006F;
+  --bg-peach: #FFE7E1;
+  --text-strong: #202020;
+  --text-body: #2D3748;
+  --text-muted: #666666;
+  --bg-white: #FFFFFF;
+  --bg-light: #F7F7F7;
+  --bg-subtle: #F8F9FA;
+  --border-soft: #E9DFFF;
+  --gray-out: #9CA3AF;                       /* fora do escopo — não é cor de marca */
+  --purple-tint-1: rgba(97, 62, 255, .06);   /* fundo de zona */
+  --purple-tint-2: rgba(97, 62, 255, .12);   /* nó de saída / camada bruta */
+  --purple-tint-3: rgba(97, 62, 255, .30);   /* camada intermediária */
+  --font: 'Reddit Sans', 'Open Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; }
+body { font-family: var(--font); color: var(--text-body); -webkit-font-smoothing: antialiased; }
+
+/* raiz: largura fixa, altura livre */
+.diagram { position: relative; width: 1500px; background: #fff; padding: 28px 24px 24px; font-size: 14px; line-height: 1.35; }
+.title { margin: 0; text-align: center; font-size: 30px; font-weight: 800; color: var(--dark-navy); }
+.subtitle { margin: 6px 0 0; text-align: center; font-size: 15px; color: var(--text-muted); }
+.canvas { position: relative; margin-top: 28px; }
+
+/* zonas (agrupamentos) */
+.zone { position: relative; border: 2px solid var(--primary-purple); border-radius: var(--radius-lg); background: var(--bg-subtle); padding: 44px 22px 22px; }
+.zone--dashed { border-style: dashed; }
+.zone--plain { background: #fff; }
+
+/* pílula: rótulo sobre a borda, contorno branco cobre a linha */
+.pill { position: absolute; top: -16px; left: 20px; padding: 6px 16px; border-radius: 999px; background: var(--primary-purple); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 0 0 4px #fff; white-space: nowrap; }
+.pill--navy { background: var(--dark-navy); }
+.pill--pink { background: var(--accent-pink); }
+.pill--magenta { background: var(--accent-magenta); }
+
+/* nós */
+.node { position: relative; border: 2px solid var(--primary-purple); border-radius: var(--radius-md); background: #fff; padding: 14px 16px; }
+.node h3 { margin: 0; font-size: 16px; font-weight: 700; color: var(--text-strong); }
+.node p { margin: 4px 0 0; font-size: 12.5px; color: var(--text-muted); }
+.node--out { background: var(--purple-tint-2); }
+.node--legacy { border-style: dashed; }
+.node--muted { border-color: var(--gray-out); }
+.node--muted h3, .node--muted p { color: var(--gray-out); }
+.node--pink { border-color: var(--accent-pink); }
+.node--fill { background: var(--primary-purple); border-color: var(--primary-purple); }
+.node--fill h3, .node--fill p { color: #fff; }
+.node .pill { top: -14px; left: 14px; font-size: 11px; padding: 5px 12px; }
+
+/* etiqueta de instrumento/sistema */
+.tag { display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 999px; background: var(--border-soft); color: var(--purple-700); font-size: 11px; font-weight: 600; }
+
+/* notas e callouts */
+.note { border: 1.5px dashed var(--accent-pink); background: var(--bg-peach); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; color: var(--text-body); }
+.note strong { color: var(--accent-pink); font-weight: 700; }
+.note--lgpd { border-style: solid; }
+.note--lgpd::before { content: "LGPD · "; font-weight: 800; color: var(--accent-pink); }
+.note--plain { border-color: var(--border-soft); background: var(--bg-subtle); }
+.note--plain strong { color: var(--purple-700); }
+
+/* raias (swimlanes): grid de 2 colunas — cabeçalho | corpo */
+.lanes { display: grid; grid-template-columns: 150px 1fr; border: 2px solid var(--border-soft); border-radius: var(--radius-lg); overflow: hidden; }
+.lane { display: contents; }
+.lane-head { padding: 18px 14px; font-weight: 700; color: #fff; background: var(--primary-purple); display: flex; align-items: center; }
+.lane:nth-of-type(2) .lane-head { background: var(--purple-700); }
+.lane:nth-of-type(3) .lane-head { background: var(--accent-magenta); }
+.lane:nth-of-type(4) .lane-head { background: var(--dark-navy); }
+.lane-body { position: relative; display: grid; grid-template-columns: repeat(7, 170px); gap: 20px; align-items: center; padding: 26px 20px; border-bottom: 1px solid var(--border-soft); height: 150px; box-sizing: border-box; }
+.lane:last-of-type .lane-body { border-bottom: 0; }
+.lane:nth-of-type(even) .lane-body { background: var(--bg-subtle); }
+.lane-body .node { padding: 10px 12px; }
+.lane-body .node h3 { font-size: 13.5px; }
+.lane-body .node p { font-size: 11px; }
+
+/* início / fim / decisão */
+.dot { width: 26px; height: 26px; border-radius: 50%; background: var(--primary-purple); justify-self: center; position: relative; }
+.dot--end { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--primary-purple); }
+.dot span { position: absolute; top: 32px; left: 50%; transform: translateX(-50%); font-size: 11px; white-space: nowrap; color: var(--text-muted); }
+.decision { width: 160px; height: 100px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 600; color: var(--dark-navy); background: var(--bg-peach); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); padding: 0 24px; justify-self: center; }
+
+/* legenda */
+.legend { margin-top: 22px; border: 1.5px solid var(--border-soft); border-radius: var(--radius-md); background: #fff; padding: 14px 22px; display: flex; align-items: center; gap: 32px; font-size: 12px; }
+.legend-title { font-weight: 800; color: var(--primary-purple); letter-spacing: .04em; }
+.legend .item { display: flex; align-items: center; gap: 10px; }
+.legend .item b { display: block; font-size: 12.5px; color: var(--text-strong); }
+.legend .item span { color: var(--text-muted); }
+.legend .sample { width: 52px; height: 0; border-top: 2px solid var(--dark-navy); position: relative; }
+.legend .sample::after { content: ""; position: absolute; right: -2px; top: -5px; border: 4px solid transparent; border-left: 7px solid var(--dark-navy); }
+.legend .sample--data { border-top-style: dashed; }
+.legend .sample--meta { border-color: var(--primary-purple); border-top-style: dashed; }
+.legend .sample--meta::after { border-left-color: var(--primary-purple); }
+.legend .sample--flow { border-color: var(--primary-purple); }
+.legend .sample--flow::after { border-left-color: var(--primary-purple); }
+.legend .sample--gov { border-color: var(--accent-pink); border-top-style: dashed; }
+.legend .sample--gov::after { border-left-color: var(--accent-pink); }
+.legend .swatch { width: 26px; height: 18px; border: 2px solid var(--primary-purple); border-radius: 5px; background: #fff; flex: none; }
+.legend .swatch--dashed { border-style: dashed; }
+.legend .swatch--out { background: var(--purple-tint-2); }
+.legend .swatch--fill { background: var(--primary-purple); }
+.legend .swatch--navy { background: var(--purple-700); border-color: var(--purple-700); }
+.legend .swatch--magenta { background: var(--accent-magenta); border-color: var(--accent-magenta); }
+.legend .swatch--peach { background: var(--bg-peach); border-color: var(--bg-peach); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.legend .swatch--tag { background: var(--border-soft); border-color: var(--border-soft); border-radius: 999px; }
+.legend .swatch--muted { border-color: var(--gray-out); }
+
+/* barra de composição numerada */
+.composition { margin-top: 14px; border: 1.5px solid var(--border-soft); border-radius: var(--radius-md); background: var(--bg-subtle); padding: 16px 22px; display: flex; align-items: center; gap: 26px; font-size: 12px; }
+.composition .step { display: flex; align-items: center; gap: 10px; }
+.composition .num { width: 32px; height: 32px; border-radius: 50%; background: var(--primary-purple); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; }
+.composition .step:nth-of-type(odd) .num { background: var(--dark-navy); }
+.composition .step b { display: block; color: var(--text-strong); }
+.composition .step span { color: var(--text-muted); }
+.composition .step span.num { color: #fff; } /* vence .step span, qualquer aninhamento */
+.composition .sep { width: 28px; height: 0; border-top: 2px solid var(--dark-navy); position: relative; }
+.composition .sep::after { content: ""; position: absolute; right: -2px; top: -5px; border: 4px solid transparent; border-left: 7px solid var(--dark-navy); }
+
+/* camadas de dado: saturação crescente do roxo (nunca marrom/amarelo) */
+.layer { border: 2px solid var(--primary-purple); border-radius: var(--radius-md); padding: 14px 16px; background: #fff; }
+.layer h3 { margin: 0; font-size: 15px; font-weight: 700; color: var(--text-strong); }
+.layer p { margin: 4px 0 0; font-size: 12px; color: var(--text-muted); }
+.layer--1 { background: var(--purple-tint-2); }
+.layer--2 { background: var(--purple-tint-3); }
+.layer--3 { background: var(--primary-purple); }
+.layer--3 h3, .layer--3 p { color: #fff; }
+
+/* setas — SVG overlay desenhado por diagram.js */
+svg.arrows { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+svg.arrows path.a { fill: none; stroke-width: 2; }
+svg.arrows .a-exec { stroke: var(--dark-navy); }
+svg.arrows .a-data { stroke: var(--dark-navy); stroke-dasharray: 6 5; }
+svg.arrows .a-meta { stroke: var(--primary-purple); stroke-dasharray: 6 5; }
+svg.arrows .a-flow { stroke: var(--primary-purple); }
+svg.arrows .a-gov { stroke: var(--accent-pink); stroke-dasharray: 6 5; }
+svg.arrows marker path { fill: var(--dark-navy); }
+svg.arrows #m-meta path, svg.arrows #m-flow path { fill: var(--primary-purple); }
+svg.arrows #m-gov path { fill: var(--accent-pink); }
+svg.arrows text { font-family: var(--font); font-size: 11.5px; font-weight: 600; fill: var(--purple-700); paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
+
+</style>
+<style>
+  .diagram { width: 1500px; padding: 36px 30px 30px; }
+  .title { font-size: 42px; }
+  .subtitle { font-size: 24px; margin-top: 10px; }
+  .canvas { margin-top: 44px; padding-bottom: 40px; }
+  .node { text-align: center; padding: 18px 16px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .node h3 { font-size: 30px; }
+  .node p { font-size: 22px; margin-top: 8px; line-height: 1.3; }
+  .legend { font-size: 19px; gap: 28px; padding: 20px 26px; }
+  .legend .legend-title { font-size: 20px; }
+  .legend .item b { font-size: 21px; }
+  .legend .sample { width: 56px; flex: none; }
+  .legend .item { white-space: nowrap; gap: 8px; }
+  svg.arrows text { font-size: 21px; }
+  :root { --bg-peach: #F2F1F6; }
+  .decision { position: relative; background: #613EFF; isolation: isolate; width: 340px; height: 200px; font-size: 25px; }
+  .decision::before { content: ""; position: absolute; inset: 0; background: #F2F1F6; clip-path: polygon(50% 3.5%, 96.5% 50%, 50% 96.5%, 3.5% 50%); z-index: -1; }
+  .legend .swatch--peach { background: #613EFF; border: 0; width: 34px; height: 26px; position: relative; }
+  .legend .swatch--peach::after { content:""; position:absolute; inset:0; background:#F2F1F6; clip-path: polygon(50% 12%, 88% 50%, 50% 88%, 12% 50%); }
+  .g { display: grid; grid-template-columns: 300px 240px 300px 300px; column-gap: 70px; grid-template-rows: 150px 200px 150px; row-gap: 90px; align-items: center; justify-content: center; }
+  .decision { width: 300px; height: 200px; font-size: 24px; }
+  .node h3 { font-size: 30px; } .node p { font-size: 24px; }
+  #q{grid-column:1;grid-row:2} #m{grid-column:2;grid-row:1} #b{grid-column:2;grid-row:3} #v{grid-column:3;grid-row:2} #f{grid-column:4;grid-row:1} #a{grid-column:4;grid-row:3}
+  #f,#a{height:150px;border-radius:999px} #a h3{font-size:26px} #a p{font-size:22px}
+</style>
+</head>
+<body>
+<div class="diagram">
+  <h1 class="title">Maps ou Azure Maps</h1>
+  <p class="subtitle">Do que a pergunta precisa mostrar até a ferramenta de mapa</p>
+  <div class="canvas">
+    <div class="g">
+      <div class="decision" id="q">O que a pergunta precisa mostrar?</div>
+      <div class="node" id="m"><h3>Maps</h3><p>(Superset)</p></div>
+      <div class="node" id="b"><h3>Bubble Maps</h3><p>(Superset)</p></div>
+      <div class="decision" id="v">Falta algum recurso?</div>
+      <div class="node node--out" id="f"><h3>Fique no Superset</h3></div>
+      <div class="node node--out" id="a"><h3>Escale para o Azure Maps</h3><p>(Power BI)</p></div>
+    </div>
+    <script type="application/json" id="arrows">
+    [
+      {"from":"q","to":"m","type":"flow","fromSide":"top","toSide":"left","label":"onde ocorreu","labelAt":"start"},
+      {"from":"q","to":"b","type":"flow","fromSide":"bottom","toSide":"left","label":"onde ocorreu e|em que volume","labelAt":"start"},
+      {"from":"m","to":"v","type":"flow","fromSide":"right","toSide":"left"},
+      {"from":"b","to":"v","type":"flow","fromSide":"right","toSide":"left"},
+      {"from":"v","to":"f","type":"flow","fromSide":"top","toSide":"left","label":"não","labelAt":"start"},
+      {"from":"v","to":"a","type":"flow","fromSide":"bottom","toSide":"left","label":"rotas, áreas de influência,|múltiplas camadas, heat map","labelAt":"start","dy":-42}
+    ]
+    </script>
+  </div>
+  <div class="legend" style="margin-top:20px">
+    <span class="legend-title">LEGENDA</span>
+    <div class="item"><span class="sample sample--flow"></span><div><b>Sequência da decisão</b></div></div>
+    <div class="item"><span class="swatch swatch--peach"></span><span>pergunta de decisão</span></div>
+    <div class="item"><span class="swatch"></span><span>tipo de mapa</span></div>
+    <div class="item"><span class="swatch swatch--out"></span><span>recomendação</span></div>
+  </div>
+</div>
+<script>
+/* govhub-diagramas — desenha as setas declaradas em
+   <script type="application/json" id="arrows">[...] (o elemento de id "arrows") como SVG sobre .canvas.
+   Seta: {"from":"id","to":"id","type":"exec|data|meta|flow|gov","label":"opcional",
+          "fromSide":"top|right|bottom|left","toSide":"...", "via": número (x da vertical
+          numa rota horizontal, ou y da horizontal numa rota vertical — ignorado quando
+          fromSide e toSide estão em eixos diferentes: a rota vira um único cotovelo em L
+          para chegar perpendicular ao alvo, sem ponto de desvio),
+          "labelAt":"start|mid|end" (posição do rótulo ao longo da rota; em linha reta = 25% / 50% / 75%), "dx":0, "dy":0}
+   Posições vêm do layout real (getBoundingClientRect) — nada de coordenadas à mão. */
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const TYPES = ['exec', 'data', 'meta', 'flow', 'gov'];
+
+  function box(id, root) {
+    const el = document.getElementById(id);
+    if (!el) throw new Error('seta aponta para id inexistente: ' + id);
+    const r = el.getBoundingClientRect(), o = root.getBoundingClientRect();
+    const x = r.left - o.left, y = r.top - o.top;
+    return { x, y, w: r.width, h: r.height, cx: x + r.width / 2, cy: y + r.height / 2 };
+  }
+  function anchor(b, side) {
+    return { top: [b.cx, b.y], bottom: [b.cx, b.y + b.h], left: [b.x, b.cy], right: [b.x + b.w, b.cy] }[side];
+  }
+  function autoSides(a, b) {
+    const dx = b.cx - a.cx, dy = b.cy - a.cy;
+    if (Math.abs(dx) > Math.abs(dy)) return dx > 0 ? ['right', 'left'] : ['left', 'right'];
+    return dy > 0 ? ['bottom', 'top'] : ['top', 'bottom'];
+  }
+
+  function draw() {
+    const root = document.querySelector('.canvas') || document.querySelector('.diagram');
+    const def = document.getElementById('arrows');
+    if (!root || !def) return;
+    root.querySelectorAll('svg.arrows').forEach(s => s.remove());
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'arrows');
+    svg.innerHTML = '<defs>' + TYPES.map(t =>
+      '<marker id="m-' + t + '" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">' +
+      '<path d="M0,0 L9,4.5 L0,9 z"/></marker>').join('') + '</defs>';
+
+    JSON.parse(def.textContent).forEach(a => {
+      const A = box(a.from, root), B = box(a.to, root);
+      const [sa, sb] = autoSides(A, B);
+      const fromSide = a.fromSide || sa, toSide = a.toSide || sb;
+      const [x1, y1] = anchor(A, fromSide), [x2, y2] = anchor(B, toSide);
+      const horiz = fromSide === 'left' || fromSide === 'right';
+      const fromVert = fromSide === 'top' || fromSide === 'bottom';
+      const toVert = toSide === 'top' || toSide === 'bottom';
+      const type = a.type || 'flow';
+      let d, label, vertical;
+      if (fromVert !== toVert) {            // eixos mistos: um único cotovelo, chega perpendicular ao alvo
+        d = fromVert
+          ? 'M' + x1 + ',' + y1 + ' L' + x1 + ',' + y2 + ' L' + x2 + ',' + y2
+          : 'M' + x1 + ',' + y1 + ' L' + x2 + ',' + y1 + ' L' + x2 + ',' + y2;
+        const legA = fromVert ? Math.abs(y2 - y1) : Math.abs(x2 - x1);   // primeira perna
+        const legB = fromVert ? Math.abs(x2 - x1) : Math.abs(y2 - y1);   // segunda perna
+        // rótulo: 'start' = meio da primeira perna, 'end' = meio da segunda, 'mid' = a perna mais longa
+        const onFirst = (a.labelAt || 'mid') === 'start' || ((a.labelAt || 'mid') === 'mid' && legA >= legB);
+        label = fromVert
+          ? (onFirst ? [x1, (y1 + y2) / 2] : [(x1 + x2) / 2, y2])
+          : (onFirst ? [(x1 + x2) / 2, y1] : [x2, (y1 + y2) / 2]);
+        vertical = fromVert ? onFirst : !onFirst;
+      } else if (Math.abs(horiz ? y1 - y2 : x1 - x2) < 1) {
+        d = 'M' + x1 + ',' + y1 + ' L' + x2 + ',' + y2;
+        label = {
+          start: [x1 + (x2 - x1) * 0.25, y1 + (y2 - y1) * 0.25],
+          mid:   [(x1 + x2) / 2, (y1 + y2) / 2],
+          end:   [x1 + (x2 - x1) * 0.75, y1 + (y2 - y1) * 0.75],
+        }[a.labelAt || 'mid'];
+        vertical = !horiz;
+      } else if (horiz) {
+        const mx = a.via != null ? a.via : (x1 + x2) / 2;
+        d = 'M' + x1 + ',' + y1 + ' L' + mx + ',' + y1 + ' L' + mx + ',' + y2 + ' L' + x2 + ',' + y2;
+        label = { start: [(x1 + mx) / 2, y1], end: [(mx + x2) / 2, y2], mid: [mx, (y1 + y2) / 2] }[a.labelAt || 'mid'];
+        vertical = false;
+      } else {
+        const my = a.via != null ? a.via : (y1 + y2) / 2;
+        d = 'M' + x1 + ',' + y1 + ' L' + x1 + ',' + my + ' L' + x2 + ',' + my + ' L' + x2 + ',' + y2;
+        label = { start: [x1, (y1 + my) / 2], end: [x2, (my + y2) / 2], mid: [(x1 + x2) / 2, my] }[a.labelAt || 'mid'];
+        vertical = false;
+      }
+      const p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', d);
+      p.setAttribute('class', 'a a-' + type);
+      p.setAttribute('marker-end', 'url(#m-' + type + ')');
+      svg.appendChild(p);
+      if (a.label) {
+        const t = document.createElementNS(NS, 'text');
+        // perna vertical: texto à direita da linha; perna horizontal: centrado acima
+        t.setAttribute('x', label[0] + (a.dx || 0) + (vertical ? 10 : 0));
+        t.setAttribute('y', label[1] + (a.dy || 0) + (vertical ? 4 : -6));
+        t.setAttribute('text-anchor', vertical ? 'start' : 'middle');
+        const ls = a.label.split('|');
+        ls.forEach((s, i) => { const ts = document.createElementNS(NS, 'tspan'); ts.setAttribute('x', t.getAttribute('x')); if (i) ts.setAttribute('dy', '1.15em'); ts.textContent = s; t.appendChild(ts); });
+        if (ls.length > 1) t.setAttribute('y', parseFloat(t.getAttribute('y')) - (ls.length - 1) * 11);
+        svg.appendChild(t);
+      }
+    });
+    root.appendChild(svg);
+  }
+
+  window.drawArrows = draw;
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  else window.addEventListener('load', draw);
+})();
+
+</script>
+</body>
+</html>

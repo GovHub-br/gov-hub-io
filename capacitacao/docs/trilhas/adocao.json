@@ -1,0 +1,364 @@
+{
+  "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
+  "slug": "adocao",
+  "titulo": "Implante o Gov Hub na sua infraestrutura",
+  "descricao": "Do que é a plataforma ao fork temático, para a equipe de TI que vai implantar o Gov Hub em outro órgão.",
+  "categoria": "tecnica",
+  "status": "em-breve",
+  "etapas": [
+    {
+      "rotulo": "Entender",
+      "caixa": "Entender a plataforma"
+    },
+    {
+      "rotulo": "Planejar",
+      "caixa": "Planejar a adoção"
+    },
+    {
+      "rotulo": "Preparar",
+      "caixa": "Preparar a infraestrutura"
+    },
+    {
+      "rotulo": "Implantar",
+      "caixa": "Primeiro deploy"
+    },
+    {
+      "rotulo": "Conectar",
+      "caixa": "Conectar a primeira fonte"
+    },
+    {
+      "rotulo": "Governar",
+      "caixa": "Governança e acesso"
+    },
+    {
+      "rotulo": "Expandir",
+      "caixa": "Fork temático"
+    }
+  ],
+  "etapas_subtitulo": "Sete etapas em sequência: do que é a plataforma ao fork temático",
+  "niveis": [
+    {
+      "numero": 1,
+      "titulo": "Entender a plataforma",
+      "descricao": "O que o Gov Hub resolve e como as peças se encaixam: das fontes governamentais ao consumo analítico, passando pelas camadas bronze, silver e gold.",
+      "etapa": "Entender",
+      "icone": "assets/icones/light-bulb-sober.svg",
+      "itens": [
+        {
+          "id": "plataforma/index",
+          "titulo": "O que é o Gov Hub",
+          "doc": "docs/plataforma/index.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "plataforma/arquitetura/visao-geral",
+          "titulo": "Visão geral da arquitetura",
+          "doc": "docs/plataforma/arquitetura/visao-geral.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "plataforma/arquitetura/fluxo-de-dados",
+          "titulo": "Fluxo de dados",
+          "doc": "docs/plataforma/arquitetura/fluxo-de-dados.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "plataforma/arquitetura/medallion",
+          "titulo": "Arquitetura medallion",
+          "doc": "docs/plataforma/arquitetura/medallion.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "plataforma/arquitetura/componentes",
+          "titulo": "Componentes",
+          "doc": "docs/plataforma/arquitetura/componentes.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Planejar a adoção",
+      "descricao": "Antes de tocar no cluster: maturidade de dados do órgão, equipe, infraestrutura mínima e quais fontes entram primeiro.",
+      "etapa": "Planejar",
+      "icone": "assets/icones/clipboard-document-list-sober.svg",
+      "itens": [
+        {
+          "id": "plataforma/adocao/requisitos",
+          "titulo": "Requisitos para adoção",
+          "doc": "docs/plataforma/adocao/requisitos.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "plataforma/arquitetura/fontes-de-dados",
+          "titulo": "Fontes de dados",
+          "doc": "docs/plataforma/arquitetura/fontes-de-dados.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/dados/dicionario",
+          "titulo": "Dicionário de dados",
+          "doc": "docs/plataforma/dados/dicionario.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Preparar a infraestrutura",
+      "descricao": "Os serviços que sustentam a plataforma e como as credenciais são guardadas. Consulte as referências conforme a sua equipe for precisando delas.",
+      "etapa": "Preparar",
+      "icone": "assets/icones/server-sober.svg",
+      "itens": [
+        {
+          "id": "plataforma/infraestrutura/kubernetes",
+          "titulo": "Kubernetes",
+          "doc": "docs/plataforma/infraestrutura/kubernetes.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/infraestrutura/argocd",
+          "titulo": "Argo CD GitOps",
+          "doc": "docs/plataforma/infraestrutura/argocd.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/infraestrutura/postgres",
+          "titulo": "PostgreSQL",
+          "doc": "docs/plataforma/infraestrutura/postgres.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/infraestrutura/minio",
+          "titulo": "MinIO",
+          "doc": "docs/plataforma/infraestrutura/minio.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/infraestrutura/secrets",
+          "titulo": "Gerenciamento de secrets",
+          "doc": "docs/plataforma/infraestrutura/secrets.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Primeiro deploy",
+      "descricao": "O passo a passo do primeiro deploy no cluster do órgão, do Argo CD ao acesso pelos serviços.",
+      "etapa": "Implantar",
+      "icone": "assets/icones/deploy-sober.svg",
+      "itens": [
+        {
+          "id": "plataforma/adocao/deploy-inicial",
+          "titulo": "Deploy inicial",
+          "doc": "docs/plataforma/adocao/deploy-inicial.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Conectar a primeira fonte",
+      "descricao": "Da fonte documentada ao dataset no Superset: DAG de ingestão, modelos dbt, testes e qualidade.",
+      "etapa": "Conectar",
+      "icone": "assets/icones/database-sober.svg",
+      "itens": [
+        {
+          "id": "plataforma/adocao/conectar-fontes",
+          "titulo": "Conectar fontes de dados",
+          "doc": "docs/plataforma/adocao/conectar-fontes.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "plataforma/pipeline/airflow",
+          "titulo": "Apache Airflow",
+          "doc": "docs/plataforma/pipeline/airflow.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/pipeline/dbt",
+          "titulo": "dbt",
+          "doc": "docs/plataforma/pipeline/dbt.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/pipeline/qualidade",
+          "titulo": "Qualidade de dados",
+          "doc": "docs/plataforma/pipeline/qualidade.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "titulo": "Governança e acesso",
+      "descricao": "Quem vê quais dados, como tratar dados sensíveis e credenciais, e onde fica o catálogo.",
+      "etapa": "Governar",
+      "icone": "assets/icones/governance-sober.svg",
+      "itens": [
+        {
+          "id": "plataforma/governanca/acesso",
+          "titulo": "Controle de acesso",
+          "doc": "docs/plataforma/governanca/acesso.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "plataforma/governanca/seguranca",
+          "titulo": "Segurança",
+          "doc": "docs/plataforma/governanca/seguranca.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/governanca/openmetadata",
+          "titulo": "OpenMetadata",
+          "doc": "docs/plataforma/governanca/openmetadata.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/governanca/trino-ranger",
+          "titulo": "Trino + Ranger",
+          "doc": "docs/plataforma/governanca/trino-ranger.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "titulo": "Fork temático",
+      "descricao": "Como isolar o contexto do seu órgão num fork do pipeline, com dois forks reais como exemplo.",
+      "etapa": "Expandir",
+      "icone": "assets/icones/square-2-stack-sober.svg",
+      "itens": [
+        {
+          "id": "plataforma/forks/index",
+          "titulo": "Forks temáticos",
+          "doc": "docs/plataforma/forks/index.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "plataforma/forks/guia-criar-fork",
+          "titulo": "Guia de criação de fork",
+          "doc": "docs/plataforma/forks/guia-criar-fork.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "plataforma/forks/cidades",
+          "titulo": "Fork Cidades",
+          "doc": "docs/plataforma/forks/cidades.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "plataforma/forks/minc",
+          "titulo": "Fork MinC",
+          "doc": "docs/plataforma/forks/minc.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        }
+      ]
+    }
+  ]
+}

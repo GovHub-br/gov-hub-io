@@ -1,0 +1,9 @@
+{
+  "name": "govhub-capacitacao",
+  "private": true,
+  "type": "module",
+  "description": "Site estático da trilha de dashboards. Este arquivo só existe para os testes (node --test).",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}

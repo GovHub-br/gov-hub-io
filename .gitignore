@@ -28,3 +28,9 @@ node_modules/
 typings/
 tools/
 src/
+
+# --- Capacitação (capacitacao/) ---
+# As regras acima ignoram qualquer pasta tools/; a da capacitação é versionada.
+!capacitacao/tools/
+# PDFs das aulas e das trilhas: gerados no deploy (capacitacao/tools/gen_pdf.py)
+capacitacao/pdf/
