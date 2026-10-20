@@ -84,8 +84,7 @@ function montarRodape() {
         ['Publicações', SITE + 'publicacoes/'], ['Quem somos', SITE + 'quem-somos/'],
         ['Documentação', SITE + 'documentacao/'], ['DEMO', SITE + 'dashboards/']])),
       el('div', {}, el('h4', {}, 'Como usar'), lista([
-        ['Gov hub no meu órgão', SITE + 'sobre-projeto/replicacao/'], ['Tutoriais', SITE + 'documentacao/tutoriais/infraestrutura/cicd'],
-        ['Funcionalidades', SITE + 'sobre-projeto/overview'], ['Documentação', SITE + 'documentacao/instalacao']])),
+        ['Capacitação', 'index.html'], ['Documentação', SITE + 'documentacao/instalacao']])),
       el('div', { class: 'gh-rodape-contato' }, el('h4', {}, 'Contato'), lista([[EMAIL_CONTATO, 'mailto:' + EMAIL_CONTATO]]),
         el('div', { class: 'gh-social' }, ...REDES.map(([href, icone, nome]) =>
           el('a', { href, target: '_blank', rel: 'noopener', 'aria-label': nome },

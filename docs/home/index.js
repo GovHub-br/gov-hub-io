@@ -9,8 +9,6 @@ function preloadHomeImages() {
         '/govhub/land/dist/images/teds_homev2.png',
         '/govhub/land/dist/images/pessoal_homev2.png',
         '/govhub/land/dist/images/orcamento_homev2.png',
-        '/govhub/land/dist/images/oqueeogovhub.png',
-        '/govhub/land/dist/images/img-infos-gov.jpg',
         '/govhub/land/dist/images/lab-livre-black.svg',
         '/govhub/land/dist/images/unb.png',
         '/govhub/land/dist/images/ipea.png'
