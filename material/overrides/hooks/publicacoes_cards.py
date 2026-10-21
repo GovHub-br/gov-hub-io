@@ -17,8 +17,12 @@ Campos opcionais no cabeçalho (front matter) do post:
     tipo: pesquisa                                               # filtro da página: produto (padrão), evento ou pesquisa
     pdf: /publicacoes/pdf/artigo.pdf                             # artigo em PDF, linkado na página do post
 
-Se ao lado do PDF houver a capa com o mesmo nome (artigo.webp, .png ou .jpg), ela entra
-no card no lugar da ilustração: a folha sobre fundo branco, cortada embaixo.
+Com pdf, a capa do artigo entra no card no lugar da ilustração: a folha sobre fundo
+branco, cortada embaixo. O build gera a capa a partir da 1ª página do PDF, direto em
+site/ (artigo.webp ao lado do PDF), então ela não fica no repositório nem aparece no
+painel. Uma capa feita à mão em docs/, com o mesmo nome (artigo.webp, .png ou .jpg),
+tem preferência. A geração usa pypdfium2 e Pillow (requirements.txt); sem eles, ou com
+o PDF ilegível, o card fica com a ilustração.
 
 Sem eles, o card usa a imagem padrão, a primeira categoria e o primeiro
 parágrafo depois do título.
@@ -40,11 +44,15 @@ MARCADOR = re.compile(
     re.S,
 )
 
+CAPA_LARGURA = 480  # px; a folha aparece com ~290 px no card, em 2x fica nítida
+
 _posts = []
+_capas = {}  # capa a gerar em site/ -> PDF em docs/
 
 
 def on_pre_build(config: MkDocsConfig, **kwargs):
     _posts.clear()
+    _capas.clear()
 
 
 def _data(valor):
@@ -80,14 +88,48 @@ def _resumo(markdown):
 
 
 def _capa(pdf, config):
-    """Capa do PDF: a imagem com o mesmo nome, ao lado dele em docs/."""
+    """Capa do PDF: a feita à mão ao lado dele em docs/ ou, sem ela, a gerada no build."""
     if not pdf:
         return None
     base = Path(pdf.lstrip("/")).with_suffix("")
     for ext in (".webp", ".png", ".jpg"):
         if (Path(config.docs_dir) / base.with_suffix(ext)).is_file():
             return "/" + base.with_suffix(ext).as_posix()
-    return None
+    origem = Path(config.docs_dir) / base.with_suffix(".pdf")
+    if not origem.is_file():
+        return None
+    _capas[base.with_suffix(".webp").as_posix()] = origem
+    return "/" + base.with_suffix(".webp").as_posix()
+
+
+def _gera_capa(pdf: Path, destino: Path):
+    """Renderiza a 1ª página do PDF em WebP."""
+    import pypdfium2 as pdfium
+
+    documento = pdfium.PdfDocument(pdf)
+    try:
+        pagina = documento[0]
+        imagem = pagina.render(scale=CAPA_LARGURA / pagina.get_width()).to_pil()
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        imagem.convert("RGB").save(destino, "WEBP", quality=85)
+    finally:
+        documento.close()
+
+
+def _gera_capas(site_dir: Path):
+    """Gera as capas pendentes; a que falhar volta o card para a ilustração."""
+    falharam = set()
+    for capa, pdf in _capas.items():
+        try:
+            _gera_capa(pdf, site_dir / capa)
+        except Exception as erro:  # sem pypdfium2/Pillow, ou PDF ilegível
+            print(f"⚠️  Capa de {pdf.name} não gerada ({erro}); o card fica com a ilustração")
+            falharam.add("/" + capa)
+    for post in _posts:
+        if post["capa"] in falharam:
+            post["capa"] = None
+    if _capas:
+        print(f"✅ Capas de PDF geradas: {len(_capas) - len(falharam)} de {len(_capas)}")
 
 
 def on_page_markdown(markdown, page, config: MkDocsConfig, files, **kwargs):
@@ -137,6 +179,7 @@ def _card(post):
 
 
 def on_post_build(config: MkDocsConfig, **kwargs):
+    _gera_capas(Path(config.site_dir))
     posts = sorted(_posts, key=lambda p: (p["data"], p["titulo"]), reverse=True)
 
     def preencher(m):

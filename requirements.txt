@@ -13,3 +13,7 @@ paginate~=0.5
 regex>=2022.4
 requests~=2.26
 mkdocs-minify-plugin~=0.7
+
+# Capa dos artigos em PDF nos cards (hook publicacoes_cards.py)
+pypdfium2>=4.30
+pillow>=10.2
