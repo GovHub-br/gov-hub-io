@@ -211,8 +211,9 @@ jobs:
         with:
           path: ./site
 
+      # PR vindo de fork recebe token só de leitura: comentar daria 403 e reprovaria o build
       - name: Comment PR with validation results
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/github-script@v7
         with:
           script: |
