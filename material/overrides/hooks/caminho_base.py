@@ -3,7 +3,7 @@ Hook que deixa o site funcionar fora da raiz do domínio e mantém os endereços
 
 Os links do site são escritos a partir da raiz (/land/dist/..., /publicacoes/). No ar, em
 gov-hub.io, o site fica na raiz e o HTML sai como está. Num preview do GitHub Pages
-(ex.: egewarth.github.io/gov-hub-io/), o site_url traz um caminho, e os links absolutos do
+(ex.: usuario.github.io/gov-hub-io/), o site_url traz um caminho, e os links absolutos do
 HTML, CSS e JS gerados ganham esse prefixo. O deploy.yml passa o site_url de cada ambiente
 pela variável SITE_URL.
 
