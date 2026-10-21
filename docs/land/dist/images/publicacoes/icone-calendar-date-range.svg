@@ -1,0 +1,8 @@
+<svg width="388" height="307" viewBox="0 0 388 307" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="388" height="307" fill="#0A005A"/>
+<rect x="110" y="70" width="168" height="168" rx="84" fill="white"/>
+<g transform="translate(146 106) scale(1.548)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33 37.2571L40.3366 52.9797C42.3672 57.3315 47.5409 59.213 51.8922 57.1822C56.2436 55.1513 58.1249 49.9773 56.0943 45.6255L40.8788 13.0182C39.4503 9.95679 36.378 8 33 8C29.622 8 26.5497 9.95679 25.1212 13.0182L9.90572 45.6255C7.87508 49.9773 9.7564 55.1513 14.1078 57.1822C18.4591 59.213 23.6328 57.3315 25.6634 52.9797L33 37.2571Z" fill="#BE006E" stroke="#BE006E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M29 33.2571L36.3366 48.9797C38.3672 53.3315 43.5409 55.213 47.8922 53.1822C52.2436 51.1513 54.1249 45.9773 52.0943 41.6255L36.8788 9.01818C35.4503 5.95679 32.378 4 29 4C25.622 4 22.5497 5.95679 21.1212 9.01818L5.90572 41.6255C3.87508 45.9773 5.7564 51.1513 10.1078 53.1822C14.4591 55.213 19.6328 53.3315 21.6634 48.9797L29 33.2571Z" fill="#F2F1F6" stroke="#0A005A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

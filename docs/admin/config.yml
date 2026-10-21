@@ -87,9 +87,10 @@ collections:
         public_folder: /land/dist/images/publicacoes
         choose_url: false
         hint: >-
-          Escolha uma das ilustrações ou envie uma nova. No card ela aparece com 200 px de altura,
-          recortada para preencher: prefira imagens horizontais, na proporção das atuais (388 × 307),
-          sem texto perto das bordas.
+          Escolha uma ilustração ou envie uma nova. As "icone-…" são os ícones do Gov Hub: busque pelo
+          nome em inglês (chart, users, database, document…) ou pelos do Gov Hub (contratos, orcamento,
+          pessoal, teds). Imagem nova: horizontal, na proporção 388 × 307, sem texto perto das bordas
+          (no card ela tem 200 px de altura e é recortada para preencher).
         media_libraries:
           default:
             config:
