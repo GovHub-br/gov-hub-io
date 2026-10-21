@@ -73,6 +73,12 @@ jobs:
         if: steps.pages.outputs.base_url != ''
         run: echo "SITE_URL=${{ steps.pages.outputs.base_url }}/" >> "$GITHUB_ENV"
 
+      # Página "Histórico de mudanças", montada dos PRs mesclados (não faz commit; se a API falhar, só avisa)
+      - name: Changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/gera_changelog.py
+
       - name: Validate MkDocs configuration
         run: |
           echo "🔍 Validating MkDocs configuration..."
@@ -190,6 +196,10 @@ jobs:
           # As páginas vão como estão: doc.html lê os .md das aulas em tempo de execução.
           rsync -a --exclude tests --exclude tools --exclude package.json capacitacao/ site/capacitacao/
           test -f site/capacitacao/index.html && test -f site/capacitacao/pdf/trilhas/dashboards.pdf
+
+      # Em PR, link quebrado reprova; na main só avisa, para não travar o deploy de uma publicação.
+      - name: Links internos
+        run: python3 .github/scripts/checa_links.py site ${{ github.event_name != 'pull_request' && '--avisar' || '' }}
 
       - name: Generate build report
         run: |
