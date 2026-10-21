@@ -215,3 +215,14 @@ header :focus-visible, .hero-section :focus-visible, .interactive-section :focus
     display: block; width: 100%; height: 100%; object-fit: cover; transform: none;
 }
 @media (max-width: 575.98px) { .publication-card > .publication-image { height: 180px !important; } }
+/* card de artigo em PDF com capa: a folha sobre fundo branco, com sombra de papel,
+   cortada embaixo pela faixa da imagem, que faz sombra no texto */
+.publication-card--capa > .publication-image { background: #fff; }
+.publication-card--capa > .publication-image > .cover-image {
+    position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+    display: block; height: 372px; width: auto; border-radius: 2px;  /* folha com ~290 px de largura */
+    box-shadow: 0 1px 3px rgba(10,0,90,0.12), 0 10px 24px rgba(10,0,90,0.18);
+}
+.publication-card--capa > .publication-content {
+    position: relative; z-index: 1; background: inherit; box-shadow: 0 -10px 24px rgba(10,0,90,0.08);
+}

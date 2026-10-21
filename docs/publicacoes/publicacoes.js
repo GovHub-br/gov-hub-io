@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Filtro por tipo: os cards trazem data-tipo, gerado pelo hook publicacoes_cards.py
+    const filtros = document.querySelectorAll('.filtros-container .filtro-btn');
+    const vazio = document.querySelector('.publicacoes-vazio');
+
+    filtros.forEach(function(botao) {
+        botao.addEventListener('click', function() {
+            const tipo = botao.dataset.tipo;
+            filtros.forEach(function(b) { b.setAttribute('aria-pressed', String(b === botao)); });
+            let visiveis = 0;
+            document.querySelectorAll('.publications-page-section [data-tipo]:not(button)').forEach(function(card) {
+                const mostra = !tipo || card.dataset.tipo === tipo;
+                card.hidden = !mostra;
+                if (mostra) visiveis++;
+            });
+            vazio.hidden = visiveis > 0;
+        });
+    });
+
     // Funcionalidade da caixa de pesquisa
     const pesquisaBtn = document.getElementById('pesquisa-btn');
     const pesquisaInputContainer = document.getElementById('pesquisa-input-container');
