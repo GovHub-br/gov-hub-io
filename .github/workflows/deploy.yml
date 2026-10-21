@@ -73,6 +73,12 @@ jobs:
         if: steps.pages.outputs.base_url != ''
         run: echo "SITE_URL=${{ steps.pages.outputs.base_url }}/" >> "$GITHUB_ENV"
 
+      # Página "Histórico de mudanças", montada dos PRs mesclados (não faz commit; se a API falhar, só avisa)
+      - name: Changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/gera_changelog.py
+
       - name: Validate MkDocs configuration
         run: |
           echo "🔍 Validating MkDocs configuration..."
