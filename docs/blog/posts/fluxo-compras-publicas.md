@@ -5,7 +5,7 @@ draft: true
 categories:
   - Políticas públicas
   - Compras públicas
-card_image: /govhub/land/dist/images/publicacoes/compras.svg
+card_image: /land/dist/images/publicacoes/compras.svg
 card_label: Políticas públicas
 description: Como uma necessidade dentro de um órgão público vira compra. O fluxo da Lei nº 14.133/2021, lido bloco a bloco.
 ---
@@ -19,7 +19,7 @@ Como uma necessidade dentro de um órgão público vira compra. O fluxo operacio
 <!-- Guia interativo (lupas com rolagem, explorador e glossário). Estilo e script em
      docs/global-assets/fluxo-compras/ (IDV do Gov Hub). -->
 <div class="fc">
-<link rel="stylesheet" href="/govhub/global-assets/fluxo-compras/fluxo.css?v=20261016c">
+<link rel="stylesheet" href="/global-assets/fluxo-compras/fluxo.css?v=20261016c">
 
 <div class="fc-intro wrap">
   <svg class="hero-mark" viewBox="0 0 560 44" aria-hidden="true">
@@ -267,5 +267,5 @@ Como uma necessidade dentro de um órgão público vira compra. O fluxo operacio
 </section>
 <footer class="wrap">Guia de leitura do fluxo da política de compras públicas · versão interativa</footer>
 
-<script src="/govhub/global-assets/fluxo-compras/fluxo.js?v=20261016c"></script>
+<script src="/global-assets/fluxo-compras/fluxo.js?v=20261016c"></script>
 </div>

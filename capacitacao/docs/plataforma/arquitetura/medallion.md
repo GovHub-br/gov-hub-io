@@ -97,4 +97,4 @@ Cada domínio organiza suas camadas dentro de `models/<dominio>_dbt/`, por exemp
 - **Reuso:** Silver evita duplicação de tratamento entre vários modelos Gold.
 - **Governança:** dados sensíveis podem ser classificados antes do consumo.
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/arquitetura/medallion/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/arquitetura/medallion/).*

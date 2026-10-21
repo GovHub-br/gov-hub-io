@@ -169,4 +169,4 @@ spec:
 
 → [Conectar Fontes de Dados](conectar-fontes.md)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/adocao/deploy-inicial/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/adocao/deploy-inicial/).*

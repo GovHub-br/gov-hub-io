@@ -114,4 +114,4 @@ Quando a integração com OpenMetadata estiver habilitada, ela pode:
 4. **Custom tests** para regras de negócio específicas
 5. Use `--store-failures` em ambiente controlado quando for necessário preservar evidências para diagnóstico
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/pipeline/qualidade/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/pipeline/qualidade/).*

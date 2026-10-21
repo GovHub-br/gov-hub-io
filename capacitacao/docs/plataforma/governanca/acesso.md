@@ -76,4 +76,4 @@ Quando habilitados, esses componentes fornecem:
 
 Repo de referência: [`data-governance-workshop`](https://github.com/GovHub-br/data-governance-workshop)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/governanca/acesso/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/governanca/acesso/).*

@@ -68,6 +68,11 @@ Para rodar o gitpage
 docker-compose --profile dev up govhub-dev
 ```
 
+Links e imagens do site são escritos a partir da raiz: `/land/dist/images/logo.png`, `/publicacoes/`
+(não `/govhub/...`, endereço antigo que hoje só redireciona). Num fork, o GitHub Pages publica o site em
+`usuario.github.io/repositorio/`; o deploy passa esse endereço em `SITE_URL`, e o hook
+`material/overrides/hooks/caminho_base.py` acrescenta o prefixo aos links no build.
+
 
 ### 1. Clonando o Repositório
 

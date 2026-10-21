@@ -62,4 +62,4 @@ O GovHub pode processar dados de pessoal, dados financeiros e informações iden
 
 PRs com impacto em segurança, credenciais, dados sensíveis ou controle de acesso devem receber atenção reforçada no review. Quando houver dúvida, trate como mudança crítica e peça revisão adicional.
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/governanca/seguranca/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/governanca/seguranca/).*

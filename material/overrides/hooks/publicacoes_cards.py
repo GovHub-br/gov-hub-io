@@ -11,25 +11,25 @@ são reescritos entre os marcadores
 
 Campos opcionais no cabeçalho (front matter) do post:
 
-    card_image: /govhub/land/dist/images/publicacoes/dbt.svg   # imagem do card
+    card_image: /land/dist/images/publicacoes/dbt.svg   # imagem do card
     card_label: Tutorial                                         # etiqueta sobre a imagem
     description: Resumo curto que aparece no card.
 
 Sem eles, o card usa a imagem padrão, a primeira categoria e o primeiro
 parágrafo depois do título.
 
-Roda em on_post_build e precisa vir depois de copy_static_assets.py e
-copy_index.py na lista de hooks, porque reescreve também as cópias que eles fazem.
+Roda em on_post_build e precisa vir depois de copy_index.py na lista de hooks,
+porque reescreve também a cópia da home que ele faz, e antes de caminho_base.py,
+que prefixa os links quando o site não está na raiz do domínio.
 """
 import html
 import re
 from datetime import date, datetime
 from pathlib import Path
-from urllib.parse import urlparse
 
 from mkdocs.config.defaults import MkDocsConfig
 
-IMAGEM_PADRAO = "/govhub/land/dist/images/publicacoes/paper.svg"
+IMAGEM_PADRAO = "/land/dist/images/publicacoes/paper.svg"
 MARCADOR = re.compile(
     r"<!-- publicacoes:inicio(?:\s+limite=(\d+))?\s*-->.*?<!-- publicacoes:fim -->",
     re.S,
@@ -94,9 +94,9 @@ def on_page_markdown(markdown, page, config: MkDocsConfig, files, **kwargs):
     return markdown
 
 
-def _card(post, base):
+def _card(post):
     e = html.escape
-    href = f"{base}/{post['url']}".replace("//", "/")
+    href = "/" + post["url"].lstrip("/")
     return f"""
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
                     <div class="publication-card" onclick="location.href='{e(href)}'" style="cursor: pointer;">
@@ -114,13 +114,12 @@ def _card(post, base):
 
 
 def on_post_build(config: MkDocsConfig, **kwargs):
-    base = urlparse(config.site_url or "").path.rstrip("/")
     posts = sorted(_posts, key=lambda p: (p["data"], p["titulo"]), reverse=True)
 
     def preencher(m):
         lista = posts[: int(m.group(1))] if m.group(1) else posts
         inicio = m.group(0).split("-->", 1)[0] + "-->"
-        return inicio + "".join(_card(p, base) for p in lista) + "\n                <!-- publicacoes:fim -->"
+        return inicio + "".join(_card(p) for p in lista) + "\n                <!-- publicacoes:fim -->"
 
     alterados = 0
     for arquivo in Path(config.site_dir).rglob("*.html"):

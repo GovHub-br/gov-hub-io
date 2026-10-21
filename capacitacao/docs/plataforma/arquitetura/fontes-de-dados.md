@@ -183,4 +183,4 @@ Essa documentação é parte da governança do dado: ela explica não apenas que
 - [ComprasGov](https://compras.gov.br/)
 - [Painel Estatístico de Pessoal](https://www.gov.br/servidor/pt-br/observatorio-de-pessoal-govbr/painel-estatistico-de-pessoal/)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/arquitetura/fontes-de-dados/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/arquitetura/fontes-de-dados/).*

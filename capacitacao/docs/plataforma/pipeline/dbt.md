@@ -140,4 +140,4 @@ make test
 
 Veja também [Padrões de engenharia](padroes-engenharia.md) e [Qualidade de dados](qualidade.md).
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/pipeline/dbt/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/pipeline/dbt/).*

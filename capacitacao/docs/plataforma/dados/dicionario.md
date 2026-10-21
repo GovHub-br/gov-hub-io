@@ -128,4 +128,4 @@ Para schema completo (colunas, tipos, testes, descrições, linhagem):
 
 **[https://dbt.ipea.gov-hub.io/#!/overview](https://dbt.ipea.gov-hub.io/#!/overview)**
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/dados/dicionario/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/dados/dicionario/).*

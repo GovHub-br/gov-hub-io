@@ -81,4 +81,4 @@ Para adicionar owners e domínios, edite o repo [`openmetadata-declarative-gover
 - [OpenMetadata Docs](https://docs.open-metadata.org/)
 - Repo: [`openmetadata-declarative-governance`](https://github.com/GovHub-br/openmetadata-declarative-governance)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/governanca/openmetadata/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/governanca/openmetadata/).*

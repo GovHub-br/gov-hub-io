@@ -77,4 +77,4 @@ graph TB
 - **Site oficial:** [gov-hub.io](https://gov-hub.io)
 - **Apoio:** Lab Livre (UnB) + IPEA/Dides
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/).*

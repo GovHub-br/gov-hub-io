@@ -6,27 +6,27 @@
 function preloadTeamImages() {
     const teamImages = [
         // UnB Team
-        '/govhub/land/dist/images/equipe/alex_reis.png',
-        '/govhub/land/dist/images/equipe/carla.png',
-        '/govhub/land/dist/images/equipe/laila.png',
-        '/govhub/land/dist/images/equipe/isaque.png',
-        '/govhub/land/dist/images/equipe/joao.png',
-        '/govhub/land/dist/images/equipe/arthur.png',
-        '/govhub/land/dist/images/equipe/davi.png',
-        '/govhub/land/dist/images/equipe/joyce.png',
-        '/govhub/land/dist/images/equipe/mateus.png',
-        '/govhub/land/dist/images/equipe/guilherme_gusmao.jpg',
-        '/govhub/land/dist/images/equipe/vinicius.png',
+        '/land/dist/images/equipe/alex_reis.png',
+        '/land/dist/images/equipe/carla.png',
+        '/land/dist/images/equipe/laila.png',
+        '/land/dist/images/equipe/isaque.png',
+        '/land/dist/images/equipe/joao.png',
+        '/land/dist/images/equipe/arthur.png',
+        '/land/dist/images/equipe/davi.png',
+        '/land/dist/images/equipe/joyce.png',
+        '/land/dist/images/equipe/mateus.png',
+        '/land/dist/images/equipe/guilherme_gusmao.jpg',
+        '/land/dist/images/equipe/vinicius.png',
         
         // IPEA Team
-        '/govhub/land/dist/images/equipe/fernando_gaiger.png',
-        '/govhub/land/dist/images/equipe/gustavo_camilo.png',
+        '/land/dist/images/equipe/fernando_gaiger.png',
+        '/land/dist/images/equipe/gustavo_camilo.png',
         
         // Parceiros
-        '/govhub/land/dist/images/equipe/joao_freitas.jpeg',
-        '/govhub/land/dist/images/equipe/matheus_dias.jpeg',
-        '/govhub/land/dist/images/equipe/pedro_rossi.jpeg',
-        '/govhub/land/dist/images/equipe/victor_suzuki.png'
+        '/land/dist/images/equipe/joao_freitas.jpeg',
+        '/land/dist/images/equipe/matheus_dias.jpeg',
+        '/land/dist/images/equipe/pedro_rossi.jpeg',
+        '/land/dist/images/equipe/victor_suzuki.png'
     ];
     
     console.log('🔄 Iniciando preload das imagens da equipe...');

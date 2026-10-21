@@ -192,4 +192,4 @@ git merge upstream/main
 - **Nomeie consistentemente**: `<fonte>_ingest_dag`, `brz_*`, `slv_*`, `gld_*`
 - **Isole recursos compartilhados**: `<contexto>_silver`, `<contexto>_gold` e `bronze-<contexto>`
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/forks/guia-criar-fork/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/forks/guia-criar-fork/).*

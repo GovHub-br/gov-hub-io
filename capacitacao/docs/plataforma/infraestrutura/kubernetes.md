@@ -64,4 +64,4 @@ continuous-deployment/
 └── README.md
 ```
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/infraestrutura/kubernetes/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/infraestrutura/kubernetes/).*

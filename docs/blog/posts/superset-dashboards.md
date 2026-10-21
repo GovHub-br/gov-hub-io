@@ -5,7 +5,7 @@ categories:
   - Dashboards
   - Visualizacao
 cover_image: ./images/superset-dashboard.png
-card_image: /govhub/land/dist/images/publicacoes/superset.svg
+card_image: /land/dist/images/publicacoes/superset.svg
 card_label: Superset
 description: O Apache Superset é a ferramenta de visualização de dados do Gov Hub. Aprenda como criar dashboards impactantes
 ---
@@ -83,4 +83,4 @@ O GovHub oferece templates prontos para diferentes casos de uso. Confira nossos 
 
 ---
 
-*Explore mais conteúdos em nossa [página de publicações](/govhub/publicacoes/).*
+*Explore mais conteúdos em nossa [página de publicações](/publicacoes/).*
