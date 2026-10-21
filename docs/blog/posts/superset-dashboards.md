@@ -73,13 +73,12 @@ dashboard_config = {
 
 ## Templates Disponíveis
 
-O GovHub oferece templates prontos para diferentes casos de uso. Confira nossos [dashboards templates](../../comunidade/dashboards-templates.md) para começar rapidamente.
+O GovHub oferece templates prontos para diferentes casos de uso. Confira nossos [dashboards templates](../../documentacao/visualizacao/superset.md#dashboards) para começar rapidamente.
 
 ## Tutoriais Relacionados
 
-- [Conexões no Superset](../../guiasUso/superset/conexoes.md)
-- [Criando Charts](../../guiasUso/superset/criando-chart.md)
-- [Import/Export de Dashboards](../../guiasUso/superset/import-export.md)
+- [Superset no Gov Hub: datasets e dashboards](../../documentacao/visualizacao/superset.md)
+- [Conexão com o Data Warehouse](../../documentacao/visualizacao/superset.md#configuracao-de-database)
 
 ---
 

@@ -85,7 +85,7 @@ HAVING count(*) > 1
 ## Próximos Passos
 
 - Explore nossa [documentação completa sobre DBT](../../documentacao/tutoriais/dbt/modelos.md)
-- Veja exemplos práticos em nossos [templates de dashboard](../../comunidade/dashboards-templates.md)
+- Veja exemplos práticos em nossos [templates de dashboard](../../documentacao/visualizacao/superset.md#dashboards)
 
 ---
 
