@@ -3,7 +3,7 @@ Gera as imagens de card das publicações a partir dos ícones do Gov Hub
 (GovHub-br/skills-assets, pasta gov-hub/icons): cada ícone entra no molde dos cards
 atuais (fundo navy 388 × 307, círculo branco ao centro) e vira
 docs/land/dist/images/publicacoes/icone-<nome>.svg, que o painel /admin/ lista na
-escolha da imagem do card.
+escolha da imagem do card. Também refaz config.svg, contributing.svg e paper.svg (ver SUBSTITUI).
 
     python3 .github/scripts/gera_cards_icones.py
 
@@ -31,6 +31,8 @@ DE_FORA = re.compile(
 )
 # Setas que funcionam como ilustração (indicadores, atualização)
 MANTER = {"arrow-trending-up", "arrow-trending-down", "arrow-path"}
+# Ilustrações antigas, já usadas pelo site e pelos posts, refeitas a partir dos ícones (nome do arquivo: ícone)
+SUBSTITUI = {"config": "settings", "contributing": "pessoal", "paper": "paper"}
 PERIGOSO = re.compile(r"<script|<foreignObject|\son\w+\s*=|(?:xlink:)?href\s*=\s*[\"'](?!#)", re.I)
 
 # Molde dos cards (o mesmo de compras.svg): o ícone ocupa 96 px no círculo de 168 px
@@ -65,10 +67,12 @@ def _card(svg):
 def main():
     feitos, recusados = set(), []
     for nome, svg in sorted(_icones()):
-        if DE_FORA.search(nome) and nome not in MANTER:
-            continue
         if PERIGOSO.search(svg):
             recusados.append(nome)
+            continue
+        for antigo in (a for a, icone in SUBSTITUI.items() if icone == nome):
+            (DESTINO / f"{antigo}.svg").write_text(_card(svg), encoding="utf-8")
+        if DE_FORA.search(nome) and nome not in MANTER:
             continue
         arquivo = DESTINO / f"icone-{nome}.svg"
         arquivo.write_text(_card(svg), encoding="utf-8")
