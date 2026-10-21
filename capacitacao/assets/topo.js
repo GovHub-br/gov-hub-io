@@ -11,7 +11,7 @@ export const EMAIL_CONTATO = 'govhub@unb.br';
 
 // O site do Gov Hub fica um nível acima (as trilhas moram em /capacitacao/). Caminhos relativos,
 // para funcionar tanto no domínio próprio quanto no preview do GitHub Pages.
-const SITE = '../govhub/';
+const SITE = '../';
 const MENU_SITE = [
   ['HOME', SITE + 'home/'], ['SOBRE', SITE + 'sobre/'], ['QUEM SOMOS', SITE + 'quem-somos/'],
   ['PROJETOS', SITE + 'projetos/'], ['PUBLICAÇÕES', SITE + 'publicacoes/'],

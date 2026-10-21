@@ -64,4 +64,4 @@ O GovHub BR adota a **Arquitetura Medallion** (Raw → Bronze → Silver → Gol
 | Pré-produção | Cluster K8s (validação) | `values.preprod.yaml` |
 | Produção | Cluster K8s (GitOps) | `values.prod.yaml` |
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/arquitetura/visao-geral/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/arquitetura/visao-geral/).*

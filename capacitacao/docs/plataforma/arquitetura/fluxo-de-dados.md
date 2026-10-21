@@ -82,4 +82,4 @@ Exemplo de configuração local:
 
 Veja também [Ingestão de Dados](../pipeline/ingestao.md), [dbt](../pipeline/dbt.md) e [Qualidade de Dados](../pipeline/qualidade.md).
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/arquitetura/fluxo-de-dados/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/arquitetura/fluxo-de-dados/).*

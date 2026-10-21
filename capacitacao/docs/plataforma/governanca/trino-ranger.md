@@ -145,4 +145,4 @@ continuous-deployment/
 - [Apache Ranger](https://ranger.apache.org/)
 - Repo: [`data-governance-workshop`](https://github.com/GovHub-br/data-governance-workshop)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/governanca/trino-ranger/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/governanca/trino-ranger/).*

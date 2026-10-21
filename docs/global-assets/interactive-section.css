@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: url('/govhub/land/dist/images/section-bg.png') center center/cover no-repeat;
+    background: url('/land/dist/images/section-bg.png') center center/cover no-repeat;
     padding: 4rem 0 0 0;
     margin-top: 0;
     z-index: 1;
@@ -22,7 +22,7 @@ header.fixed {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/govhub/land/dist/images/section-bg.png') center center/cover no-repeat;
+    background: url('/land/dist/images/section-bg.png') center center/cover no-repeat;
     opacity: 0.9;
 }
 
@@ -498,7 +498,7 @@ header.fixed {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/govhub/land/dist/images/section-bg.png') center center/cover no-repeat;
+    background: url('/land/dist/images/section-bg.png') center center/cover no-repeat;
     opacity: 0.9;
 }
 

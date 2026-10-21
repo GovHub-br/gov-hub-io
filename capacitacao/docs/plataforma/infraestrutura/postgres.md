@@ -104,4 +104,4 @@ Configurados via manifests Kubernetes (CronJob ou operador).
 - [PostgreSQL Docs](https://www.postgresql.org/docs/)
 - Repo: [`continuous-deployment/postgres`](https://github.com/GovHub-br/continuous-deployment/tree/main/postgres)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/infraestrutura/postgres/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/infraestrutura/postgres/).*

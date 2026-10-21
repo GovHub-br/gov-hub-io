@@ -95,4 +95,4 @@ continuous-deployment/
 - [MinIO Docs](https://min.io/docs/minio/linux/index.html)
 - [MinIO Python SDK](https://docs.min.io/aistor/developers/sdk/python/)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/infraestrutura/minio/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/infraestrutura/minio/).*

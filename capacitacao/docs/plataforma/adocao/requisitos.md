@@ -102,4 +102,4 @@ Para reduzir risco, a adoção deve ser incremental:
 
 → [Deploy Inicial](deploy-inicial.md)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/adocao/requisitos/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/adocao/requisitos/).*

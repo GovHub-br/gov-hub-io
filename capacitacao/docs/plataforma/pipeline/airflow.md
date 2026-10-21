@@ -130,4 +130,4 @@ docker compose exec airflow airflow dags test <dag_id> <data_execucao>
 - [Padrões de engenharia](padroes-engenharia.md)
 - [Observabilidade](observabilidade.md)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/pipeline/airflow/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/pipeline/airflow/).*

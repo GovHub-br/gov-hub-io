@@ -5,7 +5,7 @@ categories:
   - DBT
   - Infraestrutura
 cover_image: ./images/dbt-tutorial.png
-card_image: /govhub/land/dist/images/publicacoes/dbt.svg
+card_image: /land/dist/images/publicacoes/dbt.svg
 card_label: Tutorial
 description: O DBT é uma ferramenta essencial para transformação de dados no Gov Hub. Aprenda como configurar e usar
 ---
@@ -89,4 +89,4 @@ HAVING count(*) > 1
 
 ---
 
-*Para mais tutoriais como este, visite nossa [página de publicações](/govhub/publicacoes/).*
+*Para mais tutoriais como este, visite nossa [página de publicações](/publicacoes/).*

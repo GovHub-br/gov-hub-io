@@ -62,6 +62,17 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
+      # Endereço do site neste repositório (gov-hub.io no oficial, usuario.github.io/repo num fork).
+      # Vai para o site_url do mkdocs.yml; em PR fica o padrão, gov-hub.io.
+      - name: Setup Pages
+        id: pages
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: actions/configure-pages@v4
+
+      - name: Endereço do site
+        if: steps.pages.outputs.base_url != ''
+        run: echo "SITE_URL=${{ steps.pages.outputs.base_url }}/" >> "$GITHUB_ENV"
+
       - name: Validate MkDocs configuration
         run: |
           echo "🔍 Validating MkDocs configuration..."
@@ -193,10 +204,6 @@ jobs:
           echo "- **Approximate word count:** $word_count" >> $GITHUB_STEP_SUMMARY
           echo "- **Build time:** $(date)" >> $GITHUB_STEP_SUMMARY
           echo "- **Blog posts:** $(find docs/blog/posts -name "*.md" -type f | wc -l)" >> $GITHUB_STEP_SUMMARY
-
-      - name: Setup Pages
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'

@@ -93,4 +93,4 @@ environment:
 3. Auditar acessos via logs do cluster
 4. Considerar Sealed Secrets ou External Secrets Operator para automação
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/infraestrutura/secrets/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/infraestrutura/secrets/).*

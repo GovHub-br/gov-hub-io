@@ -62,4 +62,4 @@ docker compose up -d
 
 Veja o [Guia de Criação de Forks](guia-criar-fork.md).
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/forks/index/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/forks/index/).*

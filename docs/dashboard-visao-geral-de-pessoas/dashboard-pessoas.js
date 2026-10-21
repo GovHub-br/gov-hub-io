@@ -211,7 +211,7 @@ function loadBrazilMap() {
     const mapContainer = document.getElementById('brazilMap');
     if (!mapContainer) return;
 
-    fetch('/govhub/land/dist/images/Map-Brasil.svg')
+    fetch('/land/dist/images/Map-Brasil.svg')
         .then(response => response.text())
         .then(svgText => {
             mapContainer.innerHTML = svgText;

@@ -1,7 +1,7 @@
 # Aulas da trilha de adoção: origem
 
 As aulas desta pasta são cópias adaptadas da documentação técnica oficial do Gov Hub
-(<https://gov-hub.io/govhub/documentacao/>), do repositório
+(<https://gov-hub.io/documentacao/>), do repositório
 [`GovHub-br/gov-hub-io`](https://github.com/GovHub-br/gov-hub-io), pasta `docs/documentacao/`, no
 commit `8def869b67c4d2109601a1893fc0a9c8c6713bf7`. Os caminhos espelham os de lá
 (`docs/documentacao/adocao/deploy-inicial.md` → `docs/plataforma/adocao/deploy-inicial.md`), o que

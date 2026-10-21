@@ -116,4 +116,4 @@ git fetch upstream
 git merge upstream/main
 ```
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/forks/minc/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/forks/minc/).*

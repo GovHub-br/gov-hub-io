@@ -173,7 +173,7 @@ prática em vídeo anunciado como "em breve"; a trilha de implantação está to
 
 A capacitação mora em `capacitacao/` no repositório do site do Gov Hub (`GovHub-br/gov-hub-io`) e é
 publicada em **gov-hub.io/capacitacao/**. Ela é estática: o topo e o rodapé apontam para o site com
-caminhos relativos (`../govhub/...`).
+caminhos relativos (`../...`).
 
 Só a capacitação (os links para o resto do site não abrem):
 

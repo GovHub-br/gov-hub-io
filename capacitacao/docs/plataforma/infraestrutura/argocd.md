@@ -105,4 +105,4 @@ kubectl get secrets -n <namespace>
 - [App-of-Apps Pattern](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/)
 - Repo: [`continuous-deployment`](https://github.com/GovHub-br/continuous-deployment)
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/infraestrutura/argocd/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/infraestrutura/argocd/).*

@@ -164,4 +164,4 @@ Detalhamento dos componentes principais da plataforma GovHub BR.
 - Rollback declarativo
 - Detecção de drift
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/arquitetura/componentes/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/arquitetura/componentes/).*

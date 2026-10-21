@@ -1,5 +1,7 @@
 site_name: Gov Hub
-site_url: "https://gov-hub.io/govhub/"
+# Endereço onde o site fica no ar. O deploy passa o de cada ambiente (ex.: o preview de um fork)
+# em SITE_URL; os links do site são escritos a partir da raiz (ver hooks/caminho_base.py).
+site_url: !ENV [SITE_URL, "https://gov-hub.io/"]
 site_author: Lab Livre
 site_description: >-
   Gov Hub - plataforma livre de integração de dados e informações governamentais.
@@ -78,13 +80,13 @@ plugins:
 hooks:
   - material/overrides/hooks/shortcodes.py
   - material/overrides/hooks/translations.py
-  - material/overrides/hooks/copy_static_assets.py
   - material/overrides/hooks/copy_index.py
   - material/overrides/hooks/publicacoes_cards.py
+  - material/overrides/hooks/caminho_base.py
 
 # Additional configuration
 extra:
-  homepage: /govhub/home/
+  homepage: /home/
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/GovHub-br

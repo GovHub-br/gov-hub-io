@@ -167,4 +167,4 @@ dbt test --select minhafonte
 
 → [Guia de Criação de Forks](../forks/guia-criar-fork.md) para isolar um novo contexto quando necessário.
 
-*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/govhub/documentacao/adocao/conectar-fontes/).*
+*Adaptado da [documentação técnica do Gov Hub](https://gov-hub.io/documentacao/adocao/conectar-fontes/).*

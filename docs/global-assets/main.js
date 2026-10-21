@@ -168,13 +168,13 @@ function initScrollAnimations() {
 function preloadGlobalImages() {
     const globalImages = [
         // Logos globais usados em todas as páginas
-        '/govhub/land/dist/images/icons/instagram.svg',
-        '/govhub/land/dist/images/icons/github.svg',
-        '/govhub/land/dist/images/icons/linkedin.svg',
-        '/govhub/land/dist/images/logo.png',
-        '/govhub/land/dist/images/lab-livre-white.svg',
-        '/govhub/land/dist/images/unb_footer.png',
-        '/govhub/land/dist/images/ipea_footer.png'
+        '/land/dist/images/icons/instagram.svg',
+        '/land/dist/images/icons/github.svg',
+        '/land/dist/images/icons/linkedin.svg',
+        '/land/dist/images/logo.png',
+        '/land/dist/images/lab-livre-white.svg',
+        '/land/dist/images/unb_footer.png',
+        '/land/dist/images/ipea_footer.png'
     ];
     
     console.log('🌐 Iniciando preload de imagens globais...');
