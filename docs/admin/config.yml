@@ -96,6 +96,16 @@ collections:
             config:
               transformations:
                 raster_image: { format: webp, quality: 85, width: 800 }
+      - name: pdf
+        label: Artigo em PDF
+        widget: file
+        required: false
+        media_folder: /docs/publicacoes/pdf
+        public_folder: /publicacoes/pdf
+        choose_url: false
+        hint: >-
+          Opcional. Com um PDF aqui, a página da publicação ganha o link "Ler o artigo (PDF)",
+          que abre o PDF em outra aba. Até 10 MB.
       - name: draft
         label: Esconder do site
         widget: boolean

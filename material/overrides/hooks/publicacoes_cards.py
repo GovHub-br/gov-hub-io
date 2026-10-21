@@ -14,6 +14,10 @@ Campos opcionais no cabeçalho (front matter) do post:
     card_image: /land/dist/images/publicacoes/dbt.svg   # imagem do card
     card_label: Tutorial                                         # etiqueta sobre a imagem
     description: Resumo curto que aparece no card.
+    pdf: /publicacoes/pdf/artigo.pdf                             # artigo em PDF, linkado na página do post
+
+Se ao lado do PDF houver a capa com o mesmo nome (artigo.webp, .png ou .jpg), ela entra
+no card no lugar da ilustração: a folha sobre fundo branco, cortada embaixo.
 
 Sem eles, o card usa a imagem padrão, a primeira categoria e o primeiro
 parágrafo depois do título.
@@ -74,6 +78,17 @@ def _resumo(markdown):
     return ""
 
 
+def _capa(pdf, config):
+    """Capa do PDF: a imagem com o mesmo nome, ao lado dele em docs/."""
+    if not pdf:
+        return None
+    base = Path(pdf.lstrip("/")).with_suffix("")
+    for ext in (".webp", ".png", ".jpg"):
+        if (Path(config.docs_dir) / base.with_suffix(ext)).is_file():
+            return "/" + base.with_suffix(ext).as_posix()
+    return None
+
+
 def on_page_markdown(markdown, page, config: MkDocsConfig, files, **kwargs):
     if not page.file.src_uri.startswith("blog/posts/"):
         return markdown
@@ -86,6 +101,7 @@ def on_page_markdown(markdown, page, config: MkDocsConfig, files, **kwargs):
     _posts.append({
         "titulo": titulo,
         "url": page.url,
+        "capa": _capa(meta.get("pdf"), config),
         "data": _data(meta.get("date")),
         "rotulo": meta.get("card_label") or (categorias[0] if categorias else "Publicação"),
         "imagem": meta.get("card_image") or IMAGEM_PADRAO,
@@ -97,11 +113,16 @@ def on_page_markdown(markdown, page, config: MkDocsConfig, files, **kwargs):
 def _card(post):
     e = html.escape
     href = "/" + post["url"].lstrip("/")
+    if post["capa"]:
+        # capa do PDF sobre fundo branco, no lugar da ilustração
+        card, imagem, classe = "publication-card publication-card--capa", post["capa"], "cover-image"
+    else:
+        card, imagem, classe = "publication-card", post["imagem"], "card-image"
     return f"""
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                    <div class="publication-card" onclick="location.href='{e(href)}'" style="cursor: pointer;">
+                    <div class="{card}" onclick="location.href='{e(href)}'" style="cursor: pointer;">
                         <div class="publication-image">
-                            <img src="{e(post['imagem'])}" alt="" class="card-image">
+                            <img src="{e(imagem)}" alt="" class="{classe}">
                             <div class="publication-category">{e(str(post['rotulo']).upper())}</div>
                         </div>
                         <div class="publication-content">
