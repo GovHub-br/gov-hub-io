@@ -5,8 +5,8 @@
 
 backend:
   name: github
-  # Teste no fork pessoal. Para o oficial: GovHub-br/gov-hub-io
-  repo: egewarth/gov-hub-io
+  # Num fork, para testar: <usuario>/gov-hub-io
+  repo: GovHub-br/gov-hub-io
   branch: main
   squash_merges: true
   # Login da equipe pelo GitHub (OAuth). Enquanto não houver, entrar com token.
