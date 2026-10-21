@@ -17,6 +17,17 @@ publish_mode: editorial_workflow
 media_folder: /docs/blog/posts/images
 public_folder: images
 
+# Todo envio pelo painel: nome sem espaço nem acento, PNG/JPG convertidos para WebP
+# (no navegador, antes do commit) e SVG sem metadados de editor.
+media_libraries:
+  default:
+    config:
+      max_file_size: 10485760  # 10 MB
+      slugify_filename: true
+      transformations:
+        raster_image: { format: webp, quality: 85, width: 1600 }
+        svg: { optimize: true }
+
 # Endereços sem acento: "Ação pública" -> acao-publica
 slug:
   encoding: ascii
@@ -68,16 +79,22 @@ collections:
         hint: Texto curto sobre a imagem do card. Se ficar vazio, usa a primeira categoria.
       - name: card_image
         label: Imagem do card
-        widget: select
+        widget: image
         required: false
         default: /land/dist/images/publicacoes/paper.svg
-        options:
-          - { label: "Documento (padrão)", value: /land/dist/images/publicacoes/paper.svg }
-          - { label: "Compras", value: /land/dist/images/publicacoes/compras.svg }
-          - { label: "Configuração", value: /land/dist/images/publicacoes/config.svg }
-          - { label: "Contribuição", value: /land/dist/images/publicacoes/contributing.svg }
-          - { label: "dbt", value: /land/dist/images/publicacoes/dbt.svg }
-          - { label: "Superset", value: /land/dist/images/publicacoes/superset.svg }
+        # Biblioteca própria: as ilustrações dos cards, e o que for enviado aqui fica para os próximos
+        media_folder: /docs/land/dist/images/publicacoes
+        public_folder: /land/dist/images/publicacoes
+        choose_url: false
+        hint: >-
+          Escolha uma das ilustrações ou envie uma nova. No card ela aparece com 200 px de altura,
+          recortada para preencher: prefira imagens horizontais, na proporção das atuais (388 × 307),
+          sem texto perto das bordas.
+        media_libraries:
+          default:
+            config:
+              transformations:
+                raster_image: { format: webp, quality: 85, width: 800 }
       - name: draft
         label: Esconder do site
         widget: boolean
