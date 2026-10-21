@@ -20,9 +20,11 @@ permissions:
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# PRs (o painel /admin/ abre um a cada publicação salva) ficam num grupo próprio: no grupo "pages",
+# o build de um PR tomaria o lugar do deploy pendente da main, e a publicação não iria ao ar.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.ref) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   # Build and validation job

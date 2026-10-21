@@ -1,0 +1,108 @@
+# Painel de publicações do Gov Hub (Sveltia CMS), servido em /admin/.
+# Cada publicação salva no painel vira uma branch cms/publicacoes/<slug> com um PR;
+# "Publicar" faz o merge na main, e o deploy.yml põe no ar.
+# Documentação: https://sveltiacms.app/en/docs
+
+backend:
+  name: github
+  # Num fork, para testar: <usuario>/gov-hub-io
+  repo: GovHub-br/gov-hub-io
+  branch: main
+  squash_merges: true
+  # Login da equipe pelo GitHub (OAuth). Enquanto não houver, entrar com token.
+  # base_url: https://<autenticador>.workers.dev
+
+publish_mode: editorial_workflow
+
+media_folder: /docs/blog/posts/images
+public_folder: images
+
+# Todo envio pelo painel: nome sem espaço nem acento, PNG/JPG convertidos para WebP
+# (no navegador, antes do commit) e SVG sem metadados de editor.
+media_libraries:
+  default:
+    config:
+      max_file_size: 10485760  # 10 MB
+      slugify_filename: true
+      transformations:
+        raster_image: { format: webp, quality: 85, width: 1600 }
+        svg: { optimize: true }
+
+# Endereços sem acento: "Ação pública" -> acao-publica
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: publicacoes
+    label: Publicações
+    label_singular: Publicação
+    description: >-
+      Textos da página Publicações e da home. Publicações interativas (como o fluxo de
+      compras) têm HTML próprio: pedir ao time técnico antes de editá-las aqui.
+    folder: /docs/blog/posts
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} · {{date}}"
+    sortable_fields: [date, title]
+    # Imagens do texto ficam em docs/blog/posts/images/
+    media_folder: images
+    public_folder: images
+    fields:
+      - name: title
+        label: Título
+        widget: string
+        hint: Aparece no topo da publicação e no card.
+      - name: date
+        label: Data
+        widget: datetime
+        type: date
+        default: "{{now}}"
+        hint: A data define a ordem nos cards (mais recente primeiro) e entra no endereço da página.
+      - name: description
+        label: Resumo
+        widget: text
+        hint: Uma ou duas frases. É o texto do card na página Publicações e na home.
+      - name: categories
+        label: Categorias
+        widget: list
+        required: false
+        hint: >-
+          Separe por vírgula. Já usadas: Políticas públicas, Compras públicas, Plataforma,
+          Dados Públicos, Tutorial, Dashboards.
+      - name: card_label
+        label: Etiqueta do card
+        widget: string
+        required: false
+        hint: Texto curto sobre a imagem do card. Se ficar vazio, usa a primeira categoria.
+      - name: card_image
+        label: Imagem do card
+        widget: image
+        required: false
+        default: /land/dist/images/publicacoes/paper.svg
+        # Biblioteca própria: as ilustrações dos cards, e o que for enviado aqui fica para os próximos
+        media_folder: /docs/land/dist/images/publicacoes
+        public_folder: /land/dist/images/publicacoes
+        choose_url: false
+        hint: >-
+          Escolha uma ilustração ou envie uma nova. As "icone-…" são os ícones do Gov Hub: busque pelo
+          nome em inglês (chart, users, database, document…) ou pelos do Gov Hub (contratos, orcamento,
+          pessoal, teds). Imagem nova: horizontal, na proporção 388 × 307, sem texto perto das bordas
+          (no card ela tem 200 px de altura e é recortada para preencher).
+        media_libraries:
+          default:
+            config:
+              transformations:
+                raster_image: { format: webp, quality: 85, width: 800 }
+      - name: draft
+        label: Esconder do site
+        widget: boolean
+        required: false
+        default: false
+        hint: Marcado, a publicação não aparece no site mesmo depois de publicada.
+      - name: body
+        label: Texto
+        widget: richtext
+        hint: Não repita o título aqui. Use os níveis de título 2 e 3 para as seções.
