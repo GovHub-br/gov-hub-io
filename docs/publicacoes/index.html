@@ -146,51 +146,14 @@
             <!-- Filter Bar -->
             <div class="filter-bar">
                 <div class="filtros-pesquisa">
-                    <div class="filtros-container" style="visibility: hidden;">
-                        <button class="filtro-btn">
-                            <span>FILTROS</span>
-                            <svg class="chevron-down" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <button class="filtro-btn">
-                            <span>FILTROS</span>
-                            <svg class="chevron-down" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <button class="filtro-btn">
-                            <span>FILTROS</span>
-                            <svg class="chevron-down" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <button class="filtro-btn">
-                            <span>FILTROS</span>
-                            <svg class="chevron-down" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <button class="filtro-btn">
-                            <span>FILTROS</span>
-                            <svg class="chevron-down" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <button class="filtro-btn">
-                            <span>FILTROS</span>
-                            <svg class="chevron-down" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <button class="filtro-btn">
-                            <span>FILTROS</span>
-                            <svg class="chevron-down" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
+                    <!-- Filtro pelo campo "tipo" dos posts (publicacoes.js) -->
+                    <div class="filtros-container" role="group" aria-label="Filtrar publicações por tipo">
+                        <button type="button" class="filtro-btn" data-tipo="" aria-pressed="true">Todas</button>
+                        <button type="button" class="filtro-btn" data-tipo="produto" aria-pressed="false">Produtos</button>
+                        <button type="button" class="filtro-btn" data-tipo="evento" aria-pressed="false">Eventos</button>
+                        <button type="button" class="filtro-btn" data-tipo="pesquisa" aria-pressed="false">Pesquisas</button>
                     </div>
-                    
+
                     <div class="pesquisa-container" style="visibility: hidden;">
                         <button class="pesquisa-btn" id="pesquisa-btn">
                             <span>PESQUISAR</span>
@@ -261,6 +224,11 @@
                 </div>
 
                 <!-- publicacoes:fim -->
+            </div>
+            <div class="publicacoes-vazio" hidden>
+                <img src="/publicacoes/vazio.svg" alt="" width="460" height="280">
+                <h3>Nada por aqui ainda</h3>
+                <p>Ainda não há publicações deste tipo. Veja as outras categorias ou volte em breve.</p>
             </div>
 
         </div>

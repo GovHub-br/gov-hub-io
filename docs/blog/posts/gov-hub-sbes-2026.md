@@ -4,6 +4,7 @@ categories:
   - Plataforma
   - Dados Públicos
 card_label: Artigo científico
+tipo: pesquisa
 description: Artigo apresentado no SBES 2026 sobre a arquitetura do Gov Hub e seu uso no Ipea para integrar e qualificar dados da execução orçamentária e financeira.
 pdf: /publicacoes/pdf/gov-hub-sbes-2026.pdf
 ---

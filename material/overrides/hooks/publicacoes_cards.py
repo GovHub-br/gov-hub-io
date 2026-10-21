@@ -14,6 +14,7 @@ Campos opcionais no cabeçalho (front matter) do post:
     card_image: /land/dist/images/publicacoes/dbt.svg   # imagem do card
     card_label: Tutorial                                         # etiqueta sobre a imagem
     description: Resumo curto que aparece no card.
+    tipo: pesquisa                                               # filtro da página: produto (padrão), evento ou pesquisa
     pdf: /publicacoes/pdf/artigo.pdf                             # artigo em PDF, linkado na página do post
 
 Se ao lado do PDF houver a capa com o mesmo nome (artigo.webp, .png ou .jpg), ela entra
@@ -102,6 +103,7 @@ def on_page_markdown(markdown, page, config: MkDocsConfig, files, **kwargs):
         "titulo": titulo,
         "url": page.url,
         "capa": _capa(meta.get("pdf"), config),
+        "tipo": meta.get("tipo") or "produto",
         "data": _data(meta.get("date")),
         "rotulo": meta.get("card_label") or (categorias[0] if categorias else "Publicação"),
         "imagem": meta.get("card_image") or IMAGEM_PADRAO,
@@ -119,7 +121,7 @@ def _card(post):
     else:
         card, imagem, classe = "publication-card", post["imagem"], "card-image"
     return f"""
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4 mb-4" data-tipo="{e(str(post['tipo']))}">
                     <div class="{card}" onclick="location.href='{e(href)}'" style="cursor: pointer;">
                         <div class="publication-image">
                             <img src="{e(imagem)}" alt="" class="{classe}">

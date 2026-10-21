@@ -47,7 +47,7 @@
 
 .filtros-container {
     display: flex;
-    gap: 2rem;
+    gap: 0.75rem;
     align-items: center;
 }
 
@@ -75,6 +75,54 @@
 .filtro-btn span {
     font-size: 0.85rem;
     letter-spacing: 0.5px;
+}
+
+/* Filtro por tipo: pílulas, a selecionada preenchida */
+.filtros-container .filtro-btn {
+    gap: 0;
+    padding: 0.5rem 1.1rem;
+    border: 2px solid #613EFF;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.filtros-container .filtro-btn[aria-pressed="true"] {
+    background: #613EFF;
+    color: #fff;
+}
+
+/* Estado vazio do filtro: formas da IDV (vazio.svg) e chamada em navy */
+.publicacoes-vazio {
+    padding: 2rem 1rem 3rem;
+    text-align: center;
+    font-family: 'Reddit Sans', sans-serif;
+}
+
+.publicacoes-vazio[hidden] {
+    display: none;
+}
+
+.publicacoes-vazio img {
+    display: block;
+    width: min(100%, 400px);
+    height: auto;
+    margin: 0 auto 1.75rem;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(10, 0, 90, 0.08);
+}
+
+.publicacoes-vazio h3 {
+    margin-bottom: 0.5rem;
+    color: #0A005A;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.publicacoes-vazio p {
+    margin: 0;
+    color: #2D3748;
 }
 
 .chevron-down {
@@ -355,6 +403,16 @@
     
     .filtro-btn span {
         font-size: 0.7rem;
+    }
+
+    .filtros-container {
+        gap: 0.4rem;
+    }
+
+    .filtros-container .filtro-btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.02em;
     }
     
     .pesquisa-container {

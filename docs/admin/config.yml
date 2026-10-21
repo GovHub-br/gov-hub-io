@@ -65,6 +65,17 @@ collections:
         label: Resumo
         widget: text
         hint: Uma ou duas frases. É o texto do card na página Publicações e na home.
+      - name: tipo
+        label: Tipo
+        widget: select
+        default: produto
+        options:
+          - { label: Produtos, value: produto }
+          - { label: Eventos, value: evento }
+          - { label: Pesquisas, value: pesquisa }
+        hint: >-
+          Filtro da página Publicações. Produtos: textos sobre a política, as ferramentas e a
+          plataforma. Eventos: participações e encontros. Pesquisas: o livro e os artigos.
       - name: categories
         label: Categorias
         widget: list
