@@ -8,7 +8,7 @@ card_image: /land/dist/images/publicacoes/paper.svg
 draft: false
 ---
 
-Datathon reúne 104 participantes de 35 organizações para construir soluções de monitoramento do Plano Nacional de Cultura
+![](images/93c8f474-706a-42ed-966c-725e9de492f8.webp)Datathon reúne 104 participantes de 35 organizações para construir soluções de monitoramento do Plano Nacional de Cultura
 
 A Jornada de Dados do Plano Nacional de Cultura foi promovida pelo Gov Hub em parceria com o Ministério da Cultura.
 
@@ -38,24 +38,20 @@ O Gov Hub trabalha com integração de dados públicos, e ter a oportunidade de 
 
 Fotos do Datathon
 
-![Mulher fala ao microfone no corredor entre as mesas, com participantes sentados dos dois lados](fotos/foto-03.jpg)
+![Mulher fala ao microfone no corredor entre as mesas, com participantes sentados dos dois lados](images/vec-09523.webp)
 
 ![Participante acompanha a discussão, com outras pessoas desfocadas em primeiro plano](images/162a2433.webp)
 
-![Participante fala durante a atividade em grupo](fotos/foto-06.jpg)
+![Participante fala durante a atividade em grupo](images/dsc08821.webp)
 
 ![Participante de óculos vermelhos acompanha a conversa na sala cheia](images/vec-09349.webp)
 
-![Participante sorri à mesa de trabalho, com o banner do Datathon ao fundo](fotos/foto-08.jpg)
-
 ![Participante conversa e gesticula à mesa durante a atividade](images/162a2401.webp)
 
-![Participante em pé apresenta o cartaz de trabalho para o grupo](fotos/foto-10.jpg)
-
-![Grupos reunidos em torno de cartazes de trabalho em uma sala ampla](fotos/foto-11.jpg)
+![Grupos reunidos em torno de cartazes de trabalho em uma sala ampla](images/vec-09399.webp)
 
 ![Grupo discute em volta da mesa, com cartaz, cadernos e notebooks](images/vec-09521-1.webp)
 
-![Participante em pé aponta para o cartaz enquanto o grupo acompanha](fotos/foto-13.jpg)
+![Participante em pé aponta para o cartaz enquanto o grupo acompanha](images/vec-09485.webp)
 
 ![Participantes ao redor de uma mesa de trabalho, com outros grupos ao fundo](images/vec-09468.webp)
