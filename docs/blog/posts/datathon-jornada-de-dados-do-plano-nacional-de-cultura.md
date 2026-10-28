@@ -7,10 +7,10 @@ categories: []
 card_label: Evento
 card_image: /land/dist/images/publicacoes/paper.svg
 pdf: ''
-draft: false
+draft: true
 ---
 
-![](images/vec-09070.webp)<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
@@ -30,7 +30,7 @@ draft: false
   --radius-sm:6px; --radius-md:10px; --radius-lg:16px;
   --gutter:clamp(20px,5vw,72px);
 }
-\*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-family-base);color:var(--text-body);background:var(--bg-white);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
@@ -42,12 +42,12 @@ h1,h2,h3{font-weight:800;letter-spacing:-0.025em;line-height:1.06;color:var(--da
 .eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent-rose)}
 .eyebrow.on-dark{color:#fff}
 
-/\* top bar \*/
+/* top bar */
 .top{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
 .top img{height:34px;width:auto}
 .top .tag{font-size:14px;font-weight:600;color:var(--dark-navy);background:var(--bg-soft);padding:8px 18px;border-radius:999px}
 
-/\* hero \*/
+/* hero */
 .hero{position:relative;overflow:hidden;background:#fff}
 .hero .wrap{position:relative;z-index:2}
 .hero-grid{padding:36px 0 56px;max-width:820px}
@@ -63,14 +63,14 @@ h1,h2,h3{font-weight:800;letter-spacing:-0.025em;line-height:1.06;color:var(--da
 .hero-photo figcaption{font-size:14px;color:var(--text-muted);margin-top:12px}
 .hero-end{height:96px}
 
-/\* stats \*/
+/* stats */
 .stats{background:var(--dark-navy);color:#fff;position:relative;overflow:hidden;margin-top:-48px;padding-top:48px}
 .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:64px 0}
 .stat .n{font-size:clamp(48px,6vw,80px);font-weight:800;letter-spacing:-0.03em;line-height:1;color:#fff}
 .stat .l{margin-top:10px;font-size:16px;color:#fff;opacity:.88;max-width:200px}
 .stat{border-top:2px solid rgba(255,255,255,.28);padding-top:20px}
 
-/\* sections \*/
+/* sections */
 section{position:relative;overflow:hidden}
 html,body{overflow-x:clip}
 .sec{padding:clamp(64px,9vw,112px) 0}
@@ -84,7 +84,7 @@ html,body{overflow-x:clip}
 .photo img{width:100%;height:100%;object-fit:cover}
 .photo.tall img{aspect-ratio:4/4.4}
 
-/\* etapas \*/
+/* etapas */
 .steps-head{max-width:760px;margin-bottom:48px}
 .steps-head p{font-size:19px}
 .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
@@ -97,11 +97,12 @@ html,body{overflow-x:clip}
 .step .q{font-size:19px;font-weight:600;color:var(--dark-navy);line-height:1.35;padding-left:16px;border-left:3px solid var(--accent-rose);margin-bottom:14px}
 .step p{font-size:16px;color:var(--text-body)}
 
-/\* faixa de foto \*/
+/* faixa de foto */
 .band{position:relative}
 .band img{width:100%;height:clamp(280px,42vw,520px);object-fit:cover;object-position:center 40%}
 
-/\* eixos \*/
+
+/* eixos */
 .eixos-head{max-width:780px;margin-bottom:44px}
 .eixos-head p{font-size:19px}
 .eixos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -112,7 +113,7 @@ html,body{overflow-x:clip}
 .eixo p:last-child{margin-bottom:0}
 .eixo strong{color:var(--dark-navy)}
 
-/\* bandeira \*/
+/* bandeira */
 .bandeira{background:var(--dark-navy);color:#fff}
 .bandeira h2{color:#fff}
 .bandeira .lead{font-size:19px;max-width:720px;color:#fff;opacity:.92;margin-bottom:44px}
@@ -124,7 +125,7 @@ html,body{overflow-x:clip}
 .flag strong{color:var(--dark-navy);font-weight:700}
 .flag-close{margin-top:32px;font-size:18px;max-width:760px;color:#fff;opacity:.92}
 
-/\* frentes \*/
+/* frentes */
 .frentes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
 .frente{background:#fff;border-radius:var(--radius-lg);padding:30px 28px 28px;box-shadow:var(--shadow-md);display:flex;flex-direction:column}
 .frente .n{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-700);margin-bottom:8px}
@@ -138,7 +139,7 @@ html,body{overflow-x:clip}
 .horizontes h3{font-size:26px;margin-bottom:14px}
 .horizontes p{font-size:17px;margin-bottom:14px}
 
-/\* galeria \*/
+/* galeria */
 .gal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
 .gal-head h2{margin-bottom:0}
 .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
@@ -149,7 +150,7 @@ html,body{overflow-x:clip}
 .gallery button:hover img{transform:scale(1.04)}
 .gallery .s2{grid-column:span 2}.gallery .s3{grid-column:span 3}.gallery .s4{grid-column:span 4}
 
-/\* rede / próximo passo \*/
+/* rede / próximo passo */
 .rede{background:var(--dark-navy);color:#fff;overflow:hidden}
 .rede h2{color:#fff}
 .rede .prose p{color:#fff;opacity:.93}
@@ -161,7 +162,7 @@ html,body{overflow-x:clip}
 .next .t{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;color:#fff}
 .next p{font-size:19px;font-weight:500;margin:0;color:#fff;opacity:1}
 
-/\* gov hub \*/
+/* gov hub */
 .gh .box{background:var(--bg-soft);border-radius:var(--radius-lg);padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center;position:relative;overflow:hidden}
 .gh .box img.logo{height:58px;width:auto}
 .gh .box p{font-size:20px;color:var(--dark-navy);font-weight:500;line-height:1.5;position:relative;z-index:1}
@@ -171,7 +172,7 @@ footer .row{display:flex;justify-content:space-between;align-items:center;gap:20
 footer img{height:28px}
 footer span{font-size:14px;color:var(--text-muted)}
 
-/\* lightbox \*/
+/* lightbox */
 .lb{position:fixed;inset:0;background:rgba(10,0,90,.92);display:none;align-items:center;justify-content:center;z-index:99;padding:24px}
 .lb.open{display:flex}
 .lb img{max-height:88vh;max-width:94vw;border-radius:var(--radius-md);box-shadow:var(--shadow-xl)}
@@ -196,7 +197,7 @@ footer span{font-size:14px;color:var(--text-muted)}
   .gallery button{height:240px}
   .stats .grid{grid-template-columns:1fr 1fr;gap:20px}
 }
-@media (prefers-reduced-motion:reduce){\*{transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
