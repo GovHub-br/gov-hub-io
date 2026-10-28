@@ -125,6 +125,16 @@ collections:
         hint: >-
           Só para post com layout próprio em HTML. Marcado, o texto ocupa a largura toda da
           página, em fundo branco, sem a faixa cinza e a coluna estreita dos posts de texto.
+      - name: fotos
+        label: Fotos da página especial
+        widget: image
+        multiple: true
+        required: false
+        choose_url: false
+        hint: >-
+          Selecione ou arraste todas as fotos de uma vez. Elas não entram no texto sozinhas: a
+          lista com os nomes que ganharam vai para quem monta o HTML, que usa cada uma com o
+          caminho /blog/images/<nome>.
       - name: draft
         label: Esconder do site
         widget: boolean
