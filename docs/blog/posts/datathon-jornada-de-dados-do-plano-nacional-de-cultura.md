@@ -7,6 +7,7 @@ categories: []
 card_label: Evento
 card_image: /land/dist/images/publicacoes/paper.svg
 pdf: ''
+pagina_especial: true
 draft: false
 ---
 
