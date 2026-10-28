@@ -117,6 +117,14 @@ collections:
         hint: >-
           Opcional. Com um PDF aqui, a página da publicação ganha o link "Ler o artigo (PDF)",
           que abre o PDF em outra aba. Até 10 MB.
+      - name: pagina_especial
+        label: Página especial (largura total)
+        widget: boolean
+        required: false
+        default: false
+        hint: >-
+          Só para post com layout próprio em HTML. Marcado, o texto ocupa a largura toda da
+          página, em fundo branco, sem a faixa cinza e a coluna estreita dos posts de texto.
       - name: draft
         label: Esconder do site
         widget: boolean
