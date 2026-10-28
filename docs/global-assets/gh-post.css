@@ -43,3 +43,7 @@
 .gh-post .post-body p:has(> a > img), .gh-post .post-body p:has(> img){width:min(1116px, calc(100vw - 48px));max-width:none;margin:28px 0 8px}
 .gh-post .post-body p:has(> a > img) img{display:block;width:100%;background:#fff;border-radius:16px}
 .gh-post .post-body p:has(> a > img) + p > em:only-child{display:block;font-style:normal;font-size:14px;color:var(--muted,#5A5670);margin-bottom:28px}
+/* página especial (pagina_especial no post): sem a faixa cinza nem a coluna de 760px */
+.gh-post .post-especial{background:#fff}
+.gh-post .post-especial-fim{background:#fff;padding-block:8px clamp(48px,6vw,80px)}
+.gh-post .post-especial-fim .back-link{margin-top:0}

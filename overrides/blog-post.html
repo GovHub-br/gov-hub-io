@@ -25,7 +25,7 @@
     <link rel="stylesheet" crossorigin href="/global-assets/navbar.css">
     <link rel="stylesheet" crossorigin href="/global-assets/banner.css">
     <link rel="stylesheet" crossorigin href="/global-assets/gh-page.css?v=20261016a">
-    <link rel="stylesheet" crossorigin href="/global-assets/gh-post.css?v=20261016b">
+    <link rel="stylesheet" crossorigin href="/global-assets/gh-post.css?v=20261028a">
     <link rel="stylesheet" crossorigin href="/global-assets/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,6 +145,17 @@
       </div>
     </div>
   </section>
+  {% if page.meta.pagina_especial %}
+  {# página especial: o HTML do post ocupa a largura toda, em fundo branco, com o estilo dele #}
+  <article class="post-especial">
+    {{ page.content }}
+  </article>
+  <section class="post-especial-fim">
+    <div class="wrap">
+      <a class="back-link" href="/publicacoes/">&larr; Todas as publicações</a>
+    </div>
+  </section>
+  {% else %}
   <section class="band why">
     <div class="wrap">
       <article class="post-body">
@@ -153,6 +164,7 @@
       <a class="back-link" href="/publicacoes/">&larr; Todas as publicações</a>
     </div>
   </section>
+  {% endif %}
     </main>
 
         <footer class="footer">
