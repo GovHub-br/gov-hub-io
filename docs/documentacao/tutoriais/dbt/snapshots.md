@@ -28,8 +28,8 @@ Os snapshots funcionam através de duas estratégias principais:
 
 ### Adicionando snapshots ao projeto
 
-O projeto Ipea usa `airflow_lappis/dags/dbt/ipea/snapshots/tables_snapshot.yml`
-para declarar snapshots em YAML.
+Quando um projeto precisar de histórico de alterações, declare os snapshots em
+uma pasta `snapshots/` dentro do projeto dbt correspondente.
 
 ```yaml
 snapshots:

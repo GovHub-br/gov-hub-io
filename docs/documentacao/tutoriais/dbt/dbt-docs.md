@@ -4,7 +4,7 @@ dbt Docs gera automaticamente documentação para projetos de transformação de
 
 ## Exemplo de Documentação YAML
 
-Arquivos YAML dentro de `airflow_lappis/dags/dbt/ipea/models/` descrevem
+Arquivos YAML dentro de `airflow/dags/dbt/<projeto>/models/` descrevem
 modelos, colunas, testes e macros. O nome do arquivo pode variar, desde que use
 a extensão `.yml`.
 
@@ -16,16 +16,15 @@ models:
     description: >
       Tabela com informações sobre contratos, incluindo detalhes como o valor do contrato, a data de início e término, e o status do contrato.
       Esta tabela é fundamental para entender a execução e o cumprimento dos contratos firmados.
-      A tabela é atualizada diariamente e contém dados de contratos firmados pelo IPEA.
+      A tabela é atualizada diariamente e contém dados tratados do ComprasGov.
     columns:
       - name: id
         description: >
           Identificador único do contrato, utilizado para referenciar o contrato em outras tabelas e análises.
 macros:
-  - name: create_udfs
+  - name: chave_conformada
     description: >
-      Função que cria as UDFs necessárias para o funcionamento do projeto.
-      Essa função deve ser chamada no início de cada run para garantir que todas as UDFs estejam disponíveis.
+      Macro compartilhada para geração de chaves conformadas entre modelos.
 ```
 
 ## Como Utilizar

@@ -8,10 +8,10 @@ Detalhamento dos componentes principais da plataforma GovHub BR.
 
 | Aspecto | Detalhe |
 |---------|---------|
-| Versão | Apache Airflow 2.x |
+| Versão | Apache Airflow 3.2.2 |
 | Deploy | Kubernetes (Helm chart) |
 | DAGs | Uma por fonte de dados |
-| Schedule | Diário/semanal conforme fonte |
+| Schedule | Configurado por DAG com `schedule` |
 | UI | `http://localhost:8080` (local) |
 
 **Responsabilidades**:

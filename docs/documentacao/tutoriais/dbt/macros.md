@@ -44,71 +44,37 @@ FROM users
 
 ## Macros presentes no projeto
 
-As macros estão em `airflow_lappis/dags/dbt/ipea/macros/`.
+As macros compartilhadas ficam em `airflow/dags/dbt/gov_bricks/macros/`. Projetos específicos, como `compras_gov` e `mgi`, também podem ter macros locais quando a regra for exclusiva daquele domínio.
 
 ```
 macros/
-├── udfs/
-│   ├── f_format_nc.sql
-│   └── f_parse_dates.sql
-├── create_udfs.sql
-├── get_custom_schema.sql
-└── parse_financial_value.sql
+├── chave_conformada.sql
+├── chaves_geradas.sql
+├── schema_medallion.sql
+└── testes.sql
 ```
 
-## User-Defined-Functions (UDF)
-
-Macros geram trechos de SQL durante a compilação. UDFs são funções criadas no
-banco e executadas durante a consulta. No projeto, as macros que definem UDFs
-ficam em `macros/udfs/` e seguem o formato `f_<nome_da_funcao>.sql`.
+## Como usar uma macro compartilhada
 
 ```sql
-{% macro create_f_format_nc() %}
-    create or replace function {{ target.schema }}.format_nc(in_text text)
-    returns text
-    as $$ 
-    
-    with 
-
-    pre_process as (
-        select left(in_text, 7) as prefix,
-            right(in_text, 4)::numeric as posfix
-    )
-    
-    select concat(prefix, to_char(posfix, 'FM00000')) as result
-    from pre_process 
-    
-    $$
-    language sql
-    ;
-{% endmacro %}
+select
+    {{ chave_conformada(["codigo_orgao", "numero_contrato"]) }} as id_contrato,
+    codigo_orgao,
+    numero_contrato
+from {{ ref("contratos") }}
 ```
 
-Somente isso não é o suficiente para que os modelos possam utilizá-la, para isso criamos a macro `create_udfs.sql` , que inicializa as funções e as deixam prontas para uso
+Quando uma macro for útil para mais de um projeto, prefira adicioná-la em
+`gov_bricks`. Quando a regra for exclusiva de um domínio, mantenha a macro no
+projeto específico.
 
-```sql
-{% macro create_udfs() %}
-
-create schema if not exists {{ target.schema }};
-
-    {{ create_f_parse_dates() }}
-    ;
-    {{ create_f_format_nc() }}
-    ;
-
-{% endmacro %}
-```
-
- No arquivo `dbt_project.yml` foi adicionado a seguinte configuração:
+Para consumir macros compartilhadas, o projeto dbt deve declarar o pacote local
+em `packages.yml`:
 
 ```yaml
-# outras configs
-
-on-run-start:
-  - '{{create_udfs()}}'
+packages:
+  - local: ../gov_bricks
 ```
-
-Isso cria as funções no início de cada execução do projeto.
 
 ## Referência
 
