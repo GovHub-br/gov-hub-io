@@ -20,7 +20,7 @@ draft: true
 --shadow-md:0 2px 10px rgba(10,0,90,.10); --shadow-lg:0 4px 20px rgba(10,0,90,.12); --shadow-xl:0 8px 30px rgba(10,0,90,.16);
 --radius-sm:6px; --radius-md:10px; --radius-lg:16px;
 --gutter:clamp(20px,5cqw,56px);}
-.dtp *{box-sizing:border-box;margin:0;padding:0}
+.dtp \*{box-sizing:border-box;margin:0;padding:0}
 .dtp{font-family:var(--font-family-base);color:var(--text-body);background:var(--bg-white);line-height:1.6;-webkit-font-smoothing:antialiased}
 .dtp img{display:block;max-width:100%}
 .dtp .wrap{max-width:1180px;margin:0 auto;padding:0 var(--gutter)}
@@ -134,9 +134,9 @@ draft: true
 @container (max-width:520px){.dtp .gallery{grid-template-columns:1fr}
 .dtp .gallery a{height:240px}
 .dtp .stats .grid{grid-template-columns:1fr 1fr;gap:20px}}
-@media (prefers-reduced-motion:reduce){.dtp *{transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){.dtp \*{transition:none!important;scroll-behavior:auto!important}}
 .dtp{container-type:inline-size;font-family:var(--font-family-base);color:var(--text-body);line-height:1.6;font-size:16px;text-align:left;margin:0 0 32px}
-.dtp *,.dtp *::before,.dtp *::after{box-sizing:border-box}
+.dtp \*,.dtp \*::before,.dtp \*::after{box-sizing:border-box}
 .dtp img{max-width:100%;height:auto;display:block;margin:0;border:0}
 .dtp .photo img,.dtp .band img,.dtp .gallery img{height:100%}
 .dtp .blk{margin:0 0 24px;border-radius:20px}
@@ -307,17 +307,20 @@ draft: true
 <p style="max-width:380px;font-size:16px;color:var(--text-muted)">Clique em uma foto para abrir em tamanho maior.</p>
 </div>
 <div class="gallery" id="gallery">
-<a class="s4" href="/blog/images/vec-09349.webp" target="_blank" rel="noopener"><img src="/blog/images/vec-09349.webp" alt="Participante fala durante a discussão em grupo" style="object-position:center 38%"></a>
-<a class="s2" href="/blog/images/vec-09380.webp" target="_blank" rel="noopener"><img src="/blog/images/vec-09380.webp" alt="Participante acompanha com atenção a conversa da mesa" style="object-position:center 40%"></a>
-<a class="s2" href="/blog/images/vec-09399.webp" target="_blank" rel="noopener"><img src="/blog/images/vec-09399.webp" alt="Participante sorri durante o trabalho em grupo, com o banner do Datathon ao fundo" style="object-position:center 45%"></a>
-<a class="s2" href="/blog/images/vec-09454.webp" target="_blank" rel="noopener"><img src="/blog/images/vec-09454.webp" alt="Participante gesticula ao contribuir com a discussão" style="object-position:center 45%"></a>
-<a class="s2" href="/blog/images/vec-09457.webp" target="_blank" rel="noopener"><img src="/blog/images/vec-09457.webp" alt="Participante apresenta ao grupo sobre o painel de trabalho" style="object-position:center 40%"></a>
-<a class="s4" href="/blog/images/vec-09485.webp" target="_blank" rel="noopener"><img src="/blog/images/vec-09485.webp" alt="Grupo reunido em torno do painel do Datathon, em sala com janelas amplas" style="object-position:center 50%"></a>
-<a class="s2" href="/blog/images/162a2398.webp" target="_blank" rel="noopener"><img src="/blog/images/162a2398.webp" alt="Mesa de trabalho com post-its coloridos sobre o painel" style="object-position:center 50%"></a>
-<a class="s3" href="/blog/images/vec-09521-1.webp" target="_blank" rel="noopener"><img src="/blog/images/vec-09521-1.webp" alt="Facilitador de camisa rosa conduz a conversa em uma das mesas" style="object-position:center 40%"></a>
-<a class="s3" href="/blog/images/vec-09523.webp" target="_blank" rel="noopener"><img src="/blog/images/vec-09523.webp" alt="Mesa em debate com participantes atentos à fala do facilitador" style="object-position:center 45%"></a>
-<a class="s4" href="/blog/images/162a2401.webp" target="_blank" rel="noopener"><img src="/blog/images/162a2401.webp" alt="Salão com várias mesas trabalhando ao mesmo tempo, com painéis de post-its" style="object-position:center 55%"></a>
-<a class="s2" href="/blog/images/162a2433.webp" target="_blank" rel="noopener"><img src="/blog/images/162a2433.webp" alt="Facilitadora circula pelo salão com microfone" style="object-position:center 38%"></a>
+<a class="s4" href="/blog/images/vec-09349.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09349.webp" alt="Participante fala durante a discussão em grupo" style="object-position:center 38%"></a>
+
+![Participante acompanha com atenção a conversa da mesa](images/vec-09380.webp)
+
+
+<a class="s2" href="/blog/images/vec-09399.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09399.webp" alt="Participante sorri durante o trabalho em grupo, com o banner do Datathon ao fundo" style="object-position:center 45%"></a>
+<a class="s2" href="/blog/images/vec-09454.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09454.webp" alt="Participante gesticula ao contribuir com a discussão" style="object-position:center 45%"></a>
+<a class="s2" href="/blog/images/vec-09457.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09457.webp" alt="Participante apresenta ao grupo sobre o painel de trabalho" style="object-position:center 40%"></a>
+<a class="s4" href="/blog/images/vec-09485.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09485.webp" alt="Grupo reunido em torno do painel do Datathon, em sala com janelas amplas" style="object-position:center 50%"></a>
+<a class="s2" href="/blog/images/162a2398.webp" target="\_blank" rel="noopener"><img src="/blog/images/162a2398.webp" alt="Mesa de trabalho com post-its coloridos sobre o painel" style="object-position:center 50%"></a>
+<a class="s3" href="/blog/images/vec-09521-1.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09521-1.webp" alt="Facilitador de camisa rosa conduz a conversa em uma das mesas" style="object-position:center 40%"></a>
+<a class="s3" href="/blog/images/vec-09523.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09523.webp" alt="Mesa em debate com participantes atentos à fala do facilitador" style="object-position:center 45%"></a>
+<a class="s4" href="/blog/images/162a2401.webp" target="\_blank" rel="noopener"><img src="/blog/images/162a2401.webp" alt="Salão com várias mesas trabalhando ao mesmo tempo, com painéis de post-its" style="object-position:center 55%"></a>
+<a class="s2" href="/blog/images/162a2433.webp" target="\_blank" rel="noopener"><img src="/blog/images/162a2433.webp" alt="Facilitadora circula pelo salão com microfone" style="object-position:center 38%"></a>
 </div>
 </div>
 </div>
