@@ -309,8 +309,9 @@ draft: true
 <div class="gallery" id="gallery">
 <a class="s4" href="/blog/images/vec-09349.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09349.webp" alt="Participante fala durante a discussão em grupo" style="object-position:center 38%"></a>
 
-![](images/vec-09380.webp)
-<a class="s2" href="/blog/images/vec-09380.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09380.webp" alt="Participante acompanha com atenção a conversa da mesa" style="object-position:center 40%"></a>
+![Participante acompanha com atenção a conversa da mesa](images/vec-09380.webp)
+
+
 <a class="s2" href="/blog/images/vec-09399.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09399.webp" alt="Participante sorri durante o trabalho em grupo, com o banner do Datathon ao fundo" style="object-position:center 45%"></a>
 <a class="s2" href="/blog/images/vec-09454.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09454.webp" alt="Participante gesticula ao contribuir com a discussão" style="object-position:center 45%"></a>
 <a class="s2" href="/blog/images/vec-09457.webp" target="\_blank" rel="noopener"><img src="/blog/images/vec-09457.webp" alt="Participante apresenta ao grupo sobre o painel de trabalho" style="object-position:center 40%"></a>
