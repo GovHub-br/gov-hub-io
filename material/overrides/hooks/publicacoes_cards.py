@@ -24,8 +24,8 @@ painel. Uma capa feita à mão em docs/, com o mesmo nome (artigo.webp, .png ou 
 tem preferência. A geração usa pypdfium2 e Pillow (requirements.txt); sem eles, ou com
 o PDF ilegível, o card fica com a ilustração.
 
-Sem eles, o card usa a imagem padrão, a primeira categoria e o primeiro
-parágrafo depois do título.
+Sem eles, o card usa a imagem padrão, a primeira categoria (sem categoria, o tipo:
+Evento ou Pesquisa) e o primeiro parágrafo depois do título.
 
 Roda em on_post_build e precisa vir depois de copy_index.py na lista de hooks,
 porque reescreve também a cópia da home que ele faz, e antes de caminho_base.py,
@@ -39,6 +39,8 @@ from pathlib import Path
 from mkdocs.config.defaults import MkDocsConfig
 
 IMAGEM_PADRAO = "/land/dist/images/publicacoes/paper.svg"
+# etiqueta do card quando o post não tem card_label nem categoria
+ROTULO_POR_TIPO = {"evento": "Evento", "pesquisa": "Pesquisa"}
 MARCADOR = re.compile(
     r"<!-- publicacoes:inicio(?:\s+limite=(\d+))?\s*-->.*?<!-- publicacoes:fim -->",
     re.S,
@@ -147,7 +149,8 @@ def on_page_markdown(markdown, page, config: MkDocsConfig, files, **kwargs):
         "capa": _capa(meta.get("pdf"), config),
         "tipo": meta.get("tipo") or "produto",
         "data": _data(meta.get("date")),
-        "rotulo": meta.get("card_label") or (categorias[0] if categorias else "Publicação"),
+        "rotulo": (meta.get("card_label") or (categorias[0] if categorias else None)
+                   or ROTULO_POR_TIPO.get(meta.get("tipo"), "Publicação")),
         "imagem": meta.get("card_image") or IMAGEM_PADRAO,
         "resumo": meta.get("description") or _resumo(markdown),
     })

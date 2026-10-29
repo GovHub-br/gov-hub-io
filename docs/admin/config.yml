@@ -87,7 +87,7 @@ collections:
         label: Etiqueta do card
         widget: string
         required: false
-        hint: Texto curto sobre a imagem do card. Se ficar vazio, usa a primeira categoria.
+        hint: Texto curto sobre a imagem do card. Se ficar vazio, usa a primeira categoria ou, sem categoria, o tipo (Evento, Pesquisa).
       - name: card_image
         label: Imagem do card
         widget: image
