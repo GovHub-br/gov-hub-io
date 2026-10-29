@@ -5,9 +5,10 @@ description: A Jornada de Dados do Plano Nacional de Cultura foi promovida pelo 
 tipo: evento
 categories: []
 card_label: Evento
-card_image: /land/dist/images/publicacoes/paper.svg
+card_image: /land/dist/images/publicacoes/dsc08821.webp
 pdf: ''
 pagina_especial: true
+fotos: []
 draft: false
 ---
 
