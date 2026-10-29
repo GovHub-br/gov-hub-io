@@ -1,6 +1,6 @@
 ---
 title: 'Datathon: Jornada de dados do plano nacional de cultura'
-date: 2026-09-14
+date: 2026-09-09
 description: A Jornada de Dados do Plano Nacional de Cultura foi promovida pelo Gov Hub em parceria com o Ministério da Cultura.
 tipo: evento
 categories: []
