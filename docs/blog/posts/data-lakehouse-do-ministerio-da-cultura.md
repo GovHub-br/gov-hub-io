@@ -10,7 +10,7 @@ card_image: /land/dist/images/publicacoes/paper.svg
 pdf: ''
 pagina_especial: true
 fotos: []
-draft: false
+draft: true
 ---
 
 <style>
