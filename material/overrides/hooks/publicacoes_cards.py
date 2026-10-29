@@ -14,7 +14,7 @@ Campos opcionais no cabeçalho (front matter) do post:
     card_image: /land/dist/images/publicacoes/dbt.svg   # imagem do card
     card_label: Tutorial                                         # etiqueta sobre a imagem
     description: Resumo curto que aparece no card.
-    tipo: pesquisa                                               # filtro da página: produto (padrão), evento ou pesquisa
+    tipo: pesquisa                                               # filtro da página: produto (padrão), evento, pesquisa ou informe
     pdf: /publicacoes/pdf/artigo.pdf                             # artigo em PDF, linkado na página do post
 
 Com pdf, a capa do artigo entra no card no lugar da ilustração: a folha sobre fundo
@@ -25,7 +25,7 @@ tem preferência. A geração usa pypdfium2 e Pillow (requirements.txt); sem ele
 o PDF ilegível, o card fica com a ilustração.
 
 Sem eles, o card usa a imagem padrão, a primeira categoria (sem categoria, o tipo:
-Evento ou Pesquisa) e o primeiro parágrafo depois do título.
+Evento, Pesquisa ou Informe) e o primeiro parágrafo depois do título.
 
 Roda em on_post_build e precisa vir depois de copy_index.py na lista de hooks,
 porque reescreve também a cópia da home que ele faz, e antes de caminho_base.py,
@@ -40,7 +40,7 @@ from mkdocs.config.defaults import MkDocsConfig
 
 IMAGEM_PADRAO = "/land/dist/images/publicacoes/paper.svg"
 # etiqueta do card quando o post não tem card_label nem categoria
-ROTULO_POR_TIPO = {"evento": "Evento", "pesquisa": "Pesquisa"}
+ROTULO_POR_TIPO = {"evento": "Evento", "pesquisa": "Pesquisa", "informe": "Informe"}
 MARCADOR = re.compile(
     r"<!-- publicacoes:inicio(?:\s+limite=(\d+))?\s*-->.*?<!-- publicacoes:fim -->",
     re.S,
