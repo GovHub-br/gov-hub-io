@@ -73,9 +73,11 @@ collections:
           - { label: Produtos, value: produto }
           - { label: Eventos, value: evento }
           - { label: Pesquisas, value: pesquisa }
+          - { label: Informes, value: informe }
         hint: >-
           Filtro da página Publicações. Produtos: textos sobre a política, as ferramentas e a
           plataforma. Eventos: participações e encontros. Pesquisas: o livro e os artigos.
+          Informes: boletins e comunicados periódicos.
       - name: categories
         label: Categorias
         widget: list
@@ -87,7 +89,7 @@ collections:
         label: Etiqueta do card
         widget: string
         required: false
-        hint: Texto curto sobre a imagem do card. Se ficar vazio, usa a primeira categoria.
+        hint: Texto curto sobre a imagem do card. Se ficar vazio, usa a primeira categoria ou, sem categoria, o tipo (Evento, Pesquisa, Informe).
       - name: card_image
         label: Imagem do card
         widget: image
