@@ -12,8 +12,7 @@ pagina_especial: false
 fotos:
   - images/encontro-de-gestores-1.webp
   - images/encontro-de-gestores-2.webp
-  - images/encontro-gestores-boletim-1.webp
-  - images/encontro-gestores-boletim-2.webp
+  - images/encontro-gestores-boletim-3.webp
 draft: false
 ---
 
