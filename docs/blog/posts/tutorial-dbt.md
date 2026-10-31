@@ -1,16 +1,22 @@
 ---
+title: ''
 date: 2024-01-10
+description: O DBT é uma ferramenta essencial para transformação de dados no Gov Hub. Aprenda como configurar e usar
+tipo: produto
 categories:
   - Tutorial
   - DBT
   - Infraestrutura
-cover_image: ./images/dbt-tutorial.png
-card_image: /land/dist/images/publicacoes/dbt.svg
 card_label: Tutorial
-description: O DBT é uma ferramenta essencial para transformação de dados no Gov Hub. Aprenda como configurar e usar
+card_image: /land/dist/images/publicacoes/dbt.svg
+pdf: ''
+pagina_especial: false
+fotos: []
+draft: false
+cover_image: ./images/dbt-tutorial.png
 ---
 
-# Como Usar DBT no GovHub: Guia Completo
+# Como Usar DBT no Gov Hub: Guia Completo
 
 O DBT (Data Build Tool) é uma ferramenta essencial para transformação de dados no GovHub. Neste tutorial, você aprenderá como configurar e usar o DBT em sua implementação.
 
@@ -87,6 +93,6 @@ HAVING count(*) > 1
 - Explore nossa [documentação completa sobre DBT](../../documentacao/tutoriais/dbt/modelos.md)
 - Veja exemplos práticos em nossos [templates de dashboard](../../documentacao/visualizacao/superset.md#dashboards)
 
----
+***
 
-*Para mais tutoriais como este, visite nossa [página de publicações](/publicacoes/).*
+_Para mais tutoriais como este, visite nossa_ [_página de publicações_](/publicacoes/)*.*
