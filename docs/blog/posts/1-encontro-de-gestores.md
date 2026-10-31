@@ -118,6 +118,14 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 .ghx .ghx-step p{font-size:16px;margin:0}
 
+.ghx .ghx-step .ghx-q{font-size:17px;font-weight:600;color:var(--dark-navy);line-height:1.35;padding-left:16px;border-left:3px solid var(--accent-rose);margin-bottom:14px}
+
+.ghx .ghx-perguntas{display:grid;gap:12px;margin:8px 0 0}
+
+.ghx .ghx-perguntas li{font-size:17px;font-weight:500;color:#fff;line-height:1.4;padding:14px 18px;border-radius:10px;background:rgba(255,255,255,.08);border-left:3px solid var(--accent-rose)}
+
+.ghx ul{list-style:none}
+
 .ghx .ghx-rede{background:var(--dark-navy);color:#fff}
 
 .ghx .ghx-rede h2{color:#fff}
@@ -162,9 +170,9 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 <span class="ghx-pill ghx-solid">1º Encontro de Gestores</span>
 
-<span class="ghx-pill">5 instituições</span>
+<span class="ghx-pill">5 projetos</span>
 
-<span class="ghx-pill">Roda de conversa</span>
+<span class="ghx-pill">Rodas de troca</span>
 
 </div>
 
@@ -188,11 +196,11 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 <div class="ghx-grid">
 
-<div class="ghx-stat"><div class="ghx-n">5</div><div class="ghx-l">instituições parceiras reunidas</div></div>
+<div class="ghx-stat"><div class="ghx-n">5</div><div class="ghx-l">projetos apresentados pelos órgãos parceiros</div></div>
 
-<div class="ghx-stat"><div class="ghx-n">4</div><div class="ghx-l">ministérios presentes</div></div>
+<div class="ghx-stat"><div class="ghx-n">4</div><div class="ghx-l">ministérios ao lado do Ipea</div></div>
 
-<div class="ghx-stat"><div class="ghx-n">3</div><div class="ghx-l">momentos na programação</div></div>
+<div class="ghx-stat"><div class="ghx-n">2</div><div class="ghx-l">grupos na roda de troca de experiências</div></div>
 
 </div>
 
@@ -213,6 +221,8 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 <p>O <strong>Instituto de Pesquisa Econômica Aplicada (Ipea)</strong> sediou, no dia 31 de agosto, em Brasília, o <strong>1º Encontro de Gestores do Gov Hub</strong>.</p>
 
 <p>O encontro reuniu gestores parceiros de diferentes órgãos do governo federal e fortaleceu a comunidade da plataforma por meio do <strong>alinhamento estratégico e da troca de experiências</strong> entre as instituições.</p>
+
+<p>O Gov Hub nasceu como <strong>projeto piloto no Ipea</strong> e hoje se expande para os ministérios, com uma <strong>metodologia já documentada e testada</strong>. O encontro foi a oportunidade de reunir, pela primeira vez, as equipes que estão levando essa experiência para dentro de seus órgãos.</p>
 
 <div class="ghx-orgs">
 
@@ -236,17 +246,17 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 </div>
 
-<div class="ghx-sec ghx-soft" id="ghx-programacao">
+<div class="ghx-sec ghx-soft" id="ghx-como-foi">
 
 <div class="ghx-wrap">
 
 <div class="ghx-steps-head">
 
-<span class="ghx-eyebrow">Programação</span>
+<span class="ghx-eyebrow">Como foi</span>
 
-<h2>Três momentos, <span class="ghx-light">um mesmo objetivo</span></h2>
+<h2>Do piloto <span class="ghx-light">à comunidade</span></h2>
 
-<p>A programação foi pensada para olhar o caminho percorrido, entender onde cada projeto está e construir, juntos, os próximos passos.</p>
+<p>Em uma manhã curta e objetiva, o encontro passou pelo caminho já percorrido, nivelou o conhecimento sobre o que cada órgão está fazendo e abriu espaço para a troca entre as equipes.</p>
 
 </div>
 
@@ -258,9 +268,9 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 <div class="ghx-k">De onde viemos</div>
 
-<h3>Retrospecto da ferramenta</h3>
+<h3>A evolução da ferramenta</h3>
 
-<p>Uma recapitulação da trajetória do Gov Hub, das primeiras entregas ao estágio atual da plataforma.</p>
+<p>A abertura, conduzida pelo Ipea e pela equipe do Gov Hub, retomou a trajetória da plataforma: do projeto piloto no Ipea à expansão para os ministérios, apoiada em uma metodologia que já foi documentada e testada.</p>
 
 </article>
 
@@ -270,9 +280,11 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 <div class="ghx-k">Onde estamos</div>
 
-<h3>Status e desafios de cada instituição</h3>
+<h3>O estado da arte dos cinco projetos</h3>
 
-<p>Cada órgão parceiro apresentou o andamento do seu projeto e os desafios que enfrenta no uso e na integração dos dados.</p>
+<div class="ghx-q">Que problema concreto vocês querem resolver com o Gov Hub?</div>
+
+<p>Cada órgão apresentou o estágio atual do seu projeto, destacou uma conquista que merece ser compartilhada com os demais e apontou o principal desafio ou decisão que ainda precisa ser destravado.</p>
 
 </article>
 
@@ -282,9 +294,11 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 <div class="ghx-k">Para onde vamos</div>
 
-<h3>Roda de conversa</h3>
+<h3>Roda de troca e sinergias</h3>
 
-<p>Um momento final para mapear sinergias entre os projetos e criar soluções conjuntas.</p>
+<div class="ghx-q">O que podemos resolver juntos que seria mais difícil fazer sozinhos?</div>
+
+<p>Divididos em dois grupos, em rodas circulares de conversa, os gestores cruzaram as experiências para encontrar desafios comuns e oportunidades concretas de colaboração.</p>
 
 </article>
 
@@ -312,9 +326,21 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 <h2><span class="ghx-light">Soluções</span> construídas em conjunto</h2>
 
-<p>Na roda de conversa final, os gestores identificaram pontos em comum entre os projetos e caminhos para que as instituições avancem juntas.</p>
+<p>Na roda de conversa final, os gestores identificaram pontos em comum entre os projetos e caminhos para que as instituições avancem juntas. Quatro perguntas guiaram a troca:</p>
 
-<p>O encontro reforçou que o Gov Hub é mais do que uma ferramenta: é uma <strong>comunidade de órgãos que compartilham desafios, aprendizados e soluções</strong> para integrar dados públicos.</p>
+<ul class="ghx-perguntas">
+
+<li>Quais desafios aparecem em mais de um projeto, mesmo em contextos diferentes?</li>
+
+<li>Que aprendizado de um projeto poderia ajudar outro a avançar mais rápido?</li>
+
+<li>O que poderíamos construir, compartilhar ou resolver em conjunto?</li>
+
+<li>Qual oportunidade de colaboração mais concreta identificamos hoje?</li>
+
+</ul>
+
+<p style="margin-top:24px">O encontro reforçou que o Gov Hub é mais do que uma ferramenta: é uma <strong>comunidade de órgãos que compartilham desafios, aprendizados e soluções</strong> para integrar dados públicos.</p>
 
 <div class="ghx-next">
 
