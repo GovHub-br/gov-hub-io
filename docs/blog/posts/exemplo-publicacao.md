@@ -1,15 +1,21 @@
 ---
+title: ''
 date: 2024-01-15
+description: O Gov Hub é uma plataforma de software livre desenvolvida para transformar dados brutos em informações estratégicas
+tipo: produto
 categories:
   - Plataforma
   - Dados Públicos
-cover_image: ./images/govhub-platform.png
-card_image: /land/dist/images/publicacoes/paper.svg
 card_label: Plataforma
-description: O Gov Hub é uma plataforma de software livre desenvolvida para transformar dados brutos em informações estratégicas
+card_image: /land/dist/images/publicacoes/paper.svg
+pdf: ''
+pagina_especial: false
+fotos: []
+draft: false
+cover_image: ./images/govhub-platform.png
 ---
 
-# GovHub: Transformando Dados em Decisões Estratégicas
+# Gov Hub: Transformando Dados em Decisões Estratégicas
 
 O GovHub é uma plataforma de software livre desenvolvida para transformar dados brutos em informações estratégicas, apoiando gestores públicos a tomar decisões baseadas em dados.
 
@@ -30,6 +36,6 @@ Nossa plataforma oferece ferramentas avançadas para análise e visualização d
 
 Para conhecer mais sobre como implementar o GovHub em seu órgão, visite nossa [documentação completa](../../documentacao/instalacao.md) ou entre em contato conosco.
 
----
+***
 
-*Para ver mais publicações como esta, visite nossa [página de publicações](/publicacoes/).*
+_Para ver mais publicações como esta, visite nossa_ [_página de publicações_](/publicacoes/)*.*
