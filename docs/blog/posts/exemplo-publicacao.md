@@ -1,5 +1,5 @@
 ---
-title: ''
+title: Gov Hub
 date: 2024-01-15
 description: O Gov Hub é uma plataforma de software livre desenvolvida para transformar dados brutos em informações estratégicas
 tipo: produto
