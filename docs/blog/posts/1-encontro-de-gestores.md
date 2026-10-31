@@ -8,7 +8,7 @@ categories:
 card_label: ''
 card_image: /land/dist/images/publicacoes/encontro-gestores-boletim.webp
 pdf: ''
-pagina_especial: false
+pagina_especial: true
 fotos:
   - images/encontro-de-gestores-1.webp
   - images/encontro-de-gestores-2.webp
