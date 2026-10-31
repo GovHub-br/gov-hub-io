@@ -1,5 +1,5 @@
 ---
-title: ''
+title: Como Usar DBT
 date: 2024-01-10
 description: O DBT é uma ferramenta essencial para transformação de dados no Gov Hub. Aprenda como configurar e usar
 tipo: produto
