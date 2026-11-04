@@ -63,6 +63,69 @@
         "Apenas aumentar o número de retentativas"
       ],
       "correta": 1
+    },
+    "tutoriais/engenharia-sql": {
+      "pergunta": "Qual expressão conta todas as linhas, inclusive quando há valores nulos em uma coluna?",
+      "opcoes": [
+        "count(coluna)",
+        "sum(coluna)",
+        "count(*)"
+      ],
+      "correta": 2
+    },
+    "explicacao/engenharia-joins": {
+      "pergunta": "Um JOIN duplicou o total de empenhos. Qual é a primeira investigação?",
+      "opcoes": [
+        "Aplicar distinct em todas as colunas",
+        "Trocar todos os valores por zero",
+        "Verificar a quantidade de correspondências por chave"
+      ],
+      "correta": 2
+    },
+    "referencia/engenharia-tipos-chaves": {
+      "pergunta": "O que o alvo de ON CONFLICT exige para identificar uma linha já existente?",
+      "opcoes": [
+        "Uma restrição ou índice único compatível",
+        "Uma coluna com qualquer nome",
+        "Um dashboard publicado"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-desempenho": {
+      "pergunta": "O que EXPLAIN ANALYZE faz?",
+      "opcoes": [
+        "Executa a consulta e mostra medidas do plano real",
+        "Cria todos os índices necessários",
+        "Só formata o SQL"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-camadas": {
+      "pergunta": "Onde deve ficar uma regra que integra fontes e aplica critérios de negócio?",
+      "opcoes": [
+        "No nome da coluna",
+        "Na bronze, junto da conversão de tipos",
+        "Na silver, conforme a responsabilidade do modelo"
+      ],
+      "correta": 2
+    },
+    "explicacao/engenharia-granularidade": {
+      "pergunta": "O que precisa estar definido antes da chave e das agregações?",
+      "opcoes": [
+        "A granularidade: o que uma linha representa",
+        "A cor do painel",
+        "O nome do autor do SQL"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-historico": {
+      "pergunta": "Qual estratégia mantém versões para consulta histórica?",
+      "opcoes": [
+        "SCD tipo 2",
+        "Remover as versões anteriores",
+        "SCD tipo 1"
+      ],
+      "correta": 0
     }
   }
 }

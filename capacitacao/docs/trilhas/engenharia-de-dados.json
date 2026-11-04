@@ -105,6 +105,85 @@
           "icone": "assets/icones/wrench-sober.svg"
         }
       ]
+    },
+    {
+      "numero": 2,
+      "titulo": "SQL e modelagem",
+      "descricao": "Consulte e organize os dados: tipos, chaves, granularidade e responsabilidades de raw, bronze, silver e gold.",
+      "etapa": "Dado",
+      "icone": "assets/icones/database-sober.svg",
+      "itens": [
+        {
+          "id": "tutoriais/engenharia-sql",
+          "titulo": "Consultar e conferir dados com SQL",
+          "doc": "docs/tutoriais/engenharia-sql.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-joins",
+          "titulo": "JOINs e funções de janela sem duplicar totais",
+          "doc": "docs/explicacao/engenharia-joins.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-tipos-chaves",
+          "titulo": "Tipos, chaves e gravação consistente",
+          "doc": "docs/referencia/engenharia-tipos-chaves.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-desempenho",
+          "titulo": "Investigar consultas lentas no PostgreSQL",
+          "doc": "docs/guias/engenharia-desempenho.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-camadas",
+          "titulo": "Raw, bronze, silver e gold",
+          "doc": "docs/explicacao/engenharia-camadas.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-granularidade",
+          "titulo": "Granularidade, fatos e dimensões",
+          "doc": "docs/explicacao/engenharia-granularidade.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-historico",
+          "titulo": "Quando sobrescrever e quando guardar histórico",
+          "doc": "docs/explicacao/engenharia-historico.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        }
+      ]
     }
   ]
 }

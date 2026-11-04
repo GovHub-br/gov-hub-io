@@ -98,7 +98,7 @@
       "titulo": "Engenharia de Dados no Gov Hub",
       "descricao": "Da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.",
       "categoria": "tecnica",
-      "niveis": 1,
+      "niveis": 2,
       "aulas": [
         "explicacao/engenharia-papel",
         "referencia/engenharia-mapa-repositorio",
@@ -106,7 +106,14 @@
         "referencia/engenharia-glossario",
         "explicacao/engenharia-elt-lote",
         "explicacao/engenharia-idempotencia",
-        "guias/engenharia-reprocessamento"
+        "guias/engenharia-reprocessamento",
+        "tutoriais/engenharia-sql",
+        "explicacao/engenharia-joins",
+        "referencia/engenharia-tipos-chaves",
+        "guias/engenharia-desempenho",
+        "explicacao/engenharia-camadas",
+        "explicacao/engenharia-granularidade",
+        "explicacao/engenharia-historico"
       ]
     }
   ]

@@ -27,3 +27,15 @@ Entenda o caminho do dado, prepare o ambiente e aprenda a repetir uma carga sem 
 - [explanation] **ELT e processamento em lote** — core — `docs/explicacao/engenharia-elt-lote.md`
 - [explanation] **Cargas completas, incrementais e idempotência** — core — `docs/explicacao/engenharia-idempotencia.md`
 - [how-to] **Reprocessamento e mudanças na fonte** — core — `docs/guias/engenharia-reprocessamento.md`
+
+## Nível 2 · SQL e modelagem
+Etapa: Dado · Ícone: database
+Consulte e organize os dados: tipos, chaves, granularidade e responsabilidades de raw, bronze, silver e gold.
+
+- [tutorial] **Consultar e conferir dados com SQL** — core — `docs/tutoriais/engenharia-sql.md`
+- [explanation] **JOINs e funções de janela sem duplicar totais** — core — `docs/explicacao/engenharia-joins.md`
+- [reference] **Tipos, chaves e gravação consistente** — core — `docs/referencia/engenharia-tipos-chaves.md`
+- [how-to] **Investigar consultas lentas no PostgreSQL** — support — `docs/guias/engenharia-desempenho.md`
+- [explanation] **Raw, bronze, silver e gold** — core — `docs/explicacao/engenharia-camadas.md`
+- [explanation] **Granularidade, fatos e dimensões** — core — `docs/explicacao/engenharia-granularidade.md`
+- [explanation] **Quando sobrescrever e quando guardar histórico** — support — `docs/explicacao/engenharia-historico.md`
