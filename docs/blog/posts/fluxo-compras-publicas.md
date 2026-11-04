@@ -1,12 +1,12 @@
 ---
 date: 2026-10-16
-# Escondida por enquanto: rascunho não entra no build (nem nos cards de Publicações e da home).
-draft: true
 categories:
   - Políticas públicas
   - Compras públicas
 card_image: /land/dist/images/publicacoes/compras.svg
 card_label: Políticas públicas
+tipo: pesquisa
+draft: false
 description: Como uma necessidade dentro de um órgão público vira compra. O fluxo da Lei nº 14.133/2021, lido bloco a bloco.
 ---
 
