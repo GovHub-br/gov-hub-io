@@ -1,0 +1,110 @@
+{
+  "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
+  "slug": "engenharia-de-dados",
+  "titulo": "Engenharia de Dados no Gov Hub",
+  "descricao": "Da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.",
+  "categoria": "tecnica",
+  "chamada": "Um indicador confiável começa antes do gráfico. Aprenda a coletar, organizar, testar e entregar dados do Gov Hub, com explicações passo a passo na aplicação de dados.",
+  "etapas": [
+    {
+      "rotulo": "Base",
+      "caixa": "Ambiente e conceitos"
+    },
+    {
+      "rotulo": "Dado",
+      "caixa": "SQL e modelagem"
+    },
+    {
+      "rotulo": "Pipeline",
+      "caixa": "Ingestão e transformação"
+    },
+    {
+      "rotulo": "Entrega",
+      "caixa": "Confiança e consumo"
+    }
+  ],
+  "etapas_subtitulo": "Quatro etapas: da primeira coleta ao indicador conferido",
+  "etapas_nota": "**Práticas locais** ao longo da trilha. Use a aplicação data-application-gov-hub; o repositório deste site serve apenas o material de estudo.",
+  "quiz": "quiz/engenharia-de-dados.json",
+  "niveis": [
+    {
+      "numero": 1,
+      "titulo": "Base e conceitos",
+      "descricao": "Entenda o caminho do dado, prepare o ambiente e aprenda a repetir uma carga sem duplicar resultados.",
+      "etapa": "Base",
+      "icone": "assets/icones/light-bulb-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/engenharia-papel",
+          "titulo": "Engenharia de dados: da fonte à decisão",
+          "doc": "docs/explicacao/engenharia-papel.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-mapa-repositorio",
+          "titulo": "Onde encontrar cada parte do projeto",
+          "doc": "docs/referencia/engenharia-mapa-repositorio.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-ambiente",
+          "titulo": "Preparar e conferir o ambiente local",
+          "doc": "docs/tutoriais/engenharia-ambiente.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-glossario",
+          "titulo": "Vocabulário e fontes do governo",
+          "doc": "docs/referencia/engenharia-glossario.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-elt-lote",
+          "titulo": "ELT e processamento em lote",
+          "doc": "docs/explicacao/engenharia-elt-lote.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-idempotencia",
+          "titulo": "Cargas completas, incrementais e idempotência",
+          "doc": "docs/explicacao/engenharia-idempotencia.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-reprocessamento",
+          "titulo": "Reprocessamento e mudanças na fonte",
+          "doc": "docs/guias/engenharia-reprocessamento.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        }
+      ]
+    }
+  ]
+}

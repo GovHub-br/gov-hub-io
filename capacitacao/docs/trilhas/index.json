@@ -92,6 +92,22 @@
         "plataforma/forks/cidades",
         "plataforma/forks/minc"
       ]
+    },
+    {
+      "slug": "engenharia-de-dados",
+      "titulo": "Engenharia de Dados no Gov Hub",
+      "descricao": "Da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.",
+      "categoria": "tecnica",
+      "niveis": 1,
+      "aulas": [
+        "explicacao/engenharia-papel",
+        "referencia/engenharia-mapa-repositorio",
+        "tutoriais/engenharia-ambiente",
+        "referencia/engenharia-glossario",
+        "explicacao/engenharia-elt-lote",
+        "explicacao/engenharia-idempotencia",
+        "guias/engenharia-reprocessamento"
+      ]
     }
   ]
 }

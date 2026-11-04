@@ -1,0 +1,68 @@
+{
+  "_sobre": "Revisão da trilha de Engenharia de Dados. Uma pergunta por aula; correta é o índice em opcoes. Editado à mão.",
+  "perguntas": {
+    "explicacao/engenharia-papel": {
+      "pergunta": "Antes de escolher uma fonte, o que deve orientar o pipeline?",
+      "opcoes": [
+        "A decisão que o dado apoiará e quem vai usá-lo",
+        "A quantidade máxima de tabelas disponíveis",
+        "A ferramenta com mais recursos"
+      ],
+      "correta": 0
+    },
+    "referencia/engenharia-mapa-repositorio": {
+      "pergunta": "Em qual repositório são feitas as práticas de pipeline?",
+      "opcoes": [
+        "GovHub-br/data-application-gov-hub",
+        "No repositório do Python",
+        "GovHub-br/gov-hub-io"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-ambiente": {
+      "pergunta": "Qual evidência confirma a preparação do ambiente?",
+      "opcoes": [
+        "A pasta .env estar no Git",
+        "Só o clone terminar",
+        "Serviços ativos e verificações de ambiente aprovadas"
+      ],
+      "correta": 2
+    },
+    "referencia/engenharia-glossario": {
+      "pergunta": "O que é um modelo no dbt?",
+      "opcoes": [
+        "Uma imagem de arquitetura",
+        "Um arquivo SQL que produz tabela ou visão",
+        "Uma conta de acesso ao banco"
+      ],
+      "correta": 1
+    },
+    "explicacao/engenharia-elt-lote": {
+      "pergunta": "Qual sequência descreve o ELT da aplicação?",
+      "opcoes": [
+        "Coletar, carregar no banco e transformar com dbt",
+        "Criar o gráfico antes de carregar dados",
+        "Transformar, coletar e visualizar"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-idempotencia": {
+      "pergunta": "O que torna um upsert adequado à idempotência?",
+      "opcoes": [
+        "Sempre inserir todas as linhas",
+        "Uma chave que identifica corretamente o registro e uma atualização consistente",
+        "Rodar apenas uma vez por dia"
+      ],
+      "correta": 1
+    },
+    "guias/engenharia-reprocessamento": {
+      "pergunta": "Quando uma fonte remove uma coluna usada por um modelo, o que fazer?",
+      "opcoes": [
+        "Continuar e preencher tudo com zero",
+        "Revisar o impacto em modelos, testes e consumo antes de aceitar a mudança",
+        "Apenas aumentar o número de retentativas"
+      ],
+      "correta": 1
+    }
+  }
+}
