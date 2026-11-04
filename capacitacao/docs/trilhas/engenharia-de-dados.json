@@ -184,6 +184,115 @@
           "icone": "assets/icones/light-bulb-sober.svg"
         }
       ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Ingestão, orquestração e transformação",
+      "descricao": "Acompanhe uma fonte do cliente Python à transformação dbt, com Airflow, Cosmos e práticas locais guiadas.",
+      "etapa": "Pipeline",
+      "icone": "assets/icones/deploy-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/engenharia-clientes",
+          "titulo": "Clientes Python: uma responsabilidade por fonte",
+          "doc": "docs/explicacao/engenharia-clientes.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-fontes",
+          "titulo": "REST, SOAP, e-mail, bancos e arquivos",
+          "doc": "docs/referencia/engenharia-fontes.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-resiliencia",
+          "titulo": "Paginação, tempo limite e falha visível",
+          "doc": "docs/guias/engenharia-resiliencia.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-cliente-pratica",
+          "titulo": "Prática: do cliente mínimo à camada raw",
+          "doc": "docs/tutoriais/engenharia-cliente-pratica.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-airflow",
+          "titulo": "DAGs, tarefas e configuração no Airflow",
+          "doc": "docs/referencia/engenharia-airflow.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-airflow-pratica",
+          "titulo": "Prática: executar e investigar uma DAG",
+          "doc": "docs/tutoriais/engenharia-airflow-pratica.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-dbt",
+          "titulo": "Modelos dbt: source, ref e materializações",
+          "doc": "docs/referencia/engenharia-dbt.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-dbt-pratica",
+          "titulo": "Prática: schema e testes antes do SQL",
+          "doc": "docs/tutoriais/engenharia-dbt-pratica.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-cosmos",
+          "titulo": "Como o Cosmos leva o dbt ao Airflow",
+          "doc": "docs/explicacao/engenharia-cosmos.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-cadeia-pratica",
+          "titulo": "Prática: rastrear uma transformação até a gold",
+          "doc": "docs/guias/engenharia-cadeia-pratica.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        }
+      ]
     }
   ]
 }

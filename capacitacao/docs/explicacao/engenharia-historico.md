@@ -57,3 +57,4 @@ Antes de escolher a estratégia, formule uma pergunta temporal: “Preciso saber
 ## Veja também
 
 - [Granularidade, fatos e dimensões](engenharia-granularidade.md)
+- [Clientes Python: uma responsabilidade por fonte](engenharia-clientes.md)

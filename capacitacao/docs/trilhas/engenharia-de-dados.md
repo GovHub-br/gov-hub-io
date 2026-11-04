@@ -27,3 +27,16 @@ Da preparação do ambiente à entrega de um indicador confiável, com PostgreSQ
 - [Granularidade, fatos e dimensões](../explicacao/engenharia-granularidade.md) — *Explicação* · **Essencial**
 - [Quando sobrescrever e quando guardar histórico](../explicacao/engenharia-historico.md) — *Explicação* · Apoio
 
+### Nível 3 · Ingestão, orquestração e transformação
+*Acompanhe uma fonte do cliente Python à transformação dbt, com Airflow, Cosmos e práticas locais guiadas.*
+- [Clientes Python: uma responsabilidade por fonte](../explicacao/engenharia-clientes.md) — *Explicação* · **Essencial**
+- [REST, SOAP, e-mail, bancos e arquivos](../referencia/engenharia-fontes.md) — *Referência* · Apoio
+- [Paginação, tempo limite e falha visível](../guias/engenharia-resiliencia.md) — *Guia* · **Essencial**
+- [Prática: do cliente mínimo à camada raw](../tutoriais/engenharia-cliente-pratica.md) — *Tutorial* · **Essencial**
+- [DAGs, tarefas e configuração no Airflow](../referencia/engenharia-airflow.md) — *Referência* · **Essencial**
+- [Prática: executar e investigar uma DAG](../tutoriais/engenharia-airflow-pratica.md) — *Tutorial* · **Essencial**
+- [Modelos dbt: source, ref e materializações](../referencia/engenharia-dbt.md) — *Referência* · **Essencial**
+- [Prática: schema e testes antes do SQL](../tutoriais/engenharia-dbt-pratica.md) — *Tutorial* · **Essencial**
+- [Como o Cosmos leva o dbt ao Airflow](../explicacao/engenharia-cosmos.md) — *Explicação* · **Essencial**
+- [Prática: rastrear uma transformação até a gold](../guias/engenharia-cadeia-pratica.md) — *Guia* · **Essencial**
+

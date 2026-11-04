@@ -126,6 +126,96 @@
         "SCD tipo 1"
       ],
       "correta": 0
+    },
+    "explicacao/engenharia-clientes": {
+      "pergunta": "Qual responsabilidade pertence ao cliente de uma fonte?",
+      "opcoes": [
+        "Repetir a regra de negócio de todos os modelos",
+        "Definir a cor do dashboard",
+        "Tratar autenticação, requisições e respostas da fonte"
+      ],
+      "correta": 2
+    },
+    "referencia/engenharia-fontes": {
+      "pergunta": "O que deve ser definido independentemente do tipo da fonte?",
+      "opcoes": [
+        "Autenticação, contrato dos registros, chave e tratamento de falhas",
+        "Uma única biblioteca para todas as fontes",
+        "A ausência de limites de requisição"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-resiliencia": {
+      "pergunta": "Uma API devolveu só a primeira de várias páginas. Como tratar a execução?",
+      "opcoes": [
+        "Como incompleta até percorrer e validar todas as páginas",
+        "Como vazia",
+        "Como completa porque não houve exceção"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-cliente-pratica": {
+      "pergunta": "Qual resultado deve ocorrer após recarregar os mesmos dois IDs com correção em um deles?",
+      "opcoes": [
+        "Apagar todos os registros",
+        "Quatro linhas no destino",
+        "Duas linhas, com a correção no registro correspondente"
+      ],
+      "correta": 2
+    },
+    "referencia/engenharia-airflow": {
+      "pergunta": "Qual é um uso adequado de XCom nesta aplicação?",
+      "opcoes": [
+        "Transportar toda a base financeira entre tarefas",
+        "Passar um caminho ou referência pequena entre tarefas",
+        "Guardar senhas no código"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-airflow-pratica": {
+      "pergunta": "Uma tarefa ficou verde. O que ainda é necessário?",
+      "opcoes": [
+        "Apagar os logs",
+        "Desativar os testes",
+        "Conferir os dados de destino e os controles de qualidade"
+      ],
+      "correta": 2
+    },
+    "referencia/engenharia-dbt": {
+      "pergunta": "Qual recurso declara dependência de outro modelo dbt?",
+      "opcoes": [
+        "A ordem alfabética dos arquivos",
+        "ref()",
+        "Um comentário com o nome da tabela"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-dbt-pratica": {
+      "pergunta": "Por que escrever schema.yml antes do SQL?",
+      "opcoes": [
+        "Para definir significado, granularidade e testes esperados antes da implementação",
+        "Para dispensar a execução dos testes",
+        "Para aplicar filtros de negócio na bronze"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-cosmos": {
+      "pergunta": "Qual é o papel do Cosmos?",
+      "opcoes": [
+        "Representar recursos dbt como tarefas coordenadas pelo Airflow",
+        "Armazenar os dados no lugar do PostgreSQL",
+        "Substituir os modelos SQL por gráficos"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-cadeia-pratica": {
+      "pergunta": "Onde começar a investigar uma divergência em uma cadeia de modelos?",
+      "opcoes": [
+        "Apagando todos os modelos",
+        "Na primeira etapa em que a diferença aparece ao comparar com a origem",
+        "Sempre na cor do gráfico"
+      ],
+      "correta": 1
     }
   }
 }

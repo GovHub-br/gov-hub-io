@@ -39,3 +39,18 @@ Consulte e organize os dados: tipos, chaves, granularidade e responsabilidades d
 - [explanation] **Raw, bronze, silver e gold** — core — `docs/explicacao/engenharia-camadas.md`
 - [explanation] **Granularidade, fatos e dimensões** — core — `docs/explicacao/engenharia-granularidade.md`
 - [explanation] **Quando sobrescrever e quando guardar histórico** — support — `docs/explicacao/engenharia-historico.md`
+
+## Nível 3 · Ingestão, orquestração e transformação
+Etapa: Pipeline · Ícone: deploy
+Acompanhe uma fonte do cliente Python à transformação dbt, com Airflow, Cosmos e práticas locais guiadas.
+
+- [explanation] **Clientes Python: uma responsabilidade por fonte** — core — `docs/explicacao/engenharia-clientes.md`
+- [reference] **REST, SOAP, e-mail, bancos e arquivos** — support — `docs/referencia/engenharia-fontes.md`
+- [how-to] **Paginação, tempo limite e falha visível** — core — `docs/guias/engenharia-resiliencia.md`
+- [tutorial] **Prática: do cliente mínimo à camada raw** — core — `docs/tutoriais/engenharia-cliente-pratica.md`
+- [reference] **DAGs, tarefas e configuração no Airflow** — core — `docs/referencia/engenharia-airflow.md`
+- [tutorial] **Prática: executar e investigar uma DAG** — core — `docs/tutoriais/engenharia-airflow-pratica.md`
+- [reference] **Modelos dbt: source, ref e materializações** — core — `docs/referencia/engenharia-dbt.md`
+- [tutorial] **Prática: schema e testes antes do SQL** — core — `docs/tutoriais/engenharia-dbt-pratica.md`
+- [explanation] **Como o Cosmos leva o dbt ao Airflow** — core — `docs/explicacao/engenharia-cosmos.md`
+- [how-to] **Prática: rastrear uma transformação até a gold** — core — `docs/guias/engenharia-cadeia-pratica.md`
