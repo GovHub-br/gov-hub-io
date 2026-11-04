@@ -216,6 +216,87 @@
         "Sempre na cor do gráfico"
       ],
       "correta": 1
+    },
+    "referencia/engenharia-qualidade": {
+      "pergunta": "Quando comparar a contagem da origem com a do destino é um controle adequado?",
+      "opcoes": [
+        "Quando a transformação deve preservar as linhas",
+        "Sempre, inclusive após qualquer agregação",
+        "Somente quando não há chave"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-falha-qualidade": {
+      "pergunta": "Por que remover o filtro usado para simular uma perda na bronze?",
+      "opcoes": [
+        "Porque testes nunca devem falhar",
+        "Porque toda gold precisa ter a mesma contagem da fonte",
+        "Porque a bronze deve preservar os registros e o filtro era apenas uma falha controlada"
+      ],
+      "correta": 2
+    },
+    "guias/engenharia-observabilidade": {
+      "pergunta": "Uma carga rodou hoje, mas a data do fato é antiga. O que isso indica?",
+      "opcoes": [
+        "Que os logs devem ser apagados",
+        "Que a atualidade do dado precisa ser avaliada separadamente da execução",
+        "Que o dado é necessariamente atual"
+      ],
+      "correta": 1
+    },
+    "explicacao/engenharia-acesso": {
+      "pergunta": "Uma tabela gold contém identificadores pessoais. O que fazer antes de liberar leitura?",
+      "opcoes": [
+        "Liberar porque toda gold é pública",
+        "Revisar finalidade, necessidade das colunas e permissões",
+        "Mover as senhas para o mesmo modelo"
+      ],
+      "correta": 1
+    },
+    "guias/engenharia-metadados": {
+      "pergunta": "Qual descrição de coluna é mais útil?",
+      "opcoes": [
+        "Valor com unidade, granularidade e regra de cálculo explícitas",
+        "Coluna criada pelo autor",
+        "Valor total"
+      ],
+      "correta": 0
+    },
+    "referencia/engenharia-formatos": {
+      "pergunta": "Como o MinIO deve ser tratado na aplicação Gov Hub?",
+      "opcoes": [
+        "Como substituto automático dos testes",
+        "Como serviço obrigatório já integrado ao Compose",
+        "Como componente preparatório a confirmar com a equipe"
+      ],
+      "correta": 2
+    },
+    "tutoriais/engenharia-consumo": {
+      "pergunta": "Como conferir o valor de um gráfico após aplicar um filtro?",
+      "opcoes": [
+        "Comparar com SQL equivalente usando os mesmos critérios",
+        "Comparar somente as cores",
+        "Somar novamente qualquer medida sem conferir sua granularidade"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-contribuicao": {
+      "pergunta": "O que uma descrição de PR deve permitir?",
+      "opcoes": [
+        "Ocultar o motivo da alteração",
+        "Dispensar todos os testes",
+        "Reproduzir e avaliar a mudança, incluindo sua validação e impacto"
+      ],
+      "correta": 2
+    },
+    "desafios/engenharia-desafio": {
+      "pergunta": "Qual evidência demonstra que o desafio entrega um indicador confiável?",
+      "opcoes": [
+        "Apenas uma tarefa verde",
+        "Um gráfico visualmente agradável, sem conferência",
+        "Idempotência, testes, reconciliação e linhagem verificáveis"
+      ],
+      "correta": 2
     }
   }
 }

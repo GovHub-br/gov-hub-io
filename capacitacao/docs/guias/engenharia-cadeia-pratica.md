@@ -58,3 +58,4 @@ Escolha um único TED para a primeira conferência. Uma amostra pequena ajuda a 
 ## Veja também
 
 - [Como o Cosmos leva o dbt ao Airflow](../explicacao/engenharia-cosmos.md)
+- [Qualidade: o que precisa ser verdadeiro no dado](../referencia/engenharia-qualidade.md)

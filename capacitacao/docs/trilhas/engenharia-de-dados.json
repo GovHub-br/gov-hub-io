@@ -293,6 +293,105 @@
           "icone": "assets/icones/wrench-sober.svg"
         }
       ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Qualidade, governança e entrega",
+      "descricao": "Valide o resultado, documente sua origem, controle o acesso e entregue um indicador conferido no Superset.",
+      "etapa": "Entrega",
+      "icone": "assets/icones/shield-check-sober.svg",
+      "itens": [
+        {
+          "id": "referencia/engenharia-qualidade",
+          "titulo": "Qualidade: o que precisa ser verdadeiro no dado",
+          "doc": "docs/referencia/engenharia-qualidade.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-falha-qualidade",
+          "titulo": "Prática: provocar e diagnosticar uma falha de qualidade",
+          "doc": "docs/tutoriais/engenharia-falha-qualidade.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-observabilidade",
+          "titulo": "Logs, reconciliação e atualização",
+          "doc": "docs/guias/engenharia-observabilidade.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-acesso",
+          "titulo": "Dados pessoais, segredos e menor privilégio",
+          "doc": "docs/explicacao/engenharia-acesso.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-metadados",
+          "titulo": "Documentar colunas e seguir a linhagem",
+          "doc": "docs/guias/engenharia-metadados.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-formatos",
+          "titulo": "PostgreSQL, formatos e o papel do MinIO",
+          "doc": "docs/referencia/engenharia-formatos.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-consumo",
+          "titulo": "Prática: da gold ao gráfico no Superset",
+          "doc": "docs/tutoriais/engenharia-consumo.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-contribuicao",
+          "titulo": "Contribuir com uma mudança revisável",
+          "doc": "docs/guias/engenharia-contribuicao.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "desafios/engenharia-desafio",
+          "titulo": "Desafio: uma fonte até um indicador confiável",
+          "doc": "docs/desafios/engenharia-desafio.md",
+          "tipo": "desafio",
+          "tipo_nome": "Desafio",
+          "papel": "capstone",
+          "papel_nome": "Capstone",
+          "icone": "assets/icones/trophy-sober.svg"
+        }
+      ]
     }
   ]
 }

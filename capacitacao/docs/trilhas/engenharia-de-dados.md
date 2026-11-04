@@ -40,3 +40,15 @@ Da preparação do ambiente à entrega de um indicador confiável, com PostgreSQ
 - [Como o Cosmos leva o dbt ao Airflow](../explicacao/engenharia-cosmos.md) — *Explicação* · **Essencial**
 - [Prática: rastrear uma transformação até a gold](../guias/engenharia-cadeia-pratica.md) — *Guia* · **Essencial**
 
+### Nível 4 · Qualidade, governança e entrega
+*Valide o resultado, documente sua origem, controle o acesso e entregue um indicador conferido no Superset.*
+- [Qualidade: o que precisa ser verdadeiro no dado](../referencia/engenharia-qualidade.md) — *Referência* · **Essencial**
+- [Prática: provocar e diagnosticar uma falha de qualidade](../tutoriais/engenharia-falha-qualidade.md) — *Tutorial* · **Essencial**
+- [Logs, reconciliação e atualização](../guias/engenharia-observabilidade.md) — *Guia* · **Essencial**
+- [Dados pessoais, segredos e menor privilégio](../explicacao/engenharia-acesso.md) — *Explicação* · **Essencial**
+- [Documentar colunas e seguir a linhagem](../guias/engenharia-metadados.md) — *Guia* · **Essencial**
+- [PostgreSQL, formatos e o papel do MinIO](../referencia/engenharia-formatos.md) — *Referência* · Apoio
+- [Prática: da gold ao gráfico no Superset](../tutoriais/engenharia-consumo.md) — *Tutorial* · **Essencial**
+- [Contribuir com uma mudança revisável](../guias/engenharia-contribuicao.md) — *Guia* · **Essencial**
+- [Desafio: uma fonte até um indicador confiável](../desafios/engenharia-desafio.md) — *Desafio* · **Capstone**
+

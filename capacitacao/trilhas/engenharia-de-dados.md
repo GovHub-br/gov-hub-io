@@ -54,3 +54,17 @@ Acompanhe uma fonte do cliente Python à transformação dbt, com Airflow, Cosmo
 - [tutorial] **Prática: schema e testes antes do SQL** — core — `docs/tutoriais/engenharia-dbt-pratica.md`
 - [explanation] **Como o Cosmos leva o dbt ao Airflow** — core — `docs/explicacao/engenharia-cosmos.md`
 - [how-to] **Prática: rastrear uma transformação até a gold** — core — `docs/guias/engenharia-cadeia-pratica.md`
+
+## Nível 4 · Qualidade, governança e entrega
+Etapa: Entrega · Ícone: shield-check
+Valide o resultado, documente sua origem, controle o acesso e entregue um indicador conferido no Superset.
+
+- [reference] **Qualidade: o que precisa ser verdadeiro no dado** — core — `docs/referencia/engenharia-qualidade.md`
+- [tutorial] **Prática: provocar e diagnosticar uma falha de qualidade** — core — `docs/tutoriais/engenharia-falha-qualidade.md`
+- [how-to] **Logs, reconciliação e atualização** — core — `docs/guias/engenharia-observabilidade.md`
+- [explanation] **Dados pessoais, segredos e menor privilégio** — core — `docs/explicacao/engenharia-acesso.md`
+- [how-to] **Documentar colunas e seguir a linhagem** — core — `docs/guias/engenharia-metadados.md`
+- [reference] **PostgreSQL, formatos e o papel do MinIO** — support — `docs/referencia/engenharia-formatos.md`
+- [tutorial] **Prática: da gold ao gráfico no Superset** — core — `docs/tutoriais/engenharia-consumo.md`
+- [how-to] **Contribuir com uma mudança revisável** — core — `docs/guias/engenharia-contribuicao.md`
+- [challenge] **Desafio: uma fonte até um indicador confiável** — capstone — `docs/desafios/engenharia-desafio.md`
