@@ -15,7 +15,7 @@ const SITE = '../';
 const MENU_SITE = [
   ['HOME', SITE + 'home/'], ['SOBRE', SITE + 'sobre/'], ['QUEM SOMOS', SITE + 'quem-somos/'],
   ['PROJETOS', SITE + 'projetos/'], ['PUBLICAÇÕES', SITE + 'publicacoes/'],
-  ['CAPACITAÇÃO', 'index.html', true], ['DOCUMENTAÇÃO', SITE + 'documentacao/'],
+  ['CAPACITAÇÃO', 'index.html', true], ['DOCUMENTAÇÃO', SITE + 'documentacao/'], ['TAIS', SITE + 'tais/'],
 ];
 const REDES = [
   ['https://www.instagram.com/govhub.br', 'instagram', 'Instagram'],
