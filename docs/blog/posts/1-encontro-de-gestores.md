@@ -314,7 +314,7 @@ container-type:inline-size;font-family:var(--font-family-base);color:var(--text-
 
 <figure>
 
-<div class="ghx-photo"><a class="ghx-zoom" href="/blog/images/encontro-de-gestores-boletim.webp" target="\_blank" rel="noopener"><img src="/blog/images/encontro-gestores-boletim.webp" alt="Gestores reunidos ao redor de uma mesa durante a roda de conversa, com o cavalete de cartazes ao fundo" style="aspect-ratio:4/3.2;object-position:center 40%"></a></div>
+<div class="ghx-photo"><a class="ghx-zoom" href="/blog/images/encontro-gestores-boletim.webp" target="\_blank" rel="noopener"><img src="/blog/images/encontro-gestores-boletim.webp" alt="Gestores reunidos ao redor de uma mesa durante a roda de conversa, com o cavalete de cartazes ao fundo" style="aspect-ratio:4/3.2;object-position:center 40%"></a></div>
 
 <figcaption>Roda de conversa entre os órgãos parceiros.</figcaption>
 
