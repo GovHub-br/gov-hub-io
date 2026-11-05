@@ -35,16 +35,16 @@ Documente antes de codificar:
 
 ## 2. Criar a DAG de Ingestão
 
-Crie a DAG em `airflow_lappis/dags/data_ingest/<origem>/`. Em DAGs novas, prefira TaskFlow API, clientes em `plugins/` e helpers existentes.
+Crie a DAG em `airflow/dags/data_ingest/<origem>/`. Em DAGs novas, prefira TaskFlow API, clientes em `plugins/` e helpers existentes.
 
 ```python
-# airflow_lappis/dags/data_ingest/minhafonte/minhafonte_ingest_dag.py
-from airflow.decorators import dag, task
+# airflow/dags/data_ingest/minhafonte/minhafonte_ingest_dag.py
+from airflow.sdk import dag, task
 from datetime import datetime, timedelta
 from schedule_loader import get_dynamic_schedule
 
 @dag(
-    schedule_interval=get_dynamic_schedule("minhafonte_ingest_dag"),
+    schedule=get_dynamic_schedule("minhafonte_ingest_dag"),
     start_date=datetime(2025, 1, 1),
     catchup=False,
     tags=["ingestao", "minhafonte"],
@@ -64,7 +64,7 @@ def minhafonte_ingest_dag() -> None:
 dag_instance = minhafonte_ingest_dag()
 ```
 
-Se a fonte gerar modelos analíticos, crie ou atualize os models dbt no projeto correspondente (`airflow_lappis/dags/dbt/ipea` ou `airflow_lappis/dags/dbt/mir`).
+Se a fonte gerar modelos analíticos, crie ou atualize os models dbt no projeto correspondente, como `airflow/dags/dbt/compras_gov` para modelos do sistema de origem ou `airflow/dags/dbt/mgi` para modelos de consumo do órgão.
 
 ## 3. Configurar Connections no Airflow
 
@@ -93,7 +93,7 @@ mc mb govhub/bronze-minhafonte
 ### Source (staging)
 
 ```yaml
-# airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/bronze/schema.yml
+# airflow/dags/dbt/<projeto>/models/<dominio>_dbt/bronze/schema.yml
 sources:
   - name: bronze
     tables:
@@ -106,7 +106,7 @@ sources:
 ### Model Silver
 
 ```sql
--- airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/silver/minhafonte.sql
+-- airflow/dags/dbt/<projeto>/models/<dominio>_dbt/silver/minhafonte.sql
 {{ config(materialized='table', schema='silver') }}
 
 SELECT
@@ -122,7 +122,7 @@ WHERE id IS NOT NULL
 ### Testes
 
 ```yaml
-# airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/silver/schema.yml
+# airflow/dags/dbt/<projeto>/models/<dominio>_dbt/silver/schema.yml
 models:
   - name: minhafonte
     columns:
@@ -142,7 +142,7 @@ airflow dags trigger minhafonte_ingest_dag
 # http://localhost:8080 → minhafonte_ingest_dag → Graph
 
 # Rodar dbt localmente
-cd airflow_lappis/dags/dbt/<projeto>
+cd airflow/dags/dbt/<projeto>
 dbt run --select minhafonte
 dbt test --select minhafonte
 ```
@@ -156,7 +156,7 @@ dbt test --select minhafonte
 ## Checklist
 
 - [ ] API/fonte documentada
-- [ ] DAG criada em `airflow_lappis/dags/data_ingest/<origem>/`
+- [ ] DAG criada em `airflow/dags/data_ingest/<origem>/`
 - [ ] Connection configurada no Airflow
 - [ ] Bucket/prefixo de dados brutos criado, se aplicável
 - [ ] Models dbt (staging + silver + testes)

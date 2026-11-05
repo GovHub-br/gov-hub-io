@@ -16,18 +16,18 @@ O nome da DAG segue o formato:
 
 | Segmento | Descrição | Exemplos |
 |---|---|---|
-| `origem` | Sistema de origem dos dados | `siafi`, `siape`, `compras_gov`, `transfere_gov`, `pncp` |
-| `dominio` | Entidade ou tema principal | `execucao_orcamentaria`, `contratos`, `servidores` |
-| `acao` | O que a DAG faz | `ingestao`, `transformacao`, `snapshot` |
+| `origem` | Sistema de origem dos dados | `compras_gov` |
+| `dominio` | Entidade ou tema principal | `contratos`, `fornecedor`, `orgao`, `uasg` |
+| `acao` | O que a DAG faz | `ingest`, `transform`, `publish`, `report` |
 
 **Exemplos válidos:**
 
 ```
-siafi_execucao_orcamentaria_ingestao
-compras_gov_contratos_transformacao
-siape_servidores_snapshot
-transfere_gov_programas_ingestao
-pncp_licitacoes_ingestao
+contratos_ingest_dag
+fornecedor_ingest_dag
+mgi_transform_dag
+mgi_publish_dag
+contratacoes_mgi_report_dag
 ```
 
 O `dag_id` (nome da função decorada com `@dag`) deve ser idêntico ao nome do arquivo sem a extensão `.py`.
@@ -41,11 +41,17 @@ dags/
   data_ingest/
     <origem>/          # uma pasta por sistema de origem
       <dag>.py
+  data_transform/
+    <orgao>/           # DAGs Cosmos por órgão
+      <dag>.py
+  data_publish/
+    <orgao>/
+      <dag>.py
+  data_report/
+    <orgao>/
+      <dag>.py
   dbt/
-    <projeto>/         # ipea, mir
-      cosmos_dag.py
-  dashboards/
-    <dag>.py
+    <projeto>/         # gov_bricks, compras_gov, mgi
 ```
 
 Novas origens ganham uma pasta própria dentro de `data_ingest/`. Não criar DAGs soltas na raiz de `dags/`.
@@ -57,12 +63,12 @@ Novas origens ganham uma pasta própria dentro de `data_ingest/`. Não criar DAG
 O projeto usa a **TaskFlow API** do Airflow (`@dag` e `@task`). Não usar o estilo clássico com `with DAG(...)`.
 
 ```python
-from airflow.decorators import dag, task
+from airflow.sdk import dag, task
 from datetime import datetime, timedelta
 from schedule_loader import get_dynamic_schedule
 
 @dag(
-    schedule_interval=get_dynamic_schedule("origem_dominio_acao"),
+    schedule=get_dynamic_schedule("origem_dominio_acao"),
     start_date=datetime(2023, 1, 1),
     catchup=False,
     default_args={
@@ -93,7 +99,7 @@ O schedule de todas as DAGs de ingestão é definido via `get_dynamic_schedule()
 from schedule_loader import get_dynamic_schedule
 
 @dag(
-    schedule_interval=get_dynamic_schedule("nome_da_dag"),
+    schedule=get_dynamic_schedule("nome_da_dag"),
     ...
 )
 ```
@@ -104,15 +110,15 @@ O `get_dynamic_schedule()` lê a Airflow Variable `dynamic_schedules` (JSON) e r
 
 ```json
 {
-  "siafi_execucao_orcamentaria_ingestao": {
+  "contratos_ingest_dag": {
     "type": "cron",
-    "value": "0 6 * * *"
+    "value": "0 5 * * *"
   },
-  "compras_gov_contratos_ingestao": {
+  "fornecedor_ingest_dag": {
     "type": "preset",
     "value": "@daily"
   },
-  "siape_servidores_snapshot": {
+  "orgao_ingest_dag": {
     "type": "timedelta",
     "value": { "hours": 12 }
   }
@@ -142,8 +148,8 @@ default_args = {
 Toda DAG deve declarar ao menos as tags de **origem** e **domínio**. Tags de camada (`bronze`, `silver`, `gold`) são recomendadas quando aplicável.
 
 ```python
-tags=["siafi", "nota_empenho"]           # mínimo
-tags=["siafi", "nota_empenho", "bronze"] # recomendado para DAGs de ingestão
+tags=["sistema:compras_gov", "dominio:contratos"]           # mínimo
+tags=["sistema:compras_gov", "dominio:contratos", "camada:raw"] # recomendado para DAGs de ingestão
 ```
 
 ---
@@ -272,48 +278,56 @@ Os clientes em `plugins/` e os helpers em `helpers/` devem ser sempre reaproveit
 
 ## DAGs dbt com Cosmos
 
-Os projetos dbt (`ipea`, `mir`) são orquestrados pelo Airflow via **Astronomer Cosmos**, que converte os modelos dbt em tasks do Airflow automaticamente. O padrão é idêntico entre os dois projetos.
+Os projetos dbt de órgão, como `mgi`, são orquestrados pelo Airflow via **Astronomer Cosmos**, que converte os modelos dbt em tasks do Airflow automaticamente.
 
 ### Estrutura padrão
 
 ```python
 import os
-from datetime import datetime
-from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
-from cosmos.constants import DBT_LOG_PATH_ENVVAR
+from datetime import datetime, timedelta
+from pathlib import Path
 
-# Configurar diretório de logs do dbt
-dbt_log_path = "/tmp/dbt_logs"  # NOSONAR
-os.makedirs(dbt_log_path, exist_ok=True)
-os.environ[DBT_LOG_PATH_ENVVAR] = dbt_log_path
+from cosmos import DbtDag, ProfileConfig, ProjectConfig, RenderConfig
+from cosmos.constants import TestBehavior
+
+ORGAO = "mgi"
+DIR_DBT = Path(__file__).resolve().parents[2] / "dbt"
 
 profile_config = ProfileConfig(
-    profiles_yml_filepath=f"{os.environ['AIRFLOW_REPO_BASE']}/dags/dbt/<projeto>/profiles.yml",
-    profile_name="<projeto>",
-    target_name="prod",
+    profiles_yml_filepath=DIR_DBT / "profiles.yml",
+    profile_name="gov_bricks",
+    target_name=os.environ.get("DBT_TARGET", "dev"),
 )
 
-my_cosmos_dag = DbtDag(
-    project_config=ProjectConfig(f"{os.environ['AIRFLOW_REPO_BASE']}/dags/dbt/<projeto>"),
-    profile_config=profile_config,
-    execution_config=ExecutionConfig(
-        dbt_executable_path=f"{os.environ['AIRFLOW_REPO_BASE']}/.local/bin/dbt",
+mgi_transform_dag = DbtDag(
+    dag_id=f"{ORGAO}_transform_dag",
+    project_config=ProjectConfig(
+        dbt_project_path=DIR_DBT / ORGAO,
+        env_vars={"GOV_BRICKS_DBT_DIR": str(DIR_DBT)},
     ),
-    schedule_interval="0 1 * * *",  # diariamente à 01:00
-    start_date=datetime(2025, 1, 1),
+    profile_config=profile_config,
+    render_config=RenderConfig(
+        test_behavior=TestBehavior.AFTER_EACH,
+    ),
+    schedule="0 6 * * *",
+    start_date=datetime(2024, 1, 1),
     catchup=False,
-    dag_id="<projeto>_cosmos_dag",
-    default_args={"retries": 2},
+    default_args={
+        "owner": ORGAO,
+        "queue": ORGAO,
+        "retries": 2,
+        "retry_delay": timedelta(minutes=5),
+    },
 )
 ```
 
 ### Pontos de atenção
 
-- Caminhos resolvidos via `AIRFLOW_REPO_BASE` — não usar caminhos absolutos hardcodados.
-- `target_name="prod"` aponta para o perfil de produção no `profiles.yml`. Para rodar localmente, alterar para o target local antes de testar.
+- Caminhos resolvidos a partir de `Path(__file__)` — não usar caminhos absolutos hardcodados.
+- `target_name` deve ler `DBT_TARGET`, com default local seguro.
 - DAGs Cosmos **não usam** `get_dynamic_schedule()` — o schedule é cron direto, pois o Cosmos gerencia o ciclo de vida da DAG de forma diferente.
 - `retries=2` é o padrão para DAGs dbt (diferente do `retries=1` das DAGs de ingestão).
-- O comentário `# NOSONAR` no `dbt_log_path` é intencional — suprime alerta de análise estática para aquela linha. Manter ao copiar o template.
+- `RenderConfig(test_behavior=TestBehavior.AFTER_EACH)` ajuda a interromper ramos dependentes quando um modelo falha nos testes.
 
 ---
 
@@ -325,7 +339,7 @@ O projeto adota a arquitetura medallion. Cada domínio tem sua própria pasta co
 
 ```
 models/
-  <dominio>_dbt/
+  <camada_ou_dominio>/
     bronze/     # dados brutos, sem transformação de negócio
     silver/     # dados tratados, tipados e enriquecidos
     gold/       # agregações e modelos analíticos finais
@@ -450,13 +464,11 @@ O projeto possui macros reutilizáveis em `macros/`. Consultar antes de implemen
 
 | Macro | Uso |
 |---|---|
-| `safe_casts.sql` | Casts seguros com tratamento de nulos |
-| `parse_financial_value.sql` | Normalização de valores financeiros |
-| `data_quality/row_count_match.sql` | Validação de contagem entre camadas |
-| `data_quality/verificacao_tipagem.sql` | Verificação de tipos de colunas |
-| `metadata/generate_metadata.sql` | Geração de metadados de modelos |
-| `udfs/f_parse_dates.sql` | Parse de datas em diferentes formatos |
-| `udfs/f_format_nc.sql` | Formatação de notas de crédito |
+| `schema_medallion.sql` | Padronização de schemas por camada |
+| `chave_conformada.sql` | Geração de chaves conformadas |
+| `chaves_geradas.sql` | Suporte a chaves derivadas |
+| `testes.sql` | Testes genéricos compartilhados |
+| `generate_schema_name.sql` | Definição de schema por projeto/camada |
 
 ---
 

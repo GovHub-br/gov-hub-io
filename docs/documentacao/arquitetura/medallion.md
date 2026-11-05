@@ -85,10 +85,11 @@ No repositório principal, os projetos dbt atuais ficam em:
 
 | Projeto | Caminho |
 | --- | --- |
-| `ipea` | `airflow_lappis/dags/dbt/ipea` |
-| `mir` | `airflow_lappis/dags/dbt/mir` |
+| `gov_bricks` | `airflow/dags/dbt/gov_bricks` |
+| `compras_gov` | `airflow/dags/dbt/compras_gov` |
+| `mgi` | `airflow/dags/dbt/mgi` |
 
-Cada domínio organiza suas camadas dentro de `models/<dominio>_dbt/`, por exemplo `contratos_dbt/bronze`, `pessoas_dbt/silver` ou `empenhos_ted_dbt/gold`.
+Cada projeto organiza suas camadas dentro de `models/`, por exemplo `models/bronze`, `models/silver/contratacoes` ou `models/gold/contratacoes`.
 
 ## Benefícios
 

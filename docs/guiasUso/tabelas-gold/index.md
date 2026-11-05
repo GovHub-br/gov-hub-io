@@ -211,8 +211,8 @@ WHERE valor_pago > valor_liquidado
 
 ```python
 from datetime import datetime, timedelta
-from airflow import DAG
-from airflow.operators.bash_operator import BashOperator
+from airflow.sdk import DAG
+from airflow.providers.standard.operators.bash import BashOperator
 
 default_args = {
     'owner': 'govhub',
@@ -228,7 +228,7 @@ dag = DAG(
     'gold_execucao_orcamentaria',
     default_args=default_args,
     description='Atualização da tabela Gold de execução orçamentária',
-    schedule_interval='0 6 * * *',  # Diário às 6h
+    schedule='0 6 * * *',  # Diário às 6h
     catchup=False
 )
 

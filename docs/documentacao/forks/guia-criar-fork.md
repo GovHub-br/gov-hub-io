@@ -58,17 +58,17 @@ no PostgreSQL.
 
 ### 4. Criar DAGs de ingestão
 
-Crie novas DAGs em `airflow_lappis/dags/data_ingest/<origem>/` para suas fontes:
+Crie novas DAGs em `airflow/dags/data_ingest/<origem>/` para suas fontes:
 
 ```python
-# airflow_lappis/dags/data_ingest/<origem>/<sua_fonte>_ingest_dag.py
+# airflow/dags/data_ingest/<origem>/<sua_fonte>_ingest_dag.py
 
 from datetime import datetime, timedelta
-from airflow.decorators import dag, task
+from airflow.sdk import dag, task
 from schedule_loader import get_dynamic_schedule
 
 @dag(
-    schedule_interval=get_dynamic_schedule("<sua_fonte>_ingest_dag"),
+    schedule=get_dynamic_schedule("<sua_fonte>_ingest_dag"),
     start_date=datetime(2025, 1, 1),
     catchup=False,
     tags=["<contexto>", "<sua_fonte>"],
@@ -93,7 +93,7 @@ dag_instance = sua_fonte_ingest_dag()
 Siga a arquitetura Medallion:
 
 ```
-airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/
+airflow/dags/dbt/<projeto>/models/<dominio>_dbt/
 ├── bronze/
 ├── silver/
 └── gold/
@@ -102,7 +102,7 @@ airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/
 **Exemplo staging**:
 
 ```sql
--- airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/bronze/brz_minha_fonte.sql
+-- airflow/dags/dbt/<projeto>/models/<dominio>_dbt/bronze/brz_minha_fonte.sql
 {{ config(materialized='view') }}
 
 SELECT *
@@ -112,7 +112,7 @@ FROM {{ source('bronze', 'minha_fonte_raw') }}
 **Exemplo silver**:
 
 ```sql
--- airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/silver/slv_minha_entidade.sql
+-- airflow/dags/dbt/<projeto>/models/<dominio>_dbt/silver/slv_minha_entidade.sql
 {{ config(materialized='table', schema='silver') }}
 
 SELECT
@@ -127,7 +127,7 @@ WHERE id IS NOT NULL
 **Exemplo gold**:
 
 ```sql
--- airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/gold/gld_minha_metrica.sql
+-- airflow/dags/dbt/<projeto>/models/<dominio>_dbt/gold/gld_minha_metrica.sql
 {{ config(materialized='table', schema='gold') }}
 
 SELECT
@@ -142,7 +142,7 @@ GROUP BY 1, 2
 ### 6. Adicionar testes dbt
 
 ```yaml
-# airflow_lappis/dags/dbt/<projeto>/models/<dominio>_dbt/schema.yml
+# airflow/dags/dbt/<projeto>/models/<dominio>_dbt/schema.yml
 models:
   - name: slv_minha_entidade
     columns:
