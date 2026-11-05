@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>graphrag-tais · Arquitetura por ministério</title>
+<meta name="description" content="Mapa da arquitetura do graphrag-tais, o GraphRAG de metadados para text-to-SQL do Gov Hub, no contexto de cada ministério.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700;800;900&display=swap">
+<style>
+/* Portal do mapa de arquitetura: escolhe o ministério. IDV Gov Hub, modo sóbrio
+   (roxo #613EFF, navy #0A005A, claro #F2F1F6, Reddit Sans), com o mesmo tema escuro
+   grafite das páginas de arquitetura e a mesma chave de tema (tais-theme). */
+:root{
+  --bg:#F2F1F6; --paper:#FFFFFF; --ink:#0A005A; --text:#2D3748; --muted:#5F6170; --line:#E9DFFF;
+  --purple:#613EFF; --purple-700:#3F28A6; --cta:#613EFF; --cta-hover:#5235D9;
+  --tint-1:rgba(97,62,255,.06); --tint-2:rgba(97,62,255,.12);
+  --card-border:#E2DAFF; --plate:#FFFFFF;
+  --shadow:0 2px 10px rgba(10,0,90,.08); --shadow-lg:0 18px 44px rgba(10,0,90,.16);
+  --hero-a:#0A005A; --hero-b:#2A12A8; --hero-fg:#FFFFFF;
+  --font:'Reddit Sans','Open Sans',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121217; --paper:#1B1B22; --ink:#F3F3F7; --text:#D4D4DD; --muted:#9696A6; --line:rgba(255,255,255,.09);
+  --purple:#9A88FF; --purple-700:#C9BFFF; --cta:#613EFF; --cta-hover:#7356FF;
+  --tint-1:rgba(154,136,255,.05); --tint-2:rgba(154,136,255,.13);
+  --card-border:rgba(255,255,255,.11); --plate:#F2F1F6;
+  --shadow:0 1px 0 rgba(255,255,255,.04) inset,0 6px 18px rgba(0,0,0,.35); --shadow-lg:0 1px 0 rgba(255,255,255,.05) inset,0 20px 44px rgba(0,0,0,.55);
+  --hero-a:#1E1A3F; --hero-b:#2B1F7A; --hero-fg:#FFFFFF;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121217; --paper:#1B1B22; --ink:#F3F3F7; --text:#D4D4DD; --muted:#9696A6; --line:rgba(255,255,255,.09);
+  --purple:#9A88FF; --purple-700:#C9BFFF; --cta:#613EFF; --cta-hover:#7356FF;
+  --tint-1:rgba(154,136,255,.05); --tint-2:rgba(154,136,255,.13);
+  --card-border:rgba(255,255,255,.11); --plate:#F2F1F6;
+  --shadow:0 1px 0 rgba(255,255,255,.04) inset,0 6px 18px rgba(0,0,0,.35); --shadow-lg:0 1px 0 rgba(255,255,255,.05) inset,0 20px 44px rgba(0,0,0,.55);
+  --hero-a:#1E1A3F; --hero-b:#2B1F7A; --hero-fg:#FFFFFF;
+  color-scheme:dark}
+.on-dark{display:none!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .on-dark{display:inline-block!important}:root:not([data-theme="light"]) .on-light{display:none!important}}
+:root[data-theme="dark"] .on-dark{display:inline-block!important}
+:root[data-theme="dark"] .on-light{display:none!important}
+
+html,body{margin:0}
+body{min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--text);font:16px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+
+/* Barra */
+.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.brand img{height:30px;width:auto}
+.brand span{padding-left:14px;border-left:2px solid var(--line);font:400 18px/1 var(--font);color:var(--ink);white-space:nowrap}
+.brand b{font-weight:800}
+.tools{display:flex;align-items:center;gap:10px;margin-left:auto}
+.lang{display:inline-flex;align-items:center;gap:2px;height:36px;padding:3px;border:1.5px solid var(--card-border);border-radius:999px;background:var(--paper)}
+.lang svg{width:17px;height:17px;margin:0 4px 0 7px;color:var(--purple)}
+.lang button{height:28px;padding:0 11px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:800 12px/1 var(--font);letter-spacing:.04em}
+.lang button[aria-pressed="true"]{background:var(--cta);color:#fff}
+.icon-btn{display:grid;place-items:center;width:36px;height:36px;border:1.5px solid var(--card-border);border-radius:50%;background:var(--paper);color:var(--purple-700);font-size:16px}
+.icon-btn:hover,.lang button:not([aria-pressed="true"]):hover{background:var(--tint-2)}
+
+/* Topo */
+.hero{position:relative;overflow:hidden;color:var(--hero-fg);background:radial-gradient(900px 420px at 85% -20%,rgba(97,62,255,.55),transparent 60%),linear-gradient(135deg,var(--hero-a),var(--hero-b))}
+.hero .wrap{position:relative;z-index:1;padding-top:68px;padding-bottom:132px}
+.hero .kick{display:inline-flex;align-items:center;gap:8px;margin:0 0 20px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);font:700 12px/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase}
+.hero .kick i{width:7px;height:7px;border-radius:50%;background:#BE006E;box-shadow:0 0 0 3px rgba(190,0,110,.3)}
+.hero h1{max-width:20ch;margin:0;font:800 clamp(36px,5.4vw,62px)/1.02 var(--font);letter-spacing:-.03em;text-wrap:balance}
+.hero h1 em{font-style:normal;color:#C9BFFF}
+.hero p{max-width:62ch;margin:22px 0 0;font:400 clamp(16px,1.6vw,19px)/1.55 var(--font);color:rgba(255,255,255,.86)}
+.deco{position:absolute;right:-40px;bottom:-60px;width:min(46vw,560px);height:auto;opacity:.95;pointer-events:none}
+.deco .a{fill:#613EFF} .deco .b{fill:none;stroke:rgba(255,255,255,.22);stroke-width:18} .deco .c{fill:rgba(255,255,255,.08)} .deco .d{fill:#BE006E}
+
+/* Cards dos ministérios */
+.pick{position:relative;z-index:2;margin-top:-92px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:var(--text);background:var(--paper);border:1.5px solid var(--card-border);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden;transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--purple)}
+.card::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,var(--cta),#BE006E)}
+.plate{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 30px 22px;border-bottom:1.5px solid var(--line)}
+.plate img{height:86px;width:auto;max-width:72%;margin:-10px 0 -10px -14px}
+.plate .lg{flex:none;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:var(--tint-2);color:var(--purple-700);font:800 11px/1.2 var(--font);letter-spacing:.05em;text-transform:uppercase}
+.body{display:flex;flex-direction:column;gap:14px;flex:1;padding:24px 30px 28px}
+.card h3{margin:0;font:800 28px/1.1 var(--font);letter-spacing:-.02em;color:var(--ink)}
+.card h3 small{display:block;margin-top:6px;font:600 13px/1.3 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--purple)}
+.card p{margin:0;font:400 15px/1.55 var(--font)}
+.topics{display:flex;flex-wrap:wrap;gap:6px}
+.topics span{padding:4px 11px;border-radius:999px;background:var(--line);color:var(--purple-700);font:600 12px/1.35 var(--font)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:4px}
+.stats div{padding:12px 12px 11px;border-radius:12px;background:var(--tint-1);border:1px solid var(--line)}
+.stats b{display:block;font:800 24px/1 var(--font);color:var(--ink);letter-spacing:-.02em}
+.stats span{display:block;margin-top:5px;font:500 12px/1.3 var(--font);color:var(--muted)}
+.go{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;margin-top:auto;padding:12px 20px;border-radius:999px;background:var(--cta);color:#fff;font:700 15px/1 var(--font)}
+.go svg{width:16px;height:16px;transition:transform .2s}
+.card:hover .go{background:var(--cta-hover)}
+.card:hover .go svg{transform:translateX(4px)}
+.url{font:600 12.5px var(--mono);color:var(--muted)}
+
+/* Como funciona */
+.how{margin:64px auto 0}
+.how h2{margin:0 0 6px;font:800 26px/1.15 var(--font);letter-spacing:-.02em;color:var(--ink)}
+.how > p{margin:0 0 24px;max-width:70ch;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.step{position:relative;padding:22px 20px 20px;border-radius:16px;background:var(--paper);border:1.5px solid var(--card-border);box-shadow:var(--shadow)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;margin-bottom:14px;border-radius:50%;background:var(--ink);color:var(--paper);font:800 16px/1 var(--font)}
+.step b{display:block;font:800 17px/1.2 var(--font);color:var(--ink)}
+.step span{display:block;margin-top:6px;font:400 14px/1.5 var(--font)}
+.step code{display:inline-block;margin-top:10px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--purple-700);font:600 11.5px/1.5 var(--mono)}
+
+/* Rodapé */
+footer{margin-top:72px;border-top:1.5px solid var(--line);background:var(--paper)}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;padding-top:24px;padding-bottom:28px;font:400 13px/1.45 var(--font);color:var(--muted)}
+.partners{display:flex;flex-wrap:wrap;align-items:center;gap:24px}
+.partners img{height:32px;width:auto}
+.partners img.lab{height:24px}
+
+@media (max-width:860px){
+  .brand span{display:none}
+  .hero .wrap{padding-top:44px;padding-bottom:110px}
+  .deco{width:80vw;right:-30%;bottom:-40px;opacity:.5}
+  .cards{grid-template-columns:1fr;gap:20px}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plate{padding:24px 22px 18px}.plate img{height:70px}
+  .body{padding:20px 22px 24px}
+}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .steps{grid-template-columns:1fr}
+  .stats b{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){.card,.go svg{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <img class="on-light" src="assets/govhub-light.svg" alt="Gov Hub">
+      <img class="on-dark" src="assets/govhub-dark.svg" alt="Gov Hub">
+      <span><b>graphrag-tais</b> <span data-i="brand" style="padding:0;border:0;font:inherit">arquitetura</span></span>
+    </a>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Idioma" data-i-aria="langGroup">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <button type="button" data-lang="pt" aria-pressed="true" title="Português (Brasil)">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
+      <button class="icon-btn" id="theme" type="button" aria-label="Alternar tema claro ou escuro" data-i-aria="theme">◐</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="deco" viewBox="0 0 560 420" aria-hidden="true"><circle class="c" cx="380" cy="190" r="170"/><path class="a" d="M150 420a170 170 0 0 1 340 0z"/><circle class="b" cx="170" cy="150" r="88"/><circle class="d" cx="470" cy="70" r="26"/></svg>
+  <div class="wrap">
+    <p class="kick"><i></i><span data-i="kick">Mapa de arquitetura · Gov Hub</span></p>
+    <h1 data-i="title" data-html>Um assistente que entende <em>o dado de cada ministério</em></h1>
+    <p data-i="lead">O graphrag-tais é um GraphRAG de metadados para text-to-SQL: ele aprende o que cada tabela significa e como as tabelas se ligam, escolhe o pedaço do catálogo de que a pergunta precisa e deixa um LLM escrever o SQL, que roda em modo somente leitura. O motor é um só; o catálogo, os dados e as perguntas mudam de ministério para ministério. Escolha um para ver a arquitetura no contexto dele.</p>
+  </div>
+</section>
+
+<main class="wrap pick">
+  <h2 class="sr" data-i="pickTitle">Escolha o ministério</h2>
+  <div class="cards">
+    <a class="card" href="minc/">
+      <div class="plate">
+        <img class="on-light" src="assets/minc-light.svg" alt="Ministério da Cultura">
+        <img class="on-dark" src="assets/minc-dark.svg" alt="Ministério da Cultura">
+        <span class="lg" data-i="inPt">Em português</span>
+      </div>
+      <div class="body">
+        <h3>Ministério da Cultura<small>MinC</small></h3>
+        <p data-i="mincText">Fomento e incentivo à cultura: projetos e captação da Lei Rouanet no SALIC, os pagamentos da PNAB e da Lei Paulo Gustavo, repasses do TransfereGov e o audiovisual da Ancine — num lakehouse com Trino, Iceberg e política de acesso na consulta.</p>
+        <div class="topics"><span>Lei Rouanet · SALIC</span><span>PNAB · LPG</span><span>BB Ágil</span><span>TransfereGov</span></div>
+        <div class="stats">
+          <div><b>408</b><span data-i="sTables">tabelas no catálogo</span></div>
+          <div><b>224</b><span data-i="sJoinsVal">junções validadas</span></div>
+          <div><b>12</b><span data-i="sMetrics">métricas no MetricFlow</span></div>
+        </div>
+        <span class="go"><span data-i="open">Abrir a arquitetura</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></span>
+        <span class="url">/tais/minc</span>
+      </div>
+    </a>
+    <a class="card" href="mcid/">
+      <div class="plate">
+        <img class="on-light" src="assets/cidades-light.svg" alt="Ministério das Cidades">
+        <img class="on-dark" src="assets/cidades-dark.svg" alt="Ministério das Cidades">
+        <span class="lg" data-i="inEn">Em inglês</span>
+      </div>
+      <div class="body">
+        <h3>Ministério das Cidades<small>MCid</small></h3>
+        <p data-i="mcidText">Habitação: os empreendimentos do Minha Casa, Minha Vida nas modalidades FAR e FDS e a conjuntura do setor, a partir de mais de vinte fontes (Caixa, Banco do Brasil, SIAFI, IBGE, BACEN…) — a base onde o motor foi desenvolvido e medido.</p>
+        <div class="topics"><span>Minha Casa, Minha Vida</span><span>FAR</span><span>FDS</span><span data-i="mcidT4">Conjuntura habitacional</span></div>
+        <div class="stats">
+          <div><b>74</b><span data-i="sTables">tabelas no catálogo</span></div>
+          <div><b>24</b><span data-i="sJoinsSem">junções semânticas</span></div>
+          <div><b>47</b><span data-i="sGold">perguntas com gabarito</span></div>
+        </div>
+        <span class="go"><span data-i="open">Abrir a arquitetura</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></span>
+        <span class="url">/tais/mcid</span>
+      </div>
+    </a>
+  </div>
+
+  <section class="how" aria-labelledby="howTitle">
+    <h2 id="howTitle" data-i="howTitle">O mesmo motor nos dois ministérios</h2>
+    <p data-i="howLead">Cada página mostra estas etapas com as tabelas, as junções e as perguntas reais daquele ministério.</p>
+    <div class="steps">
+      <div class="step"><b data-i="st1">Camada semântica</b><span data-i="st1x">O significado de cada tabela e coluna, escrito como código no dbt e publicado no OpenMetadata.</span><code>dbt · OpenMetadata</code></div>
+      <div class="step"><b data-i="st2">Recuperação GraphRAG</b><span data-i="st2x">Busca densa e esparsa acham as tabelas-semente; o grafo acrescenta só as junções aprovadas.</span><code>Qdrant · Neo4j</code></div>
+      <div class="step"><b data-i="st3">Text-to-SQL e execução</b><span data-i="st3x">Um LLM escreve o SQL a partir do subgrafo; uma MCP tool o executa em modo somente leitura.</span><code>LLM · MCP tool</code></div>
+      <div class="step"><b data-i="st4">Entrega</b><span data-i="st4x">Explorar o que existe ou montar um indicador, com gráfico, leitura e relatório Word.</span><code>Open WebUI</code></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-i="foot">graphrag-tais · GraphRAG de metadados para text-to-SQL sobre a plataforma de dados Gov Hub</span>
+    <span class="partners">
+      <img class="lab on-light" src="assets/lablivre-light.svg" alt="Lab Livre"><img class="lab on-dark" src="assets/lablivre-dark.svg" alt="Lab Livre">
+      <img class="on-light" src="assets/unb-light.svg" alt="UnB"><img class="on-dark" src="assets/unb-dark.svg" alt="UnB">
+    </span>
+  </div>
+</footer>
+
+<script>
+(() => {
+'use strict';
+// Textos em inglês; o português é o que está no HTML (guardado na primeira troca).
+const EN = {
+  brand:'architecture', langGroup:'Language', theme:'Switch light or dark theme',
+  kick:'Architecture map · Gov Hub',
+  title:'One assistant that understands <em>each ministry’s data</em>',
+  lead:'graphrag-tais is a metadata GraphRAG for text-to-SQL: it learns what every table means and how tables connect, picks the piece of the catalog a question needs, and lets an LLM write the SQL, which runs read-only. The engine is one; the catalog, the data and the questions change from ministry to ministry. Pick one to see the architecture in its context.',
+  pickTitle:'Pick a ministry', inPt:'In Portuguese', inEn:'In English', open:'Open the architecture',
+  mincText:'Funding and incentives for culture: Lei Rouanet projects and fundraising in SALIC, PNAB and Lei Paulo Gustavo payments, TransfereGov transfers and Ancine’s audiovisual data — in a lakehouse with Trino, Iceberg and access policy applied at query time.',
+  mcidText:'Housing: Minha Casa, Minha Vida projects under the FAR and FDS programs and the sector outlook, from twenty-plus sources (Caixa, Banco do Brasil, SIAFI, IBGE, BACEN…) — the base where the engine was built and measured.',
+  mcidT4:'Housing outlook',
+  sTables:'catalog tables', sJoinsVal:'validated joins', sMetrics:'MetricFlow metrics', sJoinsSem:'semantic joins', sGold:'questions with known answers',
+  howTitle:'The same engine for both ministries',
+  howLead:'Each page walks through these steps with that ministry’s real tables, joins and questions.',
+  st1:'Semantic layer', st1x:'What every table and column means, written as code in dbt and published in OpenMetadata.',
+  st2:'GraphRAG retrieval', st2x:'Dense and sparse search find the seed tables; the graph adds only approved joins.',
+  st3:'Text-to-SQL and execution', st3x:'An LLM writes SQL from the subgraph; an MCP tool runs it read-only.',
+  st4:'Delivery', st4x:'Explore what exists or build an indicator, with a chart, a plain reading and a Word report.',
+  foot:'graphrag-tais · metadata GraphRAG for text-to-SQL over the Gov Hub data platform',
+  docTitle:'graphrag-tais · Architecture by ministry',
+};
+const PT = {docTitle:document.title};
+const nodes = [...document.querySelectorAll('[data-i]')], arias = [...document.querySelectorAll('[data-i-aria]')];
+for (const el of nodes) PT[el.dataset.i] = el.dataset.html !== undefined ? el.innerHTML : el.textContent;
+for (const el of arias) PT[el.dataset.iAria] = el.getAttribute('aria-label');
+
+function setLang(lang) {
+  const T = lang === 'en' ? EN : PT;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+  for (const el of nodes) { const v = T[el.dataset.i]; if (v == null) continue; if (el.dataset.html !== undefined) el.innerHTML = v; else el.textContent = v; }
+  for (const el of arias) el.setAttribute('aria-label', T[el.dataset.iAria]);
+  document.title = T.docTitle;
+  for (const b of document.querySelectorAll('[data-lang]')) b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+  try { localStorage.setItem('tais-lang', lang); } catch (_) {}
+}
+document.querySelector('.lang').addEventListener('click', e => { const b = e.target.closest('[data-lang]'); if (b) setLang(b.dataset.lang); });
+let start = new URLSearchParams(location.search).get('lang');
+if (!start) try { start = localStorage.getItem('tais-lang'); } catch (_) {}
+if (start === 'en') setLang('en');
+
+document.getElementById('theme').addEventListener('click', () => {
+  const root = document.documentElement;
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('tais-theme', root.dataset.theme); } catch (_) {}
+});
+try { const t = localStorage.getItem('tais-theme'); if (t) document.documentElement.dataset.theme = t; } catch (_) {}
+})();
+</script>
+</body>
+</html>
