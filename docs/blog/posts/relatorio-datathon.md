@@ -7,8 +7,8 @@ categories:
   - Relatório
 card_label: ''
 card_image: /land/dist/images/publicacoes/paper.svg
-pdf: /publicacoes/pdf/relatorio-datathon.pdf
-pagina_especial: true
+pdf: /publicacoes/pdf/relatorio-datathon-1.pdf
+pagina_especial: false
 fotos: []
 draft: false
 ---
