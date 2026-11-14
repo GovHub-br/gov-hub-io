@@ -8,7 +8,7 @@ Imagine três tarefas: buscar contratos, gravar os registros e calcular o resumo
 
 **DAG** é a sigla de grafo acíclico dirigido. “Grafo” significa um conjunto de elementos ligados; “dirigido” indica a direção das dependências; “acíclico” significa que o caminho não volta ao início formando um ciclo. Na tela, isso aparece como caixas ligadas por setas.
 
-Uma **execução** é uma ocasião em que a DAG roda. A mesma definição pode ter uma execução hoje e outra amanhã. Um erro em uma execução não significa necessariamente que o arquivo da DAG deixou de existir.
+Uma **execução** é uma ocasião em que a DAG roda. A mesma definição pode ter uma execução hoje e outra amanhã.
 
 ## Conceitos para ler uma DAG
 
@@ -45,7 +45,7 @@ Com `retries = 2`, uma falha persistente pode resultar em três tentativas no to
 
 Com `catchup` desligado, ativar uma DAG não cria automaticamente todas as execuções históricas que ficaram para trás. Ainda é possível planejar um reprocessamento explícito quando a DAG o permite.
 
-## Exemplo: reconhecer os decoradores no código
+## Exemplo: dependências e passagem de resultados com TaskFlow
 
 Este trecho é para leitura em um ambiente com Airflow instalado; não acessa fontes nem bancos:
 
@@ -82,7 +82,7 @@ O ambiente mantém `ENABLE_XCOM_PICKLING` ligado, uma configuração que exige r
 
 O agendamento define quando criar uma execução. A dependência define o que precisa acontecer antes de uma tarefa. A retentativa define o que fazer depois que uma tarefa falha. Alterar um desses elementos não corrige automaticamente os outros.
 
-Os símbolos `@dag` e `@task` são **decoradores** Python: marcações que transformam funções em elementos reconhecidos pelo Airflow. Você pode começar identificando os nomes das tarefas e suas relações antes de estudar essa sintaxe.
+No padrão TaskFlow, `@dag` define a rotina e `@task` delimita as unidades de execução. As chamadas entre tarefas registram as dependências e a passagem de resultados usada pelo Airflow.
 
 Standalone reúne os componentes do Airflow para facilitar o ambiente local. LocalExecutor indica que as tarefas são executadas no próprio ambiente do Airflow. Esses nomes descrevem a organização da execução, não o conteúdo dos registros coletados.
 

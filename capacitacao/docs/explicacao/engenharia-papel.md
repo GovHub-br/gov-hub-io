@@ -2,25 +2,17 @@
 
 > Tipo: **Explicação**
 
-## Antes das ferramentas: o que é um dado?
-
-Um dado é um registro sobre alguma coisa: o valor de um contrato, a data de um atendimento ou o nome de um órgão. Isolado, ele conta pouco. Organizado com outros registros e com um significado claro, pode ajudar a responder uma pergunta.
-
-Pense em uma planilha: cada **linha** pode representar um contrato e cada **coluna**, uma característica, como órgão, data e valor. Chamamos uma linha de **registro** e uma coluna também pode ser chamada de **campo**. Uma tabela de banco de dados segue essa ideia, com regras mais explícitas sobre o que pode ser guardado.
-
 ## Por que há várias ferramentas?
 
-O conjunto de ferramentas usado por um projeto é chamado de **stack**. Você não precisa conhecer todos os nomes de uma vez. Associe cada um a uma tarefa:
+Na aplicação Gov Hub, as ferramentas têm responsabilidades distintas ao longo do pipeline:
 
-| Ferramenta | Papel em linguagem simples |
+| Ferramenta | Responsabilidade no pipeline |
 |---|---|
 | Python | Linguagem para escrever instruções de coleta |
 | Airflow | Organiza e acompanha a execução dessas instruções |
 | PostgreSQL | Guarda os registros em tabelas consultáveis |
 | dbt | Organiza instruções SQL para transformar e testar tabelas |
 | Superset | Apresenta os resultados em gráficos e painéis |
-
-O repositório reúne os arquivos que dizem como essas ferramentas trabalham juntas. Ao longo da trilha, vamos abrir uma parte de cada vez.
 
 Uma equipe quer acompanhar a execução de recursos por órgão. Antes do gráfico, alguém precisa buscar os registros, organizar as tabelas e garantir que a atualização de amanhã continue funcionando. Esse é o trabalho da engenharia de dados.
 

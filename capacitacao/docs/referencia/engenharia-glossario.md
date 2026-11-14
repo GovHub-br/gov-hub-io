@@ -2,26 +2,9 @@
 
 > Tipo: **Referência**
 
-## Como usar esta página
+## Escopo da referência
 
-Esta é uma página de consulta. Não é necessário decorar as siglas: volte aqui quando uma palavra impedir a compreensão de uma aula. Primeiro entenda o papel do elemento e depois associe o nome técnico a ele.
-
-## Palavras que aparecem antes do primeiro código
-
-| Palavra | Significado e exemplo |
-|---|---|
-| Código | Instruções escritas para um programa executar |
-| Terminal | Aplicativo em que você digita comandos |
-| Arquivo / pasta | Um conteúdo salvo / um agrupamento de arquivos |
-| Tabela | Registros organizados em linhas e colunas |
-| Registro / campo | Uma linha / uma característica dessa linha |
-| Banco de dados | Sistema que guarda e permite consultar dados |
-| Consulta | Pedido ao banco para selecionar ou calcular informações |
-| Configuração | Valores que definem como o programa deve funcionar |
-| Biblioteca | Código reutilizável instalado para o projeto |
-| Ambiente | Programas e configurações usados para executar a aplicação |
-
-Uma **fonte** é de onde o registro vem. Um **destino** é onde ele será guardado. **Consumir** dados significa utilizá-los em consultas, análises ou painéis, sem necessariamente alterá-los.
+Vocabulário de engenharia de dados e siglas dos sistemas governamentais utilizados pela aplicação. Consulte as definições junto dos contratos das fontes e da documentação dos modelos.
 
 ## Termos usados na trilha
 
@@ -35,7 +18,6 @@ Uma **fonte** é de onde o registro vem. Um **destino** é onde ele será guarda
 | Upsert | Inserir uma linha nova ou atualizar a existente |
 | Idempotência | Repetir a mesma entrada sem duplicar o resultado |
 | Linhagem | Relação entre fontes, transformações e resultados |
-| PR | Pedido de incorporação de uma alteração, sujeito a revisão |
 
 ## Fontes e siglas
 
@@ -53,18 +35,18 @@ Uma **fonte** é de onde o registro vem. Um **destino** é onde ele será guarda
 | PF | Programação Financeira |
 | TED | Termo de Execução Descentralizada |
 
-## Exemplo: traduzindo uma frase da equipe
+## Exemplo: interpretar a identificação de um registro
 
-“A DAG carregou a fonte no schema, o modelo gold foi atualizado e o PR aguarda revisão.” Vamos separar essa frase:
+Uma nota de empenho pode exigir a combinação de unidade gestora, exercício e número para ser identificada. O número da NE, isoladamente, pode se repetir em órgãos ou anos diferentes.
 
-| Expressão | O que aconteceu |
+| Elemento | Papel na interpretação |
 |---|---|
-| A DAG carregou a fonte | A rotina coordenou a coleta e a gravação dos registros |
-| No schema | As tabelas foram organizadas em uma divisão do banco |
-| O modelo gold foi atualizado | A transformação refez ou atualizou a saída para análise |
-| O PR aguarda revisão | A alteração de código foi apresentada para outra pessoa avaliar |
+| SIAFI | Sistema de origem da informação financeira |
+| UG | Unidade gestora à qual o registro pertence |
+| NE | Nota de empenho, cujo identificador precisa ser interpretado no contexto da fonte |
+| Exercício | Recorte temporal que pode participar da chave e das agregações |
 
-São acontecimentos relacionados, mas distintos. Atualizar os registros no banco não cria um PR; abrir um PR não executa automaticamente uma carga no seu computador. Aprender a separar esses verbos ajuda a entender o que alguém está pedindo para você fazer.
+A composição exata da chave deve seguir o contrato da fonte. Preservar esse contexto evita sobrescritas na ingestão e junções indevidas entre registros de universos diferentes.
 
 ## Atenção ao contexto
 

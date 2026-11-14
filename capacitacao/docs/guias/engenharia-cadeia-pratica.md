@@ -2,13 +2,11 @@
 
 > Tipo: **Guia**
 
-## O que você vai procurar nos arquivos
+## Escopo do rastreamento
 
-**Rastrear** é seguir as ligações entre os dados. Nesta prática, começamos pelo resumo pronto e voltamos até a origem. É como conferir uma conta final procurando as parcelas que a compõem.
+Use os modelos do domínio `ted_dbt`, em `airflow_lappis/dags/dbt/ipea/models/`. Parta da gold, percorra suas dependências `ref()` e localize as origens declaradas com `source()`.
 
-Abra a pasta da aplicação no editor e siga o caminho `airflow_lappis/dags/dbt/ipea/`. Dentro dela, `models` reúne os modelos e `ted_dbt` reúne o assunto TED, Termo de Execução Descentralizada.
-
-No arquivo gold indicado abaixo, procure `ref(` usando a busca do editor. O texto entre aspas é o nome de outro modelo. Busque um arquivo com esse nome e extensão `.sql` dentro de `models`. Ao encontrar `source(`, consulte a declaração correspondente nos arquivos de configuração de fontes.
+Registre a granularidade e a transformação em cada etapa para identificar onde um valor da origem foi convertido, relacionado, filtrado ou agregado.
 
 ## Objetivo
 

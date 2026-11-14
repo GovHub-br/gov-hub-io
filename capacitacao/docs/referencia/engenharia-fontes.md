@@ -2,15 +2,9 @@
 
 > Tipo: **Referência**
 
-## O que muda de uma fonte para outra?
+## Contrato de ingestão por fonte
 
-Alguns sistemas deixam um programa pedir registros diretamente; outros entregam arquivos que alguém precisa receber e abrir. O objetivo continua sendo obter registros completos e entender seu significado. O modo de pedir e interpretar a resposta é que muda.
-
-Em uma API REST, um **endpoint** é um endereço para uma operação, como consultar contratos. A **requisição** é o pedido; a **resposta** é o conteúdo devolvido. JSON representa esse conteúdo com nomes e valores, por exemplo `{"orgao": "A", "valor": 100}`.
-
-SOAP é outro padrão de comunicação, normalmente baseado em mensagens XML e em uma descrição formal do serviço. Você não precisa escrever todas essas mensagens manualmente: bibliotecas como `zeep` ajudam a construí-las.
-
-IMAP é o protocolo usado para consultar uma caixa de e-mail. SQL Server é um sistema de banco de dados, diferente do PostgreSQL; seu cliente precisa da conexão apropriada.
+Cada integração precisa definir autenticação, recorte temporal, paginação, formato e critério de completude. Na aplicação, clientes REST, SOAP, e-mail e SQL Server têm implementações próprias; a DAG coordena sua execução e a gravação no destino.
 
 ## Como a fonte chega à aplicação
 
@@ -22,38 +16,24 @@ IMAP é o protocolo usado para consultar uma caixa de e-mail. SQL Server é um s
 | SQL Server | Consultas via conexão configurada | `cliente_sqlserver.py` |
 | Arquivo | CSV, XLSX, XML ou ZIP | Leitores em `airflow_lappis/helpers/` |
 
-## Exemplo: reconhecer o registro em formatos diferentes
+## Exemplo: preservar o contrato da fonte
 
-O contrato 10, do órgão A, com valor 100 pode chegar assim:
+Considere uma fonte de contratos cujo código de órgão é `0012` e cujo valor chega como texto `1.234,56`:
 
-**JSON**, comum em APIs REST:
+| Elemento recebido | Decisão de ingestão e transformação |
+|---|---|
+| Código `0012` | Preservar a identidade e os zeros iniciais |
+| Valor textual `1.234,56` | Preservar o recebido e aplicar a conversão numérica na bronze |
+| Mesmo contrato em duas páginas | Identificar pela chave completa e validar a política de atualização |
+| Linha de total em relatório anexado | Separar registros de negócio das linhas de apresentação |
 
-```json
-{"id": 10, "orgao": "A", "valor": 100}
-```
-
-**XML**, usado em mensagens de serviços como SOAP:
-
-```xml
-<contrato><id>10</id><orgao>A</orgao><valor>100</valor></contrato>
-```
-
-**CSV**, que também pode chegar como anexo:
-
-```csv
-id,orgao,valor
-10,A,100
-```
-
-O exemplo XML mostra apenas a representação do registro, não uma mensagem SOAP completa. O formato informa como ler o conteúdo; não define sozinho como autenticar, buscar páginas ou descobrir quais registros mudaram.
-
-Em uma planilha, uma linha “TOTAL, 100” não deve virar outro contrato: é preciso distinguir os registros das linhas de apresentação do relatório.
+REST, SOAP e anexos exigem leitores diferentes, mas a conferência de identidade, tipos, período e completude continua necessária. A biblioteca de leitura não define essas regras pelo projeto.
 
 ## Perguntas para qualquer fonte
 
 Confira autenticação, período disponível, limite de requisições, paginação, formato, campos obrigatórios e chave dos registros. Para anexos, registre como identificar o relatório e evitar processar o mesmo arquivo novamente.
 
-Bibliotecas como `requests` e `httpx` fazem chamadas web; `pandas` e `openpyxl` ajudam na leitura de planilhas. Elas não definem sozinhas o contrato da fonte.
+A escolha de `requests`, `httpx`, `pandas` ou `openpyxl` não substitui a definição do contrato da fonte e dos controles de ingestão.
 
 ## Certificados e credenciais
 
@@ -63,7 +43,7 @@ Credenciais vêm da configuração do ambiente. Os nomes das variáveis podem se
 
 ## Antes de escolher uma biblioteca
 
-Liste o que a fonte exige: uma senha ou token, um certificado, parâmetros de período e o formato de saída. Um **token** funciona como uma credencial de acesso; um **certificado** pode ser usado para estabelecer confiança na comunicação.
+Confirme as exigências de autenticação, certificados, parâmetros de período e formato de saída antes de implementar o cliente.
 
 Se a origem for uma planilha, confira qual aba contém os registros, onde está o cabeçalho e se há linhas de total misturadas. Abrir o arquivo com sucesso não garante que todas as linhas representem o mesmo tipo de informação.
 

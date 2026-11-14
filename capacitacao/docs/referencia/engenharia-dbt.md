@@ -64,11 +64,11 @@ O sinal `+` amplia o escopo. Confira a seleção antes de rodar contra um banco 
 
 ## Como ler as expressões entre chaves
 
-Em `select * from {{ ref('modelo_anterior') }}`, as chaves delimitam uma expressão que o dbt resolve antes de enviar o SQL ao banco. `*` pede todas as colunas; `ref` indica de qual modelo os dados virão. Para uma tabela recebida da fonte, usamos `source` com o nome da fonte e da tabela declaradas na configuração.
+Em `select * from {{ ref('modelo_anterior') }}`, as chaves delimitam uma expressão que o dbt resolve antes de enviar o SQL ao banco. `ref` identifica a dependência de outro modelo. Para uma tabela recebida da fonte, usamos `source` com o nome da fonte e da tabela declaradas na configuração.
 
 Isso permite que o dbt descubra a ordem de execução sem depender da ordem alfabética dos arquivos. Um **descendente** é um modelo que depende direta ou indiretamente do resultado de outro.
 
-O **perfil** informa como conectar ao banco; o **destino**, ou target, escolhe uma configuração, como a local. Se `dbt` não estiver disponível no terminal, use o ambiente preparado pela aplicação antes de rodar os comandos. Não tente resolver isso alterando o SQL do modelo.
+O **perfil** informa como conectar ao banco; o **destino**, ou target, escolhe uma configuração, como a local. Execute os comandos no ambiente dbt preparado pela aplicação, com perfil e destino local conferidos.
 
 ## Veja também
 

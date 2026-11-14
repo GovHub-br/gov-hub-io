@@ -4,7 +4,7 @@
 
 ## Da tabela para uma pergunta visual
 
-O **Superset** é a ferramenta que permite escolher dados e apresentar gráficos. Um **dataset** registra qual tabela ou visão está disponível para análise; um **gráfico** escolhe como mostrar uma medida; um **dashboard** reúne gráficos e filtros em uma tela.
+No Superset, o dataset referencia a tabela ou visão autorizada para análise. Sua configuração deve refletir a granularidade, a dimensão temporal e as medidas disponibilizadas pela gold.
 
 Uma **medida** é o número calculado, como soma do valor. Uma **dimensão** separa o resultado, como órgão ou mês. Um **filtro** limita quais registros participam da consulta, por exemplo apenas o exercício escolhido.
 
@@ -40,7 +40,7 @@ Para um dataset com duas linhas, órgão A de valor 150 e órgão B de valor 200
 
 O gráfico pode estar tecnicamente funcionando e ainda responder à pergunta errada se você escolher contagem no lugar de soma.
 
-Para conferir o filtro, a consulta equivalente no conjunto de estudo é `select sum(valor) from ... where orgao = 'A'`: substitua `...` pelo nome real da tabela autorizada. Ela deve retornar 150. Os pontos são uma indicação de substituição, não SQL para executar literalmente.
+Para conferir o filtro, a consulta equivalente no conjunto de estudo é `select sum(valor) from ... where orgao = 'A'`: substitua `...` pelo nome real da tabela autorizada. Ela deve retornar 150.
 
 ## Resultado esperado
 
@@ -54,7 +54,7 @@ Na área de datasets, selecione a conexão, o schema e a tabela gold já validad
 
 Para um conjunto de estudo com órgão A totalizando 150 e órgão B totalizando 200, duas barras devem representar esses valores. Um filtro para A deve manter somente 150. Se o resultado divergir, volte à configuração da medida e à consulta SQL antes de mudar a aparência.
 
-Uma conexão define como chegar ao banco. Dentro de um contêiner, `localhost` aponta para o próprio contêiner; por isso o endereço usado pelo Superset pode ser o nome do serviço PostgreSQL no Compose. Use a configuração da aplicação, em vez de copiar cegamente o endereço do cliente de banco do seu computador.
+Dentro de um contêiner, `localhost` aponta para o próprio contêiner; por isso o endereço usado pelo Superset pode ser o nome do serviço PostgreSQL no Compose. Use a configuração da aplicação, em vez de copiar cegamente o endereço do cliente de banco do seu computador.
 
 Os nomes exatos das ações variam por versão, mas a sequência é a mesma: dataset, prévia, gráfico, medida, dimensão e conferência.
 

@@ -10,14 +10,6 @@ ETL e ELT são siglas em inglês para essas etapas: Extract, Transform e Load. A
 
 Imagine que a fonte entregue três registros de contratos. Na carga, guardamos os registros no banco. Depois, uma transformação agrupa os valores por órgão. O resultado pode ter duas linhas, mesmo que a entrada tivesse três: cada linha passa a representar um resumo.
 
-## O que “automatizado” quer dizer?
-
-Uma pessoa escreve as instruções e define quando elas devem rodar. A partir daí, o programa repete os passos sem alguém copiar e colar cada registro. Isso não elimina a conferência: se a fonte mudar, as instruções podem precisar de ajuste.
-
-Um lote pode ser pequeno ou grande. O que o caracteriza é o processamento de um conjunto delimitado, como “os registros deste dia”, em vez do tratamento contínuo de cada evento no instante em que chega.
-
-Um relatório mensal precisa incorporar novos registros sem refazer manualmente toda a preparação. Para isso, a aplicação separa coleta, armazenamento e transformação.
-
 ## Primeiro carregar, depois transformar
 
 No **ETL**, o dado é transformado antes de chegar ao destino. No **ELT**, ele é carregado primeiro e transformado depois, dentro do banco.

@@ -2,13 +2,11 @@
 
 > Tipo: **Guia**
 
-## O que significa observar um pipeline?
+## Sinais de execução e de qualidade
 
-Você não vê o programa “pensando”. Para entender o que aconteceu, precisa de sinais: mensagens, horários, estados das tarefas e medidas sobre os dados. Organizar esses sinais para acompanhar o funcionamento é **observabilidade**.
+Correlacione os logs e estados das tarefas com volume recebido, período de referência, chaves distintas e totais de controle. Uma tarefa sem exceções pode ter carregado o período errado ou um conjunto incompleto.
 
-Um **log** registra acontecimentos durante a execução. Uma **métrica** resume uma medida, como a quantidade de linhas recebidas ou o tempo de uma tarefa. Um **alerta** chama a atenção quando uma condição exige investigação.
-
-Eles se complementam: uma tarefa pode executar rapidamente e sem erro, mas trazer dados do mês errado. Por isso, observação técnica e conferência do conteúdo precisam caminhar juntas.
+Os sinais técnicos e os controles sobre o conteúdo precisam permitir decidir se o dado está pronto para consumo ou exige correção e reprocessamento.
 
 ## Objetivo
 

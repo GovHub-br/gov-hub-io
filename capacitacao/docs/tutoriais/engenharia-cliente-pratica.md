@@ -6,11 +6,9 @@
 
 Uma coleta pequena em Python, primeiro com respostas inventadas e depois com gravação em uma tabela local. Assim você entende cada parte sem depender de uma API ou credencial real.
 
-## Abrir um caderno de estudo
+## Ambiente da prática
 
-Com o ambiente iniciado, abra o Jupyter em `http://localhost:8888`. Crie um notebook com kernel Python disponível. Um **notebook**, ou caderno, combina texto e células de código; o **kernel** é o processo que executa esse código. Se não houver um kernel Python disponível, conclua a configuração do Jupyter antes de continuar.
-
-Selecione uma célula, cole o primeiro bloco e use Shift+Enter para executá-lo. A saída aparece abaixo. Execute as células na ordem; uma célula posterior pode usar nomes definidos na anterior.
+Use o Jupyter local em `http://localhost:8888`, com kernel Python e acesso ao PostgreSQL da aplicação. Execute os blocos Python em sequência; a gravação SQL usa o mesmo banco que será acessado pelo projeto dbt na próxima prática.
 
 ## 1. Representar duas páginas de resposta
 
@@ -22,11 +20,11 @@ paginas = [
 print(paginas[0])
 ```
 
-Colchetes criam uma **lista**, uma sequência de elementos. Chaves criam um **dicionário**, com nomes e valores, como `"id": 1`. Aqui há duas páginas, cada uma contendo um registro. Python começa a contar posições em zero: `paginas[0]` é a primeira página.
+A entrada simula duas páginas, cada uma com um registro. A coleta deve reunir ambos sem perder a identificação e os valores de origem.
 
 ## 2. Reunir os registros e conferir a saída
 
-Em outra célula, execute:
+Reúna as páginas e valide quantidade e identidade dos registros:
 
 ```python
 def coletar(paginas_recebidas):
@@ -43,13 +41,11 @@ assert {linha["id"] for linha in registros} == {1, 2}
 print(registros)
 ```
 
-`def` define a função; `for` repete os passos para cada página; `extend` acrescenta os registros à lista de saída; `return` devolve essa lista. Preserve os espaços no início das linhas.
-
-`assert` verifica uma condição: se for falsa, a execução acusa erro. `len` conta os elementos, e o conjunto de IDs confere quais registros chegaram. O resultado deve mostrar duas linhas, com valores 100 e 200.
+As verificações exigem dois registros com IDs 1 e 2. A saída deve preservar os valores 100 e 200, sem agregar nem aplicar regras de indicador.
 
 ## 3. Simular uma página ausente
 
-Execute `coletar([paginas[0], None])` em uma célula separada. `None` representa ausência de valor; `raise` interrompe a função com uma mensagem explícita. Você deve ver `ValueError: Uma página não foi recebida`. Essa falha é intencional. Depois, execute novamente `registros = coletar(paginas)` para retomar o exemplo válido.
+Execute `coletar([paginas[0], None])` para simular uma página ausente. A execução deve falhar com `ValueError: Uma página não foi recebida`, em vez de aceitar a primeira página como carga completa. Depois, retome o exemplo válido com `registros = coletar(paginas)`.
 
 ## 4. Gravar no PostgreSQL local
 
@@ -69,7 +65,7 @@ set orgao = excluded.orgao, valor = excluded.valor;
 select * from formacao.empenhos_estudo order by id;
 ```
 
-`create schema` prepara a divisão de estudo; `create table` define as colunas; `primary key` identifica cada registro; `not null` impede valor ausente. `insert` grava os dados. Em um conflito de ID, `excluded` contém os valores que chegaram e serão usados na atualização.
+A chave primária em `id` define o conflito do upsert. A atualização usa os valores recebidos em `excluded`, preservando a identidade dos registros nas reexecuções.
 
 Repita o bloco `insert` e confira duas linhas. Depois mude apenas 100 para 150 e execute o `insert` novamente: o primeiro registro deve mudar, o segundo continuar com 200. Guarde essa tabela para a prática dbt.
 
@@ -91,7 +87,7 @@ Depois de executar os blocos de gravação no banco local, compare:
 
 O `select` ao final da prática mostra as linhas para essa comparação. Se aparecerem quatro registros após a repetição, o resultado não corresponde ao exemplo. Se o total continuar 300 após a correção, confira se você executou o `insert` alterado ou apenas editou o texto.
 
-Na etapa Python, `print` exibe o conteúdo em memória. Ele não grava no PostgreSQL: a mudança só aparece na tabela depois da etapa de gravação. Essa diferença explica por que mudar uma célula do caderno não atualiza o banco automaticamente.
+A validação da coleta em memória e a conferência da persistência são controles distintos. Nesta prática, os blocos Python e SQL são executados separadamente; na aplicação, a integração é feita pelo cliente PostgreSQL.
 
 ## Resultado esperado
 

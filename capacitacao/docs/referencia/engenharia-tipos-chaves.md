@@ -2,13 +2,11 @@
 
 > Tipo: **Referência**
 
-## Por que o banco precisa de tipos?
+## Tipagem e integridade na ingestão
 
-O **tipo de dado** define quais valores uma coluna aceita e quais operações fazem sentido. O texto `100` é uma sequência de caracteres; o número `100` pode participar de uma soma. Eles podem parecer iguais na tela, mas o banco os trata de maneiras diferentes.
+Defina tipos e restrições a partir do significado dos campos na fonte. Valores financeiros devem permitir cálculos exatos; códigos como `0012` podem precisar permanecer como texto para preservar sua identidade. Diferencie data do fato, data de atualização da origem e data da carga.
 
-Nem todo conjunto de algarismos deve virar número. Um código como `0012` pode precisar preservar os zeros iniciais. Datas também precisam ser reconhecidas como datas para permitir filtros por período.
-
-Uma **restrição** é uma regra aplicada pelo banco, como impedir duas linhas com a mesma chave. Um **índice** é uma estrutura que ajuda o banco a localizar registros; um índice único também participa da proteção contra repetição.
+A chave e as restrições de unicidade devem corresponder à granularidade do registro. Um índice único incompatível com essa granularidade pode impedir dados legítimos ou direcionar um upsert ao registro errado.
 
 ## Escolhas que afetam o resultado
 
@@ -52,7 +50,7 @@ Imagine uma carga que grava registros e depois registra que o período foi concl
 
 Ao ler código, `commit` indica confirmação e `rollback`, desfazer as alterações da transação. Isso não significa que toda carga já esteja protegida corretamente: é preciso identificar quais operações estão dentro da mesma transação.
 
-Uma **macro** é uma instrução reutilizável. Centralizar a conversão de valores nela evita que cada modelo interprete `1.234,56` de um jeito diferente.
+Centralize as conversões nas macros do projeto para evitar que modelos diferentes interpretem `1.234,56` com regras incompatíveis.
 
 ## Veja também
 

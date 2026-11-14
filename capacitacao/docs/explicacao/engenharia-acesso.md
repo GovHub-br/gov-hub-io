@@ -2,15 +2,11 @@
 
 > Tipo: **Explicação**
 
-## Entendendo acesso e identidade
+## Acesso aos dados de pessoal
 
-Uma **credencial** permite que um programa ou pessoa se identifique, como usuário e senha. **Permissão** define o que essa identidade pode fazer depois de entrar. Conseguir conectar ao banco não significa poder ler ou alterar qualquer tabela.
+As coletas do SIAPE podem trazer informações pessoais e financeiras. A disponibilidade de uma coluna na fonte não autoriza sua exposição em indicadores ou painéis. Mesmo sem nomes, combinações de atributos podem permitir identificar uma pessoa.
 
-Um **perfil**, chamado role no PostgreSQL, reúne permissões. Um perfil somente de leitura pode consultar os dados autorizados, sem inserir, alterar ou apagar registros. O princípio do **menor privilégio** é conceder apenas o necessário para a atividade.
-
-Dados pessoais são informações relacionadas a uma pessoa identificada ou identificável. Um nome pode identificar diretamente; combinações de atributos também podem permitir a identificação, mesmo sem o nome aparecer.
-
-As coletas do SIAPE podem trazer informações pessoais e financeiras. O fato de uma coluna estar disponível na origem não significa que ela deva aparecer em um indicador ou painel.
+Defina os acessos conforme a finalidade de cada etapa: ingestão, transformação e consumo. O perfil de leitura deve ficar restrito aos objetos autorizados.
 
 ## Três decisões antes do consumo
 
@@ -32,8 +28,6 @@ Em um cenário de estudo:
 
 Assim, “somente leitura” não significa “leitura de tudo”: o perfil também precisa estar limitado aos objetos permitidos.
 
-Considere a configuração fictícia `POSTGRES_PASSWORD=senha_de_exemplo`. O nome à esquerda identifica a configuração; o valor à direita é a credencial. Trocar uma senha real por esse texto fictício antes de compartilhar um exemplo evita expor o segredo. Não use a senha fictícia como recomendação para um ambiente real.
-
 ## Camada não é autorização automática
 
 Uma tabela silver ou gold ainda pode conter informação pessoal. Confira colunas, agregação e finalidade antes de conceder leitura. Na prática com `pessoas_dbt`, registre o nome das colunas e a classificação proposta, sem copiar valores pessoais.
@@ -50,7 +44,7 @@ Se a pergunta é “quantas pessoas trabalham em cada unidade?”, o painel pode
 
 Agrupar não torna qualquer resultado automaticamente apropriado para divulgação: grupos muito pequenos ainda exigem avaliação. A equipe responsável precisa definir a finalidade e o acesso adequado.
 
-Um **segredo** é um valor que permite acesso, como uma senha ou token. O nome de uma variável, por exemplo `POSTGRES_PASSWORD`, explica qual configuração existe; seu valor real deve permanecer protegido. Copiar o `.env` inteiro para pedir ajuda pode expor esse valor, mesmo que o problema esteja em outra linha.
+Ao compartilhar diagnósticos, remova credenciais e atributos pessoais dos logs e arquivos de configuração. Preserve o contexto técnico necessário à investigação, sem anexar o `.env` completo.
 
 ## Veja também
 

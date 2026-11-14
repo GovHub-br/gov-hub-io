@@ -4,7 +4,7 @@
 
 ## Uma tabela muda de propósito ao longo do caminho
 
-As camadas são etapas de organização das tabelas, não computadores separados. Seus nomes vêm do inglês: **raw**, bruto; **bronze**, **silver** e **gold**, bronze, prata e ouro. A arquitetura que organiza esses estágios é chamada de **Medallion**.
+A arquitetura Medallion separa responsabilidades entre raw, bronze, silver e gold, preservando o rastreamento das transformações.
 
 Pense em uma prestação de contas: primeiro você guarda os registros recebidos, depois padroniza os valores, relaciona os registros e finalmente calcula os resumos. Preservar as etapas permite descobrir como o resumo foi produzido.
 

@@ -10,7 +10,7 @@ Outra situação é uma correção de regra: se o cálculo mudou, os meses anter
 
 ## Prepare uma ficha de conferência
 
-Antes de seguir os passos, escreva: fonte escolhida, tabela de destino, datas inicial e final, chave e total esperado. Dados **sintéticos** são exemplos inventados para estudo; permitem alterar registros sem afetar informações reais.
+Antes de seguir os passos, escreva: fonte escolhida, tabela de destino, datas inicial e final, chave e total esperado. Use dados sintéticos para simular correções sem afetar as fontes reais.
 
 Use duas linhas de estudo, com valores 100 e 200. Antes da carga, o total esperado é 300. Depois de repeti-la sem mudanças, continuam existindo duas linhas e total 300. Ao corrigir somente o primeiro valor para 150, espere duas linhas e total 350. Essa ficha transforma “parece que funcionou” em uma conferência objetiva.
 

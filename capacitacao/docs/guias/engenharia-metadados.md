@@ -50,7 +50,7 @@ O projeto inclui `models/metadata/models_metadata.sql`, `macros/metadata/generat
 
 Outra pessoa identifica origem, significado e período de um valor. Se uma regra mudar, ela também sabe quais consumidores precisam ser avisados.
 
-## Um roteiro de descrição para iniciantes
+## Roteiro de documentação do modelo
 
 Para cada coluna escolhida, responda: o que ela representa, de onde vem, em que unidade está e o que significa ficar vazia. Se o valor for calculado, acrescente a regra e os filtros que mudam a interpretação.
 

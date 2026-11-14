@@ -6,10 +6,6 @@
 
 O dbt conhece as relações entre modelos: um resumo gold depende de uma integração silver, que depende de uma bronze. O Airflow precisa enxergar quais tarefas executar e acompanhar seus estados. O Cosmos faz essa ligação.
 
-**Integrar** ferramentas, aqui, significa permitir que a definição do projeto dbt apareça como trabalho coordenado pelo Airflow. Não significa copiar todo o banco para uma ferramenta nova.
-
-Pense em uma receita com preparos que dependem uns dos outros. O dbt descreve quais resultados precisam estar prontos antes dos seguintes; o Airflow acompanha a execução; o Cosmos traduz essa organização para as tarefas que você vê na interface.
-
 O cliente já coletou os dados, mas os modelos precisam rodar na ordem correta. Manter uma lista manual de dependências duplicaria o grafo que o dbt já conhece.
 
 ## A ligação entre as ferramentas

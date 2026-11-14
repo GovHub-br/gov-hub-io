@@ -6,7 +6,7 @@
 
 O desafio integra o que você já estudou; não exige escolher uma fonte complexa. Comece com dois registros inventados: contrato 10 do órgão A, valor 100; contrato 20 do órgão B, valor 200. Defina a pergunta: “Qual é o valor total de contratos por órgão neste período?”.
 
-Use as práticas anteriores como apoio: cliente mínimo para receber registros, SQL para conferir valores, modelo bronze para tipos, testes para chaves e Superset para o gráfico. Se alguma etapa ainda estiver confusa, retome essa aula antes de acrescentar uma ferramenta nova.
+Integre o cliente de ingestão, as consultas de conferência, os modelos por camada, os testes de qualidade e o consumo no Superset. Reutilize os padrões da aplicação abordados nas práticas anteriores.
 
 Separe a entrega em três momentos: primeiro obter e repetir a carga; depois organizar e validar as tabelas; por fim apresentar e explicar o resultado. Concluir um momento com evidências é melhor que executar tudo sem saber o que aconteceu.
 
@@ -58,7 +58,7 @@ Guarde uma anotação com entrada, saída esperada e saída observada em cada et
 
 Escolha uma falha compreensível, como uma chave repetida ou uma linha retirada da bronze de estudo. Registre qual teste a detectou, a correção e a nova aprovação. Explique também onde outra pessoa encontra os arquivos e como executa a conferência.
 
-Os critérios de aceitação abaixo são as condições para considerar a entrega concluída. Uma captura de tela do gráfico ajuda a mostrar a apresentação, mas as consultas, testes e descrições demonstram por que o número merece confiança.
+Uma captura de tela registra a apresentação. As consultas, os testes e a documentação demonstram a origem e a confiabilidade do resultado.
 
 ## Veja também
 

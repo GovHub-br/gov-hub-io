@@ -2,6 +2,10 @@
 
 Aprenda a preparar o ambiente, coletar dados, organizar modelos e entregar um indicador confiável. As práticas usam a aplicação `GovHub-br/data-application-gov-hub`; o site `gov-hub-io` apresenta o material de estudo.
 
+## Público
+
+Profissionais de TI com familiaridade com programação, terminal e Git. A trilha ensina conceitos de engenharia de dados e sua aplicação no Gov Hub; não pressupõe experiência prévia com o pipeline ou com a organização deste projeto.
+
 ## Organização
 
 | Nível | Conteúdo | Aulas |

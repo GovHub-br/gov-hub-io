@@ -4,11 +4,9 @@
 
 ## Entendendo uma falha de comunicação
 
-Buscar uma página de dados envolve enviar um pedido e esperar uma resposta. A internet pode cair, o sistema pode demorar ou a resposta pode ter um formato diferente. **Resiliência** é preparar a coleta para lidar com essas situações sem declarar sucesso indevido.
+Uma falha temporária da fonte não deve produzir uma carga parcial reportada como completa. Defina como detectar a interrupção, preservar o estado da carga e retomar sem duplicações.
 
 Uma API pode dividir 250 registros em páginas de 100: duas páginas completas e uma com 50. Buscar apenas a primeira deixa 150 registros de fora. **Paginação** é percorrer essas partes até o critério de término definido pela fonte.
-
-**Timeout**, ou tempo limite, é quanto a aplicação aceita esperar. **Retentativa** é um novo pedido após uma falha. **Espera progressiva** aumenta o intervalo entre tentativas para evitar uma sequência de pedidos muito próximos.
 
 ## Objetivo
 
@@ -52,7 +50,7 @@ Simular uma resposta significa entregar ao cliente um conteúdo controlado, sem 
 
 Considere duas páginas de teste, com uma linha cada. Se a segunda falhar, o resultado não deve ser tratado como duas páginas concluídas. Um erro com a mensagem “falha ao obter página 2 do período de estudo” dá mais contexto que apenas “erro”.
 
-Diferencie também o conteúdo da resposta de seu estado: um código HTTP informa o resultado do pedido; o corpo traz os dados ou uma explicação. Receber uma resposta não significa, por si só, que ela contém dados válidos.
+Valide o estado da requisição e a estrutura do conteúdo recebido. Uma resposta bem-sucedida no transporte ainda pode conter erro da aplicação, dados incompletos ou um período incompatível com o solicitado.
 
 ## Veja também
 

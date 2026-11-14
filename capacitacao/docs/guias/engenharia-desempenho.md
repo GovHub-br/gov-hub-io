@@ -6,7 +6,7 @@
 
 Para responder a uma consulta, o banco precisa localizar linhas, comparar valores e fazer cálculos. Quanto mais trabalho e leitura de dados, maior pode ser o tempo de resposta. Uma consulta rápida com dez linhas pode ficar lenta com milhões.
 
-O **plano de execução** é a descrição das etapas escolhidas pelo banco. Pense nele como o percurso usado para encontrar um documento em um arquivo: ler todas as fichas ou consultar um índice são percursos diferentes.
+O plano de execução permite identificar estratégias de acesso, cardinalidades e operações que concentram o custo da consulta.
 
 Otimizar é diminuir o trabalho necessário sem mudar o resultado. Antes de medir, confirme se o problema está mesmo na consulta: uma tela lenta também pode envolver conexão ou processamento do gráfico.
 
@@ -57,11 +57,11 @@ Registre consulta, volume, planos e tempos antes/depois. Se não houver ganho co
 
 ## Como começar a leitura do plano
 
-No editor SQL conectado ao banco local, execute primeiro `explain select 1;`. O número 1 é um resultado simples que dispensa tabelas. Em seguida, aplique `explain` à consulta de estudo.
+Aplique `explain` à consulta de estudo e compare o plano estimado com as medidas da execução real.
 
 `Seq Scan` indica leitura sequencial; `Index Scan`, uso de índice. “Linhas estimadas” são a previsão do banco; “linhas reais” são a quantidade observada durante a execução. `buffers` mostra informações sobre páginas de dados acessadas.
 
-Não é preciso entender cada campo na primeira leitura. Identifique a tabela acessada, a quantidade de linhas e o tempo total. Registre também se a segunda execução pode ter se beneficiado de dados já em memória: uma única medição mais rápida não prova ganho causado pelo índice.
+Identifique as tabelas acessadas, a quantidade de linhas e o tempo total. Registre também se a segunda execução pode ter se beneficiado de dados já em memória: uma única medição mais rápida não prova ganho causado pelo índice.
 
 ## Veja também
 

@@ -2,9 +2,7 @@
 
 > Tipo: **Referência**
 
-## Banco de dados e arquivo têm papéis diferentes
-
-Um arquivo guarda um conteúdo em um formato, como uma planilha ou CSV. Um banco de dados organiza conjuntos de registros e oferece mecanismos para consultar, atualizar e controlar o acesso. Os dois podem participar de um mesmo processo.
+## Armazenamento de objetos e landing zone
 
 **Armazenamento de objetos** guarda arquivos como objetos identificados por nomes. Um **bucket** é um agrupamento desses objetos. S3 é uma interface de acesso a esse tipo de armazenamento; ser compatível com S3 significa aceitar operações nesse padrão, não estar necessariamente hospedado na Amazon.
 
@@ -26,18 +24,18 @@ A configuração inclui variáveis `MINIO_*`, mas o Compose não possui um servi
 | JSON | Representa objetos, listas e estruturas aninhadas | Respostas de APIs e registros estruturados |
 | Parquet | Colunar, com tipos e compressão | Leitura analítica de arquivos maiores |
 
-## Exemplo: guardar e ler são decisões diferentes
+## Exemplo: preservar o recebido e validar a carga
 
-Um objeto de estudo pode ter bucket `formacao` e nome `contratos/2026-01.csv`. O nome ajuda a encontrá-lo; o conteúdo ainda precisa ser lido e validado antes de virar uma tabela de consumo.
+Considere, em uma landing zone de estudo, o bucket `formacao` e o objeto `contratos/2026-01.csv`. O recebimento do arquivo e sua transformação em tabela são eventos distintos:
 
-| Representação | Como reconhecer o mesmo registro |
+| Etapa | Evidência de conferência |
 |---|---|
-| CSV | Linha `10,A,100` sob o cabeçalho `id,orgao,valor` |
-| JSON | Objeto com `id` 10, `orgao` A e `valor` 100 |
-| Parquet | Uma linha com essas colunas, interpretada por ferramenta compatível |
-| Tabela PostgreSQL | Registro que pode ser selecionado por uma consulta SQL |
+| Recebimento | Objeto identificado e período correspondente à coleta |
+| Leitura | Registros interpretados com separador, codificação e estrutura esperados |
+| Carga no PostgreSQL | Quantidade, chaves e valores conferidos contra o recebido |
+| Conversão para Parquet | Tipos e conteúdo preservados, com reconciliação dos totais |
 
-Converter o CSV para Parquet muda a representação; não demonstra que o contrato 10 deveria valer 100. Conferir o conteúdo continua sendo necessário. Esse bucket é apenas um exemplo conceitual: não pressupõe MinIO já integrado à aplicação.
+Um arquivo convertido sem erro pode continuar com registros ausentes ou uma chave incorreta. Valide a equivalência do conteúdo antes de disponibilizar o novo formato para consumo. Esse cenário é conceitual: o MinIO não está integrado ao Compose da aplicação.
 
 ## Critério de escolha
 
@@ -45,13 +43,11 @@ Considere volume, tipos, ferramenta de leitura e necessidade de inspeção. Conv
 
 A prática opcional de subir MinIO e ler/gravar um Parquet deve ocorrer em ambiente isolado, com configuração própria. Ela não é pré-requisito para concluir o pipeline PostgreSQL desta trilha.
 
-## Como reconhecer os formatos em um exemplo
+## Critérios de leitura dos arquivos
 
-Um CSV pode começar com `orgao,valor` e ter uma linha como `A,100`. O separador também pode ser ponto e vírgula: é necessário conhecer a convenção do arquivo.
+Na ingestão de CSV, explicite separador, codificação, cabeçalho e interpretação de tipos. No JSON, defina o caminho dos registros e o tratamento de estruturas aninhadas. Essas decisões fazem parte do contrato da fonte.
 
-Em JSON, o mesmo registro pode ser `{"orgao": "A", "valor": 100}`. Os nomes das propriedades acompanham os valores e podem existir listas dentro de outras estruturas.
-
-Parquet guarda dados de maneira binária e colunar. Não foi feito para leitura direta em um editor de texto; uma ferramenta de dados interpreta seu conteúdo. Essa organização pode evitar a leitura de colunas desnecessárias, mas o benefício depende do arquivo e da consulta.
+Para Parquet, considere a preservação dos tipos e a projeção de colunas nas consultas analíticas. O benefício depende da organização dos arquivos e das operações de leitura; mudar o formato não substitui os controles de integridade e reconciliação.
 
 ## Veja também
 

@@ -12,8 +12,6 @@ Abra a aplicação no editor e encontre `airflow_lappis/dags/dbt/ipea/`. Dentro 
 
 Use o ambiente dbt preparado pela aplicação, com conexão ao banco local. O comando `dbt debug` verifica a configuração e a conexão; execute-o antes dos demais comandos. Se houver falha de conexão ou perfil, resolva essa preparação antes de tentar criar o modelo.
 
-**YAML** é um formato de configuração. Seus nomes, listas e espaços organizam as informações; não é SQL. Use espaços, mantendo a indentação do exemplo.
-
 ## 1. Declarar a origem
 
 Crie `models/formacao/sources.yml` com este conteúdo:

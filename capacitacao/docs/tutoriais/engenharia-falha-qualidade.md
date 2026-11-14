@@ -6,9 +6,9 @@
 
 O objetivo é aprender a reconhecer um problema conhecido. Use uma tabela de estudo, nunca uma tabela da qual outras pessoas dependam. Se a origem tem três linhas e a bronze só converte tipos, esperamos três linhas na saída.
 
-O teste `row_count_match` compara quantidades de linhas. Seu nome pode ser lido como “as contagens correspondem?”. Já o arquivo `schema.yml` reúne descrições e testes; a indentação, isto é, os espaços no início das linhas, organiza suas seções.
+O teste `row_count_match` verifica a preservação da contagem entre origem e bronze. Sua configuração fica no `schema.yml` do domínio.
 
-Para encontrar um exemplo da macro, use a busca do editor por `row_count_match` no diretório dbt. Abra uma configuração existente, identifique quais tabelas ela compara e só então adapte o exemplo às suas tabelas de estudo.
+Use uma configuração existente de `row_count_match` no projeto dbt como referência e adapte o par origem/bronze às tabelas de estudo.
 
 ## O que você vai aprender
 

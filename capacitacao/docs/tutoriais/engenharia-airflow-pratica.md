@@ -2,13 +2,9 @@
 
 > Tipo: **Tutorial**
 
-## Antes de clicar em executar
+## Preparação da execução
 
-Esta prática pressupõe que você já iniciou os serviços na aula de ambiente local. Abra o endereço do Airflow no navegador e entre com o usuário configurado no `.env`.
-
-Na lista de DAGs, o nome exibido é o **identificador** da rotina. Abrir seus detalhes permite consultar o grafo e as execuções. Cada execução reúne o estado das tarefas naquele momento: aguardando, executando, concluída ou com falha.
-
-Uma coleta pode precisar de credenciais que você não possui. Para começar, escolha uma fonte pública e confirme os parâmetros com a equipe. Não ter acesso à fonte é diferente de não entender o Airflow.
+Use o Airflow local com serviços e conexão PostgreSQL configurados. Escolha uma DAG de fonte pública e um período limitado; confirme se ela dispara outras DAGs antes da execução.
 
 ## O que você vai aprender
 
@@ -47,15 +43,13 @@ Você consegue apontar execução, intervalo, tarefa e causa da falha. Depois da
 
 Mudar o agendamento não substitui uma execução manual nem garante backfill. Verifique `catchup` e os parâmetros de período da DAG.
 
-## Um roteiro para acompanhar a primeira execução
+## Investigação da execução
 
-Abra o grafo e anote os nomes das tarefas antes do disparo. Use a ação de execução manual da DAG, normalmente representada por um botão de reprodução. Depois selecione a execução criada, e não uma execução antiga da lista.
+Registre DAG, identificador da execução, intervalo processado, tarefa e tentativa. No log, identifique o primeiro erro relevante e relacione-o à etapa que falhou: coleta, persistência ou transformação.
 
-Ao selecionar uma tarefa, procure a opção de logs. O **log** é o relato de mensagens produzido durante a execução. Leia o horário e procure a mensagem que explica o erro; a última linha pode apenas resumir que a tarefa falhou.
+Para a falha controlada, use uma cópia local de estudo e registre a configuração a restaurar. Depois da correção, reexecute o necessário e confira o conteúdo do destino, além do estado da tarefa.
 
-Se um teste controlado falhar como planejado, isso é um resultado útil: você conseguiu reconhecer a falha. Corrigir a configuração e repetir permite confirmar a causa. Não provoque erros na primeira DAG que encontrar: use uma cópia local de estudo e saiba qual configuração será restaurada.
-
-Para `dynamic_schedules`, comece apenas lendo e guardando o valor atual. Mude somente a entrada da DAG escolhida, mantendo a estrutura das demais configurações.
+Ao testar `dynamic_schedules`, preserve o valor atual e modifique apenas a entrada da DAG escolhida, mantendo o formato esperado por `plugins/schedule_loader.py`.
 
 ## Veja também
 

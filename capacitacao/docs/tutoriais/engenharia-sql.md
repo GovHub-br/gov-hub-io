@@ -2,28 +2,9 @@
 
 > Tipo: **Tutorial**
 
-## Onde escrever e executar SQL
+## Preparação da consulta
 
-**SQL** é uma linguagem para conversar com bancos de dados. Você escreve um pedido chamado **consulta**, e o PostgreSQL devolve uma tabela de resultado. Um `select` lê dados; ele não altera a tabela de origem.
-
-Com o banco local iniciado, abra um cliente de banco, como o DBeaver. Crie uma conexão PostgreSQL com endereço `localhost`, porta `5432`, banco, usuário e senha definidos no `.env` da aplicação. No arquivo, procure as variáveis `POSTGRES_*`; use seus valores na conexão, sem publicá-los.
-
-Teste a conexão e abra um editor SQL nela. É nessa área que você cola a consulta abaixo e usa a ação de executar. Não cole SQL diretamente no terminal comum: ele espera comandos do sistema, não consultas de banco.
-
-## Como ler o exemplo
-
-O exemplo cria dados temporários dentro da própria consulta: nada será salvo. A coluna `orgao` tem textos entre aspas; `valor` tem números. O ponto representa a parte decimal no SQL, mesmo que a interface exiba vírgula.
-
-| Trecho | O que pede ao banco |
-|---|---|
-| `select` | Escolha as informações a mostrar |
-| `from` | Use este conjunto de dados |
-| `count(*)` | Conte as linhas |
-| `sum(valor)` | Some os valores |
-| `group by orgao` | Faça uma conta separada para cada órgão |
-| `order by orgao` | Ordene o resultado pelo órgão |
-
-`as` dá um nome ao resultado de uma conta. O ponto e vírgula encerra a instrução. Execute o exemplo inteiro, do `with` ao ponto e vírgula.
+Use uma conexão ao PostgreSQL local da aplicação, com banco e credenciais definidos nas variáveis `POSTGRES_*` do `.env`. A prática usa dados sintéticos em uma CTE, sem persistir tabelas.
 
 ## O que você vai aprender
 
@@ -66,7 +47,7 @@ Com `where valor >= 80`, o registro de valor 50 é retirado **antes** da soma:
 
 Agora compare `count(*)` e `count(valor)`: em duas linhas com valores 100 e `null`, o primeiro retorna 2 e o segundo, 1. A soma considera o valor informado e retorna 100; isso não permite concluir que a linha sem informação valia zero.
 
-Ao experimentar um filtro, faça essa previsão antes de executar. Depois compare a saída com sua previsão para entender qual parte da consulta mudou a resposta.
+Confira a redução de linhas e o total após o filtro antes de adaptar a consulta ao domínio real.
 
 ## Como verificar
 

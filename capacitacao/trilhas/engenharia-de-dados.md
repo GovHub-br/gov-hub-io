@@ -14,7 +14,7 @@ etapas_nota: **Práticas locais** ao longo da trilha. Use a aplicação data-app
 >
 > A trilha reúne conceitos e práticas de engenharia de dados na aplicação Gov Hub. A organização dos níveis está em `docs/engenharia-de-dados/LEIA-ME.md`.
 >
-> Faça os itens essenciais em sequência; consulte os itens de apoio quando precisar. Cada cartão é uma aula. Não é necessário conhecer programação ou as ferramentas do projeto: os conceitos são apresentados antes das práticas. Leia em sequência e confira os resultados dos exemplos antes de avançar. As práticas usam ambiente local e dados públicos ou sintéticos.
+> Faça os itens essenciais em sequência; consulte os itens de apoio quando precisar. Cada cartão é uma aula. O público é de profissionais de TI, com familiaridade com programação, terminal e Git. Os conceitos de engenharia de dados e as especificidades das ferramentas e da aplicação são apresentados ao longo da trilha. Confira os resultados dos exemplos antes de avançar. As práticas usam ambiente local e dados públicos ou sintéticos.
 
 ## Nível 1 · Base e conceitos
 Etapa: Base · Ícone: light-bulb

@@ -2,19 +2,6 @@
 
 > Tipo: **Guia**
 
-## O vocabulário da colaboração
-
-| Termo | O que significa |
-|---|---|
-| Issue | Registro de uma necessidade, problema ou proposta no GitHub |
-| Fork | Cópia do projeto na sua conta do GitHub |
-| Clone | Cópia de trabalho baixada no computador |
-| Branch | Linha de trabalho para uma alteração, separada da principal |
-| Commit | Registro de um conjunto de mudanças no histórico do Git |
-| PR, ou pull request | Pedido para revisar e incorporar uma alteração |
-
-Esses elementos se relacionam, mas não são intercambiáveis: salvar um arquivo muda sua cópia local; criar um commit registra essa mudança no histórico; abrir um PR pede revisão no GitHub. Um passo não faz automaticamente os outros.
-
 ## Objetivo
 
 Preparar uma alteração que outra pessoa consiga revisar e reproduzir.
@@ -51,15 +38,11 @@ Na revisão, outra pessoa precisa conseguir repetir a conferência com os mesmos
 
 A revisão consegue verificar o resultado com os passos registrados. As verificações automáticas do GitHub complementam a conferência local; uma execução aprovada não substitui a revisão de regra de negócio.
 
-## Entenda o que você está preparando para revisão
+## Validação específica da mudança de dados
 
-`git status` mostra quais arquivos mudaram; `git diff` mostra as diferenças no conteúdo. Use ambos no terminal, dentro da pasta da aplicação. Antes de criar o commit, leia essas diferenças como se outra pessoa tivesse escrito a alteração.
+Na descrição da contribuição, registre a fonte e os modelos afetados, a regra de negócio alterada, o período usado na conferência e as evidências de qualidade. Indique se há necessidade de reprocessar o histórico ou comunicar uma mudança aos consumidores.
 
-**Lint** verifica formato e erros comuns. Testes executam verificações sobre comportamentos esperados. **CI**, integração contínua, é a automação que executa verificações quando o trabalho chega ao fluxo de colaboração.
-
-Commits padronizados usam uma mensagem com tipo e descrição, como `docs: explica a chave do modelo`. Uma label é uma etiqueta no GitHub; `team:*` representa etiquetas que encaminham revisão para equipes.
-
-Para esta prática, prepare uma descrição local com problema, solução e evidência. Você aprende a tornar a mudança revisável antes de precisar enviá-la ou lidar com uma publicação.
+Use o padrão de commits do projeto e as labels `team:*` previstas para encaminhar a revisão. Prepare a descrição com os resultados de `make lint`, `make test` e dos testes dbt pertinentes, sem enviar a contribuição durante a prática.
 
 ## Veja também
 
