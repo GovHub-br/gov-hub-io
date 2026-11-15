@@ -58,5 +58,5 @@ Compare contagem, quantidade de chaves distintas e totais antes e depois de repe
 
 ## Veja também
 
-- [Paginação, tempo limite e falha visível](../guias/engenharia-resiliencia.md)
-- [Prática: do cliente mínimo à camada raw](../tutoriais/engenharia-cliente-pratica.md)
+- [Ingestão: trazer o dado da fonte para o banco](engenharia-ingestao.md)
+- [Prática: gravar a coleta em bancos de dados](../tutoriais/engenharia-ingestao-bancos.md)

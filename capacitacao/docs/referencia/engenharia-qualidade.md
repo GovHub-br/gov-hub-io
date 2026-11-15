@@ -76,5 +76,5 @@ Atualidade depende da necessidade: uma fonte mensal pode estar adequada mesmo se
 
 ## Veja também
 
-- [Prática: rastrear uma transformação até a gold](../guias/engenharia-cadeia-pratica.md)
+- [Prática: transformar com dbt, da raw à gold](../tutoriais/engenharia-dbt-camadas.md)
 - [Prática: provocar e diagnosticar uma falha de qualidade](../tutoriais/engenharia-falha-qualidade.md)

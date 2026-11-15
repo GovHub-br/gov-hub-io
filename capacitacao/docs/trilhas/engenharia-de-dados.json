@@ -20,7 +20,7 @@
     },
     {
       "rotulo": "Pipeline",
-      "caixa": "Ingestão e transformação"
+      "caixa": "Ingestão, orquestração e transformação"
     },
     {
       "rotulo": "Entrega",
@@ -251,14 +251,14 @@
     {
       "numero": 4,
       "titulo": "Ingestão, orquestração e transformação",
-      "descricao": "Implemente e opere o percurso da fonte à gold: cargas repetíveis, clientes Python, Airflow, reprocessamento, dbt e Cosmos.",
+      "descricao": "Entenda os três trabalhos de um pipeline e faça cada um com dados reais do PNCP: coleta em Python, gravação no banco sem duplicar, DAG no Airflow, reprocessamento e modelos dbt até a gold.",
       "etapa": "Pipeline",
       "icone": "assets/icones/deploy-sober.svg",
       "itens": [
         {
-          "id": "explicacao/engenharia-clientes",
-          "titulo": "Clientes Python: uma responsabilidade por fonte",
-          "doc": "docs/explicacao/engenharia-clientes.md",
+          "id": "explicacao/engenharia-ingestao",
+          "titulo": "Ingestão: trazer o dado da fonte para o banco",
+          "doc": "docs/explicacao/engenharia-ingestao.md",
           "tipo": "explicacao",
           "tipo_nome": "Explicação",
           "papel": "core",
@@ -266,24 +266,24 @@
           "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
-          "id": "referencia/engenharia-fontes",
-          "titulo": "REST, SOAP, e-mail, bancos e arquivos",
-          "doc": "docs/referencia/engenharia-fontes.md",
-          "tipo": "referencia",
-          "tipo_nome": "Referência",
-          "papel": "support",
-          "papel_nome": "Apoio",
-          "icone": "assets/icones/document-text-sober.svg"
-        },
-        {
-          "id": "guias/engenharia-resiliencia",
-          "titulo": "Paginação, tempo limite e falha visível",
-          "doc": "docs/guias/engenharia-resiliencia.md",
-          "tipo": "guia",
-          "tipo_nome": "Guia",
+          "id": "explicacao/engenharia-orquestracao",
+          "titulo": "Orquestração: quem roda o quê, quando e em que ordem",
+          "doc": "docs/explicacao/engenharia-orquestracao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
           "papel": "core",
           "papel_nome": "Essencial",
-          "icone": "assets/icones/wrench-sober.svg"
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-transformacao",
+          "titulo": "Transformação: da raw à gold com SQL versionado",
+          "doc": "docs/explicacao/engenharia-transformacao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
           "id": "explicacao/engenharia-idempotencia",
@@ -296,9 +296,9 @@
           "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
-          "id": "tutoriais/engenharia-cliente-pratica",
-          "titulo": "Prática: do cliente mínimo à camada raw",
-          "doc": "docs/tutoriais/engenharia-cliente-pratica.md",
+          "id": "tutoriais/engenharia-coleta-python",
+          "titulo": "Prática: coletar dados de uma API com Python",
+          "doc": "docs/tutoriais/engenharia-coleta-python.md",
           "tipo": "tutorial",
           "tipo_nome": "Tutorial",
           "papel": "core",
@@ -306,19 +306,19 @@
           "icone": "assets/icones/book-open-sober.svg"
         },
         {
-          "id": "referencia/engenharia-airflow",
-          "titulo": "DAGs, tarefas e configuração no Airflow",
-          "doc": "docs/referencia/engenharia-airflow.md",
-          "tipo": "referencia",
-          "tipo_nome": "Referência",
+          "id": "tutoriais/engenharia-ingestao-bancos",
+          "titulo": "Prática: gravar a coleta em bancos de dados",
+          "doc": "docs/tutoriais/engenharia-ingestao-bancos.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
           "papel": "core",
           "papel_nome": "Essencial",
-          "icone": "assets/icones/document-text-sober.svg"
+          "icone": "assets/icones/book-open-sober.svg"
         },
         {
-          "id": "tutoriais/engenharia-airflow-pratica",
-          "titulo": "Prática: executar e investigar uma DAG",
-          "doc": "docs/tutoriais/engenharia-airflow-pratica.md",
+          "id": "tutoriais/engenharia-airflow-dag",
+          "titulo": "Prática: orquestrar a coleta com o Airflow",
+          "doc": "docs/tutoriais/engenharia-airflow-dag.md",
           "tipo": "tutorial",
           "tipo_nome": "Tutorial",
           "papel": "core",
@@ -336,19 +336,9 @@
           "icone": "assets/icones/wrench-sober.svg"
         },
         {
-          "id": "referencia/engenharia-dbt",
-          "titulo": "Modelos dbt: source, ref e materializações",
-          "doc": "docs/referencia/engenharia-dbt.md",
-          "tipo": "referencia",
-          "tipo_nome": "Referência",
-          "papel": "core",
-          "papel_nome": "Essencial",
-          "icone": "assets/icones/document-text-sober.svg"
-        },
-        {
-          "id": "tutoriais/engenharia-dbt-pratica",
-          "titulo": "Prática: schema e testes antes do SQL",
-          "doc": "docs/tutoriais/engenharia-dbt-pratica.md",
+          "id": "tutoriais/engenharia-dbt-camadas",
+          "titulo": "Prática: transformar com dbt, da raw à gold",
+          "doc": "docs/tutoriais/engenharia-dbt-camadas.md",
           "tipo": "tutorial",
           "tipo_nome": "Tutorial",
           "papel": "core",
@@ -356,24 +346,34 @@
           "icone": "assets/icones/book-open-sober.svg"
         },
         {
-          "id": "explicacao/engenharia-cosmos",
-          "titulo": "Como o Cosmos leva o dbt ao Airflow",
-          "doc": "docs/explicacao/engenharia-cosmos.md",
-          "tipo": "explicacao",
-          "tipo_nome": "Explicação",
-          "papel": "core",
-          "papel_nome": "Essencial",
-          "icone": "assets/icones/light-bulb-sober.svg"
-        },
-        {
-          "id": "guias/engenharia-cadeia-pratica",
-          "titulo": "Prática: rastrear uma transformação até a gold",
-          "doc": "docs/guias/engenharia-cadeia-pratica.md",
+          "id": "guias/engenharia-fonte-nova",
+          "titulo": "Guia: adicionar uma fonte nova ao repositório",
+          "doc": "docs/guias/engenharia-fonte-nova.md",
           "tipo": "guia",
           "tipo_nome": "Guia",
           "papel": "core",
           "papel_nome": "Essencial",
           "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-fontes",
+          "titulo": "Fontes e clientes do repositório",
+          "doc": "docs/referencia/engenharia-fontes.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-comandos",
+          "titulo": "Comandos do dia a dia: Airflow, dbt e banco",
+          "doc": "docs/referencia/engenharia-comandos.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
         }
       ]
     },

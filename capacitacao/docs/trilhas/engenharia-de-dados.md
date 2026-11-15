@@ -36,19 +36,19 @@ Dos conceitos e da preparação do ambiente à entrega de um indicador confiáve
 - [Quando sobrescrever e quando guardar histórico](../explicacao/engenharia-historico.md) — *Explicação* · Apoio
 
 ### Nível 4 · Ingestão, orquestração e transformação
-*Implemente e opere o percurso da fonte à gold: cargas repetíveis, clientes Python, Airflow, reprocessamento, dbt e Cosmos.*
-- [Clientes Python: uma responsabilidade por fonte](../explicacao/engenharia-clientes.md) — *Explicação* · **Essencial**
-- [REST, SOAP, e-mail, bancos e arquivos](../referencia/engenharia-fontes.md) — *Referência* · Apoio
-- [Paginação, tempo limite e falha visível](../guias/engenharia-resiliencia.md) — *Guia* · **Essencial**
+*Entenda os três trabalhos de um pipeline e faça cada um com dados reais do PNCP: coleta em Python, gravação no banco sem duplicar, DAG no Airflow, reprocessamento e modelos dbt até a gold.*
+- [Ingestão: trazer o dado da fonte para o banco](../explicacao/engenharia-ingestao.md) — *Explicação* · **Essencial**
+- [Orquestração: quem roda o quê, quando e em que ordem](../explicacao/engenharia-orquestracao.md) — *Explicação* · **Essencial**
+- [Transformação: da raw à gold com SQL versionado](../explicacao/engenharia-transformacao.md) — *Explicação* · **Essencial**
 - [Cargas completas, incrementais e idempotência](../explicacao/engenharia-idempotencia.md) — *Explicação* · **Essencial**
-- [Prática: do cliente mínimo à camada raw](../tutoriais/engenharia-cliente-pratica.md) — *Tutorial* · **Essencial**
-- [DAGs, tarefas e configuração no Airflow](../referencia/engenharia-airflow.md) — *Referência* · **Essencial**
-- [Prática: executar e investigar uma DAG](../tutoriais/engenharia-airflow-pratica.md) — *Tutorial* · **Essencial**
+- [Prática: coletar dados de uma API com Python](../tutoriais/engenharia-coleta-python.md) — *Tutorial* · **Essencial**
+- [Prática: gravar a coleta em bancos de dados](../tutoriais/engenharia-ingestao-bancos.md) — *Tutorial* · **Essencial**
+- [Prática: orquestrar a coleta com o Airflow](../tutoriais/engenharia-airflow-dag.md) — *Tutorial* · **Essencial**
 - [Reprocessamento e mudanças na fonte](../guias/engenharia-reprocessamento.md) — *Guia* · **Essencial**
-- [Modelos dbt: source, ref e materializações](../referencia/engenharia-dbt.md) — *Referência* · **Essencial**
-- [Prática: schema e testes antes do SQL](../tutoriais/engenharia-dbt-pratica.md) — *Tutorial* · **Essencial**
-- [Como o Cosmos leva o dbt ao Airflow](../explicacao/engenharia-cosmos.md) — *Explicação* · **Essencial**
-- [Prática: rastrear uma transformação até a gold](../guias/engenharia-cadeia-pratica.md) — *Guia* · **Essencial**
+- [Prática: transformar com dbt, da raw à gold](../tutoriais/engenharia-dbt-camadas.md) — *Tutorial* · **Essencial**
+- [Guia: adicionar uma fonte nova ao repositório](../guias/engenharia-fonte-nova.md) — *Guia* · **Essencial**
+- [Fontes e clientes do repositório](../referencia/engenharia-fontes.md) — *Referência* · Apoio
+- [Comandos do dia a dia: Airflow, dbt e banco](../referencia/engenharia-comandos.md) — *Referência* · Apoio
 
 ### Nível 5 · Qualidade, governança e entrega
 *Valide o resultado, documente sua origem, controle o acesso e entregue um indicador conferido no Superset.*

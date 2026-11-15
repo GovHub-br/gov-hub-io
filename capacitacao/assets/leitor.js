@@ -223,6 +223,7 @@ async function abrir({ path }, { foco = false } = {}) {
     tirarLinhaDeTipo(conteudo);
     idsNosTitulos(conteudo);
     corrigirLinks(conteudo, path);
+    cartaoDeNotebook(conteudo);
     desenharDiagramas(conteudo);
     const h1 = conteudo.querySelector('h1');
     document.title = (h1 ? h1.textContent : path) + ' · ' + (trilha ? trilha.titulo : 'Trilhas') + ' · Gov Hub';
@@ -274,6 +275,26 @@ function tirarLinhaDeTipo(raiz) {
   const h1 = raiz.querySelector('h1');
   const q = h1 && h1.nextElementSibling;
   if (q && q.tagName === 'BLOCKQUOTE' && /^\s*Tipo:/.test(q.textContent)) q.remove();
+}
+
+// Uma prática com notebook declara "> Notebook: [arquivo](caminho.ipynb)" no Markdown. A linha vira
+// um cartão de download no corpo da aula e um botão ao lado do PDF. Roda depois de corrigirLinks,
+// com o href já resolvido a partir da pasta da aula.
+function cartaoDeNotebook(raiz) {
+  const q = [...raiz.querySelectorAll('blockquote')].find((b) => /^\s*Notebook:/.test(b.textContent));
+  const link = q && q.querySelector('a[href$=".ipynb"]');
+  if (!link) return;
+  const href = link.getAttribute('href');
+  const nome = href.slice(href.lastIndexOf('/') + 1);
+  q.replaceWith(el('aside', { class: 'cartao-notebook', 'aria-label': 'Notebook desta prática' },
+    el('div', { class: 'cartao-notebook-texto' },
+      el('span', { class: 'cartao-notebook-rotulo' }, 'Prática em notebook'),
+      el('strong', {}, 'Faça esta prática no Jupyter'),
+      el('span', {}, 'O mesmo passo a passo, pronto para executar na sua máquina, com conferências a cada etapa. '
+        + 'Abra no JupyterLab, no VS Code ou no Jupyter da aplicação.')),
+    el('a', { class: 'btn-notebook', href, download: nome }, svg(ICONES.baixar), 'Baixar notebook (.ipynb)')));
+  $('aula-meta').append(el('a', { class: 'btn-pdf', href, download: nome, 'aria-label': 'Baixar o notebook desta prática' },
+    svg(ICONES.baixar), 'Notebook'));
 }
 
 // ---- Início ----------------------------------------------------------------------------

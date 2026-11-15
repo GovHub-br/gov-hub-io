@@ -172,32 +172,32 @@
       ],
       "correta": 0
     },
-    "explicacao/engenharia-clientes": {
-      "pergunta": "Qual responsabilidade pertence ao cliente de uma fonte?",
+    "explicacao/engenharia-ingestao": {
+      "pergunta": "O que a camada raw deve guardar?",
       "opcoes": [
-        "Repetir a regra de negócio de todos os modelos",
-        "Definir a cor do dashboard",
-        "Tratar autenticação, requisições e respostas da fonte"
+        "O dado já convertido para os tipos corretos",
+        "O dado como chegou da fonte, sem mudar o que ele diz",
+        "Apenas os registros que entram no indicador"
       ],
-      "correta": 2
+      "correta": 1
     },
-    "referencia/engenharia-fontes": {
-      "pergunta": "O que deve ser definido independentemente do tipo da fonte?",
+    "explicacao/engenharia-orquestracao": {
+      "pergunta": "Ao investigar uma execução com tarefas vermelhas e laranjas, por onde começar?",
       "opcoes": [
-        "Autenticação, contrato dos registros, chave e tratamento de falhas",
-        "Uma única biblioteca para todas as fontes",
-        "A ausência de limites de requisição"
+        "Pela primeira tarefa em failed e pelo primeiro erro do log dela",
+        "Pela última tarefa em upstream_failed",
+        "Pelo modelo gold, que é o resultado final"
       ],
       "correta": 0
     },
-    "guias/engenharia-resiliencia": {
-      "pergunta": "Uma API devolveu só a primeira de várias páginas. Como tratar a execução?",
+    "explicacao/engenharia-transformacao": {
+      "pergunta": "O que o ref() acrescenta a um modelo dbt?",
       "opcoes": [
-        "Como incompleta até percorrer e validar todas as páginas",
-        "Como vazia",
-        "Como completa porque não houve exceção"
+        "Lê uma tabela raw declarada em sources.yml",
+        "Lê outro modelo e registra a dependência, que define a ordem de execução",
+        "Agenda o modelo no Airflow"
       ],
-      "correta": 0
+      "correta": 1
     },
     "explicacao/engenharia-idempotencia": {
       "pergunta": "O que torna um upsert adequado à idempotência?",
@@ -208,32 +208,32 @@
       ],
       "correta": 1
     },
-    "tutoriais/engenharia-cliente-pratica": {
-      "pergunta": "Qual resultado deve ocorrer após recarregar os mesmos dois IDs com correção em um deles?",
+    "tutoriais/engenharia-coleta-python": {
+      "pergunta": "A API responde 429 Too Many Requests em uma página. O que a coleta deve fazer?",
       "opcoes": [
-        "Apagar todos os registros",
-        "Quatro linhas no destino",
-        "Duas linhas, com a correção no registro correspondente"
+        "Esperar e tentar de novo, dentro de um limite de tentativas",
+        "Pular a página e seguir para a próxima",
+        "Considerar que as páginas acabaram"
       ],
-      "correta": 2
+      "correta": 0
     },
-    "referencia/engenharia-airflow": {
-      "pergunta": "Qual é um uso adequado de XCom nesta aplicação?",
+    "tutoriais/engenharia-ingestao-bancos": {
+      "pergunta": "Por que rodar duas vezes o to_sql com if_exists=\"append\" deixa 122 linhas em vez de 61?",
       "opcoes": [
-        "Transportar toda a base financeira entre tarefas",
-        "Passar um caminho ou referência pequena entre tarefas",
-        "Guardar senhas no código"
+        "Porque o pandas converte os tipos",
+        "Porque o to_sql não faz upsert pela chave",
+        "Porque o PostgreSQL duplica tabelas sem chave estrangeira"
       ],
       "correta": 1
     },
-    "tutoriais/engenharia-airflow-pratica": {
-      "pergunta": "Uma tarefa ficou verde. O que ainda é necessário?",
+    "tutoriais/engenharia-airflow-dag": {
+      "pergunta": "Uma coleta parou na página 2 e a tarefa terminou em success com 10 de 61 registros. Qual a correção?",
       "opcoes": [
-        "Apagar os logs",
-        "Desativar os testes",
-        "Conferir os dados de destino e os controles de qualidade"
+        "Aumentar o retries da DAG",
+        "Fazer a tarefa falhar quando uma página vier vazia antes do fim",
+        "Agendar a DAG com mais frequência"
       ],
-      "correta": 2
+      "correta": 1
     },
     "guias/engenharia-reprocessamento": {
       "pergunta": "Quando uma fonte remove uma coluna usada por um modelo, o que fazer?",
@@ -244,39 +244,39 @@
       ],
       "correta": 1
     },
-    "referencia/engenharia-dbt": {
-      "pergunta": "Qual recurso declara dependência de outro modelo dbt?",
+    "tutoriais/engenharia-dbt-camadas": {
+      "pergunta": "Todos os testes passaram, mas a gold mostra NaN. Onde corrigir?",
       "opcoes": [
-        "A ordem alfabética dos arquivos",
-        "ref()",
-        "Um comentário com o nome da tabela"
+        "Na gold, trocando NaN por zero na soma",
+        "Na primeira etapa em que o problema aparece: a bronze, que converte o texto 'NaN'",
+        "Na raw, editando os registros à mão"
       ],
       "correta": 1
     },
-    "tutoriais/engenharia-dbt-pratica": {
-      "pergunta": "Por que escrever schema.yml antes do SQL?",
+    "guias/engenharia-fonte-nova": {
+      "pergunta": "Em que ordem o repositório pede o cliente de uma fonte nova e o teste dele?",
       "opcoes": [
-        "Para definir significado, granularidade e testes esperados antes da implementação",
-        "Para dispensar a execução dos testes",
-        "Para aplicar filtros de negócio na bronze"
+        "Primeiro o cliente, depois o teste",
+        "Primeiro o teste em tests/test_plugins/, depois o cliente",
+        "O teste é opcional para clientes"
+      ],
+      "correta": 1
+    },
+    "referencia/engenharia-fontes": {
+      "pergunta": "Onde fica o cliente que grava os registros coletados no PostgreSQL?",
+      "opcoes": [
+        "plugins/cliente_postgres.py, com o método insert_data",
+        "helpers/safe_request.py",
+        "dags/dbt/ipea/profiles.yml"
       ],
       "correta": 0
     },
-    "explicacao/engenharia-cosmos": {
-      "pergunta": "Qual é o papel do Cosmos?",
+    "referencia/engenharia-comandos": {
+      "pergunta": "O que seleciona dbt build --select pncp_contratacoes+?",
       "opcoes": [
-        "Representar recursos dbt como tarefas coordenadas pelo Airflow",
-        "Armazenar os dados no lugar do PostgreSQL",
-        "Substituir os modelos SQL por gráficos"
-      ],
-      "correta": 0
-    },
-    "guias/engenharia-cadeia-pratica": {
-      "pergunta": "Onde começar a investigar uma divergência em uma cadeia de modelos?",
-      "opcoes": [
-        "Apagando todos os modelos",
-        "Na primeira etapa em que a diferença aparece ao comparar com a origem",
-        "Sempre na cor do gráfico"
+        "O modelo e tudo de que ele depende",
+        "O modelo e tudo que depende dele",
+        "Apenas os testes do modelo"
       ],
       "correta": 1
     },

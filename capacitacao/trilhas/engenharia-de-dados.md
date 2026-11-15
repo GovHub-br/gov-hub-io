@@ -4,7 +4,7 @@ titulo: Engenharia de Dados no Gov Hub
 descricao: Dos conceitos e da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.
 categoria: tecnica
 chamada: Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente e aprenda a coletar, organizar, testar e entregar dados na aplicação.
-etapas: Base=Conceitos e projeto | Ambiente=Preparação local | Dado=SQL e modelagem | Pipeline=Ingestão e transformação | Entrega=Confiança e consumo
+etapas: Base=Conceitos e projeto | Ambiente=Preparação local | Dado=SQL e modelagem | Pipeline=Ingestão, orquestração e transformação | Entrega=Confiança e consumo
 etapas_subtitulo: Cinco etapas: do contexto do projeto ao indicador conferido
 etapas_nota: **Preparação antes da prática.** Conclua o nível de ambiente local antes de executar consultas e coletas. Use data-application-gov-hub; este site apresenta o material de estudo.
 ---
@@ -50,20 +50,20 @@ Consulte e organize os dados: tipos, chaves, granularidade e responsabilidades d
 
 ## Nível 4 · Ingestão, orquestração e transformação
 Etapa: Pipeline · Ícone: deploy
-Implemente e opere o percurso da fonte à gold: cargas repetíveis, clientes Python, Airflow, reprocessamento, dbt e Cosmos.
+Entenda os três trabalhos de um pipeline e faça cada um com dados reais do PNCP: coleta em Python, gravação no banco sem duplicar, DAG no Airflow, reprocessamento e modelos dbt até a gold.
 
-- [explanation] **Clientes Python: uma responsabilidade por fonte** — core — `docs/explicacao/engenharia-clientes.md`
-- [reference] **REST, SOAP, e-mail, bancos e arquivos** — support — `docs/referencia/engenharia-fontes.md`
-- [how-to] **Paginação, tempo limite e falha visível** — core — `docs/guias/engenharia-resiliencia.md`
+- [explanation] **Ingestão: trazer o dado da fonte para o banco** — core — `docs/explicacao/engenharia-ingestao.md`
+- [explanation] **Orquestração: quem roda o quê, quando e em que ordem** — core — `docs/explicacao/engenharia-orquestracao.md`
+- [explanation] **Transformação: da raw à gold com SQL versionado** — core — `docs/explicacao/engenharia-transformacao.md`
 - [explanation] **Cargas completas, incrementais e idempotência** — core — `docs/explicacao/engenharia-idempotencia.md`
-- [tutorial] **Prática: do cliente mínimo à camada raw** — core — `docs/tutoriais/engenharia-cliente-pratica.md`
-- [reference] **DAGs, tarefas e configuração no Airflow** — core — `docs/referencia/engenharia-airflow.md`
-- [tutorial] **Prática: executar e investigar uma DAG** — core — `docs/tutoriais/engenharia-airflow-pratica.md`
+- [tutorial] **Prática: coletar dados de uma API com Python** — core — `docs/tutoriais/engenharia-coleta-python.md`
+- [tutorial] **Prática: gravar a coleta em bancos de dados** — core — `docs/tutoriais/engenharia-ingestao-bancos.md`
+- [tutorial] **Prática: orquestrar a coleta com o Airflow** — core — `docs/tutoriais/engenharia-airflow-dag.md`
 - [how-to] **Reprocessamento e mudanças na fonte** — core — `docs/guias/engenharia-reprocessamento.md`
-- [reference] **Modelos dbt: source, ref e materializações** — core — `docs/referencia/engenharia-dbt.md`
-- [tutorial] **Prática: schema e testes antes do SQL** — core — `docs/tutoriais/engenharia-dbt-pratica.md`
-- [explanation] **Como o Cosmos leva o dbt ao Airflow** — core — `docs/explicacao/engenharia-cosmos.md`
-- [how-to] **Prática: rastrear uma transformação até a gold** — core — `docs/guias/engenharia-cadeia-pratica.md`
+- [tutorial] **Prática: transformar com dbt, da raw à gold** — core — `docs/tutoriais/engenharia-dbt-camadas.md`
+- [how-to] **Guia: adicionar uma fonte nova ao repositório** — core — `docs/guias/engenharia-fonte-nova.md`
+- [reference] **Fontes e clientes do repositório** — support — `docs/referencia/engenharia-fontes.md`
+- [reference] **Comandos do dia a dia: Airflow, dbt e banco** — support — `docs/referencia/engenharia-comandos.md`
 
 ## Nível 5 · Qualidade, governança e entrega
 Etapa: Entrega · Ícone: shield-check

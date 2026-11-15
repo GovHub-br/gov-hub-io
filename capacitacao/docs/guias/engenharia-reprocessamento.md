@@ -55,5 +55,5 @@ Se a fonte substituir `valor` por `valor_total`, o programa que procura `valor` 
 
 ## Veja também
 
-- [Prática: executar e investigar uma DAG](../tutoriais/engenharia-airflow-pratica.md)
-- [Modelos dbt: source, ref e materializações](../referencia/engenharia-dbt.md)
+- [Prática: orquestrar a coleta com o Airflow](../tutoriais/engenharia-airflow-dag.md)
+- [Prática: transformar com dbt, da raw à gold](../tutoriais/engenharia-dbt-camadas.md)

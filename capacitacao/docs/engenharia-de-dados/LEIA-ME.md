@@ -9,7 +9,7 @@ Profissionais de TI com familiaridade com programação, terminal e Git. A trilh
 | 1 — Base e conceitos | Engenharia de dados, projeto, ETL/ELT, arquitetura macro e glossário | 5 |
 | 2 — Preparação do ambiente local | Requisitos, configuração, inicialização, Airflow, acessos, prática dbt e rotina | 7 |
 | 3 — SQL e modelagem | Consultas, chaves, camadas, granularidade e histórico | 7 |
-| 4 — Ingestão, orquestração e transformação | Clientes, cargas repetíveis, reprocessamento, Airflow, dbt e Cosmos | 12 |
+| 4 — Ingestão, orquestração e transformação | Coleta em Python, gravação em bancos, cargas repetíveis, Airflow, reprocessamento, dbt e contribuição | 12 |
 | 5 — Qualidade, governança e entrega | Testes, observabilidade, acesso, metadados, consumo e desafio | 9 |
 
 O nível 1 é conceitual; conclua a preparação do nível 2 antes de executar as práticas. Cargas e reprocessamento ficam junto da implementação e da operação no nível 4. Os exemplos usam dados sintéticos ou públicos e não exigem fontes protegidas nem publicação em produção.
