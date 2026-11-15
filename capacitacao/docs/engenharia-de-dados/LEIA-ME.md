@@ -1,32 +1,27 @@
 # Trilha de Engenharia de Dados no Gov Hub
 
-Aprenda a preparar o ambiente, coletar dados, organizar modelos e entregar um indicador confiável. As práticas usam a aplicação `GovHub-br/data-application-gov-hub`; o site `gov-hub-io` apresenta o material de estudo.
+## Público e percurso
 
-## Público
+Profissionais de TI com familiaridade com programação, terminal e Git. A trilha aborda engenharia de dados aplicada ao Gov Hub, com exemplos e práticas locais. O repositório `data-application-gov-hub` é o ambiente de execução; `gov-hub-io` apresenta as aulas.
 
-Profissionais de TI com familiaridade com programação, terminal e Git. A trilha ensina conceitos de engenharia de dados e sua aplicação no Gov Hub; não pressupõe experiência prévia com o pipeline ou com a organização deste projeto.
-
-## Organização
-
-| Nível | Conteúdo | Aulas |
+| Nível | Foco | Aulas |
 |---|---|---|
-| Base e conceitos | Ambiente, pastas, vocabulário, ELT e reprocessamento | 7 |
-| SQL e modelagem | Consultas, tipos, chaves, camadas, granularidade e histórico | 7 |
-| Ingestão, orquestração e transformação | Clientes Python, fontes, Airflow, dbt e Cosmos | 10 |
-| Qualidade, governança e entrega | Testes, observabilidade, acesso, metadados, consumo e contribuição | 9 |
+| 1 — Base e conceitos | Engenharia de dados, projeto, ETL/ELT, arquitetura macro e glossário | 5 |
+| 2 — Preparação do ambiente local | Requisitos, configuração, inicialização, Airflow, acessos, prática dbt e rotina | 7 |
+| 3 — SQL e modelagem | Consultas, chaves, camadas, granularidade e histórico | 7 |
+| 4 — Ingestão, orquestração e transformação | Clientes, cargas repetíveis, reprocessamento, Airflow, dbt e Cosmos | 12 |
+| 5 — Qualidade, governança e entrega | Testes, observabilidade, acesso, metadados, consumo e desafio | 9 |
 
-Faça as aulas essenciais em sequência e consulte as de apoio quando precisar. Qualidade e proteção dos dados acompanham o percurso desde a primeira carga. O desafio final reúne as práticas em um único indicador.
+O nível 1 é conceitual; conclua a preparação do nível 2 antes de executar as práticas. Cargas e reprocessamento ficam junto da implementação e da operação no nível 4. Os exemplos usam dados sintéticos ou públicos e não exigem fontes protegidas nem publicação em produção.
 
-## Ambiente das práticas
+## Referências de preparação
 
-- Use ambiente local e dados públicos ou sintéticos.
-- O PostgreSQL armazena os dados e executa as transformações; o Superset apresenta os resultados.
-- O MinIO é preparatório e não integra o Compose da aplicação.
-- As práticas não exigem publicação em produção nem envio de contribuições.
-- O quiz contém uma pergunta de revisão por aula.
+O novo nível articula os guias de [instalação](https://gov-hub.io/documentacao/instalacao/), [onboarding](https://gov-hub.io/documentacao/onboarding/roteiro/), [Airflow](https://gov-hub.io/documentacao/pipeline/airflow/), [dbt](https://gov-hub.io/documentacao/pipeline/dbt/) e [acessos](https://gov-hub.io/documentacao/visualizacao/superset/) com os arquivos executáveis da aplicação.
 
-## Pré-visualizar e editar
+O fluxo de comandos usa o Makefile com Poetry. O README e outras revisões podem mencionar uv ou alvos diferentes; antes de adaptar, confira o Makefile, o Compose e os perfis do checkout. Componentes de infraestrutura compartilhada não são pré-requisitos implícitos da instalação local. O perfil dbt e a conexão Airflow são configurações distintas e precisam apontar para o destino autorizado de estudo.
 
-Com o servidor aberto em `capacitacao/`, acesse `http://localhost:8000/mapa.html?trilha=engenharia-de-dados`.
+## Edição e pré-visualização
 
-A sequência é definida em `trilhas/engenharia-de-dados.md`. Depois de alterá-la, execute `python3 tools/gen_roadmap.py` nessa pasta para atualizar o catálogo e os arquivos gerados. Edite o conteúdo diretamente nos arquivos de cada aula.
+Edite a sequência em `trilhas/engenharia-de-dados.md` e execute `python3 tools/gen_roadmap.py` em `capacitacao/`. Não edite os arquivos de `docs/trilhas/` manualmente. As chaves de progresso das aulas existentes são mantidas ao mudar de nível.
+
+Com o servidor em `capacitacao/`, abra `http://localhost:8000/mapa.html?trilha=engenharia-de-dados`. A renumeração e o catálogo vêm dos arquivos gerados. A revisão tem uma pergunta por aula.

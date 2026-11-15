@@ -58,5 +58,5 @@ Compare contagem, quantidade de chaves distintas e totais antes e depois de repe
 
 ## Veja também
 
-- [ELT e processamento em lote](engenharia-elt-lote.md)
-- [Reprocessamento e mudanças na fonte](../guias/engenharia-reprocessamento.md)
+- [Paginação, tempo limite e falha visível](../guias/engenharia-resiliencia.md)
+- [Prática: do cliente mínimo à camada raw](../tutoriais/engenharia-cliente-pratica.md)

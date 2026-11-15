@@ -2,40 +2,22 @@
   "_sobre": "Revisão da trilha de Engenharia de Dados. Uma pergunta por aula; correta é o índice em opcoes. Editado à mão.",
   "perguntas": {
     "explicacao/engenharia-papel": {
-      "pergunta": "Antes de escolher uma fonte, o que deve orientar o pipeline?",
+      "pergunta": "O que faz parte da entrega da engenharia de dados?",
       "opcoes": [
-        "A decisão que o dado apoiará e quem vai usá-lo",
-        "A quantidade máxima de tabelas disponíveis",
-        "A ferramenta com mais recursos"
-      ],
-      "correta": 0
-    },
-    "referencia/engenharia-mapa-repositorio": {
-      "pergunta": "Em qual repositório são feitas as práticas de pipeline?",
-      "opcoes": [
-        "GovHub-br/data-application-gov-hub",
-        "No repositório do Python",
-        "GovHub-br/gov-hub-io"
-      ],
-      "correta": 0
-    },
-    "tutoriais/engenharia-ambiente": {
-      "pergunta": "Qual evidência confirma a preparação do ambiente?",
-      "opcoes": [
-        "A pasta .env estar no Git",
-        "Só o clone terminar",
-        "Serviços ativos e verificações de ambiente aprovadas"
-      ],
-      "correta": 2
-    },
-    "referencia/engenharia-glossario": {
-      "pergunta": "O que é um modelo no dbt?",
-      "opcoes": [
-        "Uma imagem de arquitetura",
-        "Um arquivo SQL que produz tabela ou visão",
-        "Uma conta de acesso ao banco"
+        "Somente a criação do primeiro gráfico",
+        "Manter o percurso de dados atualizável, rastreável e verificável",
+        "Apenas escolher a linguagem de coleta"
       ],
       "correta": 1
+    },
+    "explicacao/engenharia-projeto-gov-hub": {
+      "pergunta": "Qual é a função da aplicação de dados no Gov Hub?",
+      "opcoes": [
+        "Integrar coletas, transformações e controles para entregar dados analíticos rastreáveis",
+        "Apenas hospedar as aulas do site",
+        "Substituir a definição dos indicadores por gráficos"
+      ],
+      "correta": 0
     },
     "explicacao/engenharia-elt-lote": {
       "pergunta": "Qual sequência descreve o ELT da aplicação?",
@@ -46,23 +28,86 @@
       ],
       "correta": 0
     },
-    "explicacao/engenharia-idempotencia": {
-      "pergunta": "O que torna um upsert adequado à idempotência?",
+    "referencia/engenharia-mapa-repositorio": {
+      "pergunta": "Onde investigar uma regra de transformação que duplica os totais, se a coleta está correta?",
       "opcoes": [
-        "Sempre inserir todas as linhas",
-        "Uma chave que identifica corretamente o registro e uma atualização consistente",
-        "Rodar apenas uma vez por dia"
+        "Nos modelos da transformação analítica",
+        "Na definição de autenticação do cliente da fonte",
+        "No repositório do site de capacitação"
+      ],
+      "correta": 0
+    },
+    "referencia/engenharia-glossario": {
+      "pergunta": "O que é um modelo no dbt?",
+      "opcoes": [
+        "Uma imagem de arquitetura",
+        "Um arquivo SQL que produz tabela ou visão",
+        "Uma conta de acesso ao banco"
       ],
       "correta": 1
     },
-    "guias/engenharia-reprocessamento": {
-      "pergunta": "Quando uma fonte remove uma coluna usada por um modelo, o que fazer?",
+    "referencia/engenharia-requisitos-ambiente": {
+      "pergunta": "Qual verificação confirma que o Docker pode iniciar os serviços, além de estar instalado?",
       "opcoes": [
-        "Continuar e preencher tudo com zero",
-        "Revisar o impacto em modelos, testes e consumo antes de aceitar a mudança",
-        "Apenas aumentar o número de retentativas"
+        "docker info consegue acessar o daemon",
+        "Apenas existir docker-compose.yml",
+        "A versão do navegador"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-configuracao-local": {
+      "pergunta": "Uma mudança no usuário PostgreSQL local deve ser conferida em quais configurações?",
+      "opcoes": [
+        "Somente no nome do repositório",
+        "No serviço, na conexão Airflow e no perfil dbt utilizados",
+        "Somente no navegador"
       ],
       "correta": 1
+    },
+    "tutoriais/engenharia-ambiente": {
+      "pergunta": "O que make dev-check valida neste percurso?",
+      "opcoes": [
+        "As variáveis e a conexão padrão cadastradas no Airflow",
+        "A correção de todos os indicadores",
+        "A disponibilidade de todas as fontes governamentais"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-airflow-configuracao": {
+      "pergunta": "A interface Airflow abre, mas a DAG não aparece. O que verificar primeiro?",
+      "opcoes": [
+        "Erros de importação e caminhos da DAG",
+        "A cor do painel Superset",
+        "O total financeiro da gold"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-acessos-locais": {
+      "pergunta": "Por que a conexão do Superset no Compose usa postgres em vez de localhost?",
+      "opcoes": [
+        "Porque postgres identifica o serviço do banco na rede do Compose",
+        "Porque localhost sempre indica o computador do usuário",
+        "Porque o banco deixa de usar uma porta"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-dbt-configuracao": {
+      "pergunta": "Por que conferir profiles.yml, dbt_project.yml e snapshots/tables_snapshot.yml ao usar o banco local?",
+      "opcoes": [
+        "Porque modelos e snapshots podem definir um banco diferente do perfil de conexão",
+        "Porque dbt run coleta automaticamente os dados das APIs",
+        "Porque o nome prod impede qualquer execução local"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-rotina-ambiente": {
+      "pergunta": "O que diferencia ambiente preparado de indicador validado?",
+      "opcoes": [
+        "Serviços e conexões prontos não comprovam a qualidade dos dados de um indicador",
+        "Se a interface abriu, todos os indicadores estão corretos",
+        "make lint dispensa a conferência dos dados"
+      ],
+      "correta": 0
     },
     "tutoriais/engenharia-sql": {
       "pergunta": "Qual expressão conta todas as linhas, inclusive quando há valores nulos em uma coluna?",
@@ -154,6 +199,15 @@
       ],
       "correta": 0
     },
+    "explicacao/engenharia-idempotencia": {
+      "pergunta": "O que torna um upsert adequado à idempotência?",
+      "opcoes": [
+        "Sempre inserir todas as linhas",
+        "Uma chave que identifica corretamente o registro e uma atualização consistente",
+        "Rodar apenas uma vez por dia"
+      ],
+      "correta": 1
+    },
     "tutoriais/engenharia-cliente-pratica": {
       "pergunta": "Qual resultado deve ocorrer após recarregar os mesmos dois IDs com correção em um deles?",
       "opcoes": [
@@ -180,6 +234,15 @@
         "Conferir os dados de destino e os controles de qualidade"
       ],
       "correta": 2
+    },
+    "guias/engenharia-reprocessamento": {
+      "pergunta": "Quando uma fonte remove uma coluna usada por um modelo, o que fazer?",
+      "opcoes": [
+        "Continuar e preencher tudo com zero",
+        "Revisar o impacto em modelos, testes e consumo antes de aceitar a mudança",
+        "Apenas aumentar o número de retentativas"
+      ],
+      "correta": 1
     },
     "referencia/engenharia-dbt": {
       "pergunta": "Qual recurso declara dependência de outro modelo dbt?",

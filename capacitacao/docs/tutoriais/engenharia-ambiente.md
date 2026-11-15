@@ -1,69 +1,60 @@
-# Preparar e conferir o ambiente local
+# Inicializar os serviços com make setup
 
 > Tipo: **Tutorial**
 
-## O que você vai construir
+## O que você vai preparar
 
-Um ambiente local para estudar as coletas e as transformações, sem depender do ambiente de produção.
+Os serviços locais da aplicação e sua configuração inicial. Esta aula pressupõe requisitos e `.env` revisados nas etapas anteriores.
 
-## Antes de começar
+## 1. Preparar as dependências e os serviços
 
-Pré-requisitos: Git, Docker com Compose, Make, Python 3.11 e Poetry 1.8.5. O exemplo de clone usa `gh` instalado e autenticado. Credenciais das fontes são necessárias apenas para as DAGs que acessam sistemas protegidos. Execute os comandos na raiz de `data-application-gov-hub`, que contém o `Makefile`.
+Na raiz da aplicação, no percurso com Poetry, selecione o Python do projeto e execute o setup:
 
-## Passos
+```bash
+poetry env use python3.11
+make setup
+```
 
-1. Baixe a aplicação, em uma pasta diferente da pasta do site:
+O `Makefile` organiza as seguintes ações:
 
-   ```bash
-   gh repo clone GovHub-br/data-application-gov-hub
-   cd data-application-gov-hub
-   ```
-
-2. Leia `local.env` e o alvo `setup` no `Makefile`. Com o Docker aberto, execute:
-
-   ```bash
-   make setup
-   make dev-check
-   docker compose ps
-   ```
-
-   O comando `make setup` prepara o `.env`, instala dependências, constrói os serviços e configura o Airflow. A primeira execução pode demorar.
-
-3. Abra os serviços:
-
-   | Serviço | Endereço | Acesso |
-   |---|---|---|
-   | Airflow | `http://localhost:8080` | Variáveis `_AIRFLOW_WWW_USER_*` do `.env` |
-   | Superset | `http://localhost:8088` | Configuração local no Compose |
-   | Jupyter | `http://localhost:8888` | Configuração local no Compose |
-   | PostgreSQL | Porta `5432` | Variáveis `POSTGRES_*` do `.env` |
-
-4. Confira uma DAG de IBGE na tela e encontre seu arquivo em `airflow_lappis/dags/data_ingest/ibge/`.
-
-## Exemplo: conferir a preparação da aplicação
-
-| Verificação | Evidência esperada |
+| Etapa | Resultado esperado |
 |---|---|
-| `make dev-check` | Configuração e conexão do Airflow aprovadas |
-| `docker compose ps` | Serviços necessários à prática ativos |
-| DAG de IBGE na interface | Identificador correspondente ao arquivo em `dags/data_ingest/ibge/` |
-| Logs da coleta e tabela de destino | Execução concluída e registros do período conferidos |
+| Preparação do `.env` | Configuração local criada se ainda não existir |
+| Instalação com Poetry | Dependências do projeto e de desenvolvimento disponíveis |
+| Configuração dos hooks | Verificações do fluxo de contribuição preparadas |
+| Construção e início com Compose | Imagens e serviços locais iniciados |
+| `make dev` | Variáveis e conexão padrão do Airflow configuradas |
+| `make dev-check` | Presença dessas configurações conferida |
 
-Serviços ativos comprovam a disponibilidade do ambiente, não a execução ou a qualidade de uma carga. Confira separadamente a DAG, o período processado e o conteúdo gravado.
+A primeira execução pode demorar. Observe a etapa em que um erro ocorreu: falha de instalação de dependência e falha de inicialização de um serviço exigem diagnósticos diferentes.
 
-## Como verificar
+## 2. Conferir os serviços
 
-Os serviços aparecem ativos e o nome da DAG na interface corresponde ao código. Se houver erro, leia `docker compose logs` do serviço que falhou.
+```bash
+docker compose ps
+make dev-check
+```
 
-Para parar, use `docker compose down`; para retomar, `docker compose up -d`. Evite `down -v`: ele remove os volumes e pode apagar o banco local. O MinIO não integra o Compose da aplicação.
+| Serviço | Acesso no computador | Verificação inicial |
+|---|---|---|
+| Airflow | `http://localhost:8080` | Interface disponível e login local funcionando |
+| Superset | `http://localhost:8088` | Interface e inicialização concluídas |
+| PostgreSQL | `localhost:5432` | Serviço pronto e conexão validável |
 
-## Configuração local da aplicação
+`make dev-check` confere as Variables e a Connection esperadas. Ele não substitui a validação de uma conexão SQL real, nem garante que todas as fontes externas estejam acessíveis.
 
-`make setup` prepara o `.env` a partir de `local.env` quando a cópia local ainda não existe. Confira as variáveis `POSTGRES_*`, `_AIRFLOW_WWW_USER_*` e as configurações das fontes que serão usadas na prática.
+## Como verificar que esta etapa terminou
 
-Mantenha o `.env` fora do controle de versão. `local.env` deve conter apenas o modelo de configuração, sem credenciais reais. O MinIO permanece preparatório e não é necessário para as práticas PostgreSQL desta trilha.
+Os serviços necessários estão ativos, as interfaces locais respondem e `make dev-check` aprova. As próximas aulas validam DAGs, banco e perfil dbt separadamente.
+
+No Compose usado neste percurso, MinIO não é um serviço da instalação. Não use a disponibilidade das portas 9000 e 9001 como critério de sucesso deste ambiente.
+
+## Referências
+
+- [Instalação e comandos locais](https://gov-hub.io/documentacao/instalacao/)
+- [Configuração local do Airflow](https://gov-hub.io/documentacao/pipeline/airflow/)
 
 ## Veja também
 
-- [Onde encontrar cada parte do projeto](../referencia/engenharia-mapa-repositorio.md)
-- [Vocabulário e fontes do governo](../referencia/engenharia-glossario.md)
+- [Configuração local e credenciais](../guias/engenharia-configuracao-local.md)
+- [Validar o Airflow e suas integrações](../guias/engenharia-airflow-configuracao.md)

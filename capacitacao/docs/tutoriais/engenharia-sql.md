@@ -63,5 +63,5 @@ O resultado tem duas linhas, uma por órgão, e três colunas: `orgao`, `registr
 
 ## Veja também
 
-- [Reprocessamento e mudanças na fonte](../guias/engenharia-reprocessamento.md)
+- [Rotina local e verificação final](../guias/engenharia-rotina-ambiente.md)
 - [JOINs e funções de janela sem duplicar totais](../explicacao/engenharia-joins.md)

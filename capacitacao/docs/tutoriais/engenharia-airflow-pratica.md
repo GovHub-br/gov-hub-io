@@ -54,4 +54,4 @@ Ao testar `dynamic_schedules`, preserve o valor atual e modifique apenas a entra
 ## Veja também
 
 - [DAGs, tarefas e configuração no Airflow](../referencia/engenharia-airflow.md)
-- [Modelos dbt: source, ref e materializações](../referencia/engenharia-dbt.md)
+- [Reprocessamento e mudanças na fonte](../guias/engenharia-reprocessamento.md)

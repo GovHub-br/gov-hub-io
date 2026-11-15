@@ -55,5 +55,5 @@ Se a fonte substituir `valor` por `valor_total`, o programa que procura `valor` 
 
 ## Veja também
 
-- [Cargas completas, incrementais e idempotência](../explicacao/engenharia-idempotencia.md)
-- [Consultar e conferir dados com SQL](../tutoriais/engenharia-sql.md)
+- [Prática: executar e investigar uma DAG](../tutoriais/engenharia-airflow-pratica.md)
+- [Modelos dbt: source, ref e materializações](../referencia/engenharia-dbt.md)

@@ -95,5 +95,5 @@ Você reuniu páginas com Python, reconheceu uma falha e demonstrou a repetiçã
 
 ## Veja também
 
-- [Paginação, tempo limite e falha visível](../guias/engenharia-resiliencia.md)
+- [Cargas completas, incrementais e idempotência](../explicacao/engenharia-idempotencia.md)
 - [DAGs, tarefas e configuração no Airflow](../referencia/engenharia-airflow.md)

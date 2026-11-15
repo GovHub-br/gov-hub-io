@@ -2,13 +2,17 @@
   "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
   "slug": "engenharia-de-dados",
   "titulo": "Engenharia de Dados no Gov Hub",
-  "descricao": "Da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.",
+  "descricao": "Dos conceitos e da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.",
   "categoria": "tecnica",
-  "chamada": "Um indicador confiável começa antes do gráfico. Aprenda a coletar, organizar, testar e entregar dados do Gov Hub, com explicações passo a passo na aplicação de dados.",
+  "chamada": "Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente e aprenda a coletar, organizar, testar e entregar dados na aplicação.",
   "etapas": [
     {
       "rotulo": "Base",
-      "caixa": "Ambiente e conceitos"
+      "caixa": "Conceitos e projeto"
+    },
+    {
+      "rotulo": "Ambiente",
+      "caixa": "Preparação local"
     },
     {
       "rotulo": "Dado",
@@ -23,14 +27,14 @@
       "caixa": "Confiança e consumo"
     }
   ],
-  "etapas_subtitulo": "Quatro etapas: da primeira coleta ao indicador conferido",
-  "etapas_nota": "**Práticas locais** ao longo da trilha. Use a aplicação data-application-gov-hub; o repositório deste site serve apenas o material de estudo.",
+  "etapas_subtitulo": "Cinco etapas: do contexto do projeto ao indicador conferido",
+  "etapas_nota": "**Preparação antes da prática.** Conclua o nível de ambiente local antes de executar consultas e coletas. Use data-application-gov-hub; este site apresenta o material de estudo.",
   "quiz": "quiz/engenharia-de-dados.json",
   "niveis": [
     {
       "numero": 1,
       "titulo": "Base e conceitos",
-      "descricao": "Entenda o caminho do dado, prepare o ambiente e aprenda a repetir uma carga sem duplicar resultados.",
+      "descricao": "Entenda o papel da engenharia de dados, o contexto do Gov Hub, ETL/ELT e a arquitetura macro da aplicação.",
       "etapa": "Base",
       "icone": "assets/icones/light-bulb-sober.svg",
       "itens": [
@@ -45,34 +49,14 @@
           "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
-          "id": "referencia/engenharia-mapa-repositorio",
-          "titulo": "Onde encontrar cada parte do projeto",
-          "doc": "docs/referencia/engenharia-mapa-repositorio.md",
-          "tipo": "referencia",
-          "tipo_nome": "Referência",
-          "papel": "support",
-          "papel_nome": "Apoio",
-          "icone": "assets/icones/document-text-sober.svg"
-        },
-        {
-          "id": "tutoriais/engenharia-ambiente",
-          "titulo": "Preparar e conferir o ambiente local",
-          "doc": "docs/tutoriais/engenharia-ambiente.md",
-          "tipo": "tutorial",
-          "tipo_nome": "Tutorial",
+          "id": "explicacao/engenharia-projeto-gov-hub",
+          "titulo": "O Gov Hub e sua aplicação de dados",
+          "doc": "docs/explicacao/engenharia-projeto-gov-hub.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
           "papel": "core",
           "papel_nome": "Essencial",
-          "icone": "assets/icones/book-open-sober.svg"
-        },
-        {
-          "id": "referencia/engenharia-glossario",
-          "titulo": "Vocabulário e fontes do governo",
-          "doc": "docs/referencia/engenharia-glossario.md",
-          "tipo": "referencia",
-          "tipo_nome": "Referência",
-          "papel": "support",
-          "papel_nome": "Apoio",
-          "icone": "assets/icones/document-text-sober.svg"
+          "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
           "id": "explicacao/engenharia-elt-lote",
@@ -85,19 +69,98 @@
           "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
-          "id": "explicacao/engenharia-idempotencia",
-          "titulo": "Cargas completas, incrementais e idempotência",
-          "doc": "docs/explicacao/engenharia-idempotencia.md",
-          "tipo": "explicacao",
-          "tipo_nome": "Explicação",
+          "id": "referencia/engenharia-mapa-repositorio",
+          "titulo": "Onde encontrar cada parte do projeto",
+          "doc": "docs/referencia/engenharia-mapa-repositorio.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
           "papel": "core",
           "papel_nome": "Essencial",
-          "icone": "assets/icones/light-bulb-sober.svg"
+          "icone": "assets/icones/document-text-sober.svg"
         },
         {
-          "id": "guias/engenharia-reprocessamento",
-          "titulo": "Reprocessamento e mudanças na fonte",
-          "doc": "docs/guias/engenharia-reprocessamento.md",
+          "id": "referencia/engenharia-glossario",
+          "titulo": "Vocabulário e fontes do governo",
+          "doc": "docs/referencia/engenharia-glossario.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Preparação do ambiente local",
+      "descricao": "Prepare e valide o ambiente da aplicação: requisitos, configuração, serviços, Airflow, acessos, prática dbt e rotina local.",
+      "etapa": "Ambiente",
+      "icone": "assets/icones/server-sober.svg",
+      "itens": [
+        {
+          "id": "referencia/engenharia-requisitos-ambiente",
+          "titulo": "Requisitos e versões do ambiente",
+          "doc": "docs/referencia/engenharia-requisitos-ambiente.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-configuracao-local",
+          "titulo": "Configuração local e credenciais",
+          "doc": "docs/guias/engenharia-configuracao-local.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-ambiente",
+          "titulo": "Inicializar os serviços com make setup",
+          "doc": "docs/tutoriais/engenharia-ambiente.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-airflow-configuracao",
+          "titulo": "Validar o Airflow e suas integrações",
+          "doc": "docs/guias/engenharia-airflow-configuracao.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-acessos-locais",
+          "titulo": "Validar PostgreSQL e Superset",
+          "doc": "docs/guias/engenharia-acessos-locais.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-dbt-configuracao",
+          "titulo": "Executar o dbt e conferir os dados no banco",
+          "doc": "docs/guias/engenharia-dbt-configuracao.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-rotina-ambiente",
+          "titulo": "Rotina local e verificação final",
+          "doc": "docs/guias/engenharia-rotina-ambiente.md",
           "tipo": "guia",
           "tipo_nome": "Guia",
           "papel": "core",
@@ -107,7 +170,7 @@
       ]
     },
     {
-      "numero": 2,
+      "numero": 3,
       "titulo": "SQL e modelagem",
       "descricao": "Consulte e organize os dados: tipos, chaves, granularidade e responsabilidades de raw, bronze, silver e gold.",
       "etapa": "Dado",
@@ -186,9 +249,9 @@
       ]
     },
     {
-      "numero": 3,
+      "numero": 4,
       "titulo": "Ingestão, orquestração e transformação",
-      "descricao": "Acompanhe uma fonte do cliente Python à transformação dbt, com Airflow, Cosmos e práticas locais guiadas.",
+      "descricao": "Implemente e opere o percurso da fonte à gold: cargas repetíveis, clientes Python, Airflow, reprocessamento, dbt e Cosmos.",
       "etapa": "Pipeline",
       "icone": "assets/icones/deploy-sober.svg",
       "itens": [
@@ -223,6 +286,16 @@
           "icone": "assets/icones/wrench-sober.svg"
         },
         {
+          "id": "explicacao/engenharia-idempotencia",
+          "titulo": "Cargas completas, incrementais e idempotência",
+          "doc": "docs/explicacao/engenharia-idempotencia.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
           "id": "tutoriais/engenharia-cliente-pratica",
           "titulo": "Prática: do cliente mínimo à camada raw",
           "doc": "docs/tutoriais/engenharia-cliente-pratica.md",
@@ -251,6 +324,16 @@
           "papel": "core",
           "papel_nome": "Essencial",
           "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-reprocessamento",
+          "titulo": "Reprocessamento e mudanças na fonte",
+          "doc": "docs/guias/engenharia-reprocessamento.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
         },
         {
           "id": "referencia/engenharia-dbt",
@@ -295,7 +378,7 @@
       ]
     },
     {
-      "numero": 4,
+      "numero": 5,
       "titulo": "Qualidade, governança e entrega",
       "descricao": "Valide o resultado, documente sua origem, controle o acesso e entregue um indicador conferido no Superset.",
       "etapa": "Entrega",

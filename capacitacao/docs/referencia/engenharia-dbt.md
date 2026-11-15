@@ -72,5 +72,5 @@ O **perfil** informa como conectar ao banco; o **destino**, ou target, escolhe u
 
 ## Veja também
 
-- [Prática: executar e investigar uma DAG](../tutoriais/engenharia-airflow-pratica.md)
+- [Reprocessamento e mudanças na fonte](../guias/engenharia-reprocessamento.md)
 - [Prática: schema e testes antes do SQL](../tutoriais/engenharia-dbt-pratica.md)

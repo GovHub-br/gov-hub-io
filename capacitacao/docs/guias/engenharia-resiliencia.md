@@ -55,4 +55,4 @@ Valide o estado da requisição e a estrutura do conteúdo recebido. Uma respost
 ## Veja também
 
 - [REST, SOAP, e-mail, bancos e arquivos](../referencia/engenharia-fontes.md)
-- [Prática: do cliente mínimo à camada raw](../tutoriais/engenharia-cliente-pratica.md)
+- [Cargas completas, incrementais e idempotência](../explicacao/engenharia-idempotencia.md)

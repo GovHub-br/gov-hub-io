@@ -42,4 +42,4 @@ A investigação deve seguir a responsabilidade do componente. Uma regra de indi
 ## Veja também
 
 - [Engenharia de dados: da fonte à decisão](../explicacao/engenharia-papel.md)
-- [Preparar e conferir o ambiente local](../tutoriais/engenharia-ambiente.md)
+- [Inicializar os serviços com make setup](../tutoriais/engenharia-ambiente.md)

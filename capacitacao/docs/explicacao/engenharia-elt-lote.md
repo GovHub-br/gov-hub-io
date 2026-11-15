@@ -46,5 +46,5 @@ Separar as etapas ajuda a localizar a falha: o problema veio da fonte, da grava�
 
 ## Veja também
 
-- [Vocabulário e fontes do governo](../referencia/engenharia-glossario.md)
-- [Cargas completas, incrementais e idempotência](engenharia-idempotencia.md)
+- [O Gov Hub e sua aplicação de dados](engenharia-projeto-gov-hub.md)
+- [Onde encontrar cada parte do projeto](../referencia/engenharia-mapa-repositorio.md)

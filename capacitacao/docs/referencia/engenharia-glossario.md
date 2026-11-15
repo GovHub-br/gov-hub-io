@@ -18,6 +18,9 @@ Vocabulário de engenharia de dados e siglas dos sistemas governamentais utiliza
 | Upsert | Inserir uma linha nova ou atualizar a existente |
 | Idempotência | Repetir a mesma entrada sem duplicar o resultado |
 | Linhagem | Relação entre fontes, transformações e resultados |
+| Granularidade | O que uma linha de uma tabela representa |
+| Raw, bronze, silver e gold | Etapas de preservação, preparação, integração e consumo dos dados |
+| Cosmos | Integração dos recursos dbt à execução coordenada pelo Airflow |
 
 ## Fontes e siglas
 
@@ -52,13 +55,13 @@ A composição exata da chave deve seguir o contrato da fonte. Preservar esse co
 
 Uma sigla sozinha não define a chave de uma tabela. Identificadores podem depender também do órgão, exercício e sistema. Consulte o contrato da fonte antes de cruzar dados.
 
-## A mesma palavra pode ter dois sentidos
+## Convenções do projeto
 
-No PostgreSQL, **schema** é uma divisão do banco que reúne tabelas. Já o arquivo `schema.yml` do dbt descreve modelos, colunas e testes. O arquivo não é a própria divisão do banco.
+No PostgreSQL, `schema` agrupa tabelas. No dbt, `schema.yml` descreve modelos, colunas e testes. A distinção importa ao configurar e documentar as transformações.
 
-“Cliente” também muda de sentido: nesta trilha, é um programa que conversa com uma fonte, não uma pessoa atendida. E “modelo” significa uma transformação de dados no dbt, não um modelo de inteligência artificial.
+No código de ingestão, os clientes implementam o contrato de acesso às fontes; no dbt, os modelos implementam transformações analíticas. Os caminhos macro desses componentes estão na aula de arquitetura.
 
 ## Veja também
 
-- [Preparar e conferir o ambiente local](../tutoriais/engenharia-ambiente.md)
-- [ELT e processamento em lote](../explicacao/engenharia-elt-lote.md)
+- [Onde encontrar cada parte do projeto](engenharia-mapa-repositorio.md)
+- [Requisitos e versões do ambiente](engenharia-requisitos-ambiente.md)
