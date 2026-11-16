@@ -23,6 +23,8 @@ A saída deve identificar o banco e o usuário definidos no `.env`. Em um client
 
 Usar `localhost` dentro do Superset aponta para o próprio contêiner Superset. O nome `postgres` identifica o serviço de banco na rede do Compose.
 
+![O host do banco depende de onde parte a conexão. Dentro da rede do Docker Compose, o Airflow, pela conexão postgres_default, e o Superset, pela conexão Gov Hub local, chegam ao PostgreSQL por postgres:5432, o nome do serviço. Fora dela, no seu computador, o cliente SQL, como DBeaver ou psql, chega ao mesmo PostgreSQL por localhost:5432. Uma nota de erro comum avisa que localhost dentro do Superset aponta para o próprio contêiner Superset, e não para o banco.](../../assets/diagramas/engenharia-hosts-compose.png)
+
 ## 2. Cadastrar a conexão no Superset
 
 Abra `http://localhost:8088`. O bootstrap deste ambiente cria o acesso local `admin` / `admin`. Entre em **Settings → Data → Database Connections**.

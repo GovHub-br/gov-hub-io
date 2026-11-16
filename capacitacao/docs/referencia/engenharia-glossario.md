@@ -49,6 +49,8 @@ Uma nota de empenho pode exigir a combinação de unidade gestora, exercício e 
 | NE | Nota de empenho, cujo identificador precisa ser interpretado no contexto da fonte |
 | Exercício | Recorte temporal que pode participar da chave e das agregações |
 
+![Três notas de empenho com o mesmo número, 000101: uma da UG 113601 no exercício 2025, outra da UG 113601 em 2026 e outra da UG 440001 em 2026. Com a chave formada só pelo número, as três parecem um único registro, com risco de sobrescrita na ingestão e de junções indevidas. Com a chave formada por UG, exercício e número, são três registros distintos. A composição exata da chave segue o contrato da fonte.](../../assets/diagramas/engenharia-glossario-chave-ne.png)
+
 A composição exata da chave deve seguir o contrato da fonte. Preservar esse contexto evita sobrescritas na ingestão e junções indevidas entre registros de universos diferentes.
 
 ## Atenção ao contexto

@@ -42,6 +42,8 @@ O alvo `make dev` usa parâmetros `AIRFLOW_LOCAL_DB_*` e configura `postgres_def
 
 No dbt, a conexão é definida pelo `profiles.yml` e pelas variáveis `DB_DW_*`. A validação desse perfil terá uma aula própria; ele não é a mesma configuração de `postgres_default`.
 
+![De onde cada parte lê a configuração. O local.env, modelo versionado, é copiado com cp -n para o .env, a cópia local que fica fora do Git e pode ser conferida com git check-ignore .env. O .env é lido pelos serviços do Compose: POSTGRES_*, _AIRFLOW_WWW_USER_*, AIRFLOW_HOME, AIRFLOW_UID e DB_DW_READONLY_*. Abaixo, duas configurações de banco separadas: o make dev usa AIRFLOW_LOCAL_DB_* e cadastra a conexão postgres_default do Airflow, e o dbt conecta pelo profiles.yml e pelas variáveis DB_DW_*. As duas precisam apontar para o mesmo PostgreSQL local.](../../assets/diagramas/engenharia-configuracao-env.png)
+
 ## Pronto
 
 O `.env` está fora do controle de versão, os parâmetros locais estão revisados e nenhuma credencial de ambiente compartilhado foi incorporada ao checkout. A assinatura de commits, quando exigida pela ruleset, pode ser configurada antes de contribuir; não é necessário publicar nenhuma alteração para estudar.

@@ -22,6 +22,8 @@ Esta trilha está no site `gov-hub-io`, mas as práticas são feitas na aplicaç
 | `Makefile` | Atalhos como `make setup` e `make test` |
 | `local.env` e `.env` | Modelo de configuração e cópia local |
 
+![O mapa do repositório data-application-gov-hub em duas áreas. Em airflow_lappis: dags/data_ingest, com as coletas separadas por sistema de origem; plugins/cliente_*.py, com a comunicação com fontes e banco; helpers, com funções de apoio reutilizáveis; e dags/dbt/ipea, com modelos SQL, testes e documentação dbt, ponto de partida de models e macros. Na raiz do repositório: tests, com os testes do código Python; Makefile, com os atalhos dos comandos; docker/postgres, com perfis de acesso; superset, com o consumo em painéis; notebooks, com cadernos de exploração; .github, com contribuição e revisão; e local.env e .env, com o modelo de configuração e a cópia local. Em destaque, o caminho do exemplo da coleta do IBGE: a pasta ibge em data_ingest, o cliente_ibge.py, os modelos dbt e os testes.](../../assets/diagramas/engenharia-mapa-repositorio.png)
+
 ## Referências de diretório nas aulas
 
 Quando uma aula disser `models/` ou `macros/`, o ponto de partida será `airflow_lappis/dags/dbt/ipea/`, salvo indicação diferente. Para `plugins/`, o ponto de partida será `airflow_lappis/`.

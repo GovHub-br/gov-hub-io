@@ -16,7 +16,7 @@
     },
     {
       "rotulo": "Dado",
-      "caixa": "SQL e modelagem"
+      "caixa": "Modelagem e camadas"
     },
     {
       "rotulo": "Pipeline",
@@ -171,14 +171,14 @@
     },
     {
       "numero": 3,
-      "titulo": "SQL e modelagem",
-      "descricao": "Consulte e organize os dados: tipos, chaves, granularidade e responsabilidades de raw, bronze, silver e gold.",
+      "titulo": "Modelagem e construção das camadas de dados",
+      "descricao": "Construa, com uma base de estudo que imita os contratos do Gov Hub, uma tabela que responde quanto foi contratado e pago: população, especificação, camadas, granularidade, formas de entrega, regras reutilizáveis, histórico e validação.",
       "etapa": "Dado",
       "icone": "assets/icones/database-sober.svg",
       "itens": [
         {
           "id": "tutoriais/engenharia-sql",
-          "titulo": "Consultar e conferir dados com SQL",
+          "titulo": "Prática: SQL para decidir quem entra no resultado",
           "doc": "docs/tutoriais/engenharia-sql.md",
           "tipo": "tutorial",
           "tipo_nome": "Tutorial",
@@ -187,9 +187,19 @@
           "icone": "assets/icones/book-open-sober.svg"
         },
         {
-          "id": "explicacao/engenharia-joins",
-          "titulo": "JOINs e funções de janela sem duplicar totais",
-          "doc": "docs/explicacao/engenharia-joins.md",
+          "id": "tutoriais/engenharia-sql-medidas",
+          "titulo": "Prática: SQL para contar e somar sem enganos",
+          "doc": "docs/tutoriais/engenharia-sql-medidas.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-planejamento-modelos",
+          "titulo": "Planejar a entrega antes dos modelos",
+          "doc": "docs/explicacao/engenharia-planejamento-modelos.md",
           "tipo": "explicacao",
           "tipo_nome": "Explicação",
           "papel": "core",
@@ -197,28 +207,8 @@
           "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
-          "id": "referencia/engenharia-tipos-chaves",
-          "titulo": "Tipos, chaves e gravação consistente",
-          "doc": "docs/referencia/engenharia-tipos-chaves.md",
-          "tipo": "referencia",
-          "tipo_nome": "Referência",
-          "papel": "core",
-          "papel_nome": "Essencial",
-          "icone": "assets/icones/document-text-sober.svg"
-        },
-        {
-          "id": "guias/engenharia-desempenho",
-          "titulo": "Investigar consultas lentas no PostgreSQL",
-          "doc": "docs/guias/engenharia-desempenho.md",
-          "tipo": "guia",
-          "tipo_nome": "Guia",
-          "papel": "support",
-          "papel_nome": "Apoio",
-          "icone": "assets/icones/wrench-sober.svg"
-        },
-        {
           "id": "explicacao/engenharia-camadas",
-          "titulo": "Raw, bronze, silver e gold",
+          "titulo": "Definir as responsabilidades de cada camada",
           "doc": "docs/explicacao/engenharia-camadas.md",
           "tipo": "explicacao",
           "tipo_nome": "Explicação",
@@ -228,7 +218,7 @@
         },
         {
           "id": "explicacao/engenharia-granularidade",
-          "titulo": "Granularidade, fatos e dimensões",
+          "titulo": "Granularidade: o que cada linha representa e o que pode ser somado",
           "doc": "docs/explicacao/engenharia-granularidade.md",
           "tipo": "explicacao",
           "tipo_nome": "Explicação",
@@ -237,14 +227,44 @@
           "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
+          "id": "explicacao/engenharia-arquiteturas-dados",
+          "titulo": "Tabela larga, estrela ou snowflake: escolher a forma da entrega",
+          "doc": "docs/explicacao/engenharia-arquiteturas-dados.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-modelos-reutilizaveis",
+          "titulo": "Onde mora cada regra: modelos, macros e reutilização no dbt",
+          "doc": "docs/explicacao/engenharia-modelos-reutilizaveis.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
           "id": "explicacao/engenharia-historico",
-          "titulo": "Quando sobrescrever e quando guardar histórico",
+          "titulo": "Posição atual e histórico: reconstrução, incremental e snapshot",
           "doc": "docs/explicacao/engenharia-historico.md",
           "tipo": "explicacao",
           "tipo_nome": "Explicação",
-          "papel": "support",
-          "papel_nome": "Apoio",
+          "papel": "core",
+          "papel_nome": "Essencial",
           "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-entrega-camada",
+          "titulo": "Validar e entregar uma camada confiável",
+          "doc": "docs/guias/engenharia-entrega-camada.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
         }
       ]
     },

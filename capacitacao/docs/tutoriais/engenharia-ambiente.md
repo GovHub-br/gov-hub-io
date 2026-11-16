@@ -26,6 +26,8 @@ O `Makefile` organiza as seguintes ações:
 | `make dev` | Variáveis e conexão padrão do Airflow configuradas |
 | `make dev-check` | Presença dessas configurações conferida |
 
+![O make setup em seis etapas, em ordem: 1, o .env é criado a partir do local.env se não existir; 2, o Poetry instala as dependências do projeto e de desenvolvimento; 3, os hooks preparam as verificações do fluxo de contribuição; 4, o Compose constrói as imagens e inicia os serviços; 5, o make dev cadastra as Variables e a conexão do Airflow; 6, o make dev-check confere esses cadastros. A etapa do Compose inicia três serviços, acessíveis no computador: Airflow em localhost:8080, Superset em localhost:8088 e PostgreSQL em localhost:5432.](../../assets/diagramas/engenharia-make-setup.png)
+
 A primeira execução pode demorar. Observe a etapa em que um erro ocorreu: falha de instalação de dependência e falha de inicialização de um serviço exigem diagnósticos diferentes.
 
 ## 2. Conferir os serviços

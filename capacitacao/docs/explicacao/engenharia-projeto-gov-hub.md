@@ -8,6 +8,8 @@ Dados de pessoal, orçamento, contratos e transferências estão distribuídos p
 
 O Gov Hub integra e qualifica esses dados para apoiar gestão, acompanhamento de políticas e transparência. A aplicação de dados reúne coletas, transformações, testes e configurações que tornam esse trabalho executável e rastreável.
 
+![Cinco fontes, SIAFI e Tesouro Gerencial para orçamento e execução financeira, SIAPE para pessoal, ComprasGov e PNCP para compras e contratos, TransfereGov para transferências e instrumentos e SIORG para estrutura organizacional, alimentam a aplicação data-application-gov-hub, que reúne coletas, transformações, testes e configurações. A aplicação integra os dados numa tabela analítica documentada e verificável, consumida por painéis, consultas SQL e notebooks. Uma nota de LGPD lembra que nem todo campo disponível pode ser publicado e que a finalidade e as regras de acesso acompanham o dado até o consumo.](../../assets/diagramas/engenharia-projeto-fontes.png)
+
 ## Fontes e perguntas que elas ajudam a responder
 
 | Fonte | Assunto | Exemplo de necessidade analítica |

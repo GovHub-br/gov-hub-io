@@ -225,6 +225,7 @@ async function abrir({ path }, { foco = false } = {}) {
     corrigirLinks(conteudo, path);
     cartaoDeNotebook(conteudo);
     desenharDiagramas(conteudo);
+    recolherCodigoLongo(conteudo);
     const h1 = conteudo.querySelector('h1');
     document.title = (h1 ? h1.textContent : path) + ' · ' + (trilha ? trilha.titulo : 'Trilhas') + ' · Gov Hub';
     if (atual.item) progresso.registrarUltimaAula(slug, path);
@@ -268,6 +269,33 @@ function interceptarLinks(ev) {
 function aoVoltar() {
   const destino = lerUrl();
   if (destino.path !== atual.path) abrir(destino);   // se só o #fragmento mudou, o navegador já rolou
+}
+
+// Blocos de código longos chegam recolhidos: mostram as primeiras linhas, esmaecidas no fim, e um
+// botão para expandir. Só muda a apresentação no leitor; o Markdown e o PDF trazem o bloco inteiro.
+const LINHAS_PARA_RECOLHER = 15;
+const LINHAS_VISIVEIS = 8;
+function recolherCodigoLongo(raiz) {
+  raiz.querySelectorAll('pre').forEach((pre, i) => {
+    const linhas = pre.textContent.replace(/\n$/, '').split('\n').length;
+    if (linhas < LINHAS_PARA_RECOLHER) return;
+    const estilo = getComputedStyle(pre.querySelector('code') || pre);
+    const altura = parseFloat(estilo.lineHeight) || parseFloat(estilo.fontSize) * 1.5;
+    pre.id = pre.id || `codigo-${i + 1}`;
+    pre.style.setProperty('--altura-recolhida', `${Math.round(altura * LINHAS_VISIVEIS + 16)}px`);
+    pre.classList.add('codigo-recolhido');
+    const rotulo = (aberto) => (aberto ? 'Recolher o código' : `Mostrar o código completo (${linhas} linhas)`);
+    const botao = el('button', {
+      type: 'button', class: 'btn-codigo', 'aria-expanded': 'false', 'aria-controls': pre.id,
+      onclick: () => {
+        const aberto = !pre.classList.toggle('codigo-recolhido');
+        botao.setAttribute('aria-expanded', String(aberto));
+        botao.textContent = rotulo(aberto);
+        if (!aberto) pre.scrollIntoView({ block: 'nearest' });
+      },
+    }, rotulo(false));
+    pre.after(botao);
+  });
 }
 
 // O tipo da aula aparece acima do título (ícone + nome); a linha "> Tipo: **X**" do Markdown sobra.

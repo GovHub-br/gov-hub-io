@@ -8,6 +8,8 @@ Ajustar o projeto dbt existente para o PostgreSQL local e executar um modelo. O 
 
 Os arquivos estão em `airflow_lappis/dags/dbt/ipea/`, no repositório `data-application-gov-hub`. Vamos usar o banco local `postgres` como exemplo; se o seu banco tiver outro nome, use esse nome nos três ajustes abaixo.
 
+![Três ajustes e um modelo executado. O profiles.yml aponta para host localhost, banco postgres, schema ipea e destino prod; o dbt_project.yml recebe +database: postgres; e o tables_snapshot.yml recebe database: postgres nos quatro snapshots. Com os três ajustes, o dbt debug confirma que a conexão com o banco local responde. Em seguida, o dbt run -m contratos executa o modelo bronze/contratos.sql: lê a origem compras_gov.contratos, já carregada no banco, e materializa a tabela contratos.contratos, conferida com SQL.](../../assets/diagramas/engenharia-dbt-local.png)
+
 ## 1. Apontar o profiles.yml para o banco local
 
 O `profiles.yml` define a conexão: servidor, credenciais, banco e schema padrão. Para executar o dbt pelo terminal do computador, ajuste o perfil existente:

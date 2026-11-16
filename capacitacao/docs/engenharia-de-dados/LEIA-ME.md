@@ -8,7 +8,7 @@ Profissionais de TI com familiaridade com programação, terminal e Git. A trilh
 |---|---|---|
 | 1 — Base e conceitos | Engenharia de dados, projeto, ETL/ELT, arquitetura macro e glossário | 5 |
 | 2 — Preparação do ambiente local | Requisitos, configuração, inicialização, Airflow, acessos, prática dbt e rotina | 7 |
-| 3 — SQL e modelagem | Consultas, chaves, camadas, granularidade e histórico | 7 |
+| 3 — Modelagem e construção das camadas de dados | Uma base de estudo de contratos, do SQL à entrega: população, especificação, camadas, granularidade, formas de entrega, regras no dbt, histórico e validação | 9 |
 | 4 — Ingestão, orquestração e transformação | Coleta em Python, gravação em bancos, cargas repetíveis, Airflow, reprocessamento, dbt e contribuição | 12 |
 | 5 — Qualidade, governança e entrega | Testes, observabilidade, acesso, metadados, consumo e desafio | 9 |
 

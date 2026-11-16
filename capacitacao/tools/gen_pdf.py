@@ -201,6 +201,8 @@ def aula_para_html(md, doc, base=SITE, deslocar=1):
         if rel.startswith(".."):
             continue
         a["href"] = url_do_site(rel, base) + ("#" + frag if frag else "")
+    for det in corpo.find_all("details"):
+        det["open"] = ""  # no papel não há como expandir: o bloco recolhível sai sempre aberto
     for img in corpo.find_all("img", src=True):
         s = img["src"]
         if not re.match(r"^[a-z]+:", s, flags=re.I):
@@ -319,6 +321,10 @@ strong { color: var(--text-strong); }
 .gh-body blockquote { margin: 0 0 12px; padding: 10px 14px; border-left: 3px solid var(--primary-purple); background: var(--bg-soft); break-inside: avoid; }
 .gh-body blockquote p { margin: 0 0 4px; font-size: 10.5pt; }
 .gh-body blockquote p:last-child { margin: 0; }
+.gh-body details { display: block; margin: 0 0 12px; padding: 10px 14px; border-left: 3px solid var(--primary-purple); background: var(--bg-soft); break-inside: avoid; }
+.gh-body details > * { display: block; }
+.gh-body summary { font-weight: 700; margin-bottom: 6px; }
+.gh-body details p, .gh-body details li { font-size: 10.5pt; }
 .gh-body hr { border: 0; border-top: 1px solid var(--border-soft); margin: 14px 0; }
 .gh-figure { margin: 6px 0 14px; text-align: center; break-inside: avoid; }
 .gh-figure img { max-width: 100%; max-height: 125mm; height: auto; }

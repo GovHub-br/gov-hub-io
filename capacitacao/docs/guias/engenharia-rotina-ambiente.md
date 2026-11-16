@@ -6,6 +6,8 @@
 
 Retomar o ambiente de estudo e comprovar que ele está preparado para as próximas práticas. Os comandos desta aula partem da raiz da aplicação e usam apenas o ambiente local.
 
+![A rotina do ambiente local em quatro etapas: iniciar, com docker compose up -d; acompanhar, com docker compose ps, make dev-check e docker compose logs -f airflow; verificar o código, com make lint e make test; e encerrar, com docker compose down. Do encerramento, a rotina volta ao início no dia seguinte. Duas notas: make dev serve só para cadastrar de novo as Variables ou a conexão padrão; e docker compose down -v remove os volumes e pode apagar o banco local, por isso não deve ser usado numa parada normal.](../../assets/diagramas/engenharia-rotina-local.png)
+
 ## Iniciar e acompanhar
 
 ```bash
@@ -37,7 +39,7 @@ Para retomar, use `docker compose up -d` e repita os controles de disponibilidad
 
 ## Critério de conclusão do nível
 
-Antes de seguir para SQL e modelagem, confirme:
+Antes de seguir para modelagem e construção das camadas, confirme:
 
 - Revisão e requisitos do projeto registrados.
 - `.env` local protegido e configuração compatível com os serviços.
@@ -46,7 +48,7 @@ Antes de seguir para SQL e modelagem, confirme:
 - Banco e destino dbt conhecidos e conexão validada.
 - Diagnóstico e retomada possíveis sem apagar dados por padrão.
 
-Guarde uma anotação curta com revisão, verificações e eventuais limitações. A conclusão do nível não exige disparar uma coleta protegida nem criar um indicador. A próxima etapa usa consultas e dados sintéticos para iniciar SQL e modelagem.
+Guarde uma anotação curta com revisão, verificações e eventuais limitações. A conclusão do nível não exige disparar uma coleta protegida nem criar um indicador. A próxima etapa usa SQL aplicado e casos do projeto para planejar e construir as camadas de dados.
 
 ## Referências
 
@@ -56,4 +58,4 @@ Guarde uma anotação curta com revisão, verificações e eventuais limitaçõe
 ## Veja também
 
 - [Executar o dbt e conferir os dados no banco](engenharia-dbt-configuracao.md)
-- [Consultar e conferir dados com SQL](../tutoriais/engenharia-sql.md)
+- [Prática: SQL para decidir quem entra no resultado](../tutoriais/engenharia-sql.md)

@@ -26,6 +26,8 @@ Uma equipe quer acompanhar a execução de recursos por órgão. Antes do gráfi
 
 Um **pipeline** é o caminho automatizado do dado, da origem até o uso. Na aplicação de dados do Gov Hub, Python coleta, Airflow coordena, PostgreSQL armazena, dbt transforma e Superset apresenta os resultados.
 
+![O pipeline da aplicação de dados do Gov Hub. Das fontes do governo, o Python coleta os registros, o PostgreSQL os guarda em tabelas consultáveis, o dbt os transforma e testa com SQL, e o Superset apresenta os resultados em gráficos e painéis. Acima, o Airflow organiza e acompanha a execução, disparando a coleta e a transformação. Um exemplo: os contratos 10, do órgão A, com 100, e 20, do órgão B, com 200, viram duas barras; se o contrato 10 for corrigido para 150, a correção precisa chegar ao painel, e o total passa de 300 para 350.](../../assets/diagramas/engenharia-papel-pipeline.png)
+
 Análise de dados interpreta os resultados; ciência de dados desenvolve modelos, como previsões. A engenharia prepara e mantém a base que essas atividades usam.
 
 ## Comece pela decisão

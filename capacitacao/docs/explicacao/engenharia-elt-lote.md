@@ -34,6 +34,8 @@ A fonte entrega `valor` como texto, escrito `100,00`. Queremos um número que po
 | ETL | Buscar o texto, convertê-lo em número e só então carregar o resultado no destino |
 | ELT | Buscar e guardar o recebido; depois executar a conversão no banco |
 
+![O mesmo valor, o texto 100,00, em duas organizações. No ETL, a extração busca o texto, a transformação o converte em número fora do destino e a carga entrega ao destino só o número 100. No ELT, o fluxo do Gov Hub, o cliente Python extrai o texto, o PostgreSQL o guarda como recebido e o dbt o converte em 100 dentro do banco, mantendo a entrada disponível. Uma nota sobre o processamento em lote: um contrato registrado às 10h aparece depois do próximo lote, e recarregar o painel às 10h01 não cria uma coleta; o Airflow coordena quando cada parte roda.](../../assets/diagramas/engenharia-etl-elt.png)
+
 Na aplicação, a saída tratada pode ser 100, mas a entrada recebida permanece disponível para conferência conforme a organização da coleta.
 
 Agora imagine duas atualizações: em lote, os registros de um período são processados em uma execução definida; em streaming, cada evento pode ser tratado à medida que chega. Um contrato registrado às 10h pode aparecer apenas depois do próximo lote. Recarregar o gráfico às 10h01 não cria uma nova coleta por conta própria.

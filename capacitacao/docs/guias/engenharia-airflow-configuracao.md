@@ -8,6 +8,8 @@ Conferir a conexão PostgreSQL usada pelas DAGs e os parâmetros de órgão e ag
 
 Abra `http://localhost:8080` e entre com o usuário e a senha definidos em `_AIRFLOW_WWW_USER_USERNAME` e `_AIRFLOW_WWW_USER_PASSWORD` no `.env`. O padrão local é `airflow` / `airflow`.
 
+![O que as DAGs encontram no Airflow, em localhost:8080. Três Variables: airflow_orgao, com o órgão selecionado, ipea; airflow_variables, com as UGs por órgão, 113601 e 113602 para o ipea; e dynamic_schedules, com a agenda por DAG, como 0 13 * * 1-6. Uma Connection, postgres_default, com host postgres, porta 5432 e banco postgres, que consulta o PostgreSQL, o serviço postgres do Compose. A DAG de coleta lê as Variables e usa postgres_conn_id igual a postgres_default. Uma nota lembra que, na Connection, o banco aparece como schema, que não é o schema analítico, como ipea.](../../assets/diagramas/engenharia-airflow-conexoes.png)
+
 ## 1. Configurar o banco usado pelas DAGs
 
 Entre em **Admin → Connections**.

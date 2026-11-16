@@ -55,9 +55,36 @@ body.sem-nivel .layout{grid-template-columns:minmax(0,1fr);max-width:920px}   /*
     padding:.12em .4em;border-radius:var(--radius-sm);font-size:.86em}
 .conteudo pre{background:var(--dark-navy);color:#fff;border-radius:var(--radius-md);padding:16px 18px;overflow:auto}
 .conteudo pre code{background:none;color:inherit;padding:0;font-size:.85em}
+/* Código longo recolhido pelo leitor (recolherCodigoLongo): primeiras linhas visíveis, fim esmaecido. */
+.conteudo pre.codigo-recolhido{max-height:var(--altura-recolhida);overflow:hidden;
+    -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 3.5em),transparent);
+    mask-image:linear-gradient(to bottom,#000 calc(100% - 3.5em),transparent)}
+.conteudo .btn-codigo{display:inline-flex;align-items:center;min-height:44px;margin:-.2em 0 1.2em;padding:0 1.1em;
+    border:1.5px solid var(--primary-purple);border-radius:999px;background:#fff;color:var(--purple-700);
+    font:inherit;font-size:.9rem;font-weight:700;cursor:pointer}
+.conteudo .btn-codigo:hover{background:var(--bg-soft)}
+.conteudo .btn-codigo:focus-visible{outline:2px solid var(--primary-purple);outline-offset:2px}
+@media print{
+  .conteudo pre.codigo-recolhido{max-height:none;-webkit-mask-image:none;mask-image:none}
+  .conteudo .btn-codigo{display:none}
+}
 .conteudo blockquote{margin:1.2em 0;padding:.5em 1.1em;border-left:4px solid var(--primary-purple);background:var(--bg-soft);
     border-radius:0 var(--radius-md) var(--radius-md) 0;color:var(--dark-navy)}
 .conteudo blockquote p{margin:.4em 0}
+/* Bloco recolhível de contexto ("saiba mais"): fechado por padrão, mesmo tom do blockquote. */
+.conteudo details{margin:1.2em 0;border-left:4px solid var(--primary-purple);background:var(--bg-soft);
+    border-radius:0 var(--radius-md) var(--radius-md) 0;color:var(--dark-navy)}
+.conteudo summary{display:flex;align-items:center;gap:.6em;min-height:44px;padding:.5em 1.1em;cursor:pointer;
+    font-weight:700;list-style:none;border-radius:0 var(--radius-md) var(--radius-md) 0}
+.conteudo summary::-webkit-details-marker{display:none}
+.conteudo summary::before{content:"+";flex:none;width:1.4em;height:1.4em;line-height:1.4em;text-align:center;border-radius:50%;
+    background:var(--primary-purple);color:#fff;font-weight:800}
+.conteudo details[open] > summary::before{content:"\2212"}
+.conteudo summary:hover{color:var(--purple-700)}
+.conteudo summary:focus-visible{outline:2px solid var(--primary-purple);outline-offset:2px}
+.conteudo details > :not(summary){margin:.2em 1.1em .9em}
+.conteudo details ol{padding-left:2.6em}
+.conteudo details code{background:#fff}
 .conteudo table{display:block;overflow-x:auto;border-collapse:collapse;width:100%;margin:1.2em 0;font-size:.92rem}
 .conteudo th,.conteudo td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--border-soft)}
 .conteudo thead th{background:var(--dark-navy);color:#fff;font-weight:700}

@@ -4,7 +4,7 @@ titulo: Engenharia de Dados no Gov Hub
 descricao: Dos conceitos e da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.
 categoria: tecnica
 chamada: Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente e aprenda a coletar, organizar, testar e entregar dados na aplicação.
-etapas: Base=Conceitos e projeto | Ambiente=Preparação local | Dado=SQL e modelagem | Pipeline=Ingestão, orquestração e transformação | Entrega=Confiança e consumo
+etapas: Base=Conceitos e projeto | Ambiente=Preparação local | Dado=Modelagem e camadas | Pipeline=Ingestão, orquestração e transformação | Entrega=Confiança e consumo
 etapas_subtitulo: Cinco etapas: do contexto do projeto ao indicador conferido
 etapas_nota: **Preparação antes da prática.** Conclua o nível de ambiente local antes de executar consultas e coletas. Use data-application-gov-hub; este site apresenta o material de estudo.
 ---
@@ -36,17 +36,19 @@ Prepare e valide o ambiente da aplicação: requisitos, configuração, serviço
 - [how-to] **Executar o dbt e conferir os dados no banco** — core — `docs/guias/engenharia-dbt-configuracao.md`
 - [how-to] **Rotina local e verificação final** — core — `docs/guias/engenharia-rotina-ambiente.md`
 
-## Nível 3 · SQL e modelagem
+## Nível 3 · Modelagem e construção das camadas de dados
 Etapa: Dado · Ícone: database
-Consulte e organize os dados: tipos, chaves, granularidade e responsabilidades de raw, bronze, silver e gold.
+Construa, com uma base de estudo que imita os contratos do Gov Hub, uma tabela que responde quanto foi contratado e pago: população, especificação, camadas, granularidade, formas de entrega, regras reutilizáveis, histórico e validação.
 
-- [tutorial] **Consultar e conferir dados com SQL** — core — `docs/tutoriais/engenharia-sql.md`
-- [explanation] **JOINs e funções de janela sem duplicar totais** — core — `docs/explicacao/engenharia-joins.md`
-- [reference] **Tipos, chaves e gravação consistente** — core — `docs/referencia/engenharia-tipos-chaves.md`
-- [how-to] **Investigar consultas lentas no PostgreSQL** — support — `docs/guias/engenharia-desempenho.md`
-- [explanation] **Raw, bronze, silver e gold** — core — `docs/explicacao/engenharia-camadas.md`
-- [explanation] **Granularidade, fatos e dimensões** — core — `docs/explicacao/engenharia-granularidade.md`
-- [explanation] **Quando sobrescrever e quando guardar histórico** — support — `docs/explicacao/engenharia-historico.md`
+- [tutorial] **Prática: SQL para decidir quem entra no resultado** — core — `docs/tutoriais/engenharia-sql.md`
+- [tutorial] **Prática: SQL para contar e somar sem enganos** — core — `docs/tutoriais/engenharia-sql-medidas.md`
+- [explanation] **Planejar a entrega antes dos modelos** — core — `docs/explicacao/engenharia-planejamento-modelos.md`
+- [explanation] **Definir as responsabilidades de cada camada** — core — `docs/explicacao/engenharia-camadas.md`
+- [explanation] **Granularidade: o que cada linha representa e o que pode ser somado** — core — `docs/explicacao/engenharia-granularidade.md`
+- [explanation] **Tabela larga, estrela ou snowflake: escolher a forma da entrega** — core — `docs/explicacao/engenharia-arquiteturas-dados.md`
+- [explanation] **Onde mora cada regra: modelos, macros e reutilização no dbt** — core — `docs/explicacao/engenharia-modelos-reutilizaveis.md`
+- [explanation] **Posição atual e histórico: reconstrução, incremental e snapshot** — core — `docs/explicacao/engenharia-historico.md`
+- [how-to] **Validar e entregar uma camada confiável** — core — `docs/guias/engenharia-entrega-camada.md`
 
 ## Nível 4 · Ingestão, orquestração e transformação
 Etapa: Pipeline · Ícone: deploy

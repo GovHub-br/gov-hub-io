@@ -6,6 +6,8 @@
 
 O ambiente de desenvolvimento reúne Airflow, PostgreSQL e Superset no Docker Compose. A instalação também prepara as dependências Python e as verificações do projeto na máquina de desenvolvimento.
 
+![O que roda onde no ambiente local. Na máquina de desenvolvimento ficam o Git, com acesso ao repositório da aplicação; o Make, com os alvos do Makefile do checkout; o Python 3.11, para o ambiente de desenvolvimento; o pipx e o Poetry 1.8.5, para dependências e verificações; e o Docker 24 ou superior com o Compose v2, cujo daemon precisa estar em execução, o que se confere com docker info. O Docker inicia, pelo Docker Compose, os serviços Airflow, PostgreSQL e Superset, que rodam em contêineres.](../../assets/diagramas/engenharia-requisitos-ambiente.png)
+
 | Ferramenta | Versão ou condição a conferir |
 |---|---|
 | Git | Disponível e com acesso ao repositório da aplicação |

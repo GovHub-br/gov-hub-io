@@ -110,65 +110,83 @@
       "correta": 0
     },
     "tutoriais/engenharia-sql": {
-      "pergunta": "Qual expressão conta todas as linhas, inclusive quando há valores nulos em uma coluna?",
+      "pergunta": "Um modelo junta contratos e unidades com inner join, e um contrato ativo de uma unidade sem cadastro some do painel. O que está acontecendo?",
       "opcoes": [
-        "count(coluna)",
-        "sum(coluna)",
-        "count(*)"
-      ],
-      "correta": 2
-    },
-    "explicacao/engenharia-joins": {
-      "pergunta": "Um JOIN duplicou o total de empenhos. Qual é a primeira investigação?",
-      "opcoes": [
-        "Aplicar distinct em todas as colunas",
-        "Trocar todos os valores por zero",
-        "Verificar a quantidade de correspondências por chave"
-      ],
-      "correta": 2
-    },
-    "referencia/engenharia-tipos-chaves": {
-      "pergunta": "O que o alvo de ON CONFLICT exige para identificar uma linha já existente?",
-      "opcoes": [
-        "Uma restrição ou índice único compatível",
-        "Uma coluna com qualquer nome",
-        "Um dashboard publicado"
+        "O inner join está decidindo a população: só entra quem tem par nos dois lados. Se a falta do cadastro não deve tirar o contrato, use left join e escreva a regra no where",
+        "O contrato está com o valor em texto e o inner join descarta valores que não são numéricos",
+        "O inner join é mais lento e o banco interrompe a consulta antes de chegar ao contrato"
       ],
       "correta": 0
     },
-    "guias/engenharia-desempenho": {
-      "pergunta": "O que EXPLAIN ANALYZE faz?",
+    "tutoriais/engenharia-sql-medidas": {
+      "pergunta": "Uma consulta lista contratos ativos com left join em empenhos e where e.emissao >= '2026-01-01'. Um contrato ativo sem empenho desaparece do resultado. Por quê?",
       "opcoes": [
-        "Executa a consulta e mostra medidas do plano real",
-        "Cria todos os índices necessários",
-        "Só formata o SQL"
+        "Porque o left join só preserva registros que têm correspondência dos dois lados",
+        "Porque a comparação com o nulo de e.emissao não é verdadeira, e o where descarta a linha; a condição deveria ir para o on",
+        "Porque count(*) ignora as linhas com nulo"
+      ],
+      "correta": 1
+    },
+    "explicacao/engenharia-planejamento-modelos": {
+      "pergunta": "Com os mesmos empenhos, três consultas corretas dão totais pagos diferentes. O que resolve a divergência?",
+      "opcoes": [
+        "Uma especificação, decidida com a área, que define a população, a granularidade e o que fazer com as ausências",
+        "Escolher a consulta com o maior total, porque ela não perde registros",
+        "Coletar de novo os dados da fonte, para garantir que a entrada está completa"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-arquiteturas-dados": {
+      "pergunta": "A gold tem uma linha por contrato com o valor pago já somado. A área passa a pedir o valor pago por mês. O que essa forma de entrega não permite, e qual permite?",
+      "opcoes": [
+        "Ela não guarda a data de cada pagamento; um fato na granularidade do pagamento responde por mês e por outros recortes",
+        "Ela não usa a arquitetura medalhão; basta mover a tabela para a silver",
+        "Ela não tem dimensões; basta acrescentar uma coluna de mês com a data da carga"
       ],
       "correta": 0
     },
     "explicacao/engenharia-camadas": {
-      "pergunta": "Onde deve ficar uma regra que integra fontes e aplica critérios de negócio?",
+      "pergunta": "A conversão de valor em reais aparece escrita em várias consultas da gold. Onde ela deveria morar?",
       "opcoes": [
-        "No nome da coluna",
-        "Na bronze, junto da conversão de tipos",
-        "Na silver, conforme a responsabilidade do modelo"
+        "Na raw, para que o dado já chegue convertido da ingestão",
+        "Na própria gold, perto de quem usa o valor",
+        "Na bronze da fonte, uma vez, para que todas as camadas seguintes recebam um número"
       ],
       "correta": 2
     },
     "explicacao/engenharia-granularidade": {
-      "pergunta": "O que precisa estar definido antes da chave e das agregações?",
+      "pergunta": "Juntar contratos e empenhos e somar valor_global dá 365.500,50, mas os contratos somam 245.500,50. Qual é a correção?",
       "opcoes": [
-        "A granularidade: o que uma linha representa",
-        "A cor do painel",
-        "O nome do autor do SQL"
+        "Usar sum(distinct valor_global)",
+        "Somar os empenhos por contrato antes de juntar, e somar valor_global na granularidade do contrato",
+        "Trocar o left join por inner join"
       ],
-      "correta": 0
+      "correta": 1
+    },
+    "explicacao/engenharia-modelos-reutilizaveis": {
+      "pergunta": "Trocar a expressão manual de conversão de contratos.sql pela macro parse_financial_value muda o resultado em quê?",
+      "opcoes": [
+        "Em nada; a macro só deixa o código mais curto",
+        "Só no desempenho, porque a macro roda dentro do dbt",
+        "Valores vazios e nulos passam a virar 0,00 e parênteses passam a ser negativos; é uma mudança de regra, não só de código"
+      ],
+      "correta": 2
     },
     "explicacao/engenharia-historico": {
-      "pergunta": "Qual estratégia mantém versões para consulta histórica?",
+      "pergunta": "A chave de uma tabela incremental inclui o valor pago. A fonte corrige o valor de um empenho já carregado. O que acontece no merge?",
       "opcoes": [
-        "SCD tipo 2",
-        "Remover as versões anteriores",
-        "SCD tipo 1"
+        "A linha antiga é atualizada com o valor novo",
+        "A chave com o valor novo não existe, então o merge insere outra linha e a antiga continua somando",
+        "O merge apaga a linha antiga, porque ela deixou de vir da fonte"
+      ],
+      "correta": 1
+    },
+    "guias/engenharia-entrega-camada": {
+      "pergunta": "A gold soma 110.500,50 pagos e a bronze de empenhos soma 117.750,50. Quando essa diferença é aceitável?",
+      "opcoes": [
+        "Quando cada parcela tem explicação prevista na especificação, como os 7.250,00 de um empenho sem contrato",
+        "Nunca: a gold e a entrada precisam ter o mesmo total",
+        "Sempre que todos os testes do dbt passam"
       ],
       "correta": 0
     },

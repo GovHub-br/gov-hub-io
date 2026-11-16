@@ -25,15 +25,17 @@ Dos conceitos e da preparação do ambiente à entrega de um indicador confiáve
 - [Executar o dbt e conferir os dados no banco](../guias/engenharia-dbt-configuracao.md) — *Guia* · **Essencial**
 - [Rotina local e verificação final](../guias/engenharia-rotina-ambiente.md) — *Guia* · **Essencial**
 
-### Nível 3 · SQL e modelagem
-*Consulte e organize os dados: tipos, chaves, granularidade e responsabilidades de raw, bronze, silver e gold.*
-- [Consultar e conferir dados com SQL](../tutoriais/engenharia-sql.md) — *Tutorial* · **Essencial**
-- [JOINs e funções de janela sem duplicar totais](../explicacao/engenharia-joins.md) — *Explicação* · **Essencial**
-- [Tipos, chaves e gravação consistente](../referencia/engenharia-tipos-chaves.md) — *Referência* · **Essencial**
-- [Investigar consultas lentas no PostgreSQL](../guias/engenharia-desempenho.md) — *Guia* · Apoio
-- [Raw, bronze, silver e gold](../explicacao/engenharia-camadas.md) — *Explicação* · **Essencial**
-- [Granularidade, fatos e dimensões](../explicacao/engenharia-granularidade.md) — *Explicação* · **Essencial**
-- [Quando sobrescrever e quando guardar histórico](../explicacao/engenharia-historico.md) — *Explicação* · Apoio
+### Nível 3 · Modelagem e construção das camadas de dados
+*Construa, com uma base de estudo que imita os contratos do Gov Hub, uma tabela que responde quanto foi contratado e pago: população, especificação, camadas, granularidade, formas de entrega, regras reutilizáveis, histórico e validação.*
+- [Prática: SQL para decidir quem entra no resultado](../tutoriais/engenharia-sql.md) — *Tutorial* · **Essencial**
+- [Prática: SQL para contar e somar sem enganos](../tutoriais/engenharia-sql-medidas.md) — *Tutorial* · **Essencial**
+- [Planejar a entrega antes dos modelos](../explicacao/engenharia-planejamento-modelos.md) — *Explicação* · **Essencial**
+- [Definir as responsabilidades de cada camada](../explicacao/engenharia-camadas.md) — *Explicação* · **Essencial**
+- [Granularidade: o que cada linha representa e o que pode ser somado](../explicacao/engenharia-granularidade.md) — *Explicação* · **Essencial**
+- [Tabela larga, estrela ou snowflake: escolher a forma da entrega](../explicacao/engenharia-arquiteturas-dados.md) — *Explicação* · **Essencial**
+- [Onde mora cada regra: modelos, macros e reutilização no dbt](../explicacao/engenharia-modelos-reutilizaveis.md) — *Explicação* · **Essencial**
+- [Posição atual e histórico: reconstrução, incremental e snapshot](../explicacao/engenharia-historico.md) — *Explicação* · **Essencial**
+- [Validar e entregar uma camada confiável](../guias/engenharia-entrega-camada.md) — *Guia* · **Essencial**
 
 ### Nível 4 · Ingestão, orquestração e transformação
 *Entenda os três trabalhos de um pipeline e faça cada um com dados reais do PNCP: coleta em Python, gravação no banco sem duplicar, DAG no Airflow, reprocessamento e modelos dbt até a gold.*
