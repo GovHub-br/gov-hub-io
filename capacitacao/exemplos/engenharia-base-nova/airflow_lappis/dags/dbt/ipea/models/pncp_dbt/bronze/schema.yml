@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: pncp_contratos
+    description: >
+      Contratos, empenhos e outros instrumentos publicados no PNCP, como chegaram da
+      API (tabela pncp.contratos), com nomes e tipos corrigidos. Uma linha por
+      instrumento, identificado por numero_controle_pncp. Não aplica filtros nem regras:
+      só renomeia colunas e converte tipos.
+    meta:
+      tags:
+        - bronze
+    tests:
+      - row_count_match:
+          source_table: pncp.contratos
+          target_table: pncp_dw.pncp_contratos
+      - verificacao_tipagem:
+          nome_tabela: 'pncp_dw.pncp_contratos'
+          nome_coluna: 'valor_global'
+          tipo_esperado: 'numeric'
+      - verificacao_tipagem:
+          nome_tabela: 'pncp_dw.pncp_contratos'
+          nome_coluna: 'data_assinatura'
+          tipo_esperado: 'date'
+    columns:
+      - name: numero_controle_pncp
+        description: Identificador do instrumento no PNCP (CNPJ-tipo-sequencial/ano).
+        tests:
+          - not_null
+          - unique
+      - name: tipo_contrato
+        description: >
+          Tipo do instrumento segundo o PNCP, por exemplo "Contrato (termo inicial)"
+          ou "Empenho".
+        tests:
+          - not_null
+      - name: tipo_pessoa
+        description: >
+          Tipo do fornecedor: PJ (pessoa jurídica), PF (pessoa física) ou PE (pessoa
+          estrangeira).
+        tests:
+          - accepted_values:
+              values: ['PJ', 'PF', 'PE']
+      - name: valor_global
+        description: Valor global do instrumento, em reais.
+        tests:
+          - not_null
+      - name: data_assinatura
+        description: Data de assinatura do instrumento.
+        tests:
+          - not_null
+      - name: dt_ingest
+        description: >
+          Data e hora (UTC-3 Brasília) em que o registro foi gravado na camada raw.
