@@ -1,0 +1,165 @@
+{
+  "_sobre": "Quiz de revisão da trilha seguranca-dags: uma pergunta por aula (chave = id da aula). correta = índice em opcoes. Editado à mão. Glossário e desafio ficam sem pergunta.",
+  "perguntas": {
+    "explicacao/seguranca-no-ciclo-da-dag": {
+      "pergunta": "Por que o ciclo seguro de desenvolvimento não deve ser um ciclo separado?",
+      "opcoes": [
+        "Porque a segurança vira uma etapa à parte que equipes ocupadas empurram para depois",
+        "Porque ferramentas de segurança só funcionam durante o desenvolvimento",
+        "Porque o time de segurança não tem tempo de revisar o código",
+        "Porque o código de DAG não precisa de revisão no fim"
+      ],
+      "correta": 0
+    },
+    "explicacao/superficie-de-ataque-de-uma-dag": {
+      "pergunta": "Quais riscos de uma DAG nenhuma das duas ferramentas detecta no scan do diretório atual?",
+      "opcoes": [
+        "Dado pessoal em log, XCom ou arquivo, e segredo no histórico do Git",
+        "Senha em variável e MD5",
+        "Dockerfile sem USER e dependência com CVE",
+        "yaml.load e pickle.load"
+      ],
+      "correta": 0
+    },
+    "explicacao/o-que-cada-ferramenta-enxerga": {
+      "pergunta": "Qual a diferença entre SAST e SCA, e qual ferramenta faz cada um nesta trilha?",
+      "opcoes": [
+        "SAST analisa o código que você escreveu (Bandit); SCA analisa o código que você importou (Trivy)",
+        "SAST analisa as dependências (Trivy); SCA analisa o seu código (Bandit)",
+        "Os dois analisam a aplicação em execução",
+        "SAST só vale para Dockerfile e SCA só para Python"
+      ],
+      "correta": 0
+    },
+    "explicacao/dado-pessoal-nos-valores": {
+      "pergunta": "Por que mascarar dado pessoal pelo nome da coluna falha em bases legadas?",
+      "opcoes": [
+        "O nome não diz o conteúdo: uma coluna genérica pode guardar CPF",
+        "Porque nomes de coluna são sempre criptografados",
+        "Porque o Bandit renomeia as colunas",
+        "Porque a LGPD proíbe nomes de coluna descritivos"
+      ],
+      "correta": 0
+    },
+    "tutoriais/laboratorio-do-scan-a-correcao": {
+      "pergunta": "No laboratório, o print de linhas com CPF e o return de linhas inteiras no XCom não geraram achado. O que isso mostra?",
+      "opcoes": [
+        "O limite do SAST: relatório vazio não garante que não há dado pessoal exposto",
+        "Que esses padrões são seguros",
+        "Que o Trivy precisa de mais escopos",
+        "Que o Bandit está desatualizado"
+      ],
+      "correta": 0
+    },
+    "guias/rodar-bandit-e-trivy-e-ler-o-relatorio": {
+      "pergunta": "O que significa Fixed Version vazia no relatório do Trivy?",
+      "opcoes": [
+        "Ainda não há correção publicada; é preciso mitigar e acompanhar",
+        "A vulnerabilidade foi corrigida automaticamente",
+        "A biblioteca não é usada pela DAG",
+        "O achado é falso positivo"
+      ],
+      "correta": 0
+    },
+    "guias/decidir-o-que-fazer-com-um-achado": {
+      "pergunta": "Quando é aceitável usar # nosec?",
+      "opcoes": [
+        "Quando é falso positivo ou risco assumido, com o ID do teste, o motivo, um responsável e revisão no PR",
+        "Sempre que o PR estiver atrasado",
+        "Quando a severidade é média ou baixa",
+        "Nunca, o Bandit não permite supressão"
+      ],
+      "correta": 0
+    },
+    "guias/tratar-credenciais-em-dags": {
+      "pergunta": "Como a DAG deve referenciar a senha do banco de dados?",
+      "opcoes": [
+        "Só pelo identificador da Connection, como postgres_conn_id",
+        "Em uma variável no topo do arquivo da DAG",
+        "Em um .env versionado no repositório",
+        "Na URI de conexão impressa no log"
+      ],
+      "correta": 0
+    },
+    "guias/corrigir-uma-dependencia-vulneravel": {
+      "pergunta": "Se o CVE está numa dependência do próprio Airflow, qual é o caminho?",
+      "opcoes": [
+        "Atualizar o Airflow ou o provider, junto com a equipe da plataforma",
+        "Atualizar só a biblioteca isolada, ignorando o arquivo de constraints",
+        "Suprimir o CVE no .trivyignore sem justificativa",
+        "Remover a DAG do repositório"
+      ],
+      "correta": 0
+    },
+    "guias/manter-dado-pessoal-fora-de-logs-xcom-e-repositorio": {
+      "pergunta": "O que uma task deve passar adiante pelo XCom?",
+      "opcoes": [
+        "Referências, como o nome da tabela de staging ou o caminho de um arquivo protegido",
+        "As linhas inteiras do DataFrame",
+        "Os CPFs pseudonimizados em uma lista",
+        "A senha da conexão"
+      ],
+      "correta": 0
+    },
+    "guias/encaixar-os-scans-no-fluxo": {
+      "pergunta": "Se o gate de segurança do PR falhar, o que fazer?",
+      "opcoes": [
+        "Reproduzir localmente, corrigir ou registrar a decisão; nunca desativar o job",
+        "Desativar o job para o PR passar",
+        "Publicar o relatório completo como artefato público",
+        "Ignorar, pois o gate é só informativo"
+      ],
+      "correta": 0
+    },
+    "guias/responder-a-um-segredo-ou-dado-pessoal-commitado": {
+      "pergunta": "Qual é a primeira ação diante de uma credencial commitada?",
+      "opcoes": [
+        "Revogar ou rotacionar a credencial, mesmo que o repositório seja privado",
+        "Apagar o arquivo e commitar de novo",
+        "Aguardar a reescrita do histórico antes de avisar alguém",
+        "Colar a credencial no chat da equipe para investigar"
+      ],
+      "correta": 0
+    },
+    "referencia/comandos-do-bandit-e-do-trivy": {
+      "pergunta": "Qual opção faz o Trivy falhar o job quando há achado?",
+      "opcoes": [
+        "--exit-code 1",
+        "--severity HIGH",
+        "--ignore-unfixed",
+        "--format table"
+      ],
+      "correta": 0
+    },
+    "referencia/regras-do-bandit-mais-comuns-em-dags": {
+      "pergunta": "Qual é a correção típica para o B506 (yaml_load)?",
+      "opcoes": [
+        "Usar yaml.safe_load",
+        "Usar yaml.load com Loader=yaml.Loader",
+        "Trocar por pickle.load",
+        "Adicionar # nosec sem ID"
+      ],
+      "correta": 0
+    },
+    "referencia/checklist-pre-pr": {
+      "pergunta": "Qual das opções deve estar marcada no checklist pré-PR?",
+      "opcoes": [
+        "Logs só com contagens e formatos",
+        "Amostras com dados reais para facilitar a revisão",
+        "Notebooks com as saídas das células salvas",
+        "Relatórios do scan anexados ao PR público"
+      ],
+      "correta": 0
+    },
+    "explicacao/recomendacoes-e-proximos-passos": {
+      "pergunta": "Qual ferramenta é recomendada, e ainda não implementada, para varrer segredos no histórico do Git?",
+      "opcoes": [
+        "Gitleaks",
+        "Bandit",
+        "OWASP ZAP",
+        "pipdeptree"
+      ],
+      "correta": 0
+    }
+  }
+}
