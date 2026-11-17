@@ -24,7 +24,7 @@
     }
   ],
   "etapas_subtitulo": "Quatro etapas em sequência: do \"por quê\" à prática",
-  "etapas_nota": "**Mão na massa** chega em breve: vídeos mostrando como aplicar tudo isso no Superset e no Power BI.",
+  "etapas_nota": "**Mão na massa** traz vídeos curtos construindo um dashboard no Superset, do zero, a partir de um painel real.",
   "quiz": "quiz/dashboards.json",
   "niveis": [
     {
@@ -326,12 +326,102 @@
     },
     {
       "numero": 4,
-      "titulo": "Mão na massa no Superset e no Power BI",
-      "descricao": "Vídeos mostrando, passo a passo, como aplicar os fundamentos, o design e a escolha do gráfico na construção de um dashboard no Apache Superset e no Power BI.",
+      "titulo": "Mão na massa no Superset",
+      "descricao": "Vídeos curtos, em sequência, construindo um dashboard no Apache Superset: da pergunta que o painel responde ao acabamento, a partir de um relatório real do SGAC.",
       "etapa": "Prática",
       "icone": "assets/icones/play-circle-sober.svg",
-      "status": "em-breve",
-      "itens": []
+      "itens": [
+        {
+          "id": "tutoriais/superset-na-pratica/conhecendo-o-superset",
+          "titulo": "Conhecendo o Superset",
+          "doc": "docs/tutoriais/superset-na-pratica/conhecendo-o-superset.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/superset-na-pratica/comece-pela-pergunta",
+          "titulo": "Comece pela pergunta",
+          "doc": "docs/tutoriais/superset-na-pratica/comece-pela-pergunta.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/superset-na-pratica/criando-um-grafico-de-tabela",
+          "titulo": "Criando um gráfico de tabela",
+          "doc": "docs/tutoriais/superset-na-pratica/criando-um-grafico-de-tabela.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/superset-na-pratica/organizando-e-renomeando-colunas",
+          "titulo": "Organizando e renomeando colunas",
+          "doc": "docs/tutoriais/superset-na-pratica/organizando-e-renomeando-colunas.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/superset-na-pratica/montando-o-dashboard",
+          "titulo": "Montando o dashboard",
+          "doc": "docs/tutoriais/superset-na-pratica/montando-o-dashboard.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/superset-na-pratica/filtros-laterais",
+          "titulo": "Filtros laterais",
+          "doc": "docs/tutoriais/superset-na-pratica/filtros-laterais.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/superset-na-pratica/graficos-que-conversam-filtro-cruzado",
+          "titulo": "Gráficos que conversam: filtro cruzado",
+          "doc": "docs/tutoriais/superset-na-pratica/graficos-que-conversam-filtro-cruzado.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/superset-na-pratica/semaforo-de-vencimento",
+          "titulo": "Semáforo de vencimento",
+          "doc": "docs/tutoriais/superset-na-pratica/semaforo-de-vencimento.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/superset-na-pratica/enxugando-a-tabela-e-acabamento",
+          "titulo": "Enxugando a tabela e dando acabamento",
+          "doc": "docs/tutoriais/superset-na-pratica/enxugando-a-tabela-e-acabamento.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        }
+      ]
     }
   ]
 }

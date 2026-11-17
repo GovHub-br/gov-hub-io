@@ -105,6 +105,8 @@ body.sem-nivel .layout{grid-template-columns:minmax(0,1fr);max-width:920px}   /*
 .conteudo details > :not(summary){margin:.2em 1.1em .9em}
 .conteudo details ol{padding-left:2.6em}
 .conteudo details code{background:#fff}
+.conteudo .video{position:relative;aspect-ratio:16/9;margin:1.2em 0 .5em;border-radius:var(--radius-md);overflow:hidden;background:var(--dark-navy)}
+.conteudo .video iframe{display:block;width:100%;height:100%;border:0}
 .conteudo table{display:block;overflow-x:auto;border-collapse:collapse;width:100%;margin:1.2em 0;font-size:.92rem}
 .conteudo th,.conteudo td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--border-soft)}
 .conteudo thead th{background:var(--dark-navy);color:#fff;font-weight:700}

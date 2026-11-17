@@ -6,7 +6,7 @@
       "titulo": "Dashboards no Gov Hub",
       "descricao": "Do \"por que um dashboard\" à escolha do gráfico certo, com Apache Superset e Power BI.",
       "categoria": "negocial",
-      "niveis": 3,
+      "niveis": 4,
       "aulas": [
         "explicacao/por-que-fazer-um-dashboard",
         "explicacao/o-que-faz-um-dashboard-ruim",
@@ -34,7 +34,16 @@
         "referencia/graficos-geoespaciais",
         "referencia/graficos-avancados-power-bi",
         "referencia/azure-maps",
-        "pesquisa/mapas-superset-vs-power-bi"
+        "pesquisa/mapas-superset-vs-power-bi",
+        "tutoriais/superset-na-pratica/conhecendo-o-superset",
+        "tutoriais/superset-na-pratica/comece-pela-pergunta",
+        "tutoriais/superset-na-pratica/criando-um-grafico-de-tabela",
+        "tutoriais/superset-na-pratica/organizando-e-renomeando-colunas",
+        "tutoriais/superset-na-pratica/montando-o-dashboard",
+        "tutoriais/superset-na-pratica/filtros-laterais",
+        "tutoriais/superset-na-pratica/graficos-que-conversam-filtro-cruzado",
+        "tutoriais/superset-na-pratica/semaforo-de-vencimento",
+        "tutoriais/superset-na-pratica/enxugando-a-tabela-e-acabamento"
       ]
     },
     {
