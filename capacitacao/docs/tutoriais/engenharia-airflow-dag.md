@@ -154,6 +154,8 @@ Enviados: 61 | No banco: 61
 
 O estado verde diz que o código terminou sem exceção. Ele não diz que o dado está certo. Confira:
 
+<!-- explica: Roda uma consulta no banco, pelo `psql` do container do PostgreSQL, que conta as linhas da tabela `formacao.pncp_contratacoes` e quantos valores diferentes a chave `numerocontrolepncp` tem. Números iguais querem dizer que nenhuma contratação foi gravada duas vezes. -->
+
 ```bash
 docker compose exec postgres psql -U postgres -c "select count(*), count(distinct numerocontrolepncp) from formacao.pncp_contratacoes"
 ```

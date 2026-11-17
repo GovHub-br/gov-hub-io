@@ -52,4 +52,4 @@ Mapa das fontes que a aplicação `data-application-gov-hub` coleta hoje, com o 
 ## Veja também
 
 - [Ingestão: trazer o dado da fonte para o banco](../explicacao/engenharia-ingestao.md)
-- [Guia: adicionar uma fonte nova ao repositório](../guias/engenharia-fonte-nova.md)
+- [Checklist: adicionar uma base nova](engenharia-checklist-base-nova.md)

@@ -19,6 +19,8 @@ O ambiente de desenvolvimento reúne Airflow, PostgreSQL e Superset no Docker Co
 
 Confira as ferramentas antes de iniciar:
 
+<!-- explica: Mostra a versão de cada ferramenta que a aplicação usa: Git, Docker, Docker Compose, Make, Python 3.11, pipx e Poetry. Se um deles responder `command not found`, a ferramenta falta. `docker info` vai além da versão: confirma que o Docker está rodando, e não só instalado. -->
+
 ```bash
 git --version
 docker --version
@@ -34,6 +36,8 @@ poetry --version
 
 Se pipx já estiver disponível e Poetry ainda não estiver instalado:
 
+<!-- explica: Instala o Poetry na versão 1.8.5, a que o `Makefile` da aplicação espera. O pipx o coloca num ambiente isolado, sem misturar com os pacotes do Python do sistema. -->
+
 ```bash
 pipx install poetry==1.8.5
 ```
@@ -41,6 +45,8 @@ pipx install poetry==1.8.5
 ## Versão da aplicação e comandos suportados
 
 Use o `Makefile` do checkout como contrato dos comandos disponíveis. O percurso apresentado usa o alvo `setup` com Poetry. Outras revisões podem adotar outro gerenciador de dependências ou separar a inicialização em outro alvo; não combine instruções de revisões diferentes.
+
+<!-- explica: A primeira linha mostra o código curto do commit em que o seu checkout está: é a revisão que você anota. A segunda lista os arquivos alterados e ainda não commitados; saída vazia quer dizer checkout limpo. -->
 
 ```bash
 git rev-parse --short HEAD

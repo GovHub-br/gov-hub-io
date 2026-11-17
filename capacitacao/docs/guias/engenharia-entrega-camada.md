@@ -73,7 +73,7 @@ select has_schema_privilege('de_postgres', 'contratos', 'USAGE') as usa_schema,
        has_table_privilege('de_postgres', 'contratos.contratos', 'SELECT') as le_bronze;
 ```
 
-Pela configuração, o esperado é `t`, `t` e `f`. Se a role não existir no seu ambiente, rode `make setup-roles` na raiz da aplicação e execute os modelos de novo. A camada da tabela não decide sozinha o que pode ser exposto: uma silver com CPF continua sendo dado pessoal, assunto da aula [Dados pessoais, segredos e menor privilégio](../explicacao/engenharia-acesso.md), no nível 5.
+Pela configuração, o esperado é `t`, `t` e `f`. Se a role não existir no seu ambiente, rode `make setup-roles` na raiz da aplicação e execute os modelos de novo. A camada da tabela não decide sozinha o que pode ser exposto: uma silver com CPF continua sendo dado pessoal, assunto da [prática da silver](../tutoriais/engenharia-base-nova-silver.md), no nível 5, que protege o CPF de fornecedores pessoa física.
 
 ## A descrição acompanha a tabela
 
@@ -91,7 +91,7 @@ A descrição do modelo é a especificação que fica junto do código. Para a g
     ao valor global.
 ```
 
-No Superset, defina as métricas a partir da granularidade: `sum(valor_global)` e `sum(despesas_pagas)` podem ser somados, porque há uma linha por contrato; o percentual pago é `sum(despesas_pagas) / sum(valor_global)`, nunca a média dos percentuais. A prática [Da gold ao gráfico no Superset](../tutoriais/engenharia-consumo.md), no nível 5, faz esse caminho até o painel.
+No Superset, defina as métricas a partir da granularidade: `sum(valor_global)` e `sum(despesas_pagas)` podem ser somados, porque há uma linha por contrato; o percentual pago é `sum(despesas_pagas) / sum(valor_global)`, nunca a média dos percentuais. O guia [Documentar a tabela e conferir o que o consumo enxerga](engenharia-metadados.md), no nível 5, confere esse caminho, e a construção do painel é assunto da trilha de [Dashboards no Gov Hub](../../mapa.html?trilha=dashboards).
 
 Os testes da primeira pergunta da lista também ficam no código. A gold real `contratos_resumo` não tem testes declarados na revisão atual; a proposta é acrescentar `not_null` e `unique` à coluna `contrato_id` no `schema.yml` e executar `dbt test --select contratos_resumo`.
 

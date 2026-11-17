@@ -225,6 +225,7 @@ async function abrir({ path }, { foco = false } = {}) {
     corrigirLinks(conteudo, path);
     cartaoDeNotebook(conteudo);
     desenharDiagramas(conteudo);
+    explicarComandos(conteudo);
     recolherCodigoLongo(conteudo);
     const h1 = conteudo.querySelector('h1');
     document.title = (h1 ? h1.textContent : path) + ' · ' + (trilha ? trilha.titulo : 'Trilhas') + ' · Gov Hub';
@@ -297,6 +298,75 @@ function recolherCodigoLongo(raiz) {
     pre.after(botao);
   });
 }
+
+// Um bloco de comandos pode trazer, na linha de cima, "<!-- explica: o que o comando faz -->". O
+// comentário não aparece no GitHub; aqui ele vira um "?" no canto do bloco, que abre a explicação
+// num balão. No PDF, tools/gen_pdf.py imprime a mesma frase acima do bloco.
+const EXPLICA = /^\s*explica:\s*([\s\S]+?)\s*$/;
+// Conta comandos, e não linhas: uma linha terminada em "\" ou com aspas ainda abertas
+// (um python -c "..." de várias linhas) continua o mesmo comando.
+function quantosComandos(pre) {
+  let n = 0, continua = false, aspas = null;
+  for (const linha of pre.textContent.split('\n')) {
+    const t = linha.trim();
+    if (t && !t.startsWith('#') && !continua) n += 1;
+    for (let i = 0; i < t.length; i += 1) {
+      const c = t[i];
+      if (c === '\\' && aspas !== "'") i += 1;
+      else if (aspas ? c === aspas : (c === '"' || c === "'")) aspas = aspas ? null : c;
+    }
+    continua = aspas !== null || /\\$/.test(t);
+  }
+  return n;
+}
+function fecharExplicacoes(exceto) {
+  document.querySelectorAll('.btn-explica[aria-expanded="true"]').forEach((b) => {
+    if (b === exceto) return;
+    b.setAttribute('aria-expanded', 'false');
+    document.getElementById(b.getAttribute('aria-controls')).hidden = true;
+  });
+}
+function explicarComandos(raiz) {
+  const andador = document.createTreeWalker(raiz, NodeFilter.SHOW_COMMENT);
+  const comentarios = [];
+  while (andador.nextNode()) comentarios.push(andador.currentNode);
+  comentarios.forEach((c, i) => {
+    const m = c.data.match(EXPLICA);
+    let pre = c.nextSibling;
+    while (pre && pre.nodeType === Node.TEXT_NODE && !pre.textContent.trim()) pre = pre.nextSibling;
+    if (!m || !pre || pre.tagName !== 'PRE') return;
+    const titulo = quantosComandos(pre) > 1 ? 'O que estes comandos fazem' : 'O que este comando faz';
+    const balao = el('div', { class: 'explica-balao', id: `explica-${i + 1}`, hidden: '' },
+      el('strong', { class: 'explica-titulo' }, titulo));
+    const texto = el('p', {});
+    texto.innerHTML = marked.parseInline(m[1].replace(/\s+/g, ' '));
+    balao.append(texto);
+    const botao = el('button', {
+      type: 'button', class: 'btn-explica', 'aria-expanded': 'false', 'aria-controls': balao.id,
+      'aria-label': titulo + '?', title: titulo + '?',
+      onclick: () => {
+        const abrir = botao.getAttribute('aria-expanded') !== 'true';
+        fecharExplicacoes(botao);
+        botao.setAttribute('aria-expanded', String(abrir));
+        balao.hidden = !abrir;
+      },
+    }, '?');
+    const bloco = el('div', { class: 'bloco-explicado' });
+    pre.replaceWith(bloco);
+    bloco.append(pre, botao, balao);
+    c.remove();
+  });
+}
+document.addEventListener('click', (ev) => {
+  if (!ev.target.closest('.bloco-explicado')) fecharExplicacoes();
+});
+document.addEventListener('keydown', (ev) => {
+  if (ev.key !== 'Escape') return;
+  const aberto = document.querySelector('.btn-explica[aria-expanded="true"]');
+  if (!aberto) return;
+  fecharExplicacoes();
+  aberto.focus();
+});
 
 // O tipo da aula aparece acima do título (ícone + nome); a linha "> Tipo: **X**" do Markdown sobra.
 function tirarLinhaDeTipo(raiz) {

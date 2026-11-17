@@ -1,18 +1,18 @@
 ---
 slug: engenharia-de-dados
 titulo: Engenharia de Dados no Gov Hub
-descricao: Dos conceitos e da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.
+descricao: Dos conceitos e da preparação do ambiente à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.
 categoria: tecnica
-chamada: Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente e aprenda a coletar, organizar, testar e entregar dados na aplicação.
-etapas: Base=Conceitos e projeto | Ambiente=Preparação local | Dado=Modelagem e camadas | Pipeline=Ingestão, orquestração e transformação | Entrega=Confiança e consumo
-etapas_subtitulo: Cinco etapas: do contexto do projeto ao indicador conferido
+chamada: Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente, aprenda a coletar, organizar e testar dados e, no fim, adicione uma base nova à aplicação.
+etapas: Base=Conceitos e projeto | Ambiente=Preparação local | Dado=Modelagem e camadas | Pipeline=Ingestão, orquestração e transformação | Evolução=Contribuir com uma base nova
+etapas_subtitulo: Cinco etapas: do contexto do projeto à contribuição de uma base nova
 etapas_nota: **Preparação antes da prática.** Conclua o nível de ambiente local antes de executar consultas e coletas. Use data-application-gov-hub; este site apresenta o material de estudo.
 ---
 # Trilha de aprendizagem: Engenharia de Dados no Gov Hub
 
 > **Fonte única da trilha.** Edite este arquivo e rode `python3 tools/gen_roadmap.py` em `capacitacao/` para atualizar o catálogo e os arquivos gerados.
 >
-> O público é de profissionais de TI com familiaridade com programação, terminal e Git. O nível 1 apresenta os conceitos e a aplicação; o nível 2 prepara o ambiente; os níveis seguintes desenvolvem SQL, pipeline e entrega. Consulte os itens de apoio quando precisar. As práticas usam ambiente local e dados públicos ou sintéticos.
+> O público é de profissionais de TI com familiaridade com programação, terminal e Git. O nível 1 apresenta os conceitos e a aplicação; o nível 2 prepara o ambiente; os níveis seguintes desenvolvem SQL, pipeline e a contribuição de uma base nova. Consulte os itens de apoio quando precisar. As práticas usam ambiente local e dados públicos ou sintéticos.
 
 ## Nível 1 · Base e conceitos
 Etapa: Base · Ícone: light-bulb
@@ -63,20 +63,22 @@ Entenda os três trabalhos de um pipeline e faça cada um com dados reais do PNC
 - [tutorial] **Prática: orquestrar a coleta com o Airflow** — core — `docs/tutoriais/engenharia-airflow-dag.md`
 - [how-to] **Reprocessamento e mudanças na fonte** — core — `docs/guias/engenharia-reprocessamento.md`
 - [tutorial] **Prática: transformar com dbt, da raw à gold** — core — `docs/tutoriais/engenharia-dbt-camadas.md`
-- [how-to] **Guia: adicionar uma fonte nova ao repositório** — core — `docs/guias/engenharia-fonte-nova.md`
 - [reference] **Fontes e clientes do repositório** — support — `docs/referencia/engenharia-fontes.md`
 - [reference] **Comandos do dia a dia: Airflow, dbt e banco** — support — `docs/referencia/engenharia-comandos.md`
 
-## Nível 5 · Qualidade, governança e entrega
-Etapa: Entrega · Ícone: shield-check
-Valide o resultado, documente sua origem, controle o acesso e entregue um indicador conferido no Superset.
+## Nível 5 · Adicionar uma base nova ao Gov Hub
+Etapa: Evolução · Ícone: rectangle-group
+Leve uma fonte nova da issue ao pull request, do cliente em Python à gold no dbt: avalie a fonte, escreva os testes antes do código, proteja o dado pessoal, confira o resultado e prepare a revisão. O exemplo são os contratos publicados no PNCP.
 
-- [reference] **Qualidade: o que precisa ser verdadeiro no dado** — core — `docs/referencia/engenharia-qualidade.md`
-- [tutorial] **Prática: provocar e diagnosticar uma falha de qualidade** — core — `docs/tutoriais/engenharia-falha-qualidade.md`
-- [how-to] **Logs, reconciliação e atualização** — core — `docs/guias/engenharia-observabilidade.md`
-- [explanation] **Dados pessoais, segredos e menor privilégio** — core — `docs/explicacao/engenharia-acesso.md`
-- [how-to] **Documentar colunas e seguir a linhagem** — core — `docs/guias/engenharia-metadados.md`
-- [reference] **PostgreSQL, formatos e o papel do MinIO** — support — `docs/referencia/engenharia-formatos.md`
-- [tutorial] **Prática: da gold ao gráfico no Superset** — core — `docs/tutoriais/engenharia-consumo.md`
-- [how-to] **Contribuir com uma mudança revisável** — core — `docs/guias/engenharia-contribuicao.md`
-- [challenge] **Desafio: uma fonte até um indicador confiável** — capstone — `docs/desafios/engenharia-desafio.md`
+- [explanation] **O caminho de uma base nova, da issue ao painel** — core — `docs/explicacao/engenharia-base-nova.md`
+- [how-to] **Avaliar a fonte e escrever a issue** — core — `docs/guias/engenharia-avaliar-fonte.md`
+- [tutorial] **Prática: o cliente da fonte** — core — `docs/tutoriais/engenharia-base-nova-cliente.md`
+- [tutorial] **Prática: a DAG de ingestão no padrão do repositório** — core — `docs/tutoriais/engenharia-base-nova-dag.md`
+- [tutorial] **Prática: o domínio no dbt** — core — `docs/tutoriais/engenharia-base-nova-dominio.md`
+- [tutorial] **Prática: a bronze** — core — `docs/tutoriais/engenharia-base-nova-bronze.md`
+- [tutorial] **Prática: a silver, com privacidade e junção** — core — `docs/tutoriais/engenharia-base-nova-silver.md`
+- [tutorial] **Prática: a gold e a conferência** — core — `docs/tutoriais/engenharia-base-nova-gold.md`
+- [how-to] **Documentar a tabela e conferir o que o consumo enxerga** — core — `docs/guias/engenharia-metadados.md`
+- [how-to] **Abrir o PR e passar pela revisão** — core — `docs/guias/engenharia-contribuicao.md`
+- [reference] **Checklist: adicionar uma base nova** — support — `docs/referencia/engenharia-checklist-base-nova.md`
+- [challenge] **Desafio: uma base nova de ponta a ponta** — capstone — `docs/desafios/engenharia-desafio.md`

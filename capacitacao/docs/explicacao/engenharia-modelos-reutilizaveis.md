@@ -142,6 +142,8 @@ Lembre que essas chaves duplas só existem dentro de um projeto dbt. Colado no S
 
 Para conferir o que uma macro produziu num modelo real, compile o modelo no diretório dbt:
 
+<!-- explica: Gera o SQL final do modelo `empenhos_tesouro`, com as macros e o Jinja já substituídos, e o salva na pasta `target/`, sem rodar nada no banco. -->
+
 ```bash
 dbt compile --select empenhos_tesouro
 ```
@@ -152,6 +154,8 @@ O SQL expandido fica em `target/compiled/ipea/models/contratos_dbt/bronze/empenh
 
 Uma mudança num modelo afeta todos os que o leem, direta ou indiretamente. O dbt lista esses modelos:
 
+<!-- explica: Lista, sem executar nada, o modelo `contratos` e todos os modelos que leem dele, direta ou indiretamente: é a lista do que uma mudança em `contratos` pode afetar. -->
+
 ```bash
 dbt ls --select contratos+ --resource-type model
 ```
@@ -159,6 +163,8 @@ dbt ls --select contratos+ --resource-type model
 O `+` **depois** do nome pede o modelo e tudo que depende dele. Na revisão atual, a lista tem 11 modelos: o próprio `contratos`, quatro silvers e três golds de contratos, as duas visões auxiliares e um modelo de **outro domínio**, `pessoas_dbt.silver.terceirizados_ativos`, que cruza os terceirizados com os contratos ativos. Uma mudança em `contratos.sql` pode alterar um painel de pessoas.
 
 Para uma macro, o grafo do dbt não ajuda da mesma forma, porque a macro não é um nó com dependentes. Procure os usos no código:
+
+<!-- explica: Procura o nome da macro em todos os arquivos da pasta `models`, inclusive subpastas (`-r`), e lista só o nome de cada arquivo que a usa (`-l`). -->
 
 ```bash
 grep -rln "parse_financial_value" models

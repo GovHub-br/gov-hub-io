@@ -10,6 +10,8 @@ Retomar o ambiente de estudo e comprovar que ele está preparado para as próxim
 
 ## Iniciar e acompanhar
 
+<!-- explica: Sobe os containers da aplicação em segundo plano (`-d`, o terminal fica livre), lista o estado de cada um e confere se as Variables e a conexão do Airflow continuam cadastradas. -->
+
 ```bash
 docker compose up -d
 docker compose ps
@@ -22,6 +24,8 @@ Se alterou a configuração das Variables ou da conexão padrão e precisa reapl
 
 ## Verificações de desenvolvimento
 
+<!-- explica: `make lint` confere formatação e estilo do código Python e SQL sem alterar nenhum arquivo (black, ruff, mypy, sqlfmt e sqlfluff). `make test` roda os testes automatizados da pasta `tests` com o pytest. -->
+
 ```bash
 make lint
 make test
@@ -30,6 +34,8 @@ make test
 Essas verificações conferem código e comportamento cobertos pelos testes. Elas não validam todas as fontes externas nem substituem os controles de qualidade dos dados. `make format`, quando necessário, altera arquivos; confira o diff resultante antes de preparar uma contribuição.
 
 ## Encerrar e retomar sem resetar
+
+<!-- explica: Para e remove os containers da aplicação. Os volumes, onde ficam os dados do banco, são mantidos: na próxima subida, as tabelas continuam lá. -->
 
 ```bash
 docker compose down

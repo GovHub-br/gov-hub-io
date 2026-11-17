@@ -1,0 +1,30 @@
+{{ config(materialized="table") }}
+
+select
+    numerocontrolepncp as numero_controle_pncp,
+    numerocontrolepncpcompra as numero_controle_pncp_compra,
+    cast(anocontrato as integer) as ano_contrato,
+    cast(sequencialcontrato as integer) as sequencial_contrato,
+    orgaoentidade__cnpj as orgao_cnpj,
+    orgaoentidade__razaosocial as orgao_nome,
+    unidadeorgao__codigounidade as unidade_codigo,
+    unidadeorgao__nomeunidade as unidade_nome,
+    unidadeorgao__ufsigla as uf_sigla,
+    tipocontrato__nome as tipo_contrato,
+    categoriaprocesso__nome as categoria_processo,
+    tipopessoa as tipo_pessoa,
+    nifornecedor as fornecedor_ni,
+    nomerazaosocialfornecedor as fornecedor_nome,
+    numerocontratoempenho as numero_contrato_empenho,
+    objetocontrato as objeto,
+    processo,
+    cast(numeroparcelas as integer) as num_parcelas,
+    cast(valorinicial as numeric(15, 2)) as valor_inicial,
+    cast(valorglobal as numeric(15, 2)) as valor_global,
+    cast(dataassinatura as date) as data_assinatura,
+    cast(datavigenciainicio as date) as data_vigencia_inicio,
+    cast(datavigenciafim as date) as data_vigencia_fim,
+    cast(datapublicacaopncp as timestamp) as data_publicacao,
+    cast(numeroretificacao as integer) as num_retificacao,
+    cast(dt_ingest || '-03:00' as timestamptz) as dt_ingest
+from {{ source("pncp", "contratos") }}

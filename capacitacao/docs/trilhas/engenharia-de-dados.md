@@ -1,6 +1,6 @@
 # Engenharia de Dados no Gov Hub
 
-Dos conceitos e da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.
+Dos conceitos e da preparação do ambiente à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.
 
 > Versão visual, com progresso: **[mapa da trilha](../../mapa.html?trilha=engenharia-de-dados)**
 > Gerado a partir de **[trilhas/engenharia-de-dados.md](../../trilhas/engenharia-de-dados.md)** por `tools/gen_roadmap.py` — não edite à mão.
@@ -48,19 +48,21 @@ Dos conceitos e da preparação do ambiente à entrega de um indicador confiáve
 - [Prática: orquestrar a coleta com o Airflow](../tutoriais/engenharia-airflow-dag.md) — *Tutorial* · **Essencial**
 - [Reprocessamento e mudanças na fonte](../guias/engenharia-reprocessamento.md) — *Guia* · **Essencial**
 - [Prática: transformar com dbt, da raw à gold](../tutoriais/engenharia-dbt-camadas.md) — *Tutorial* · **Essencial**
-- [Guia: adicionar uma fonte nova ao repositório](../guias/engenharia-fonte-nova.md) — *Guia* · **Essencial**
 - [Fontes e clientes do repositório](../referencia/engenharia-fontes.md) — *Referência* · Apoio
 - [Comandos do dia a dia: Airflow, dbt e banco](../referencia/engenharia-comandos.md) — *Referência* · Apoio
 
-### Nível 5 · Qualidade, governança e entrega
-*Valide o resultado, documente sua origem, controle o acesso e entregue um indicador conferido no Superset.*
-- [Qualidade: o que precisa ser verdadeiro no dado](../referencia/engenharia-qualidade.md) — *Referência* · **Essencial**
-- [Prática: provocar e diagnosticar uma falha de qualidade](../tutoriais/engenharia-falha-qualidade.md) — *Tutorial* · **Essencial**
-- [Logs, reconciliação e atualização](../guias/engenharia-observabilidade.md) — *Guia* · **Essencial**
-- [Dados pessoais, segredos e menor privilégio](../explicacao/engenharia-acesso.md) — *Explicação* · **Essencial**
-- [Documentar colunas e seguir a linhagem](../guias/engenharia-metadados.md) — *Guia* · **Essencial**
-- [PostgreSQL, formatos e o papel do MinIO](../referencia/engenharia-formatos.md) — *Referência* · Apoio
-- [Prática: da gold ao gráfico no Superset](../tutoriais/engenharia-consumo.md) — *Tutorial* · **Essencial**
-- [Contribuir com uma mudança revisável](../guias/engenharia-contribuicao.md) — *Guia* · **Essencial**
-- [Desafio: uma fonte até um indicador confiável](../desafios/engenharia-desafio.md) — *Desafio* · **Capstone**
+### Nível 5 · Adicionar uma base nova ao Gov Hub
+*Leve uma fonte nova da issue ao pull request, do cliente em Python à gold no dbt: avalie a fonte, escreva os testes antes do código, proteja o dado pessoal, confira o resultado e prepare a revisão. O exemplo são os contratos publicados no PNCP.*
+- [O caminho de uma base nova, da issue ao painel](../explicacao/engenharia-base-nova.md) — *Explicação* · **Essencial**
+- [Avaliar a fonte e escrever a issue](../guias/engenharia-avaliar-fonte.md) — *Guia* · **Essencial**
+- [Prática: o cliente da fonte](../tutoriais/engenharia-base-nova-cliente.md) — *Tutorial* · **Essencial**
+- [Prática: a DAG de ingestão no padrão do repositório](../tutoriais/engenharia-base-nova-dag.md) — *Tutorial* · **Essencial**
+- [Prática: o domínio no dbt](../tutoriais/engenharia-base-nova-dominio.md) — *Tutorial* · **Essencial**
+- [Prática: a bronze](../tutoriais/engenharia-base-nova-bronze.md) — *Tutorial* · **Essencial**
+- [Prática: a silver, com privacidade e junção](../tutoriais/engenharia-base-nova-silver.md) — *Tutorial* · **Essencial**
+- [Prática: a gold e a conferência](../tutoriais/engenharia-base-nova-gold.md) — *Tutorial* · **Essencial**
+- [Documentar a tabela e conferir o que o consumo enxerga](../guias/engenharia-metadados.md) — *Guia* · **Essencial**
+- [Abrir o PR e passar pela revisão](../guias/engenharia-contribuicao.md) — *Guia* · **Essencial**
+- [Checklist: adicionar uma base nova](../referencia/engenharia-checklist-base-nova.md) — *Referência* · Apoio
+- [Desafio: uma base nova de ponta a ponta](../desafios/engenharia-desafio.md) — *Desafio* · **Capstone**
 

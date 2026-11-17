@@ -25,15 +25,21 @@ Três modelos dbt sobre a tabela que a sua DAG gravou, `formacao.pncp_contrataco
 
 O dbt da aplicação está instalado no container do Airflow. Na raiz de `data-application-gov-hub`, crie o papel somente leitura que o projeto usa nos `grants` (só na primeira vez) e entre no container:
 
+<!-- explica: Espera o PostgreSQL ficar pronto e roda, no container do banco, o script `setup_roles.sh`, que cria o papel somente leitura. É a esse papel que os `grants` do projeto dbt dão acesso às tabelas. -->
+
 ```bash
 make setup-roles
 ```
+
+<!-- explica: Abre um terminal dentro do container do Airflow, onde o dbt da aplicação está instalado. Os comandos seguintes rodam lá dentro, até você digitar `exit`. -->
 
 ```bash
 docker compose exec airflow bash
 ```
 
 Dentro do container:
+
+<!-- explica: Entra na pasta do projeto dbt, passa as credenciais do banco, que o container recebe nas variáveis `POSTGRES_*`, para as variáveis `DB_DW_*` que o `profiles.yml` lê, e roda `dbt debug`, que confere o projeto e a conexão com o banco sem criar nada. -->
 
 ```bash
 cd /opt/airflow/dags/dbt/ipea
@@ -95,32 +101,34 @@ models:
     columns:
       - name: numero_controle_pncp
         description: Identificador da contratação no PNCP.
-        data_tests:
+        tests:
           - not_null
           - unique
       - name: valor_estimado
-        data_tests:
+        tests:
           - not_null
 
   - name: pncp_contratacoes_uf
     description: Silver. Uma linha por contratação, com o nome da UF e o mês de referência.
     columns:
       - name: numero_controle_pncp
-        data_tests:
+        tests:
           - unique
       - name: nome_uf
-        data_tests:
+        tests:
           - not_null
 
   - name: pncp_resumo_uf_mensal
     description: Gold. Uma linha por UF e mês, com quantidade, valores e economia.
     columns:
       - name: uf_sigla
-        data_tests:
+        tests:
           - not_null
 ```
 
 Cada teste é uma frase sobre o resultado: "toda contratação tem número e ele não se repete", "a silver continua com uma linha por contratação", "toda UF encontrou o seu nome". O guia de pipeline da aplicação pede essa ordem, testes antes do modelo, em toda fonte nova.
+
+A chave é `tests:`. O dbt a renomeou para `data_tests:` na versão 1.8, mas a aplicação fixa o dbt 1.7.13, que ignora a chave nova, sem erro e sem aviso. A `tests:` funciona nas duas versões. O [nível 5](engenharia-base-nova-bronze.md) mostra como conferir quantos testes o dbt enxerga.
 
 ## Passo 4: a bronze
 
@@ -198,6 +206,8 @@ group by uf_sigla, nome_uf, mes_referencia
 
 ## Passo 7: rodar tudo
 
+<!-- explica: Constrói a gold `pncp_resumo_uf_mensal` e tudo de que ela depende (a seed, a bronze e a silver), rodando os testes de cada modelo logo depois dele. Se um teste falhar, o que depende daquele modelo não é construído. -->
+
 ```bash
 dbt build --select +pncp_resumo_uf_mensal --no-populate-cache
 ```
@@ -224,6 +234,8 @@ A ordem não veio da ordem dos arquivos: o dbt descobriu pelos `ref()` que a bro
 
 Testes verdes não dispensam olhar o resultado. Fora do container (ou em outro terminal):
 
+<!-- explica: Consulta no banco as cinco primeiras UFs, em ordem alfabética, da gold `formacao_dw.pncp_resumo_uf_mensal`, com as contagens e os valores que os testes não conferem. -->
+
 ```bash
 docker compose exec postgres psql -U postgres -c "select uf_sigla, contratacoes, contratacoes_homologadas, valor_estimado, valor_homologado, economia from formacao_dw.pncp_resumo_uf_mensal order by uf_sigla limit 5"
 ```
@@ -243,6 +255,8 @@ docker compose exec postgres psql -U postgres -c "select uf_sigla, contratacoes,
 ## Passo 9: encontrar a primeira etapa com o problema
 
 A regra de investigação é voltar pela linhagem até a **primeira** etapa em que o problema aparece. A gold só soma; a silver só repassa o valor; a bronze converte o texto. Olhe a raw:
+
+<!-- explica: Procura na raw `formacao.pncp_contratacoes`, a tabela gravada como a API mandou, três contratações em que o valor homologado chegou como o texto `NaN`. Se aparecerem aqui, o problema já vinha da fonte. -->
 
 ```bash
 docker compose exec postgres psql -U postgres -c "select numerocontrolepncp, valortotalhomologado from formacao.pncp_contratacoes where valortotalhomologado = 'NaN' limit 3"
@@ -269,6 +283,8 @@ from {{ ref("pncp_contratacoes") }}
 where valor_estimado = 'NaN'::numeric or valor_homologado = 'NaN'::numeric
 ```
 
+<!-- explica: Roda só o teste singular `assert_pncp_sem_nan`, a consulta que procura valores `NaN` na bronze. O teste falha quando a consulta encontra alguma linha. -->
+
 ```bash
 dbt test --select assert_pncp_sem_nan --no-populate-cache
 ```
@@ -290,6 +306,8 @@ Na bronze, trate o texto `'NaN'` como ausência de valor:
 ```
 
 `nullif(a, b)` devolve nulo quando `a = b`. Agora reconstrua a bronze e tudo que vem depois dela:
+
+<!-- explica: Reconstrói a bronze `pncp_contratacoes` e tudo que vem depois dela, com os testes, para conferir que a correção acabou com o `NaN` e não quebrou nada adiante. -->
 
 ```bash
 dbt build --select pncp_contratacoes+ --no-populate-cache
@@ -315,6 +333,8 @@ O repositório já conhecia esse problema: a macro `macros/parse_financial_value
 ## Passo 12: ver os modelos no Airflow
 
 Em produção, ninguém roda `dbt build` à mão. A DAG `ipea_cosmos_dag` (`dags/dbt/ipea/cosmos_dag.py`) roda o projeto todo dia à 01:00. Ela usa o **Cosmos**, que lê o projeto dbt e cria uma tarefa para cada modelo e cada seed. Seus modelos já fazem parte dela. Confira no terminal do container:
+
+<!-- explica: Lista as tarefas que o Cosmos criou na DAG `ipea_cosmos_dag` e filtra só as que têm `pncp` ou `estados` no nome: as dos seus modelos e da seed. -->
 
 ```bash
 airflow tasks list ipea_cosmos_dag | grep -E "pncp|estados"
@@ -356,5 +376,5 @@ As tabelas dos schemas `formacao` e `formacao_dw` podem ficar no banco local ou 
 
 ## Próximos passos
 
-- [Guia: adicionar uma fonte nova ao repositório](../guias/engenharia-fonte-nova.md)
+- [O caminho de uma base nova, da issue ao painel](../explicacao/engenharia-base-nova.md), no nível 5
 - [Transformação: da raw à gold com SQL versionado](../explicacao/engenharia-transformacao.md)

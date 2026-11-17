@@ -272,7 +272,7 @@ select count(*) as linhas, count(distinct cpf) as servidores, count(distinct sig
 from pessoas.dados_uorg;
 ```
 
-Num banco local carregado, o número de linhas é igual ao de CPFs distintos, e há bem menos siglas do que linhas: cada sigla se repete para todos os servidores da unidade. A mensagem do commit não registra quantas linhas o erro afetava; o efeito decorre dessa estrutura. A lição vale para qualquer junção: **confirme a granularidade das duas tabelas pelas colunas e pela contagem, não pelo nome.** E repare que a chave da junção é o CPF, um dado pessoal: a aula [Dados pessoais, segredos e menor privilégio](engenharia-acesso.md), no nível 5, trata de onde esse dado pode circular.
+Num banco local carregado, o número de linhas é igual ao de CPFs distintos, e há bem menos siglas do que linhas: cada sigla se repete para todos os servidores da unidade. A mensagem do commit não registra quantas linhas o erro afetava; o efeito decorre dessa estrutura. A lição vale para qualquer junção: **confirme a granularidade das duas tabelas pelas colunas e pela contagem, não pelo nome.** E repare que a chave da junção é o CPF, um dado pessoal: a [prática da silver](../tutoriais/engenharia-base-nova-silver.md), no nível 5, mostra como impedir que esse tipo de dado chegue à camada que o painel lê.
 
 ## Erros comuns
 

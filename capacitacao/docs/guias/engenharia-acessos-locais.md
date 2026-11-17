@@ -10,6 +10,8 @@ Conectar o Superset ao mesmo PostgreSQL validado no Airflow e conferir os acesso
 
 Na raiz da aplicação, execute:
 
+<!-- explica: Abre o `psql`, o cliente de linha de comando do PostgreSQL, dentro do container do banco, com o usuário e o banco definidos no `.env`, e roda uma consulta que só devolve o nome do banco e o usuário conectado. -->
+
 ```bash
 docker compose exec postgres sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "select current_database(), current_user;"'
 ```

@@ -47,6 +47,8 @@ Na interface:
 
 Dentro do container, na pasta do projeto:
 
+<!-- explica: Abre um terminal dentro do container do Airflow, entra na pasta do projeto dbt e copia as credenciais do banco, que o container recebe nas variáveis `POSTGRES_*`, para as variáveis `DB_DW_*`, que são as que o `profiles.yml` do dbt lê. -->
+
 ```bash
 docker compose exec airflow bash
 cd /opt/airflow/dags/dbt/ipea
@@ -88,4 +90,4 @@ No ambiente local, `--no-populate-cache` evita o erro `Cross-db references not a
 ## Veja também
 
 - [Fontes e clientes do repositório](engenharia-fontes.md)
-- [Guia: adicionar uma fonte nova ao repositório](../guias/engenharia-fonte-nova.md)
+- [Checklist: adicionar uma base nova](engenharia-checklist-base-nova.md)

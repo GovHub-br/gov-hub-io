@@ -64,6 +64,7 @@ def fix_dashes(text):
 
 
 AVISO_DIAGRAMA = "> **Diagrama.** Este diagrama aparece na versão on-line da aula."
+EXPLICA_RE = re.compile(r"^<!--\s*explica:\s*(.+?)\s*-->\s*$")
 
 
 def preparar_markdown(src):
@@ -81,8 +82,12 @@ def preparar_markdown(src):
             em_codigo = not em_codigo
             linhas.append(ln)
             continue
+        explica = None if em_codigo else EXPLICA_RE.match(ln)
         if em_codigo:
             linhas.append(ln)
+        elif explica:
+            # no site, a explicação do comando abre num "?"; no papel, sai como texto acima do bloco
+            linhas.append(fix_dashes("*O que faz:* " + explica.group(1)))
         elif ln.startswith("#"):
             linhas.append(ln.replace(" — ", " · "))
         else:

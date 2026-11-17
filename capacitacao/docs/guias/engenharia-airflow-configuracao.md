@@ -85,6 +85,8 @@ As chaves são identificadores de DAGs, não nomes de arquivos. A expressão age
 
 Na raiz da aplicação, execute:
 
+<!-- explica: `make dev-check` confere se as Variables e a conexão estão cadastradas. Os outros dois rodam a linha de comando do Airflow dentro do container: o primeiro lista as DAGs que o Airflow conseguiu carregar; o segundo lista os arquivos de DAG que falharam ao carregar, com o erro de cada um. -->
+
 ```bash
 make dev-check
 docker compose exec airflow airflow dags list
@@ -94,6 +96,8 @@ docker compose exec airflow airflow dags list-import-errors
 O primeiro comando verifica a presença dos cadastros; ele não testa uma consulta ao banco. A listagem deve conter a DAG que você pretende estudar, sem erro de importação associado a ela. Os diretórios `dags/`, `plugins/` e `helpers/` do projeto são montados no contêiner.
 
 Para testar a conexão cadastrada usando o mesmo mecanismo das tarefas PostgreSQL, execute:
+
+<!-- explica: Roda um Python dentro do container do Airflow que usa a conexão `postgres_default`, a mesma das tarefas, para perguntar ao banco o nome dele e o usuário conectado. Se a resposta vier, a conexão cadastrada funciona. -->
 
 ```bash
 docker compose exec airflow python -c 'from airflow.providers.postgres.hooks.postgres import PostgresHook; print(PostgresHook(postgres_conn_id="postgres_default").get_first("select current_database(), current_user"))'

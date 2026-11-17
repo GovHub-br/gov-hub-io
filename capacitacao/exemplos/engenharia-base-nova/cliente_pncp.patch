@@ -1,0 +1,48 @@
+diff --git a/airflow_lappis/plugins/cliente_pncp.py b/airflow_lappis/plugins/cliente_pncp.py
+index 5762921..7e2894b 100644
+--- a/airflow_lappis/plugins/cliente_pncp.py
++++ b/airflow_lappis/plugins/cliente_pncp.py
+@@ -400,6 +400,43 @@ class ClientePNCP(ClienteBase):
+         )
+         return agregados
+ 
++    def get_contratos(
++        self,
++        data_inicial: str,
++        data_final: str,
++        cnpj_orgao: str,
++        pagina: int = 1,
++        tamanho_pagina: int = 500,
++    ) -> Tuple[List[Dict[str, Any]], int]:
++        """
++        Busca uma página de contratos publicados no PNCP por um órgão.
++
++        Returns:
++            (registros, total_paginas). Sem contratos no período: ([], 0).
++
++        Raises:
++            RuntimeError: se a API não responder com sucesso, para que uma carga
++            incompleta não pareça completa.
++        """
++        status, corpo = request_safe(
++            self,
++            http.HTTPMethod.GET,
++            "/consulta/v1/contratos",
++            headers={"accept": "application/json"},
++            params={
++                "dataInicial": data_inicial,
++                "dataFinal": data_final,
++                "cnpjOrgao": cnpj_orgao,
++                "pagina": pagina,
++                "tamanhoPagina": tamanho_pagina,
++            },
++        )
++        if status == http.HTTPStatus.NO_CONTENT:
++            return [], 0
++        if status != http.HTTPStatus.OK or not isinstance(corpo, dict):
++            raise RuntimeError(f"PNCP /contratos respondeu {status.value}: {corpo!r}")
++        return corpo["data"], corpo["totalPaginas"]
++
+     def get_itens_e_resultados(
+         self, lista_chaves: List[Tuple[str, int, str]]
+     ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:

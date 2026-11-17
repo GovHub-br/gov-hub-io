@@ -8,6 +8,8 @@ Preparar o checkout e revisar os parâmetros locais antes da construção dos se
 
 ## 1. Obter a aplicação
 
+<!-- explica: Baixa do GitHub uma cópia do repositório da aplicação, pelo acesso SSH, e entra na pasta que foi criada. -->
+
 ```bash
 git clone git@github.com:GovHub-br/data-application-gov-hub.git
 cd data-application-gov-hub
@@ -18,6 +20,8 @@ O exemplo usa acesso SSH ao GitHub. Se já existe um checkout de estudo, use-o e
 ## 2. Revisar o modelo de configuração
 
 Leia `local.env`, `docker-compose.yml` e os alvos `setup`, `dev` e `dev-check` do `Makefile`. Se `.env` ainda não existir, prepare a cópia local:
+
+<!-- explica: A primeira linha copia o modelo `local.env` para `.env`, o arquivo de configuração que o Docker Compose lê; o `-n` impede sobrescrever um `.env` que já exista. A segunda confirma que o Git ignora o `.env`: se ela imprimir `.env`, as senhas locais não vão parar num commit. -->
 
 ```bash
 cp -n local.env .env

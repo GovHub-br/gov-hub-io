@@ -74,6 +74,8 @@ Esses ajustes alinham a configuração do histórico ao ambiente local. **`dbt r
 
 No terminal com o ambiente dbt do projeto ativo, partindo da raiz do repositório:
 
+<!-- explica: Entra na pasta do projeto dbt, avisa ao dbt que o `profiles.yml`, com os dados de conexão do banco, está nessa mesma pasta, e roda `dbt debug`, que confere a instalação, os arquivos do projeto e a conexão com o banco, sem criar nada. -->
+
 ```bash
 cd airflow_lappis/dags/dbt/ipea
 export DBT_PROFILES_DIR="$PWD"
@@ -84,11 +86,15 @@ O diretório atual contém o `dbt_project.yml`; `DBT_PROFILES_DIR` indica que o 
 
 Para executar um modelo, use o nome do arquivo SQL sem a extensão:
 
+<!-- explica: Executa o SQL do modelo e grava o resultado no banco, como tabela ou view. Troque `nome_do_modelo` pelo nome do arquivo `.sql`, sem a extensão. -->
+
 ```bash
 dbt run -m nome_do_modelo
 ```
 
 Por exemplo, o arquivo `models/contratos_dbt/bronze/contratos.sql` corresponde a:
+
+<!-- explica: Executa o SQL de `models/contratos_dbt/bronze/contratos.sql` e grava o resultado na tabela `contratos.contratos`. Não roda os testes do modelo, nem os modelos que vêm antes ou depois dele. -->
 
 ```bash
 dbt run -m contratos

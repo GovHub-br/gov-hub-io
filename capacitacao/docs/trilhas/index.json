@@ -96,7 +96,7 @@
     {
       "slug": "engenharia-de-dados",
       "titulo": "Engenharia de Dados no Gov Hub",
-      "descricao": "Dos conceitos e da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.",
+      "descricao": "Dos conceitos e da preparação do ambiente à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.",
       "categoria": "tecnica",
       "niveis": 5,
       "aulas": [
@@ -130,17 +130,19 @@
         "tutoriais/engenharia-airflow-dag",
         "guias/engenharia-reprocessamento",
         "tutoriais/engenharia-dbt-camadas",
-        "guias/engenharia-fonte-nova",
         "referencia/engenharia-fontes",
         "referencia/engenharia-comandos",
-        "referencia/engenharia-qualidade",
-        "tutoriais/engenharia-falha-qualidade",
-        "guias/engenharia-observabilidade",
-        "explicacao/engenharia-acesso",
+        "explicacao/engenharia-base-nova",
+        "guias/engenharia-avaliar-fonte",
+        "tutoriais/engenharia-base-nova-cliente",
+        "tutoriais/engenharia-base-nova-dag",
+        "tutoriais/engenharia-base-nova-dominio",
+        "tutoriais/engenharia-base-nova-bronze",
+        "tutoriais/engenharia-base-nova-silver",
+        "tutoriais/engenharia-base-nova-gold",
         "guias/engenharia-metadados",
-        "referencia/engenharia-formatos",
-        "tutoriais/engenharia-consumo",
         "guias/engenharia-contribuicao",
+        "referencia/engenharia-checklist-base-nova",
         "desafios/engenharia-desafio"
       ]
     }

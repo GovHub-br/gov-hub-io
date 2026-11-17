@@ -157,9 +157,13 @@ O `ClientPostgresDB`, em `airflow_lappis/plugins/cliente_postgres.py`, resolve a
 
 No terminal, na raiz de `data-application-gov-hub`, copie o arquivo para o container e abra o Python de lá:
 
+<!-- explica: Copia o arquivo com as dispensas de junho de 2026, que a prática de coleta salvou no seu computador, para a pasta `/tmp` do container do Airflow, onde o Python do próximo passo consegue lê-lo. -->
+
 ```bash
 docker compose cp notebooks/pncp_dispensas_2026_06.json airflow:/tmp/
 ```
+
+<!-- explica: Abre o Python interativo dentro do container do Airflow. Ali os módulos de `plugins/` e `helpers/`, como o `ClientPostgresDB`, já podem ser importados, e o banco é alcançado pelo nome `postgres`. -->
 
 ```bash
 docker compose exec airflow python

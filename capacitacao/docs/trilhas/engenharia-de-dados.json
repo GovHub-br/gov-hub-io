@@ -2,9 +2,9 @@
   "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
   "slug": "engenharia-de-dados",
   "titulo": "Engenharia de Dados no Gov Hub",
-  "descricao": "Dos conceitos e da preparação do ambiente à entrega de um indicador confiável, com PostgreSQL, Python, Airflow e dbt.",
+  "descricao": "Dos conceitos e da preparação do ambiente à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.",
   "categoria": "tecnica",
-  "chamada": "Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente e aprenda a coletar, organizar, testar e entregar dados na aplicação.",
+  "chamada": "Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente, aprenda a coletar, organizar e testar dados e, no fim, adicione uma base nova à aplicação.",
   "etapas": [
     {
       "rotulo": "Base",
@@ -23,11 +23,11 @@
       "caixa": "Ingestão, orquestração e transformação"
     },
     {
-      "rotulo": "Entrega",
-      "caixa": "Confiança e consumo"
+      "rotulo": "Evolução",
+      "caixa": "Contribuir com uma base nova"
     }
   ],
-  "etapas_subtitulo": "Cinco etapas: do contexto do projeto ao indicador conferido",
+  "etapas_subtitulo": "Cinco etapas: do contexto do projeto à contribuição de uma base nova",
   "etapas_nota": "**Preparação antes da prática.** Conclua o nível de ambiente local antes de executar consultas e coletas. Use data-application-gov-hub; este site apresenta o material de estudo.",
   "quiz": "quiz/engenharia-de-dados.json",
   "niveis": [
@@ -366,16 +366,6 @@
           "icone": "assets/icones/book-open-sober.svg"
         },
         {
-          "id": "guias/engenharia-fonte-nova",
-          "titulo": "Guia: adicionar uma fonte nova ao repositório",
-          "doc": "docs/guias/engenharia-fonte-nova.md",
-          "tipo": "guia",
-          "tipo_nome": "Guia",
-          "papel": "core",
-          "papel_nome": "Essencial",
-          "icone": "assets/icones/wrench-sober.svg"
-        },
-        {
           "id": "referencia/engenharia-fontes",
           "titulo": "Fontes e clientes do repositório",
           "doc": "docs/referencia/engenharia-fontes.md",
@@ -399,45 +389,15 @@
     },
     {
       "numero": 5,
-      "titulo": "Qualidade, governança e entrega",
-      "descricao": "Valide o resultado, documente sua origem, controle o acesso e entregue um indicador conferido no Superset.",
-      "etapa": "Entrega",
-      "icone": "assets/icones/shield-check-sober.svg",
+      "titulo": "Adicionar uma base nova ao Gov Hub",
+      "descricao": "Leve uma fonte nova da issue ao pull request, do cliente em Python à gold no dbt: avalie a fonte, escreva os testes antes do código, proteja o dado pessoal, confira o resultado e prepare a revisão. O exemplo são os contratos publicados no PNCP.",
+      "etapa": "Evolução",
+      "icone": "assets/icones/rectangle-group-sober.svg",
       "itens": [
         {
-          "id": "referencia/engenharia-qualidade",
-          "titulo": "Qualidade: o que precisa ser verdadeiro no dado",
-          "doc": "docs/referencia/engenharia-qualidade.md",
-          "tipo": "referencia",
-          "tipo_nome": "Referência",
-          "papel": "core",
-          "papel_nome": "Essencial",
-          "icone": "assets/icones/document-text-sober.svg"
-        },
-        {
-          "id": "tutoriais/engenharia-falha-qualidade",
-          "titulo": "Prática: provocar e diagnosticar uma falha de qualidade",
-          "doc": "docs/tutoriais/engenharia-falha-qualidade.md",
-          "tipo": "tutorial",
-          "tipo_nome": "Tutorial",
-          "papel": "core",
-          "papel_nome": "Essencial",
-          "icone": "assets/icones/book-open-sober.svg"
-        },
-        {
-          "id": "guias/engenharia-observabilidade",
-          "titulo": "Logs, reconciliação e atualização",
-          "doc": "docs/guias/engenharia-observabilidade.md",
-          "tipo": "guia",
-          "tipo_nome": "Guia",
-          "papel": "core",
-          "papel_nome": "Essencial",
-          "icone": "assets/icones/wrench-sober.svg"
-        },
-        {
-          "id": "explicacao/engenharia-acesso",
-          "titulo": "Dados pessoais, segredos e menor privilégio",
-          "doc": "docs/explicacao/engenharia-acesso.md",
+          "id": "explicacao/engenharia-base-nova",
+          "titulo": "O caminho de uma base nova, da issue ao painel",
+          "doc": "docs/explicacao/engenharia-base-nova.md",
           "tipo": "explicacao",
           "tipo_nome": "Explicação",
           "papel": "core",
@@ -445,8 +405,78 @@
           "icone": "assets/icones/light-bulb-sober.svg"
         },
         {
+          "id": "guias/engenharia-avaliar-fonte",
+          "titulo": "Avaliar a fonte e escrever a issue",
+          "doc": "docs/guias/engenharia-avaliar-fonte.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-cliente",
+          "titulo": "Prática: o cliente da fonte",
+          "doc": "docs/tutoriais/engenharia-base-nova-cliente.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-dag",
+          "titulo": "Prática: a DAG de ingestão no padrão do repositório",
+          "doc": "docs/tutoriais/engenharia-base-nova-dag.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-dominio",
+          "titulo": "Prática: o domínio no dbt",
+          "doc": "docs/tutoriais/engenharia-base-nova-dominio.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-bronze",
+          "titulo": "Prática: a bronze",
+          "doc": "docs/tutoriais/engenharia-base-nova-bronze.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-silver",
+          "titulo": "Prática: a silver, com privacidade e junção",
+          "doc": "docs/tutoriais/engenharia-base-nova-silver.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-gold",
+          "titulo": "Prática: a gold e a conferência",
+          "doc": "docs/tutoriais/engenharia-base-nova-gold.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
           "id": "guias/engenharia-metadados",
-          "titulo": "Documentar colunas e seguir a linhagem",
+          "titulo": "Documentar a tabela e conferir o que o consumo enxerga",
           "doc": "docs/guias/engenharia-metadados.md",
           "tipo": "guia",
           "tipo_nome": "Guia",
@@ -455,28 +485,8 @@
           "icone": "assets/icones/wrench-sober.svg"
         },
         {
-          "id": "referencia/engenharia-formatos",
-          "titulo": "PostgreSQL, formatos e o papel do MinIO",
-          "doc": "docs/referencia/engenharia-formatos.md",
-          "tipo": "referencia",
-          "tipo_nome": "Referência",
-          "papel": "support",
-          "papel_nome": "Apoio",
-          "icone": "assets/icones/document-text-sober.svg"
-        },
-        {
-          "id": "tutoriais/engenharia-consumo",
-          "titulo": "Prática: da gold ao gráfico no Superset",
-          "doc": "docs/tutoriais/engenharia-consumo.md",
-          "tipo": "tutorial",
-          "tipo_nome": "Tutorial",
-          "papel": "core",
-          "papel_nome": "Essencial",
-          "icone": "assets/icones/book-open-sober.svg"
-        },
-        {
           "id": "guias/engenharia-contribuicao",
-          "titulo": "Contribuir com uma mudança revisável",
+          "titulo": "Abrir o PR e passar pela revisão",
           "doc": "docs/guias/engenharia-contribuicao.md",
           "tipo": "guia",
           "tipo_nome": "Guia",
@@ -485,8 +495,18 @@
           "icone": "assets/icones/wrench-sober.svg"
         },
         {
+          "id": "referencia/engenharia-checklist-base-nova",
+          "titulo": "Checklist: adicionar uma base nova",
+          "doc": "docs/referencia/engenharia-checklist-base-nova.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
           "id": "desafios/engenharia-desafio",
-          "titulo": "Desafio: uma fonte até um indicador confiável",
+          "titulo": "Desafio: uma base nova de ponta a ponta",
           "doc": "docs/desafios/engenharia-desafio.md",
           "tipo": "desafio",
           "tipo_nome": "Desafio",

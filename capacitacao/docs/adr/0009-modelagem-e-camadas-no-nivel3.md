@@ -22,7 +22,7 @@ Os diagramas usam a skill `govhub-diagramas`. Como os temas do nível dependem d
 
 ## Consequências
 
-- O nível 3 tem nove aulas e a trilha tem 42 aulas em cinco níveis. A ordem mudou, e os títulos também; os caminhos e IDs das aulas existentes foram mantidos, então o progresso salvo continua valendo. A segunda parte da prática de SQL (`tutoriais/engenharia-sql-medidas`) começa com ID próprio.
+- O nível 3 tem nove aulas e a trilha tem 43 aulas em cinco níveis. A ordem mudou, e os títulos também; os caminhos e IDs das aulas existentes foram mantidos, então o progresso salvo continua valendo. A segunda parte da prática de SQL (`tutoriais/engenharia-sql-medidas`) começa com ID próprio.
 - A prática de SQL deixou de tratar permissões; o assunto passou para o guia de entrega, que funciona como recapitulação do nível em forma de lista de entrega e confere o acesso da role de leitura do projeto.
 - A pessoa precisa só de um cliente SQL conectado ao PostgreSQL local para acompanhar o nível. As consultas sobre tabelas reais da aplicação são opcionais e indicadas como tal.
 - O nome das pastas não é tratado como garantia de schema físico, de materialização ou de permissão.

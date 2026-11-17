@@ -94,7 +94,7 @@ models:
   - name: pncp_contratacoes
     columns:
       - name: numero_controle_pncp
-        data_tests:
+        tests:
           - not_null
           - unique
 ```

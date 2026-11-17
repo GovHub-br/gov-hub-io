@@ -210,6 +210,8 @@ Leia assim: **todas** as camadas de contratos vão para o mesmo schema, `contrat
 
 Antes de executar a cadeia real, veja as dependências:
 
+<!-- explica: Lista, sem executar nada no banco, o modelo `contratos_resumo` e todos os modelos de que ele depende, na ordem do projeto. `--resource-type model` deixa de fora testes, fontes e outros itens. -->
+
 ```bash
 dbt ls --select +contratos_resumo --resource-type model
 ```

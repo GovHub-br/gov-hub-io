@@ -10,6 +10,8 @@ Os serviços locais da aplicação e sua configuração inicial. Esta aula press
 
 Na raiz da aplicação, no percurso com Poetry, selecione o Python do projeto e execute o setup:
 
+<!-- explica: A primeira linha diz ao Poetry para criar o ambiente virtual do projeto com o Python 3.11. A segunda roda o alvo `setup` do `Makefile`, que instala as dependências, constrói e sobe os containers e cadastra as Variables e a conexão do Airflow. -->
+
 ```bash
 poetry env use python3.11
 make setup
@@ -31,6 +33,8 @@ O `Makefile` organiza as seguintes ações:
 A primeira execução pode demorar. Observe a etapa em que um erro ocorreu: falha de instalação de dependência e falha de inicialização de um serviço exigem diagnósticos diferentes.
 
 ## 2. Conferir os serviços
+
+<!-- explica: `docker compose ps` lista os containers da aplicação e o estado de cada um (rodando, reiniciando ou parado). `make dev-check` confere, dentro do container do Airflow, se as três Variables e a conexão `postgres_default` estão cadastradas. -->
 
 ```bash
 docker compose ps

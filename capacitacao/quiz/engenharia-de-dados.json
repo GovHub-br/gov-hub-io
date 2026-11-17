@@ -271,15 +271,6 @@
       ],
       "correta": 1
     },
-    "guias/engenharia-fonte-nova": {
-      "pergunta": "Em que ordem o repositório pede o cliente de uma fonte nova e o teste dele?",
-      "opcoes": [
-        "Primeiro o cliente, depois o teste",
-        "Primeiro o teste em tests/test_plugins/, depois o cliente",
-        "O teste é opcional para clientes"
-      ],
-      "correta": 1
-    },
     "referencia/engenharia-fontes": {
       "pergunta": "Onde fica o cliente que grava os registros coletados no PostgreSQL?",
       "opcoes": [
@@ -298,86 +289,113 @@
       ],
       "correta": 1
     },
-    "referencia/engenharia-qualidade": {
-      "pergunta": "Quando comparar a contagem da origem com a do destino é um controle adequado?",
-      "opcoes": [
-        "Quando a transformação deve preservar as linhas",
-        "Sempre, inclusive após qualquer agregação",
-        "Somente quando não há chave"
-      ],
-      "correta": 0
-    },
-    "tutoriais/engenharia-falha-qualidade": {
-      "pergunta": "Por que remover o filtro usado para simular uma perda na bronze?",
-      "opcoes": [
-        "Porque testes nunca devem falhar",
-        "Porque toda gold precisa ter a mesma contagem da fonte",
-        "Porque a bronze deve preservar os registros e o filtro era apenas uma falha controlada"
-      ],
-      "correta": 2
-    },
-    "guias/engenharia-observabilidade": {
-      "pergunta": "Uma carga rodou hoje, mas a data do fato é antiga. O que isso indica?",
-      "opcoes": [
-        "Que os logs devem ser apagados",
-        "Que a atualidade do dado precisa ser avaliada separadamente da execução",
-        "Que o dado é necessariamente atual"
-      ],
-      "correta": 1
-    },
-    "explicacao/engenharia-acesso": {
-      "pergunta": "Uma tabela gold contém identificadores pessoais. O que fazer antes de liberar leitura?",
-      "opcoes": [
-        "Liberar porque toda gold é pública",
-        "Revisar finalidade, necessidade das colunas e permissões",
-        "Mover as senhas para o mesmo modelo"
-      ],
-      "correta": 1
-    },
     "guias/engenharia-metadados": {
-      "pergunta": "Qual descrição de coluna é mais útil?",
+      "pergunta": "Por que a tabela models_metadata não prova que uma tabela específica foi atualizada hoje?",
       "opcoes": [
-        "Valor com unidade, granularidade e regra de cálculo explícitas",
-        "Coluna criada pelo autor",
-        "Valor total"
-      ],
-      "correta": 0
-    },
-    "referencia/engenharia-formatos": {
-      "pergunta": "Como o MinIO deve ser tratado na aplicação Gov Hub?",
-      "opcoes": [
-        "Como substituto automático dos testes",
-        "Como serviço obrigatório já integrado ao Compose",
-        "Como componente preparatório a confirmar com a equipe"
-      ],
-      "correta": 2
-    },
-    "tutoriais/engenharia-consumo": {
-      "pergunta": "Como conferir o valor de um gráfico após aplicar um filtro?",
-      "opcoes": [
-        "Comparar com SQL equivalente usando os mesmos critérios",
-        "Comparar somente as cores",
-        "Somar novamente qualquer medida sem conferir sua granularidade"
+        "Ela registra todos os modelos do projeto com o horário da execução em que rodou, mesmo os que não foram reconstruídos",
+        "Ela guarda só o primeiro dia de cada modelo",
+        "Ela registra apenas os modelos que têm testes"
       ],
       "correta": 0
     },
     "guias/engenharia-contribuicao": {
-      "pergunta": "O que uma descrição de PR deve permitir?",
+      "pergunta": "O make lint reprova em um arquivo que você não alterou. O que fazer no PR?",
       "opcoes": [
-        "Ocultar o motivo da alteração",
-        "Dispensar todos os testes",
-        "Reproduzir e avaliar a mudança, incluindo sua validação e impacto"
+        "Reformatar o arquivo junto, para o lint passar",
+        "Confirmar que já reprovava sem a sua mudança e registrar isso na descrição, sem corrigi-lo",
+        "Desligar o lint no CI"
       ],
-      "correta": 2
+      "correta": 1
     },
     "desafios/engenharia-desafio": {
-      "pergunta": "Qual evidência demonstra que o desafio entrega um indicador confiável?",
+      "pergunta": "Ao rodar a base para outro órgão, dois fornecedores PJ têm razão social terminada em 11 dígitos. Por que a regra atual da silver os deixa passar?",
       "opcoes": [
-        "Apenas uma tarefa verde",
-        "Um gráfico visualmente agradável, sem conferência",
-        "Idempotência, testes, reconciliação e linhagem verificáveis"
+        "Porque ela olha só o tipo de pessoa, e eles são pessoa jurídica",
+        "Porque ela só protege CNPJ",
+        "Porque o teste de privacidade está desligado"
       ],
-      "correta": 2
+      "correta": 0
+    },
+    "explicacao/engenharia-base-nova": {
+      "pergunta": "A bronze de um domínio novo está escrita, mas a DAG ainda não rodou. Por que não dá para testá-la de verdade?",
+      "opcoes": [
+        "O dbt só roda depois que o Airflow é desligado",
+        "A bronze lê a raw que a DAG grava; sem ela, os tipos e as esquisitices seriam inventados, e não os da fonte",
+        "A bronze só aceita tabelas criadas por outros modelos do dbt"
+      ],
+      "correta": 1
+    },
+    "guias/engenharia-avaliar-fonte": {
+      "pergunta": "A API de contratos responde 204, sem corpo, para um período sem registros. O que isso muda no projeto?",
+      "opcoes": [
+        "Nada: uma resposta vazia equivale a uma lista vazia",
+        "O cliente precisa tratar o 204 como \"nada no período\" e as demais falhas como erro",
+        "A DAG deve ignorar qualquer status diferente de 200"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-base-nova-cliente": {
+      "pergunta": "A API do PNCP não respondeu e o get_contratos recebeu o status 503. O que o método faz?",
+      "opcoes": [
+        "Devolve uma lista vazia, para a DAG seguir em frente",
+        "Levanta um erro, para que uma carga incompleta não pareça completa",
+        "Tenta de novo, sem limite, até a API responder"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-base-nova-dag": {
+      "pergunta": "Falta a chave orgao_pncp em airflow_variables. Por que a DAG usa AirflowFailException em vez de um ValueError comum?",
+      "opcoes": [
+        "Para a tarefa falhar na hora, sem gastar novas tentativas num erro que esperar não resolve",
+        "Porque um ValueError não aparece no log da tarefa",
+        "Para que a tarefa seja marcada como ignorada"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-base-nova-dominio": {
+      "pergunta": "A raw está no schema pncp. Por que o domínio dbt usa o schema pncp_dw, e não pncp?",
+      "opcoes": [
+        "Porque o dbt não aceita schemas com nomes curtos",
+        "Porque, no projeto, o modelo nasce no schema do +schema sem prefixo, e a bronze poderia substituir a tabela que a DAG grava",
+        "Porque a role de leitura só tem acesso a schemas terminados em _dw"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-base-nova-bronze": {
+      "pergunta": "Você declarou nove testes com data_tests no schema.yml e o dbt build terminou com PASS=1. Qual é a explicação mais provável?",
+      "opcoes": [
+        "O dbt 1.7.13 ignora data_tests; a chave que funciona nas duas versões é tests",
+        "Os testes só rodam depois que a gold existe",
+        "O schema.yml precisa estar na raiz do projeto dbt"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-base-nova-silver": {
+      "pergunta": "Na silver, o left join com a seed foi trocado por um inner join, e uma UF não existe na seed. O que acontece?",
+      "opcoes": [
+        "As linhas dessa UF somem, e nenhum teste de unique ou not_null reclama",
+        "O teste unique da chave reprova",
+        "O dbt para com um erro de junção"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-base-nova-gold": {
+      "pergunta": "A silver perdeu 25 dos 30 instrumentos, mas a gold tem uma linha por grão e nenhum campo vazio. Qual teste pega o problema?",
+      "opcoes": [
+        "O teste de grão, porque há menos linhas",
+        "A reconciliação com a bronze, que compara a quantidade e o valor totais",
+        "O not_null da data de assinatura"
+      ],
+      "correta": 1
+    },
+    "referencia/engenharia-checklist-base-nova": {
+      "pergunta": "Por que o schema do domínio dbt não deve ser o mesmo da raw?",
+      "opcoes": [
+        "Para economizar espaço no banco",
+        "Porque um modelo com o mesmo nome substituiria a tabela que a DAG gravou",
+        "Porque o Superset só lê schemas com o sufixo dw"
+      ],
+      "correta": 1
     }
   }
 }

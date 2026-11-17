@@ -1,0 +1,41 @@
+diff --git a/airflow_lappis/dags/dbt/ipea/dbt_project.yml b/airflow_lappis/dags/dbt/ipea/dbt_project.yml
+index aec1595..df7e674 100755
+--- a/airflow_lappis/dags/dbt/ipea/dbt_project.yml
++++ b/airflow_lappis/dags/dbt/ipea/dbt_project.yml
+@@ -77,6 +77,20 @@ models:
+           select: ["{{ env_var('DB_DW_READONLY_ROLE', 'de_postgres') }}"]
+       views:
+         +materialized: view
++    pncp_dbt:
++      +materialized: table
++      +schema: pncp_dw
++      bronze:
++        +grants:
++          select: []
++      silver:
++        +grants:
++          select: ["{{ env_var('DB_DW_READONLY_ROLE', 'de_postgres') }}"]
++      gold:
++        +grants:
++          select: ["{{ env_var('DB_DW_READONLY_ROLE', 'de_postgres') }}"]
++      views:
++        +materialized: view
+     sistema_sisbolsas:
+       +materialized: table
+       +schema: sistema_sisbolsas
+diff --git a/airflow_lappis/dags/dbt/ipea/models/sources.yml b/airflow_lappis/dags/dbt/ipea/models/sources.yml
+index 3b709a3..7420030 100644
+--- a/airflow_lappis/dags/dbt/ipea/models/sources.yml
++++ b/airflow_lappis/dags/dbt/ipea/models/sources.yml
+@@ -68,6 +68,11 @@ sources:
+       - name: metas_especiais
+       - name: finalidades_especiais
+ 
++  - name: pncp
++    schema: pncp
++    tables:
++      - name: contratos
++
+   - name: dados_abertos
+     schema: camara_deputados
+     tables: 
