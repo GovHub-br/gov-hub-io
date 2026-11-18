@@ -37,7 +37,7 @@ Medir mais coisas dá mais visibilidade e mais burocracia. Comece por duas métr
 ## Conexões
 
 - A lacuna do histórico do Git conecta com [Responder a um segredo ou dado pessoal commitado](../guias/responder-a-um-segredo-ou-dado-pessoal-commitado.md).
-- Para aplicar tudo de uma vez: [Triagem de uma DAG real](../desafios/triagem-de-uma-dag-real.md).
+- Para aplicar tudo de uma vez: [Exercício final: triagem de uma DAG real](../desafios/triagem-de-uma-dag-real.md).
 
 ## Veja também
 

@@ -236,4 +236,4 @@ Na versão segura eles foram corrigidos por decisão de projeto: logar contagem 
 ## Próximos passos
 
 - Faça os guias do nível 4, começando por [Rodar Bandit e Trivy e ler o relatório](../guias/rodar-bandit-e-trivy-e-ler-o-relatorio.md).
-- Aplique tudo numa DAG real no [desafio final](../desafios/triagem-de-uma-dag-real.md).
+- Aplique tudo numa DAG real no [exercício final](../desafios/triagem-de-uma-dag-real.md).

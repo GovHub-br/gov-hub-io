@@ -1,4 +1,4 @@
-# Triagem de uma DAG real (antes e depois)
+# Exercício final: triagem de uma DAG real (antes e depois)
 
 > Tipo: **Desafio**
 

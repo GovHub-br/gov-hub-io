@@ -190,7 +190,7 @@
     {
       "numero": 5,
       "titulo": "Consultar e revisar",
-      "descricao": "O que consultar enquanto trabalha (comandos, regras, checklist, glossário), as lacunas que a trilha ainda não cobre e o exercício final antes e depois.",
+      "descricao": "O que consultar enquanto trabalha (comandos, regras, checklist, glossário), a autoavaliação, as lacunas que a trilha ainda não cobre e o exercício final, antes e depois.",
       "etapa": "Consultar",
       "icone": "assets/icones/clipboard-document-list-sober.svg",
       "itens": [
@@ -235,6 +235,16 @@
           "icone": "assets/icones/document-text-sober.svg"
         },
         {
+          "id": "referencia/autoavaliacao",
+          "titulo": "Autoavaliação",
+          "doc": "docs/referencia/autoavaliacao.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
           "id": "explicacao/recomendacoes-e-proximos-passos",
           "titulo": "Recomendações e próximos passos",
           "doc": "docs/explicacao/recomendacoes-e-proximos-passos.md",
@@ -246,7 +256,7 @@
         },
         {
           "id": "desafios/triagem-de-uma-dag-real",
-          "titulo": "Triagem de uma DAG real (antes e depois)",
+          "titulo": "Exercício final: triagem de uma DAG real (antes e depois)",
           "doc": "docs/desafios/triagem-de-uma-dag-real.md",
           "tipo": "desafio",
           "tipo_nome": "Desafio",

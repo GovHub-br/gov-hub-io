@@ -54,11 +54,12 @@ Guias para os problemas concretos que aparecem no trabalho: ler o relatório, de
 
 ## Nível 5 · Consultar e revisar
 Etapa: Consultar · Ícone: clipboard-document-list
-O que consultar enquanto trabalha (comandos, regras, checklist, glossário), as lacunas que a trilha ainda não cobre e o exercício final antes e depois.
+O que consultar enquanto trabalha (comandos, regras, checklist, glossário), a autoavaliação, as lacunas que a trilha ainda não cobre e o exercício final, antes e depois.
 
 - [reference] **Checklist pré-PR** — core — `docs/referencia/checklist-pre-pr.md`
 - [reference] **Comandos do Bandit e do Trivy** — support — `docs/referencia/comandos-do-bandit-e-do-trivy.md`
 - [reference] **Regras do Bandit mais comuns em DAGs** — support — `docs/referencia/regras-do-bandit-mais-comuns-em-dags.md`
 - [reference] **Glossário de segurança de DAGs** — support — `docs/referencia/glossario-de-seguranca-de-dags.md`
+- [reference] **Autoavaliação** — support — `docs/referencia/autoavaliacao.md`
 - [explanation] **Recomendações e próximos passos** — support — `docs/explicacao/recomendacoes-e-proximos-passos.md`
-- [challenge] **Triagem de uma DAG real (antes e depois)** — capstone — `docs/desafios/triagem-de-uma-dag-real.md`
+- [challenge] **Exercício final: triagem de uma DAG real (antes e depois)** — capstone — `docs/desafios/triagem-de-uma-dag-real.md`

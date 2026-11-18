@@ -116,6 +116,7 @@
         "referencia/comandos-do-bandit-e-do-trivy",
         "referencia/regras-do-bandit-mais-comuns-em-dags",
         "referencia/glossario-de-seguranca-de-dags",
+        "referencia/autoavaliacao",
         "explicacao/recomendacoes-e-proximos-passos",
         "desafios/triagem-de-uma-dag-real"
       ]

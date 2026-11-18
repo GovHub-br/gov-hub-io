@@ -32,11 +32,12 @@ SAST e SCA na prática, com Bandit e Trivy, para quem escreve DAGs do Airflow no
 - [Responder a um segredo ou dado pessoal commitado](../guias/responder-a-um-segredo-ou-dado-pessoal-commitado.md) — *Guia* · Apoio
 
 ### Nível 5 · Consultar e revisar
-*O que consultar enquanto trabalha (comandos, regras, checklist, glossário), as lacunas que a trilha ainda não cobre e o exercício final antes e depois.*
+*O que consultar enquanto trabalha (comandos, regras, checklist, glossário), a autoavaliação, as lacunas que a trilha ainda não cobre e o exercício final, antes e depois.*
 - [Checklist pré-PR](../referencia/checklist-pre-pr.md) — *Referência* · **Essencial**
 - [Comandos do Bandit e do Trivy](../referencia/comandos-do-bandit-e-do-trivy.md) — *Referência* · Apoio
 - [Regras do Bandit mais comuns em DAGs](../referencia/regras-do-bandit-mais-comuns-em-dags.md) — *Referência* · Apoio
 - [Glossário de segurança de DAGs](../referencia/glossario-de-seguranca-de-dags.md) — *Referência* · Apoio
+- [Autoavaliação](../referencia/autoavaliacao.md) — *Referência* · Apoio
 - [Recomendações e próximos passos](../explicacao/recomendacoes-e-proximos-passos.md) — *Explicação* · Apoio
-- [Triagem de uma DAG real (antes e depois)](../desafios/triagem-de-uma-dag-real.md) — *Desafio* · **Capstone**
+- [Exercício final: triagem de uma DAG real (antes e depois)](../desafios/triagem-de-uma-dag-real.md) — *Desafio* · **Capstone**
 
