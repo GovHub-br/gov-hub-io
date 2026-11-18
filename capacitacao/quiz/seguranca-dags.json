@@ -1,5 +1,5 @@
 {
-  "_sobre": "Banco de perguntas da trilha seguranca-dags: 5 iniciantes, 5 intermediárias e 5 avançadas. correta = índice em opcoes. aula = id da aula de origem.",
+  "_sobre": "Para fixar o que você aprendeu na trilha de Segurança em DAGs, preparamos este banco de exercícios. As questões estão divididas por níveis — iniciante, intermediário e avançado — para que você possa testar seus conhecimentos e identificar onde precisa de mais atenção. Bons estudos!",
   "perguntas": [
     {
       "id": "ini-01",
