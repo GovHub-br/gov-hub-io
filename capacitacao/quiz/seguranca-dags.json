@@ -1,477 +1,165 @@
 {
-  "_sobre": "Quiz de revisão da trilha seguranca-dags: 40 perguntas sem repetição, agrupadas por aula (chave = id da aula) e em ordem crescente de dificuldade dentro de cada aula (basico, intermediario, avancado). Cada aula traz uma lista de perguntas. correta = índice da opção certa em opcoes. Requer o ajuste de perguntasDaTrilha que aceita lista por aula. Aulas sem pergunta: glossário, autoavaliação e exercício final.",
+  "_sobre": "Quiz de revisão da trilha seguranca-dags: uma pergunta por aula (chave = id da aula, o caminho sem docs/ e sem .md). correta = índice em opcoes. Aulas sem pergunta: glossário, autoavaliação e exercício final.",
   "perguntas": {
-    "explicacao/seguranca-no-ciclo-da-dag": [
-      {
-        
-        "pergunta": "Em que momento do desenvolvimento da DAG a segurança deve entrar, segundo o ciclo seguro de desenvolvimento?",
-        "opcoes": [
-          "Dentro de cada fase do ciclo, dos requisitos à operação",
-          "Só na revisão final, antes do deploy",
-          "Apenas depois do primeiro incidente",
-          "Somente quando a DAG tocar dado pessoal"
-        ],
-        "correta": 0
-      },
-      {
-        
-        "pergunta": "Na fase de Projeto, qual pergunta de segurança a equipe deve responder sobre a DAG?",
-        "opcoes": [
-          "Qual o horário de agendamento da DAG?",
-          "Qual a cobertura mínima de testes?",
-          "Onde cada segredo vive, que dado trafega entre tasks e qual o menor privilégio possível?",
-          "Quantas tasks a DAG terá e em que ordem rodam?"
-        ],
-        "correta": 2
-      },
-      {
-        
-        "pergunta": "Um módulo cliente com Jinja2 sem autoescape e MD5 foi copiado como template, e o mesmo achado apareceu em vários repositórios. Qual é a correção mais eficaz?",
-        "opcoes": [
-          "Corrigir repositório por repositório, conforme os PRs chegam",
-          "Remover o scan desses repositórios",
-          "Corrigir no template, para que as novas cópias já nasçam seguras",
-          "Suprimir o achado com # nosec em cada cópia"
-        ],
-        "correta": 2
-      }
-    ],
-    "explicacao/superficie-de-ataque-de-uma-dag": [
-      {
-        
-        "pergunta": "Qual dos riscos abaixo o Bandit consegue apontar numa DAG?",
-        "opcoes": [
-          "Senha escrita em variável no arquivo da DAG",
-          "Linhas com CPF devolvidas pela task ao XCom",
-          "Segredo apagado que ficou no histórico do Git",
-          "Dado pessoal impresso com print(df.head())"
-        ],
-        "correta": 0
-      },
-      {
-        
-        "pergunta": "Qual dos riscos abaixo depende de revisão humana, porque nem o Bandit nem o Trivy o detectam?",
-        "opcoes": [
-          "MD5 usado para pseudonimizar CPF",
-          "requirements.txt com versões antigas fixadas",
-          "Contêiner rodando como root",
-          "Task que devolve linhas com CPF pelo XCom"
-        ],
-        "correta": 3
-      }
-    ],
-    "explicacao/o-que-cada-ferramenta-enxerga": [
-      {
-        
-        "pergunta": "O que o Bandit analisa?",
-        "opcoes": [
-          "Os valores das tabelas lidas pela DAG",
-          "A aplicação rodando em produção",
-          "O código Python que você escreveu, sem executá-lo",
-          "As bibliotecas listadas no requirements.txt"
-        ],
-        "correta": 2
-      },
-      {
-        
-        "pergunta": "Qual escopo do Trivy analisa Dockerfile, YAML de Kubernetes e compose em busca de configuração insegura?",
-        "opcoes": [
-          "vuln",
-          "secret",
-          "misconfig",
-          "license"
-        ],
-        "correta": 2
-      },
-      {
-        
-        "pergunta": "Em projetos de dados, por que o SCA pesa tanto quanto o SAST?",
-        "opcoes": [
-          "Porque o SAST não funciona em Python",
-          "Porque a maior parte do código que executa é importada (Airflow, providers, pandas, drivers)",
-          "Porque o SCA também encontra falhas ainda não publicadas",
-          "Porque o SCA analisa os valores das tabelas"
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "O Trivy aponta uma vulnerabilidade HIGH numa biblioteca que a sua DAG usa. O que isso significa?",
-        "opcoes": [
-          "Que o seu uso é explorável",
-          "Que a versão é afetada, mas o Trivy não sabe se o seu código chama o trecho vulnerável",
-          "Que o achado é falso positivo",
-          "Que a DAG já foi comprometida"
-        ],
-        "correta": 1
-      }
-    ],
-    "explicacao/dado-pessoal-nos-valores": [
-      {
-        
-        "pergunta": "Por que mascarar dado pessoal pelo nome da coluna falha em bases legadas?",
-        "opcoes": [
-          "Porque nomes de coluna são sempre criptografados",
-          "O nome não diz o conteúdo: uma coluna genérica pode guardar CPF",
-          "Porque a LGPD proíbe nomes de coluna descritivos",
-          "Porque o Bandit renomeia as colunas"
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "CEP sozinho não identifica ninguém. Por que ele ainda exige cuidado?",
-        "opcoes": [
-          "Porque, combinado com data de nascimento e sexo, identifica a maioria das pessoas (quase-identificadores)",
-          "Porque o CEP muda com frequência",
-          "Porque CEP é sempre dado sensível",
-          "Porque o CEP não pode ser guardado em banco de dados"
-        ],
-        "correta": 0
-      },
-      {
-        
-        "pergunta": "Uma base teve o CPF trocado por um HMAC com chave secreta. Como ela deve ser tratada?",
-        "opcoes": [
-          "Como anonimizada, pois as junções continuam funcionando",
-          "Como anonimizada, pois a chave é forte",
-          "Como dado pseudonimizado, que continua sendo dado pessoal e sob a LGPD",
-          "Como dado pessoal apenas se o CPF aparecer em claro em algum lugar"
-        ],
-        "correta": 2
-      }
-    ],
-    "tutoriais/laboratorio-do-scan-a-correcao": [
-      {
-        
-        "pergunta": "No laboratório, o que significa o Bandit sair com código diferente de zero?",
-        "opcoes": [
-          "Que a DAG não compila",
-          "Que encontrou problemas; é isso que permite barrar um PR",
-          "Que o Trivy precisa rodar primeiro",
-          "Que o Bandit falhou ao instalar"
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "No laboratório, o print de linhas com CPF e o return de linhas inteiras no XCom não geraram achado. O que isso mostra?",
-        "opcoes": [
-          "Que o Trivy precisa de mais escopos",
-          "O limite do SAST: relatório vazio não garante que não há dado pessoal exposto",
-          "Que esses padrões são seguros",
-          "Que o Bandit está desatualizado"
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "Por que usar HMAC com chave em vez de MD5 para pseudonimizar CPF?",
-        "opcoes": [
-          "Porque o MD5 é mais lento e, por isso, mais seguro",
-          "Porque o HMAC torna o dado anonimizado e o tira do alcance da LGPD",
-          "Porque o HMAC gera hashes menores",
-          "Porque o CPF tem cerca de um bilhão de combinações: um hash sem chave cai por força bruta em minutos, e com chave secreta guardada fora do banco isso não é possível"
-        ],
-        "correta": 3
-      }
-    ],
-    "guias/rodar-bandit-e-trivy-e-ler-o-relatorio": [
-      {
-        
-        "pergunta": "Por onde começar a leitura do relatório do Bandit?",
-        "opcoes": [
-          "Pelos achados com mais linhas de código",
-          "Pelos achados de severidade baixa",
-          "Pelo último arquivo da lista",
-          "Pela severidade alta com confiança alta"
-        ],
-        "correta": 3
-      },
-      {
-        
-        "pergunta": "O que significa Fixed Version vazia no relatório do Trivy?",
-        "opcoes": [
-          "Ainda não há correção publicada; é preciso mitigar, registrar e acompanhar o aviso do mantenedor",
-          "O achado é falso positivo",
-          "A vulnerabilidade foi corrigida automaticamente",
-          "A biblioteca não é usada pela DAG"
-        ],
-        "correta": 0
-      },
-      {
-        
-        "pergunta": "Por que a pasta reports/ deve ficar no .gitignore e os relatórios nunca devem ser anexados a artefatos públicos?",
-        "opcoes": [
-          "Porque o relatório pode conter trechos de segredos e é um mapa de fraquezas",
-          "Porque o Trivy apaga o relatório sozinho",
-          "Porque o Git não aceita arquivos .txt",
-          "Porque ocupam muito espaço"
-        ],
-        "correta": 0
-      }
-    ],
-    "guias/decidir-o-que-fazer-com-um-achado": [
-      {
-        
-        "pergunta": "Quais são as saídas possíveis para um achado?",
-        "opcoes": [
-          "Ignorar, adiar ou apagar o relatório",
-          "Reescrever a DAG ou desativar o scan",
-          "Só corrigir; não há outra opção",
-          "Corrigir, mitigar ou aceitar/suprimir com justificativa"
-        ],
-        "correta": 3
-      },
-      {
-        
-        "pergunta": "Um CVE não tem versão corrigida publicada. Qual é a decisão adequada?",
-        "opcoes": [
-          "Corrigir atualizando a versão",
-          "Suprimir sem registro",
-          "Mitigar, com controle compensatório, responsável e prazo",
-          "Remover a dependência de todos os projetos"
-        ],
-        "correta": 2
-      },
-      {
-        
-        "pergunta": "Qual a diferença entre `# nosec` e `# nosec B301 - motivo`?",
-        "opcoes": [
-          "Nenhuma, o Bandit trata os dois igual",
-          "O segundo desativa o Bandit no arquivo inteiro",
-          "O primeiro exige revisão no PR; o segundo não",
-          "O primeiro silencia todos os testes da linha, inclusive os que você ainda não viu; o segundo só o B301, com motivo registrado"
-        ],
-        "correta": 3
-      }
-    ],
-    "guias/tratar-credenciais-em-dags": [
-      {
-        
-        "pergunta": "Como a DAG deve acessar a senha do banco de dados?",
-        "opcoes": [
-          "Em uma variável no topo do arquivo, em maiúsculas",
-          "Só pelo identificador da Connection, como postgres_conn_id='dw_homolog'",
-          "Em um .env versionado no repositório",
-          "Na URI de conexão impressa no log"
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "Por que usar uma conta de serviço por pipeline, com menor privilégio, em vez do token pessoal de alguém?",
-        "opcoes": [
-          "Porque contas de serviço não precisam de senha",
-          "Porque tokens pessoais vencem e o pipeline quebra sem aviso; a conta de serviço tem rotação planejada e só as permissões de que precisa",
-          "Porque o token pessoal é mais lento",
-          "Porque o Airflow só aceita contas de serviço"
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "No docker-compose, o que faz `DB_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD no arquivo .env}`?",
-        "opcoes": [
-          "Define a senha padrão como 'Defina DB_PASSWORD'",
-          "Cria o arquivo .env automaticamente",
-          "Faz o compose falhar cedo se a variável estiver ausente, em vez de subir com senha vazia ou padrão",
-          "Imprime a senha no log para conferência"
-        ],
-        "correta": 2
-      }
-    ],
-    "guias/corrigir-uma-dependencia-vulneravel": [
-      {
-        
-        "pergunta": "Como descobrir quem requer uma biblioteca vulnerável e se ela é direta ou transitiva?",
-        "opcoes": [
-          "Apagando o requirements.txt",
-          "Com pip show pacote ou pipdeptree",
-          "Com trivy image",
-          "Com bandit -r ."
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "O CVE está numa dependência do próprio Airflow. Por que não basta atualizar a biblioteca isolada?",
-        "opcoes": [
-          "Porque só dependências diretas podem ser atualizadas",
-          "Porque as dependências do Airflow são testadas em conjunto (arquivo de constraints) e a atualização isolada pode quebrá-lo; o caminho é atualizar o Airflow ou o provider com a equipe da plataforma",
-          "Porque o Trivy não reconhece versões atualizadas manualmente",
-          "Porque CVE em dependência do Airflow deve ser suprimido no .trivyignore"
-        ],
-        "correta": 1
-      }
-    ],
-    "guias/manter-dado-pessoal-fora-de-logs-xcom-e-repositorio": [
-      {
-        
-        "pergunta": "O que uma task deve passar adiante pelo XCom?",
-        "opcoes": [
-          "Os CPFs pseudonimizados em uma lista",
-          "A URI da conexão com o banco",
-          "As linhas inteiras do DataFrame",
-          "Referências, como o nome da tabela de staging ou o caminho de um arquivo protegido"
-        ],
-        "correta": 3
-      },
-      {
-        
-        "pergunta": "Qual é a forma correta de detectar dado pessoal em uma base legada, onde o nome da coluna não diz o conteúdo?",
-        "opcoes": [
-          "Ampliar a lista de nomes de coluna suspeitos (cpf, email, telefone)",
-          "Confiar na descrição da tabela no catálogo",
-          "Olhar os valores (formato e dígito verificador) e decidir por coluna, pela proporção de valores que passam",
-          "Mascarar apenas as colunas de tipo texto"
-        ],
-        "correta": 2
-      },
-      {
-        
-        "pergunta": "Um PR traz um notebook .ipynb com as saídas das células salvas. Qual é o risco e o que fazer?",
-        "opcoes": [
-          "Nenhum risco; saídas ficam fora do arquivo",
-          "O risco é só o tamanho do arquivo; compacte-o",
-          "Basta renomear o notebook",
-          "As saídas ficam dentro do arquivo e podem conter dado real; limpe-as antes do commit, por exemplo com o nbstripout"
-        ],
-        "correta": 3
-      }
-    ],
-    "guias/encaixar-os-scans-no-fluxo": [
-      {
-        
-        "pergunta": "Se o gate de segurança do PR falhar, o que fazer?",
-        "opcoes": [
-          "Reproduzir localmente, corrigir ou registrar a decisão; nunca desativar o job",
-          "Ignorar, pois o gate é só informativo",
-          "Desativar o job para o PR passar",
-          "Publicar o relatório completo como artefato público"
-        ],
-        "correta": 0
-      },
-      {
-        
-        "pergunta": "Quais achados fazem o pipeline de segurança do GovHub reprovar o PR?",
-        "opcoes": [
-          "Qualquer achado, de qualquer severidade",
-          "Apenas segredos",
-          "Apenas achados LOW",
-          "Achados HIGH ou CRITICAL"
-        ],
-        "correta": 3
-      },
-      {
-        
-        "pergunta": "Por que o pipeline do GovHub não publica os relatórios de scan como artefatos do GitHub Actions?",
-        "opcoes": [
-          "Porque o repositório é público e um relatório de vulnerabilidades público é um mapa para o atacante; o detalhe fica num repositório privado de segurança",
-          "Porque o GitHub Actions não aceita artefatos de segurança",
-          "Porque o Bandit e o Trivy não geram arquivos de relatório",
-          "Para economizar armazenamento"
-        ],
-        "correta": 0
-      }
-    ],
-    "guias/responder-a-um-segredo-ou-dado-pessoal-commitado": [
-      {
-        
-        "pergunta": "Qual é a primeira ação diante de uma credencial commitada?",
-        "opcoes": [
-          "Colar a credencial no chat da equipe para investigar",
-          "Apagar o arquivo e commitar de novo",
-          "Aguardar a reescrita do histórico antes de avisar alguém",
-          "Revogar ou rotacionar a credencial, mesmo que o repositório seja privado"
-        ],
-        "correta": 3
-      },
-      {
-        
-        "pergunta": "Um dado pessoal foi commitado. Quem decide se há incidente e se é preciso comunicar a ANPD e os titulares?",
-        "opcoes": [
-          "Quem fez o commit, sozinho",
-          "Ninguém, pois apagar o arquivo resolve",
-          "A governança de dados (art. 48 da LGPD); o seu papel é reportar rápido e com precisão",
-          "O próprio Bandit, pelo relatório"
-        ],
-        "correta": 2
-      }
-    ],
-    "referencia/comandos-do-bandit-e-do-trivy": [
-      {
-        
-        "pergunta": "Qual opção do Bandit mostra só achados de severidade média ou alta?",
-        "opcoes": [
-          "-l",
-          "-ll",
-          "-lll",
-          "-x"
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "Qual opção faz o Trivy falhar o job quando há achado? (Sem ela, o código de saída é 0.)",
-        "opcoes": [
-          "--format table",
-          "--severity HIGH",
-          "--exit-code 1",
-          "--ignore-unfixed"
-        ],
-        "correta": 2
-      }
-    ],
-    "referencia/regras-do-bandit-mais-comuns-em-dags": [
-      {
-        
-        "pergunta": "Qual é a correção típica para o B506 (yaml_load)?",
-        "opcoes": [
-          "Usar yaml.load com Loader=yaml.Loader",
-          "Usar yaml.safe_load",
-          "Adicionar # nosec sem ID",
-          "Trocar por pickle.load"
-        ],
-        "correta": 1
-      },
-      {
-        
-        "pergunta": "O B608 sinaliza SQL montado com f-string, format ou concatenação. Qual é a correção típica?",
-        "opcoes": [
-          "Usar parâmetros (%s) na consulta",
-          "Mover a consulta para um comentário",
-          "Trocar a f-string por format()",
-          "Converter a consulta para maiúsculas"
-        ],
-        "correta": 0
-      }
-    ],
-    "referencia/checklist-pre-pr": [
-      {
-        
-        "pergunta": "Qual das opções deve estar marcada no checklist pré-PR?",
-        "opcoes": [
-          "Logs só com contagens e formatos",
-          "Amostras com dados reais para facilitar a revisão",
-          "Relatórios do scan anexados ao PR público",
-          "Notebooks com as saídas das células salvas"
-        ],
-        "correta": 0
-      }
-    ],
-    "explicacao/recomendacoes-e-proximos-passos": [
-      {
-        
-        "pergunta": "O Trivy não acusou segredos. Isso garante que não há segredo no repositório?",
-        "opcoes": [
-          "Não, mas só porque o Trivy ignora arquivos Python",
-          "Sim, desde que a severidade seja HIGH ou CRITICAL",
-          "Sim, o Trivy varre todo o histórico do Git",
-          "Não: ele olha só o diretório de trabalho e só reconhece padrões conhecidos; para o histórico do Git a trilha recomenda o Gitleaks"
-        ],
-        "correta": 3
-      }
-    ]
+    "explicacao/seguranca-no-ciclo-da-dag": {
+      "pergunta": "Por que o ciclo seguro de desenvolvimento não deve ser um ciclo separado?",
+      "opcoes": [
+        "Porque a segurança vira uma etapa à parte que equipes ocupadas empurram para depois",
+        "Porque ferramentas de segurança só funcionam durante o desenvolvimento",
+        "Porque o time de segurança não tem tempo de revisar o código",
+        "Porque o código de DAG não precisa de revisão no fim"
+      ],
+      "correta": 0
+    },
+    "explicacao/superficie-de-ataque-de-uma-dag": {
+      "pergunta": "Quais riscos de uma DAG nenhuma das duas ferramentas detecta no scan do diretório atual?",
+      "opcoes": [
+        "Dado pessoal em log, XCom ou arquivo, e segredo no histórico do Git",
+        "Senha em variável e MD5",
+        "Dockerfile sem USER e dependência com CVE",
+        "yaml.load e pickle.load"
+      ],
+      "correta": 0
+    },
+    "explicacao/o-que-cada-ferramenta-enxerga": {
+      "pergunta": "Qual a diferença entre SAST e SCA, e qual ferramenta faz cada um nesta trilha?",
+      "opcoes": [
+        "SAST analisa o código que você escreveu (Bandit); SCA analisa o código que você importou (Trivy)",
+        "SAST analisa as dependências (Trivy); SCA analisa o seu código (Bandit)",
+        "Os dois analisam a aplicação em execução",
+        "SAST só vale para Dockerfile e SCA só para Python"
+      ],
+      "correta": 0
+    },
+    "explicacao/dado-pessoal-nos-valores": {
+      "pergunta": "Qual é a forma correta de detectar dado pessoal em uma base legada, onde o nome da coluna não diz o conteúdo?",
+      "opcoes": [
+        "Olhar os valores (formato e dígito verificador) e decidir por coluna, pela proporção de valores que passam",
+        "Ampliar a lista de nomes de coluna suspeitos (cpf, email, telefone)",
+        "Confiar na descrição da tabela no catálogo",
+        "Mascarar apenas as colunas de tipo texto"
+      ],
+      "correta": 0
+    },
+    "tutoriais/laboratorio-do-scan-a-correcao": {
+      "pergunta": "Por que usar HMAC com chave em vez de MD5 para pseudonimizar CPF?",
+      "opcoes": [
+        "Porque o MD5 é mais lento e, por isso, mais seguro",
+        "Porque o HMAC torna o dado anonimizado e o tira do alcance da LGPD",
+        "Porque o HMAC gera hashes menores",
+        "Porque o CPF tem cerca de um bilhão de combinações: um hash sem chave cai por força bruta em minutos, e com chave secreta guardada fora do banco isso não é possível"
+      ],
+      "correta": 3
+    },
+    "guias/rodar-bandit-e-trivy-e-ler-o-relatorio": {
+      "pergunta": "O que significa Fixed Version vazia no relatório do Trivy?",
+      "opcoes": [
+        "A vulnerabilidade foi corrigida automaticamente",
+        "A biblioteca não é usada pela DAG",
+        "Ainda não há correção publicada; é preciso mitigar, registrar e acompanhar o aviso do mantenedor",
+        "O achado é falso positivo"
+      ],
+      "correta": 2
+    },
+    "guias/decidir-o-que-fazer-com-um-achado": {
+      "pergunta": "Quando é aceitável usar # nosec?",
+      "opcoes": [
+        "Sempre que o PR estiver atrasado",
+        "Quando a severidade é média ou baixa",
+        "Nunca, o Bandit não permite supressão",
+        "Quando é falso positivo ou risco assumido, com o ID do teste, o motivo, um responsável e revisão no PR"
+      ],
+      "correta": 3
+    },
+    "guias/tratar-credenciais-em-dags": {
+      "pergunta": "Como a DAG deve acessar a senha do banco de dados?",
+      "opcoes": [
+        "Em uma variável no topo do arquivo, em maiúsculas",
+        "Só pelo identificador da Connection, como postgres_conn_id='dw_homolog'",
+        "Em um .env versionado no repositório",
+        "Na URI de conexão impressa no log"
+      ],
+      "correta": 1
+    },
+    "guias/corrigir-uma-dependencia-vulneravel": {
+      "pergunta": "O CVE está numa dependência do próprio Airflow. Por que não basta atualizar a biblioteca isolada?",
+      "opcoes": [
+        "Porque o Trivy não reconhece versões atualizadas manualmente",
+        "Porque as dependências do Airflow são testadas em conjunto (arquivo de constraints) e a atualização isolada pode quebrá-lo; o caminho é atualizar o Airflow ou o provider com a equipe da plataforma",
+        "Porque CVE em dependência do Airflow deve ser suprimido no .trivyignore",
+        "Porque só dependências diretas podem ser atualizadas"
+      ],
+      "correta": 1
+    },
+    "guias/manter-dado-pessoal-fora-de-logs-xcom-e-repositorio": {
+      "pergunta": "O que uma task deve passar adiante pelo XCom?",
+      "opcoes": [
+        "As linhas inteiras do DataFrame",
+        "Os CPFs pseudonimizados em uma lista",
+        "A URI da conexão com o banco",
+        "Referências, como o nome da tabela de staging ou o caminho de um arquivo protegido"
+      ],
+      "correta": 3
+    },
+    "guias/encaixar-os-scans-no-fluxo": {
+      "pergunta": "Por que o pipeline do GovHub não publica os relatórios de scan como artefatos do GitHub Actions?",
+      "opcoes": [
+        "Porque o GitHub Actions não aceita artefatos de segurança",
+        "Para economizar armazenamento",
+        "Porque o Bandit e o Trivy não geram arquivos de relatório",
+        "Porque o repositório é público e um relatório de vulnerabilidades público é um mapa para o atacante; o detalhe fica num repositório privado de segurança"
+      ],
+      "correta": 3
+    },
+    "guias/responder-a-um-segredo-ou-dado-pessoal-commitado": {
+      "pergunta": "Qual é a primeira ação diante de uma credencial commitada?",
+      "opcoes": [
+        "Apagar o arquivo e commitar de novo",
+        "Revogar ou rotacionar a credencial, mesmo que o repositório seja privado",
+        "Aguardar a reescrita do histórico antes de avisar alguém",
+        "Colar a credencial no chat da equipe para investigar"
+      ],
+      "correta": 1
+    },
+    "referencia/comandos-do-bandit-e-do-trivy": {
+      "pergunta": "Qual opção faz o Trivy falhar o job quando há achado?",
+      "opcoes": [
+        "--exit-code 1",
+        "--severity HIGH",
+        "--ignore-unfixed",
+        "--format table"
+      ],
+      "correta": 0
+    },
+    "referencia/regras-do-bandit-mais-comuns-em-dags": {
+      "pergunta": "Qual é a correção típica para o B506 (yaml_load)?",
+      "opcoes": [
+        "Usar yaml.safe_load",
+        "Usar yaml.load com Loader=yaml.Loader",
+        "Trocar por pickle.load",
+        "Adicionar # nosec sem ID"
+      ],
+      "correta": 0
+    },
+    "referencia/checklist-pre-pr": {
+      "pergunta": "Qual das opções deve estar marcada no checklist pré-PR?",
+      "opcoes": [
+        "Logs só com contagens e formatos",
+        "Amostras com dados reais para facilitar a revisão",
+        "Notebooks com as saídas das células salvas",
+        "Relatórios do scan anexados ao PR público"
+      ],
+      "correta": 0
+    },
+    "explicacao/recomendacoes-e-proximos-passos": {
+      "pergunta": "O Trivy não acusou segredos. Isso garante que não há segredo no repositório?",
+      "opcoes": [
+        "Sim, o Trivy varre todo o histórico do Git",
+        "Sim, desde que a severidade seja HIGH ou CRITICAL",
+        "Não: ele olha só o diretório de trabalho e só reconhece padrões conhecidos",
+        "Não, mas só porque o Trivy ignora arquivos Python"
+      ],
+      "correta": 2
+    }
   }
 }
