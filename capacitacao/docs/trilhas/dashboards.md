@@ -43,6 +43,15 @@ Do "por que um dashboard" à escolha do gráfico certo, com Apache Superset e Po
 - [Azure Maps (Power BI)](../referencia/azure-maps.md) — *Referência* · Apoio
 - [Mapas: Superset vs. Power BI](../pesquisa/mapas-superset-vs-power-bi.md) — *Pesquisa* · Apoio
 
-### Nível 4 · Mão na massa no Superset e no Power BI (em breve)
-*Vídeos mostrando, passo a passo, como aplicar os fundamentos, o design e a escolha do gráfico na construção de um dashboard no Apache Superset e no Power BI.*
+### Nível 4 · Mão na massa no Superset
+*Vídeos curtos, em sequência, construindo um dashboard no Apache Superset: da pergunta que o painel responde ao acabamento, a partir de um relatório real do SGAC.*
+- [Conhecendo o Superset](../tutoriais/superset-na-pratica/conhecendo-o-superset.md) — *Tutorial* · **Essencial**
+- [Comece pela pergunta](../tutoriais/superset-na-pratica/comece-pela-pergunta.md) — *Tutorial* · **Essencial**
+- [Criando um gráfico de tabela](../tutoriais/superset-na-pratica/criando-um-grafico-de-tabela.md) — *Tutorial* · **Essencial**
+- [Organizando e renomeando colunas](../tutoriais/superset-na-pratica/organizando-e-renomeando-colunas.md) — *Tutorial* · **Essencial**
+- [Montando o dashboard](../tutoriais/superset-na-pratica/montando-o-dashboard.md) — *Tutorial* · **Essencial**
+- [Filtros laterais](../tutoriais/superset-na-pratica/filtros-laterais.md) — *Tutorial* · **Essencial**
+- [Gráficos que conversam: filtro cruzado](../tutoriais/superset-na-pratica/graficos-que-conversam-filtro-cruzado.md) — *Tutorial* · **Essencial**
+- [Semáforo de vencimento](../tutoriais/superset-na-pratica/semaforo-de-vencimento.md) — *Tutorial* · **Essencial**
+- [Enxugando a tabela e dando acabamento](../tutoriais/superset-na-pratica/enxugando-a-tabela-e-acabamento.md) — *Tutorial* · **Essencial**
 

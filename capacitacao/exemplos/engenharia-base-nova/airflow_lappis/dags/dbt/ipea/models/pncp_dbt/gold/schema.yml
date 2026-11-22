@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: pncp_contratos_resumo_mensal
+    description: >
+      Uma linha por órgão, mês de assinatura e tipo de instrumento, com a quantidade e o
+      valor global. Considera todos os instrumentos publicados no PNCP pelo órgão e coletados
+      pela ingestão, ativos ou não. O mês é o da assinatura, não o da publicação: um
+      instrumento assinado em fevereiro e publicado em janeiro do ano seguinte entra em
+      fevereiro. Os valores são aditivos; calcule médias e percentuais no gráfico.
+    meta:
+      tags:
+        - gold
+    columns:
+      - name: orgao_cnpj
+        description: CNPJ do órgão que publicou os instrumentos.
+        tests:
+          - not_null
+      - name: mes_assinatura
+        description: Primeiro dia do mês de assinatura.
+        tests:
+          - not_null
+      - name: tipo_contrato
+        description: Tipo do instrumento segundo o PNCP.
+        tests:
+          - not_null
+      - name: quantidade
+        description: Quantidade de instrumentos no mês e tipo.
+      - name: valor_global_total
+        description: Soma do valor global dos instrumentos, em reais.

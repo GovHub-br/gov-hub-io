@@ -1,0 +1,401 @@
+{
+  "_sobre": "Revisão da trilha de Engenharia de Dados. Uma pergunta por aula; correta é o índice em opcoes. Editado à mão.",
+  "perguntas": {
+    "explicacao/engenharia-papel": {
+      "pergunta": "O que faz parte da entrega da engenharia de dados?",
+      "opcoes": [
+        "Somente a criação do primeiro gráfico",
+        "Manter o percurso de dados atualizável, rastreável e verificável",
+        "Apenas escolher a linguagem de coleta"
+      ],
+      "correta": 1
+    },
+    "explicacao/engenharia-projeto-gov-hub": {
+      "pergunta": "Qual é a função da aplicação de dados no Gov Hub?",
+      "opcoes": [
+        "Integrar coletas, transformações e controles para entregar dados analíticos rastreáveis",
+        "Apenas hospedar as aulas do site",
+        "Substituir a definição dos indicadores por gráficos"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-elt-lote": {
+      "pergunta": "Qual sequência descreve o ELT da aplicação?",
+      "opcoes": [
+        "Coletar, carregar no banco e transformar com dbt",
+        "Criar o gráfico antes de carregar dados",
+        "Transformar, coletar e visualizar"
+      ],
+      "correta": 0
+    },
+    "referencia/engenharia-mapa-repositorio": {
+      "pergunta": "Onde investigar uma regra de transformação que duplica os totais, se a coleta está correta?",
+      "opcoes": [
+        "Nos modelos da transformação analítica",
+        "Na definição de autenticação do cliente da fonte",
+        "No repositório do site de capacitação"
+      ],
+      "correta": 0
+    },
+    "referencia/engenharia-glossario": {
+      "pergunta": "O que é um modelo no dbt?",
+      "opcoes": [
+        "Uma imagem de arquitetura",
+        "Um arquivo SQL que produz tabela ou visão",
+        "Uma conta de acesso ao banco"
+      ],
+      "correta": 1
+    },
+    "referencia/engenharia-requisitos-ambiente": {
+      "pergunta": "Qual verificação confirma que o Docker pode iniciar os serviços, além de estar instalado?",
+      "opcoes": [
+        "docker info consegue acessar o daemon",
+        "Apenas existir docker-compose.yml",
+        "A versão do navegador"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-configuracao-local": {
+      "pergunta": "Uma mudança no usuário PostgreSQL local deve ser conferida em quais configurações?",
+      "opcoes": [
+        "Somente no nome do repositório",
+        "No serviço, na conexão Airflow e no perfil dbt utilizados",
+        "Somente no navegador"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-ambiente": {
+      "pergunta": "O que make dev-check valida neste percurso?",
+      "opcoes": [
+        "As variáveis e a conexão padrão cadastradas no Airflow",
+        "A correção de todos os indicadores",
+        "A disponibilidade de todas as fontes governamentais"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-airflow-configuracao": {
+      "pergunta": "A interface Airflow abre, mas a DAG não aparece. O que verificar primeiro?",
+      "opcoes": [
+        "Erros de importação e caminhos da DAG",
+        "A cor do painel Superset",
+        "O total financeiro da gold"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-acessos-locais": {
+      "pergunta": "Por que a conexão do Superset no Compose usa postgres em vez de localhost?",
+      "opcoes": [
+        "Porque postgres identifica o serviço do banco na rede do Compose",
+        "Porque localhost sempre indica o computador do usuário",
+        "Porque o banco deixa de usar uma porta"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-dbt-configuracao": {
+      "pergunta": "Por que conferir profiles.yml, dbt_project.yml e snapshots/tables_snapshot.yml ao usar o banco local?",
+      "opcoes": [
+        "Porque modelos e snapshots podem definir um banco diferente do perfil de conexão",
+        "Porque dbt run coleta automaticamente os dados das APIs",
+        "Porque o nome prod impede qualquer execução local"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-rotina-ambiente": {
+      "pergunta": "O que diferencia ambiente preparado de indicador validado?",
+      "opcoes": [
+        "Serviços e conexões prontos não comprovam a qualidade dos dados de um indicador",
+        "Se a interface abriu, todos os indicadores estão corretos",
+        "make lint dispensa a conferência dos dados"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-sql": {
+      "pergunta": "Um modelo junta contratos e unidades com inner join, e um contrato ativo de uma unidade sem cadastro some do painel. O que está acontecendo?",
+      "opcoes": [
+        "O inner join está decidindo a população: só entra quem tem par nos dois lados. Se a falta do cadastro não deve tirar o contrato, use left join e escreva a regra no where",
+        "O contrato está com o valor em texto e o inner join descarta valores que não são numéricos",
+        "O inner join é mais lento e o banco interrompe a consulta antes de chegar ao contrato"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-sql-medidas": {
+      "pergunta": "Uma consulta lista contratos ativos com left join em empenhos e where e.emissao >= '2026-01-01'. Um contrato ativo sem empenho desaparece do resultado. Por quê?",
+      "opcoes": [
+        "Porque o left join só preserva registros que têm correspondência dos dois lados",
+        "Porque a comparação com o nulo de e.emissao não é verdadeira, e o where descarta a linha; a condição deveria ir para o on",
+        "Porque count(*) ignora as linhas com nulo"
+      ],
+      "correta": 1
+    },
+    "explicacao/engenharia-planejamento-modelos": {
+      "pergunta": "Com os mesmos empenhos, três consultas corretas dão totais pagos diferentes. O que resolve a divergência?",
+      "opcoes": [
+        "Uma especificação, decidida com a área, que define a população, a granularidade e o que fazer com as ausências",
+        "Escolher a consulta com o maior total, porque ela não perde registros",
+        "Coletar de novo os dados da fonte, para garantir que a entrada está completa"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-arquiteturas-dados": {
+      "pergunta": "A gold tem uma linha por contrato com o valor pago já somado. A área passa a pedir o valor pago por mês. O que essa forma de entrega não permite, e qual permite?",
+      "opcoes": [
+        "Ela não guarda a data de cada pagamento; um fato na granularidade do pagamento responde por mês e por outros recortes",
+        "Ela não usa a arquitetura medalhão; basta mover a tabela para a silver",
+        "Ela não tem dimensões; basta acrescentar uma coluna de mês com a data da carga"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-camadas": {
+      "pergunta": "A conversão de valor em reais aparece escrita em várias consultas da gold. Onde ela deveria morar?",
+      "opcoes": [
+        "Na raw, para que o dado já chegue convertido da ingestão",
+        "Na própria gold, perto de quem usa o valor",
+        "Na bronze da fonte, uma vez, para que todas as camadas seguintes recebam um número"
+      ],
+      "correta": 2
+    },
+    "explicacao/engenharia-granularidade": {
+      "pergunta": "Juntar contratos e empenhos e somar valor_global dá 365.500,50, mas os contratos somam 245.500,50. Qual é a correção?",
+      "opcoes": [
+        "Usar sum(distinct valor_global)",
+        "Somar os empenhos por contrato antes de juntar, e somar valor_global na granularidade do contrato",
+        "Trocar o left join por inner join"
+      ],
+      "correta": 1
+    },
+    "explicacao/engenharia-modelos-reutilizaveis": {
+      "pergunta": "Trocar a expressão manual de conversão de contratos.sql pela macro parse_financial_value muda o resultado em quê?",
+      "opcoes": [
+        "Em nada; a macro só deixa o código mais curto",
+        "Só no desempenho, porque a macro roda dentro do dbt",
+        "Valores vazios e nulos passam a virar 0,00 e parênteses passam a ser negativos; é uma mudança de regra, não só de código"
+      ],
+      "correta": 2
+    },
+    "explicacao/engenharia-historico": {
+      "pergunta": "A chave de uma tabela incremental inclui o valor pago. A fonte corrige o valor de um empenho já carregado. O que acontece no merge?",
+      "opcoes": [
+        "A linha antiga é atualizada com o valor novo",
+        "A chave com o valor novo não existe, então o merge insere outra linha e a antiga continua somando",
+        "O merge apaga a linha antiga, porque ela deixou de vir da fonte"
+      ],
+      "correta": 1
+    },
+    "guias/engenharia-entrega-camada": {
+      "pergunta": "A gold soma 110.500,50 pagos e a bronze de empenhos soma 117.750,50. Quando essa diferença é aceitável?",
+      "opcoes": [
+        "Quando cada parcela tem explicação prevista na especificação, como os 7.250,00 de um empenho sem contrato",
+        "Nunca: a gold e a entrada precisam ter o mesmo total",
+        "Sempre que todos os testes do dbt passam"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-ingestao": {
+      "pergunta": "O que a camada raw deve guardar?",
+      "opcoes": [
+        "O dado já convertido para os tipos corretos",
+        "O dado como chegou da fonte, sem mudar o que ele diz",
+        "Apenas os registros que entram no indicador"
+      ],
+      "correta": 1
+    },
+    "explicacao/engenharia-orquestracao": {
+      "pergunta": "Ao investigar uma execução com tarefas vermelhas e laranjas, por onde começar?",
+      "opcoes": [
+        "Pela primeira tarefa em failed e pelo primeiro erro do log dela",
+        "Pela última tarefa em upstream_failed",
+        "Pelo modelo gold, que é o resultado final"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-transformacao": {
+      "pergunta": "O que o ref() acrescenta a um modelo dbt?",
+      "opcoes": [
+        "Lê uma tabela raw declarada em sources.yml",
+        "Lê outro modelo e registra a dependência, que define a ordem de execução",
+        "Agenda o modelo no Airflow"
+      ],
+      "correta": 1
+    },
+    "explicacao/engenharia-idempotencia": {
+      "pergunta": "O que torna um upsert adequado à idempotência?",
+      "opcoes": [
+        "Sempre inserir todas as linhas",
+        "Uma chave que identifica corretamente o registro e uma atualização consistente",
+        "Rodar apenas uma vez por dia"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-coleta-python": {
+      "pergunta": "A API responde 429 Too Many Requests em uma página. O que a coleta deve fazer?",
+      "opcoes": [
+        "Esperar e tentar de novo, dentro de um limite de tentativas",
+        "Pular a página e seguir para a próxima",
+        "Considerar que as páginas acabaram"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-ingestao-bancos": {
+      "pergunta": "Por que rodar duas vezes o to_sql com if_exists=\"append\" deixa 122 linhas em vez de 61?",
+      "opcoes": [
+        "Porque o pandas converte os tipos",
+        "Porque o to_sql não faz upsert pela chave",
+        "Porque o PostgreSQL duplica tabelas sem chave estrangeira"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-airflow-dag": {
+      "pergunta": "Uma coleta parou na página 2 e a tarefa terminou em success com 10 de 61 registros. Qual a correção?",
+      "opcoes": [
+        "Aumentar o retries da DAG",
+        "Fazer a tarefa falhar quando uma página vier vazia antes do fim",
+        "Agendar a DAG com mais frequência"
+      ],
+      "correta": 1
+    },
+    "guias/engenharia-reprocessamento": {
+      "pergunta": "Quando uma fonte remove uma coluna usada por um modelo, o que fazer?",
+      "opcoes": [
+        "Continuar e preencher tudo com zero",
+        "Revisar o impacto em modelos, testes e consumo antes de aceitar a mudança",
+        "Apenas aumentar o número de retentativas"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-dbt-camadas": {
+      "pergunta": "Todos os testes passaram, mas a gold mostra NaN. Onde corrigir?",
+      "opcoes": [
+        "Na gold, trocando NaN por zero na soma",
+        "Na primeira etapa em que o problema aparece: a bronze, que converte o texto 'NaN'",
+        "Na raw, editando os registros à mão"
+      ],
+      "correta": 1
+    },
+    "referencia/engenharia-fontes": {
+      "pergunta": "Onde fica o cliente que grava os registros coletados no PostgreSQL?",
+      "opcoes": [
+        "plugins/cliente_postgres.py, com o método insert_data",
+        "helpers/safe_request.py",
+        "dags/dbt/ipea/profiles.yml"
+      ],
+      "correta": 0
+    },
+    "referencia/engenharia-comandos": {
+      "pergunta": "O que seleciona dbt build --select pncp_contratacoes+?",
+      "opcoes": [
+        "O modelo e tudo de que ele depende",
+        "O modelo e tudo que depende dele",
+        "Apenas os testes do modelo"
+      ],
+      "correta": 1
+    },
+    "guias/engenharia-metadados": {
+      "pergunta": "Por que a tabela models_metadata não prova que uma tabela específica foi atualizada hoje?",
+      "opcoes": [
+        "Ela registra todos os modelos do projeto com o horário da execução em que rodou, mesmo os que não foram reconstruídos",
+        "Ela guarda só o primeiro dia de cada modelo",
+        "Ela registra apenas os modelos que têm testes"
+      ],
+      "correta": 0
+    },
+    "guias/engenharia-contribuicao": {
+      "pergunta": "O make lint reprova em um arquivo que você não alterou. O que fazer no PR?",
+      "opcoes": [
+        "Reformatar o arquivo junto, para o lint passar",
+        "Confirmar que já reprovava sem a sua mudança e registrar isso na descrição, sem corrigi-lo",
+        "Desligar o lint no CI"
+      ],
+      "correta": 1
+    },
+    "desafios/engenharia-desafio": {
+      "pergunta": "Ao rodar a base para outro órgão, dois fornecedores PJ têm razão social terminada em 11 dígitos. Por que a regra atual da silver os deixa passar?",
+      "opcoes": [
+        "Porque ela olha só o tipo de pessoa, e eles são pessoa jurídica",
+        "Porque ela só protege CNPJ",
+        "Porque o teste de privacidade está desligado"
+      ],
+      "correta": 0
+    },
+    "explicacao/engenharia-base-nova": {
+      "pergunta": "A bronze de um domínio novo está escrita, mas a DAG ainda não rodou. Por que não dá para testá-la de verdade?",
+      "opcoes": [
+        "O dbt só roda depois que o Airflow é desligado",
+        "A bronze lê a raw que a DAG grava; sem ela, os tipos e as esquisitices seriam inventados, e não os da fonte",
+        "A bronze só aceita tabelas criadas por outros modelos do dbt"
+      ],
+      "correta": 1
+    },
+    "guias/engenharia-avaliar-fonte": {
+      "pergunta": "A API de contratos responde 204, sem corpo, para um período sem registros. O que isso muda no projeto?",
+      "opcoes": [
+        "Nada: uma resposta vazia equivale a uma lista vazia",
+        "O cliente precisa tratar o 204 como \"nada no período\" e as demais falhas como erro",
+        "A DAG deve ignorar qualquer status diferente de 200"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-base-nova-cliente": {
+      "pergunta": "A API do PNCP não respondeu e o get_contratos recebeu o status 503. O que o método faz?",
+      "opcoes": [
+        "Devolve uma lista vazia, para a DAG seguir em frente",
+        "Levanta um erro, para que uma carga incompleta não pareça completa",
+        "Tenta de novo, sem limite, até a API responder"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-base-nova-dag": {
+      "pergunta": "Falta a chave orgao_pncp em airflow_variables. Por que a DAG usa AirflowFailException em vez de um ValueError comum?",
+      "opcoes": [
+        "Para a tarefa falhar na hora, sem gastar novas tentativas num erro que esperar não resolve",
+        "Porque um ValueError não aparece no log da tarefa",
+        "Para que a tarefa seja marcada como ignorada"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-base-nova-dominio": {
+      "pergunta": "A raw está no schema pncp. Por que o domínio dbt usa o schema pncp_dw, e não pncp?",
+      "opcoes": [
+        "Porque o dbt não aceita schemas com nomes curtos",
+        "Porque, no projeto, o modelo nasce no schema do +schema sem prefixo, e a bronze poderia substituir a tabela que a DAG grava",
+        "Porque a role de leitura só tem acesso a schemas terminados em _dw"
+      ],
+      "correta": 1
+    },
+    "tutoriais/engenharia-base-nova-bronze": {
+      "pergunta": "Você declarou nove testes com data_tests no schema.yml e o dbt build terminou com PASS=1. Qual é a explicação mais provável?",
+      "opcoes": [
+        "O dbt 1.7.13 ignora data_tests; a chave que funciona nas duas versões é tests",
+        "Os testes só rodam depois que a gold existe",
+        "O schema.yml precisa estar na raiz do projeto dbt"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-base-nova-silver": {
+      "pergunta": "Na silver, o left join com a seed foi trocado por um inner join, e uma UF não existe na seed. O que acontece?",
+      "opcoes": [
+        "As linhas dessa UF somem, e nenhum teste de unique ou not_null reclama",
+        "O teste unique da chave reprova",
+        "O dbt para com um erro de junção"
+      ],
+      "correta": 0
+    },
+    "tutoriais/engenharia-base-nova-gold": {
+      "pergunta": "A silver perdeu 25 dos 30 instrumentos, mas a gold tem uma linha por grão e nenhum campo vazio. Qual teste pega o problema?",
+      "opcoes": [
+        "O teste de grão, porque há menos linhas",
+        "A reconciliação com a bronze, que compara a quantidade e o valor totais",
+        "O not_null da data de assinatura"
+      ],
+      "correta": 1
+    },
+    "referencia/engenharia-checklist-base-nova": {
+      "pergunta": "Por que o schema do domínio dbt não deve ser o mesmo da raw?",
+      "opcoes": [
+        "Para economizar espaço no banco",
+        "Porque um modelo com o mesmo nome substituiria a tabela que a DAG gravou",
+        "Porque o Superset só lê schemas com o sufixo dw"
+      ],
+      "correta": 1
+    }
+  }
+}

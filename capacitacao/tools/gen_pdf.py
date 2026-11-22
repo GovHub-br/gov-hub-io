@@ -64,6 +64,7 @@ def fix_dashes(text):
 
 
 AVISO_DIAGRAMA = "> **Diagrama.** Este diagrama aparece na versão on-line da aula."
+EXPLICA_RE = re.compile(r"^<!--\s*explica:\s*(.+?)\s*-->\s*$")
 
 
 def preparar_markdown(src):
@@ -81,8 +82,12 @@ def preparar_markdown(src):
             em_codigo = not em_codigo
             linhas.append(ln)
             continue
+        explica = None if em_codigo else EXPLICA_RE.match(ln)
         if em_codigo:
             linhas.append(ln)
+        elif explica:
+            # no site, a explicação do comando abre num "?"; no papel, sai como texto acima do bloco
+            linhas.append(fix_dashes("*O que faz:* " + explica.group(1)))
         elif ln.startswith("#"):
             linhas.append(ln.replace(" — ", " · "))
         else:
@@ -201,6 +206,8 @@ def aula_para_html(md, doc, base=SITE, deslocar=1):
         if rel.startswith(".."):
             continue
         a["href"] = url_do_site(rel, base) + ("#" + frag if frag else "")
+    for det in corpo.find_all("details"):
+        det["open"] = ""  # no papel não há como expandir: o bloco recolhível sai sempre aberto
     for img in corpo.find_all("img", src=True):
         s = img["src"]
         if not re.match(r"^[a-z]+:", s, flags=re.I):
@@ -319,6 +326,10 @@ strong { color: var(--text-strong); }
 .gh-body blockquote { margin: 0 0 12px; padding: 10px 14px; border-left: 3px solid var(--primary-purple); background: var(--bg-soft); break-inside: avoid; }
 .gh-body blockquote p { margin: 0 0 4px; font-size: 10.5pt; }
 .gh-body blockquote p:last-child { margin: 0; }
+.gh-body details { display: block; margin: 0 0 12px; padding: 10px 14px; border-left: 3px solid var(--primary-purple); background: var(--bg-soft); break-inside: avoid; }
+.gh-body details > * { display: block; }
+.gh-body summary { font-weight: 700; margin-bottom: 6px; }
+.gh-body details p, .gh-body details li { font-size: 10.5pt; }
 .gh-body hr { border: 0; border-top: 1px solid var(--border-soft); margin: 14px 0; }
 .gh-figure { margin: 6px 0 14px; text-align: center; break-inside: avoid; }
 .gh-figure img { max-width: 100%; max-height: 125mm; height: auto; }

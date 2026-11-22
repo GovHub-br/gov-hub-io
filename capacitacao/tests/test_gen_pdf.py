@@ -57,6 +57,14 @@ class Markdown(unittest.TestCase):
         self.assertIn("Um, dois, três.", md)
         self.assertIn("a — b", md)   # código fica como está
 
+    def test_explicacao_do_comando_vira_texto(self):
+        _, md = gen.preparar_markdown(
+            "# T\n\n<!-- explica: Lista as tabelas do schema `pncp`. -->\n\n```bash\nls\n```\n\n"
+            "```text\n<!-- explica: dentro do código fica como está -->\n```\n")
+        self.assertIn("*O que faz:* Lista as tabelas do schema `pncp`.", md)
+        self.assertNotIn("<!-- explica: Lista", md)
+        self.assertIn("<!-- explica: dentro do código fica como está -->", md)
+
     def test_sem_mermaid_vira_aviso(self):
         md = "Antes\n\n```mermaid\ngraph TD\nA-->B\n```\n\nDepois\n"
         self.assertTrue(gen.tem_mermaid(md))

@@ -42,6 +42,20 @@ mais comum de páginas ruins.
 - **Tabelas** para comparações ("use X quando… / use Y quando…"). Elas são escaneáveis e é isso que
   quem consulta precisa.
 - Uma página termina quando **responde à pergunta que a motivou** — não quando cobre o assunto inteiro.
+- **Todo bloco de comandos de terminal** (`bash`) traz, na linha de cima, uma explicação curta do que
+  ele faz no contexto da aula, num comentário em uma linha só:
+
+  ~~~markdown
+  <!-- explica: Procura a palavra pncp nos arquivos versionados de `airflow_lappis` e lista só os nomes dos arquivos. -->
+
+  ```bash
+  git grep -l pncp -- airflow_lappis
+  ```
+  ~~~
+
+  O GitHub não mostra o comentário; o leitor `doc.html` o transforma num **?** no canto do bloco, e
+  o PDF o imprime como "O que faz:" acima dele. Diga o que o comando faz e o que ele vai mostrar,
+  não repita o parágrafo da aula.
 
 ### Páginas em rascunho
 

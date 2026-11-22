@@ -97,6 +97,7 @@ Dashboards-Roadmap/
 │   ├── progresso-*.js           progresso: núcleo, loja e Firebase (ADR 0004)
 │   ├── firebase-config.js       configuração do Firebase (vazia = só navegador)
 │   ├── logo/ · icones/ · ilustracoes/   logotipo, ícones dos tipos de página e SVGs didáticos
+│   ├── diagramas/ · capturas/   diagramas das aulas (.html fonte + .png) e capturas de tela das práticas
 ├── tests/                       node --test tests/*.test.js
 ├── firestore.rules              regras de segurança do progresso
 ├── firebase.json                configuração do Firebase CLI (regras)
@@ -108,6 +109,7 @@ Dashboards-Roadmap/
 │   ├── trilhas/                 gen · <slug>.json|.md|.xmind por trilha, mais index.json e index.md (catálogo)
 │   └── index.md                 índice da documentação
 ├── exemplos/                    dados, temas e wireframes de apoio
+├── notebooks/                   notebooks Jupyter das práticas (baixados pelo cartão da aula)
 └── templates/                   um template por tipo de página
 ```
 
@@ -277,7 +279,25 @@ node $SKILL/scripts/render.mjs assets/diagramas/<nome>.html     # gera assets/di
 Regra de cor: paleta sóbria. O pêssego `#FFE7E1` do template da skill deve ser trocado por
 `#F2F1F6` em cada diagrama.
 
-### 7.3.2 PDFs das aulas e das trilhas
+### 7.3.2 Notebooks das práticas
+
+Algumas práticas têm uma versão em notebook Jupyter, em `notebooks/<nome da aula>.ipynb`, para quem
+estuda baixar e executar na própria máquina. A aula declara o notebook logo abaixo da linha de tipo:
+
+```markdown
+> Notebook: [engenharia-coleta-python.ipynb](../../notebooks/engenharia-coleta-python.ipynb)
+```
+
+O leitor (`assets/leitor.js`) troca essa linha por um cartão de download no topo da aula e põe um botão
+**Notebook** ao lado do **Baixar PDF**; no PDF, ela continua como link para o arquivo no site.
+
+O texto da aula e o notebook trazem o mesmo passo a passo: ao mudar um, mude o outro. Os notebooks são
+publicados **sem saídas**, para rodar do zero, e seguem a identidade visual do Gov Hub com HTML inline
+(faixa de abertura, quadros e ícones em *data URI*; diagramas como anexo PNG), que o JupyterLab e o
+VS Code exibem. Antes de publicar uma mudança, execute o notebook inteiro, por exemplo com
+`jupyter nbconvert --to notebook --execute <arquivo>.ipynb`, e limpe as saídas.
+
+### 7.3.3 PDFs das aulas e das trilhas
 
 Cada aula tem o botão **Baixar PDF** e cada mapa, **Baixar a trilha em PDF** (capa, sumário e um
 capítulo por nível). Os arquivos são gerados no deploy por `tools/gen_pdf.py`, adaptado do

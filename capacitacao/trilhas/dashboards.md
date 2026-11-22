@@ -6,7 +6,7 @@ categoria: negocial
 chamada: Um dashboard ruim some na rotina de quem devia usá-lo. Um dashboard bom muda decisão. Aprenda a construir o seu: dos fundamentos e do design à escolha do gráfico certo, com Apache Superset e Power BI.
 etapas: Por quê=Fundamentos conceituais | O quê=Princípios mínimos de design | Como=Gráficos | Prática=Mão na massa
 etapas_subtitulo: Quatro etapas em sequência: do "por quê" à prática
-etapas_nota: **Mão na massa** chega em breve: vídeos mostrando como aplicar tudo isso no Superset e no Power BI.
+etapas_nota: **Mão na massa** traz vídeos curtos construindo um dashboard no Superset, do zero, a partir de um painel real.
 ---
 # Trilha de aprendizagem: Dashboards no Gov Hub
 
@@ -21,8 +21,7 @@ etapas_nota: **Mão na massa** chega em breve: vídeos mostrando como aplicar tu
 >
 > A trilha segue os módulos do documento de conteúdo da capacitação: **fundamentos conceituais**,
 > **princípios mínimos de design** (arquitetura da informação e hierarquia visual) e **gráficos**. O
-> nível de **mão na massa**, em vídeo, está anunciado com `Status: em-breve` e ganha aulas quando os
-> vídeos existirem.
+> nível de **mão na massa** reúne os vídeos da capacitação em Superset (módulo II), em aulas curtas.
 
 
 ## Nível 1 · Fundamentos conceituais
@@ -70,8 +69,17 @@ raciocínio (as três primeiras aulas) e volte às referências sempre que estiv
 - [reference] **Azure Maps (Power BI)** — support — `docs/referencia/azure-maps.md`
 - [research] **Mapas: Superset vs. Power BI** — support — `docs/pesquisa/mapas-superset-vs-power-bi.md`
 
-## Nível 4 · Mão na massa no Superset e no Power BI
+## Nível 4 · Mão na massa no Superset
 Etapa: Prática · Ícone: play-circle
-Status: em-breve
-Vídeos mostrando, passo a passo, como aplicar os fundamentos, o design e a escolha do gráfico na
-construção de um dashboard no Apache Superset e no Power BI.
+Vídeos curtos, em sequência, construindo um dashboard no Apache Superset: da pergunta que o painel
+responde ao acabamento, a partir de um relatório real do SGAC.
+
+- [tutorial] **Conhecendo o Superset** — core — `docs/tutoriais/superset-na-pratica/conhecendo-o-superset.md`
+- [tutorial] **Comece pela pergunta** — core — `docs/tutoriais/superset-na-pratica/comece-pela-pergunta.md`
+- [tutorial] **Criando um gráfico de tabela** — core — `docs/tutoriais/superset-na-pratica/criando-um-grafico-de-tabela.md`
+- [tutorial] **Organizando e renomeando colunas** — core — `docs/tutoriais/superset-na-pratica/organizando-e-renomeando-colunas.md`
+- [tutorial] **Montando o dashboard** — core — `docs/tutoriais/superset-na-pratica/montando-o-dashboard.md`
+- [tutorial] **Filtros laterais** — core — `docs/tutoriais/superset-na-pratica/filtros-laterais.md`
+- [tutorial] **Gráficos que conversam: filtro cruzado** — core — `docs/tutoriais/superset-na-pratica/graficos-que-conversam-filtro-cruzado.md`
+- [tutorial] **Semáforo de vencimento** — core — `docs/tutoriais/superset-na-pratica/semaforo-de-vencimento.md`
+- [tutorial] **Enxugando a tabela e dando acabamento** — core — `docs/tutoriais/superset-na-pratica/enxugando-a-tabela-e-acabamento.md`

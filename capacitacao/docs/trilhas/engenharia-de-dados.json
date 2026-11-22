@@ -1,0 +1,520 @@
+{
+  "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
+  "slug": "engenharia-de-dados",
+  "titulo": "Engenharia de Dados no Gov Hub",
+  "descricao": "Dos conceitos e da preparação do ambiente à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.",
+  "categoria": "tecnica",
+  "chamada": "Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente, aprenda a coletar, organizar e testar dados e, no fim, adicione uma base nova à aplicação.",
+  "etapas": [
+    {
+      "rotulo": "Base",
+      "caixa": "Conceitos e projeto"
+    },
+    {
+      "rotulo": "Ambiente",
+      "caixa": "Preparação local"
+    },
+    {
+      "rotulo": "Dado",
+      "caixa": "Modelagem e camadas"
+    },
+    {
+      "rotulo": "Pipeline",
+      "caixa": "Ingestão, orquestração e transformação"
+    },
+    {
+      "rotulo": "Evolução",
+      "caixa": "Contribuir com uma base nova"
+    }
+  ],
+  "etapas_subtitulo": "Cinco etapas: do contexto do projeto à contribuição de uma base nova",
+  "etapas_nota": "**Preparação antes da prática.** Conclua o nível de ambiente local antes de executar consultas e coletas. Use data-application-gov-hub; este site apresenta o material de estudo.",
+  "quiz": "quiz/engenharia-de-dados.json",
+  "niveis": [
+    {
+      "numero": 1,
+      "titulo": "Base e conceitos",
+      "descricao": "Entenda o papel da engenharia de dados, o contexto do Gov Hub, ETL/ELT e a arquitetura macro da aplicação.",
+      "etapa": "Base",
+      "icone": "assets/icones/light-bulb-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/engenharia-papel",
+          "titulo": "Engenharia de dados: da fonte à decisão",
+          "doc": "docs/explicacao/engenharia-papel.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-projeto-gov-hub",
+          "titulo": "O Gov Hub e sua aplicação de dados",
+          "doc": "docs/explicacao/engenharia-projeto-gov-hub.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-elt-lote",
+          "titulo": "ELT e processamento em lote",
+          "doc": "docs/explicacao/engenharia-elt-lote.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-mapa-repositorio",
+          "titulo": "Onde encontrar cada parte do projeto",
+          "doc": "docs/referencia/engenharia-mapa-repositorio.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-glossario",
+          "titulo": "Vocabulário e fontes do governo",
+          "doc": "docs/referencia/engenharia-glossario.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Preparação do ambiente local",
+      "descricao": "Prepare e valide o ambiente da aplicação: requisitos, configuração, serviços, Airflow, acessos, prática dbt e rotina local.",
+      "etapa": "Ambiente",
+      "icone": "assets/icones/server-sober.svg",
+      "itens": [
+        {
+          "id": "referencia/engenharia-requisitos-ambiente",
+          "titulo": "Requisitos e versões do ambiente",
+          "doc": "docs/referencia/engenharia-requisitos-ambiente.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-configuracao-local",
+          "titulo": "Configuração local e credenciais",
+          "doc": "docs/guias/engenharia-configuracao-local.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-ambiente",
+          "titulo": "Inicializar os serviços com make setup",
+          "doc": "docs/tutoriais/engenharia-ambiente.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-airflow-configuracao",
+          "titulo": "Validar o Airflow e suas integrações",
+          "doc": "docs/guias/engenharia-airflow-configuracao.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-acessos-locais",
+          "titulo": "Validar PostgreSQL e Superset",
+          "doc": "docs/guias/engenharia-acessos-locais.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-dbt-configuracao",
+          "titulo": "Executar o dbt e conferir os dados no banco",
+          "doc": "docs/guias/engenharia-dbt-configuracao.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-rotina-ambiente",
+          "titulo": "Rotina local e verificação final",
+          "doc": "docs/guias/engenharia-rotina-ambiente.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Modelagem e construção das camadas de dados",
+      "descricao": "Construa, com uma base de estudo que imita os contratos do Gov Hub, uma tabela que responde quanto foi contratado e pago: população, especificação, camadas, granularidade, formas de entrega, regras reutilizáveis, histórico e validação.",
+      "etapa": "Dado",
+      "icone": "assets/icones/database-sober.svg",
+      "itens": [
+        {
+          "id": "tutoriais/engenharia-sql",
+          "titulo": "Prática: SQL para decidir quem entra no resultado",
+          "doc": "docs/tutoriais/engenharia-sql.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-sql-medidas",
+          "titulo": "Prática: SQL para contar e somar sem enganos",
+          "doc": "docs/tutoriais/engenharia-sql-medidas.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-planejamento-modelos",
+          "titulo": "Planejar a entrega antes dos modelos",
+          "doc": "docs/explicacao/engenharia-planejamento-modelos.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-camadas",
+          "titulo": "Definir as responsabilidades de cada camada",
+          "doc": "docs/explicacao/engenharia-camadas.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-granularidade",
+          "titulo": "Granularidade: o que cada linha representa e o que pode ser somado",
+          "doc": "docs/explicacao/engenharia-granularidade.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-arquiteturas-dados",
+          "titulo": "Tabela larga, estrela ou snowflake: escolher a forma da entrega",
+          "doc": "docs/explicacao/engenharia-arquiteturas-dados.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-modelos-reutilizaveis",
+          "titulo": "Onde mora cada regra: modelos, macros e reutilização no dbt",
+          "doc": "docs/explicacao/engenharia-modelos-reutilizaveis.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-historico",
+          "titulo": "Posição atual e histórico: reconstrução, incremental e snapshot",
+          "doc": "docs/explicacao/engenharia-historico.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-entrega-camada",
+          "titulo": "Validar e entregar uma camada confiável",
+          "doc": "docs/guias/engenharia-entrega-camada.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Ingestão, orquestração e transformação",
+      "descricao": "Entenda os três trabalhos de um pipeline e faça cada um com dados reais do PNCP: coleta em Python, gravação no banco sem duplicar, DAG no Airflow, reprocessamento e modelos dbt até a gold.",
+      "etapa": "Pipeline",
+      "icone": "assets/icones/deploy-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/engenharia-ingestao",
+          "titulo": "Ingestão: trazer o dado da fonte para o banco",
+          "doc": "docs/explicacao/engenharia-ingestao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-orquestracao",
+          "titulo": "Orquestração: quem roda o quê, quando e em que ordem",
+          "doc": "docs/explicacao/engenharia-orquestracao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-transformacao",
+          "titulo": "Transformação: da raw à gold com SQL versionado",
+          "doc": "docs/explicacao/engenharia-transformacao.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-idempotencia",
+          "titulo": "Cargas completas, incrementais e idempotência",
+          "doc": "docs/explicacao/engenharia-idempotencia.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-coleta-python",
+          "titulo": "Prática: coletar dados de uma API com Python",
+          "doc": "docs/tutoriais/engenharia-coleta-python.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-ingestao-bancos",
+          "titulo": "Prática: gravar a coleta em bancos de dados",
+          "doc": "docs/tutoriais/engenharia-ingestao-bancos.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-airflow-dag",
+          "titulo": "Prática: orquestrar a coleta com o Airflow",
+          "doc": "docs/tutoriais/engenharia-airflow-dag.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-reprocessamento",
+          "titulo": "Reprocessamento e mudanças na fonte",
+          "doc": "docs/guias/engenharia-reprocessamento.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-dbt-camadas",
+          "titulo": "Prática: transformar com dbt, da raw à gold",
+          "doc": "docs/tutoriais/engenharia-dbt-camadas.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-fontes",
+          "titulo": "Fontes e clientes do repositório",
+          "doc": "docs/referencia/engenharia-fontes.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-comandos",
+          "titulo": "Comandos do dia a dia: Airflow, dbt e banco",
+          "doc": "docs/referencia/engenharia-comandos.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Adicionar uma base nova ao Gov Hub",
+      "descricao": "Leve uma fonte nova da issue ao pull request, do cliente em Python à gold no dbt: avalie a fonte, escreva os testes antes do código, proteja o dado pessoal, confira o resultado e prepare a revisão. O exemplo são os contratos publicados no PNCP.",
+      "etapa": "Evolução",
+      "icone": "assets/icones/rectangle-group-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/engenharia-base-nova",
+          "titulo": "O caminho de uma base nova, da issue ao painel",
+          "doc": "docs/explicacao/engenharia-base-nova.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-avaliar-fonte",
+          "titulo": "Avaliar a fonte e escrever a issue",
+          "doc": "docs/guias/engenharia-avaliar-fonte.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-cliente",
+          "titulo": "Prática: o cliente da fonte",
+          "doc": "docs/tutoriais/engenharia-base-nova-cliente.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-dag",
+          "titulo": "Prática: a DAG de ingestão no padrão do repositório",
+          "doc": "docs/tutoriais/engenharia-base-nova-dag.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-dominio",
+          "titulo": "Prática: o domínio no dbt",
+          "doc": "docs/tutoriais/engenharia-base-nova-dominio.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-bronze",
+          "titulo": "Prática: a bronze",
+          "doc": "docs/tutoriais/engenharia-base-nova-bronze.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-silver",
+          "titulo": "Prática: a silver, com privacidade e junção",
+          "doc": "docs/tutoriais/engenharia-base-nova-silver.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-base-nova-gold",
+          "titulo": "Prática: a gold e a conferência",
+          "doc": "docs/tutoriais/engenharia-base-nova-gold.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-metadados",
+          "titulo": "Documentar a tabela e conferir o que o consumo enxerga",
+          "doc": "docs/guias/engenharia-metadados.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-contribuicao",
+          "titulo": "Abrir o PR e passar pela revisão",
+          "doc": "docs/guias/engenharia-contribuicao.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "referencia/engenharia-checklist-base-nova",
+          "titulo": "Checklist: adicionar uma base nova",
+          "doc": "docs/referencia/engenharia-checklist-base-nova.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "desafios/engenharia-desafio",
+          "titulo": "Desafio: uma base nova de ponta a ponta",
+          "doc": "docs/desafios/engenharia-desafio.md",
+          "tipo": "desafio",
+          "tipo_nome": "Desafio",
+          "papel": "capstone",
+          "papel_nome": "Capstone",
+          "icone": "assets/icones/trophy-sober.svg"
+        }
+      ]
+    }
+  ]
+}

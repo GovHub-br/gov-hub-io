@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: pncp_contratos_tratados
+    description: >
+      Uma linha por instrumento publicado no PNCP (contrato, empenho ou outro), com o
+      nome da UF e o mês de assinatura. Inclui todos os instrumentos da bronze, sem
+      filtro por situação ou vigência. O fornecedor (NI e nome) só aparece quando é
+      pessoa jurídica; para pessoa física ou estrangeira as colunas ficam nulas, para
+      não expor dado pessoal. O texto livre do objeto não é trazido para esta camada.
+    meta:
+      tags:
+        - silver
+    columns:
+      - name: numero_controle_pncp
+        description: Identificador do instrumento no PNCP.
+        tests:
+          - not_null
+          - unique
+      - name: numero_controle_pncp_compra
+        description: >
+          Identificador da contratação que originou o instrumento. Liga o contrato à
+          contratação coletada pela DAG de contratações do PNCP.
+      - name: orgao_cnpj
+        description: CNPJ do órgão que publicou o instrumento.
+      - name: uf_sigla
+        description: Sigla da UF da unidade que publicou o instrumento.
+        tests:
+          - relationships:
+              to: ref('estados_brasil')
+              field: sigla_uf
+      - name: fornecedor_ni
+        description: CNPJ do fornecedor. Nulo quando o fornecedor não é pessoa jurídica.
+      - name: mes_assinatura
+        description: Primeiro dia do mês da data de assinatura.
+        tests:
+          - not_null
+      - name: valor_global
+        description: Valor global do instrumento, em reais.
+        tests:
+          - not_null
