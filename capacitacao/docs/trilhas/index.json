@@ -128,6 +128,9 @@
         "referencia/autoavaliacao",
         "explicacao/recomendacoes-e-proximos-passos",
         "desafios/triagem-de-uma-dag-real"
+      ]
+    },
+    {
       "slug": "engenharia-de-dados",
       "titulo": "Engenharia de Dados no Gov Hub",
       "descricao": "Dos conceitos e da preparação do ambiente à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.",
