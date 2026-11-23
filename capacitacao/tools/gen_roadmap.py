@@ -5,7 +5,8 @@ Gera os artefatos de todas as trilhas a partir de trilhas/*.md.
 Entrada: cada trilhas/<slug>.md começa com um cabeçalho `---` (slug, titulo, descricao,
 categoria e, opcionalmente, chamada, status, etapas + etapas_subtitulo + etapas_nota,
 diagrama + diagrama_alt) seguido do corpo em Markdown com níveis (`## Nível N · Título`,
-seguido opcionalmente de `Etapa: <rótulo> · Ícone: <nome>`) e itens
+seguido opcionalmente de `Etapa: <rótulo> · Ícone: <nome>`, `Status: em-breve` e
+`Selo: iniciante|essencial|avancado`) e itens
 (`- [tipo] **Título** — papel — `docs/....md``).
 
 Saídas, em docs/trilhas/:
@@ -35,6 +36,9 @@ CAMPOS_OBRIGATORIOS = ("slug", "titulo", "descricao", "categoria")
 CATEGORIAS = {"negocial": 0, "tecnica": 1}
 STATUS = ("em-breve", "oculta")   # trilha: em-breve = card desabilitado; oculta = fora da lista (o link direto ainda abre)
 STATUS_NIVEL = ("em-breve",)       # nível anunciado, ainda sem aulas
+# selo do nível -> rótulo no mapa. O nível iniciante é opcional: fica fora do progresso e da revisão.
+SELOS = {"iniciante": "Iniciante · opcional", "essencial": "Essencial", "avancado": "Avançado"}
+SELOS_OPCIONAIS = ("iniciante",)
 ICONES_DIR = os.path.join(REPO, "assets", "icones")
 QUIZ_DIR = os.path.join(REPO, "quiz")   # quiz/<slug>.json, editado à mão: o JSON da trilha aponta para ele   # ícone do nível: assets/icones/<nome>-sober.svg
 XMIND_DATA = (1980, 1, 1, 0, 0, 0)   # data fixa e sem compressão (ZIP_STORED): o .xmind só muda com o conteúdo e é idêntico em qualquer
@@ -58,6 +62,7 @@ SUPPORT_ROLES = ("support", "optional")
 ITEM_RE  = re.compile(r'^- \[([^\]]+)\]\s+\*\*(.+?)\*\*\s+—\s+(.+?)\s+—\s+`([^`]+)`\s*$')
 LEVEL_RE = re.compile(r'^##\s+Nível\s+(\d+)\s+·\s+(.+)$')
 STATUS_NIVEL_RE = re.compile(r'^Status:\s*(\S+)$')
+SELO_RE = re.compile(r'^Selo:\s*(\S+)$')
 ETAPA_RE = re.compile(r'^Etapa:\s*(.+?)\s*·\s*Ícone:\s*([a-z0-9-]+)$')
 
 def parse(lines, inicio=0):
@@ -81,6 +86,12 @@ def parse(lines, inicio=0):
             if sm.group(1) not in STATUS_NIVEL:
                 raise SystemExit("Status de nível inválido %r (linha %d): use %s" % (sm.group(1), idx + 1, " ou ".join(STATUS_NIVEL)))
             cur["status"] = sm.group(1)
+            continue
+        se = SELO_RE.match(s)
+        if se and not cur["items"]:
+            if se.group(1) not in SELOS:
+                raise SystemExit("Selo de nível inválido %r (linha %d): use %s" % (se.group(1), idx + 1, ", ".join(SELOS)))
+            cur["selo"] = se.group(1)
             continue
         if s.startswith("- ["):
             im = ITEM_RE.match(s)
@@ -254,6 +265,10 @@ def json_da_trilha(meta, levels):
             nivel["icone"] = "assets/icones/%s-sober.svg" % lv["icone"]
         if lv.get("status"):
             nivel["status"] = lv["status"]
+        if lv.get("selo"):
+            nivel["selo"] = lv["selo"]
+            if lv["selo"] in SELOS_OPCIONAIS:
+                nivel["opcional"] = True
         nivel["itens"] = itens
         niveis.append(nivel)
     dados = {"_aviso": AVISO, "slug": meta["slug"], "titulo": meta["titulo"], "descricao": meta["descricao"],
@@ -295,7 +310,7 @@ def gen_xmind(meta, levels, caminho):
     for lv in levels:
         kids = [topic(it["title"], role=ROLE_DISPLAY[it["role"]], note=it["doc"]) for it in lv["items"]]
         titulo = "Nível %d · %s" % (lv["num"], lv["title"]) + (" (em breve)" if lv.get("status") else "")
-        level_topics.append(topic(titulo, note=lv["desc"], children=kids))
+        level_topics.append(topic(titulo, role=SELOS.get(lv.get("selo")), note=lv["desc"], children=kids))
 
     root = topic(meta["titulo"],
                  note="Faça os itens essenciais de cada nível primeiro, de cima para baixo; "
@@ -327,7 +342,8 @@ def gen_texto(meta, levels, caminho):
            % (meta["slug"], meta["slug"]),
            "---\n"]
     for lv in levels:
-        out.append("### Nível %d · %s" % (lv["num"], lv["title"]) + (" (em breve)" if lv.get("status") else ""))
+        out.append("### Nível %d · %s" % (lv["num"], lv["title"]) + (" (em breve)" if lv.get("status") else "")
+                   + (" · *%s*" % SELOS[lv["selo"]] if lv.get("selo") else ""))
         out.append("*%s*" % lv["desc"])
         for it in lv["items"]:
             out.append(line(it))

@@ -4,12 +4,12 @@ import { progresso } from './progresso.js';
 import { montarTopo } from './topo.js';
 import { carregarCatalogo, carregarTrilha, escolherTrilha } from './trilha.js';
 import { contar, hrefDoItem } from './progresso-nucleo.js';
-import { nivelPadrao, papelVisual, niveisConcluidos, pdfDaTrilha, emBreve } from './hub-nucleo.js';
+import { nivelPadrao, papelVisual, niveisConcluidos, pdfDaTrilha, emBreve, opcional, ROTULO_SELO } from './hub-nucleo.js';
 import { montarCelebracao } from './celebracao.js';
 import { el, svg, ICONES } from './dom.js';
 
 const $ = (id) => document.getElementById(id);
-const ROTULO_PAPEL = { essencial: 'Essencial', apoio: 'Apoio', marco: 'Marco' };
+const ROTULO_PAPEL = { essencial: 'Essencial', apoio: 'Apoio', opcional: 'Opcional', avancado: 'Avançado', marco: 'Marco' };
 const CHAVE_LOGICA = 'govhub-logica-recolhida';
 
 montarTopo(progresso);
@@ -85,8 +85,11 @@ function montarNivel(numero, { foco = false } = {}) {
     el('section', { class: 'panel-head', 'aria-labelledby': 'nivel-titulo' },
       el('div', { class: 'panel-head-top' },
         nivel.icone ? el('span', { class: 'panel-icon' }, el('img', { src: nivel.icone, alt: '' })) : null,
-        el('div', {}, nivel.etapa ? el('span', { class: 'panel-stage-pill' }, nivel.etapa) : null, titulo)),
+        el('div', {}, nivel.etapa ? el('span', { class: 'panel-stage-pill' }, nivel.etapa) : null,
+          nivel.selo ? el('span', { class: 'tag selo ' + nivel.selo }, ROTULO_SELO[nivel.selo]) : null, titulo)),
       nivel.descricao ? el('p', { class: 'desc' }, nivel.descricao) : null,
+      opcional(nivel) ? el('p', { class: 'nivel-opcional' },
+        'Nível opcional: faça se quiser uma base antes do Gov Hub. Ele não conta para concluir a trilha nem entra na revisão.') : null,
       emBreve(nivel) ? null : el('div', { class: 'panel-progress-row' },
         el('div', { class: 'panel-progress-track', 'aria-hidden': 'true' }, el('div', { class: 'panel-progress-fill', id: 'nivel-barra' })),
         el('span', { class: 'panel-progress-label', id: 'nivel-contador' }))),
@@ -126,7 +129,9 @@ function pintar() {
     a.classList.toggle('complete', completo);
     if (Number(a.dataset.nivel) === nivelAtual) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     a.querySelector('.trail-nav-num').replaceChildren(completo ? svg(ICONES.check) : a.dataset.nivel);
-    a.querySelector('.meta').textContent = futuro ? 'Em breve' : `${n.feitas}/${n.total} concluídos`;
+    const nivel = trilha.niveis.find((x) => String(x.numero) === a.dataset.nivel);
+    a.querySelector('.meta').textContent = futuro ? 'Em breve'
+      : `${n.feitas}/${n.total} concluídos` + (opcional(nivel) ? ' · opcional' : '');
   });
   document.querySelectorAll('.item-card').forEach((card) => {
     const feito = !!feitos[card.dataset.id];

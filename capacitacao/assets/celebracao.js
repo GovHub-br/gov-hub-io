@@ -3,13 +3,14 @@
 import { el, svg, ICONES } from './dom.js';
 import { botaoEntrar } from './login.js';
 import { todosFeitos } from './progresso-nucleo.js';
+import { idsObrigatorios } from './hub-nucleo.js';
 
 const chave = (slug) => 'govhub-celebrada-' + slug;
 const ler = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
 const gravar = (k, v) => { try { if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch { /* sem armazenamento */ } };
 
 export function montarCelebracao(progresso, slug, trilha, { temQuiz }) {
-  const ids = trilha.niveis.flatMap((n) => n.itens.map((i) => i.id));
+  const ids = idsObrigatorios(trilha.niveis);
   const avaliacao = el('div', { class: 'celebration-rating' });
   const fechar = el('button', { class: 'modal-close', type: 'button', 'aria-label': 'Fechar', onclick: () => esconder() }, '×');
   const caixa = el('div', { class: 'modal-box celebration-box', role: 'dialog', 'aria-modal': 'true',

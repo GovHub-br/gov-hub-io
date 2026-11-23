@@ -1,13 +1,24 @@
 # Engenharia de Dados no Gov Hub
 
-Dos conceitos e da preparação do ambiente à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.
+Dos fundamentos, num cenário fictício, à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.
 
 > Versão visual, com progresso: **[mapa da trilha](../../mapa.html?trilha=engenharia-de-dados)**
 > Gerado a partir de **[trilhas/engenharia-de-dados.md](../../trilhas/engenharia-de-dados.md)** por `tools/gen_roadmap.py` — não edite à mão.
 
 ---
 
-### Nível 1 · Base e conceitos
+### Nível 0 · Fundamentos: um pipeline de ponta a ponta · *Iniciante · opcional*
+*Construa, em notebooks e com dados fictícios de um sistema de bicicletas compartilhadas, um pipeline completo: coleta de uma API, gravação sem duplicar, camadas em SQL, testes e orquestração. Nada para instalar além do Python, e nada do Gov Hub ainda.*
+- [O cenário: um sistema de bicicletas compartilhadas](../explicacao/engenharia-fundamentos-cenario.md) — *Explicação* · **Essencial**
+- [Preparar o Jupyter e olhar os dados](../guias/engenharia-fundamentos-jupyter.md) — *Guia* · **Essencial**
+- [Prática: coletar de uma API](../tutoriais/engenharia-fundamentos-coleta.md) — *Tutorial* · **Essencial**
+- [Prática: gravar sem duplicar](../tutoriais/engenharia-fundamentos-gravar.md) — *Tutorial* · **Essencial**
+- [Prática: transformar em camadas](../tutoriais/engenharia-fundamentos-camadas.md) — *Tutorial* · **Essencial**
+- [Prática: testar o dado](../tutoriais/engenharia-fundamentos-testes.md) — *Tutorial* · **Essencial**
+- [Prática: orquestrar o pipeline](../tutoriais/engenharia-fundamentos-orquestrar.md) — *Tutorial* · **Essencial**
+- [Do notebook às ferramentas do Gov Hub](../explicacao/engenharia-fundamentos-ferramentas.md) — *Explicação* · **Essencial**
+
+### Nível 1 · Base e conceitos · *Essencial*
 *Entenda o papel da engenharia de dados, o contexto do Gov Hub, ETL/ELT e a arquitetura macro da aplicação.*
 - [Engenharia de dados: da fonte à decisão](../explicacao/engenharia-papel.md) — *Explicação* · **Essencial**
 - [O Gov Hub e sua aplicação de dados](../explicacao/engenharia-projeto-gov-hub.md) — *Explicação* · **Essencial**
@@ -15,7 +26,7 @@ Dos conceitos e da preparação do ambiente à contribuição de uma base nova a
 - [Onde encontrar cada parte do projeto](../referencia/engenharia-mapa-repositorio.md) — *Referência* · **Essencial**
 - [Vocabulário e fontes do governo](../referencia/engenharia-glossario.md) — *Referência* · Apoio
 
-### Nível 2 · Preparação do ambiente local
+### Nível 2 · Preparação do ambiente local · *Essencial*
 *Prepare e valide o ambiente da aplicação: requisitos, configuração, serviços, Airflow, acessos, prática dbt e rotina local.*
 - [Requisitos e versões do ambiente](../referencia/engenharia-requisitos-ambiente.md) — *Referência* · **Essencial**
 - [Configuração local e credenciais](../guias/engenharia-configuracao-local.md) — *Guia* · **Essencial**
@@ -25,7 +36,7 @@ Dos conceitos e da preparação do ambiente à contribuição de uma base nova a
 - [Executar o dbt e conferir os dados no banco](../guias/engenharia-dbt-configuracao.md) — *Guia* · **Essencial**
 - [Rotina local e verificação final](../guias/engenharia-rotina-ambiente.md) — *Guia* · **Essencial**
 
-### Nível 3 · Modelagem e construção das camadas de dados
+### Nível 3 · Modelagem e construção das camadas de dados · *Essencial*
 *Construa, com uma base de estudo que imita os contratos do Gov Hub, uma tabela que responde quanto foi contratado e pago: população, especificação, camadas, granularidade, formas de entrega, regras reutilizáveis, histórico e validação.*
 - [Prática: SQL para decidir quem entra no resultado](../tutoriais/engenharia-sql.md) — *Tutorial* · **Essencial**
 - [Prática: SQL para contar e somar sem enganos](../tutoriais/engenharia-sql-medidas.md) — *Tutorial* · **Essencial**
@@ -37,7 +48,7 @@ Dos conceitos e da preparação do ambiente à contribuição de uma base nova a
 - [Posição atual e histórico: reconstrução, incremental e snapshot](../explicacao/engenharia-historico.md) — *Explicação* · **Essencial**
 - [Validar e entregar uma camada confiável](../guias/engenharia-entrega-camada.md) — *Guia* · **Essencial**
 
-### Nível 4 · Ingestão, orquestração e transformação
+### Nível 4 · Ingestão, orquestração e transformação · *Essencial*
 *Entenda os três trabalhos de um pipeline e faça cada um com dados reais do PNCP: coleta em Python, gravação no banco sem duplicar, DAG no Airflow, reprocessamento e modelos dbt até a gold.*
 - [Ingestão: trazer o dado da fonte para o banco](../explicacao/engenharia-ingestao.md) — *Explicação* · **Essencial**
 - [Orquestração: quem roda o quê, quando e em que ordem](../explicacao/engenharia-orquestracao.md) — *Explicação* · **Essencial**
@@ -51,7 +62,7 @@ Dos conceitos e da preparação do ambiente à contribuição de uma base nova a
 - [Fontes e clientes do repositório](../referencia/engenharia-fontes.md) — *Referência* · Apoio
 - [Comandos do dia a dia: Airflow, dbt e banco](../referencia/engenharia-comandos.md) — *Referência* · Apoio
 
-### Nível 5 · Adicionar uma base nova ao Gov Hub
+### Nível 5 · Adicionar uma base nova ao Gov Hub · *Avançado*
 *Leve uma fonte nova da issue ao pull request, do cliente em Python à gold no dbt: avalie a fonte, escreva os testes antes do código, proteja o dado pessoal, confira o resultado e prepare a revisão. O exemplo são os contratos publicados no PNCP.*
 - [O caminho de uma base nova, da issue ao painel](../explicacao/engenharia-base-nova.md) — *Explicação* · **Essencial**
 - [Avaliar a fonte e escrever a issue](../guias/engenharia-avaliar-fonte.md) — *Guia* · **Essencial**

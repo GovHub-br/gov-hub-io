@@ -85,6 +85,9 @@
     padding:14px 16px;border-left:4px solid var(--dark-navy);min-width:0;height:100%}
 .item-card.apoio{border-left-color:var(--primary-purple)}
 .item-card.marco{border-left-color:var(--accent-rose)}
+.item-card.opcional{border-left-color:var(--text-muted)}
+.item-card.avancado{border-left-color:var(--purple-700)}
+.nivel-opcional{font-size:13px;color:var(--text-muted);margin:6px 0 0;padding:8px 12px;border-left:3px solid var(--primary-purple);background:var(--bg-soft);border-radius:var(--radius-sm)}
 .item-card:hover{box-shadow:var(--shadow-lg)}
 .item-check{flex:none;position:relative;z-index:2;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:none;
     border:none;cursor:pointer;border-radius:50%;padding:0}

@@ -28,8 +28,10 @@ for (const resumo of catalogo.trilhas) {
     assert.ok(trilha.titulo && trilha.descricao);
     assert.equal(!!trilha.diagrama, !!trilha.diagrama_alt);
     if (trilha.diagrama) assert.ok(existsSync(new URL('../' + trilha.diagrama, import.meta.url)), trilha.diagrama);
+    // Os níveis são consecutivos e começam no 1; um nível 0 só existe se for opcional (Selo: iniciante).
+    const primeiro = trilha.niveis[0].opcional ? 0 : 1;
     trilha.niveis.forEach((nivel, i) => {
-      assert.equal(nivel.numero, i + 1);   // os níveis começam no 1
+      assert.equal(nivel.numero, i + primeiro);
       for (const item of nivel.itens) {
         assert.equal(item.id, item.doc.replace(/^docs\//, '').replace(/\.md$/, ''));
         assert.ok(TIPOS.includes(item.tipo) && PAPEIS.includes(item.papel));

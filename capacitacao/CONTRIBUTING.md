@@ -57,6 +57,10 @@ mais comum de páginas ruins.
   o PDF o imprime como "O que faz:" acima dele. Diga o que o comando faz e o que ele vai mostrar,
   não repita o parágrafo da aula.
 
+  O mesmo vale para os blocos de **código** (Python e SQL) das aulas do nível 0: o **?** abre
+  "O que este código faz", com o passo a passo em poucas frases. Blocos de saída (`text`) não levam
+  o comentário.
+
 ### Páginas em rascunho
 
 Uma página com o marcador `Rascunho — a escrever` tem esqueleto, mas não tem conteúdo. Ao escrevê-la:
@@ -108,6 +112,12 @@ todo `.md` referenciado que não exista — então adicionar uma linha em `trilh
 a forma correta de criar uma página nova.
 
 Um mesmo documento pode estar em várias trilhas, mas **não se repete dentro da mesma trilha** (o gerador falha).
+
+### Selo do nível
+
+Logo abaixo de `## Nível N · Título`, a linha `Selo: iniciante`, `Selo: essencial` ou `Selo: avancado`
+marca o nível no mapa. Use `iniciante` só para um nível que a pessoa pode pular: ele fica fora do
+andamento, da conclusão e do quiz da trilha ([ADR 0011](docs/adr/0011-nivel0-fundamentos-e-selos.md)).
 
 ### Nunca edite à mão
 

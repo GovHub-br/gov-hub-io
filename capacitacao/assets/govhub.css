@@ -194,6 +194,13 @@ header.site{position:sticky;top:0;z-index:50}
 .tag.essencial{background:var(--dark-navy);color:#fff}
 .tag.apoio{box-shadow:0 0 0 1.3px var(--primary-purple) inset;color:var(--purple-700)}
 .tag.marco{background:var(--accent-rose);color:#fff}
+.tag.opcional{box-shadow:0 0 0 1.3px var(--text-muted) inset;color:var(--text-muted)}
+.tag.avancado{background:var(--purple-700);color:#fff}
+/* selo do nível, ao lado da etapa no painel do mapa */
+.tag.selo{margin-left:6px;vertical-align:middle}
+.tag.selo.iniciante{box-shadow:0 0 0 1.3px var(--primary-purple) inset;color:var(--purple-700);background:#fff}
+.tag.selo.essencial{background:var(--dark-navy);color:#fff}
+.tag.selo.avancado{background:var(--purple-700);color:#fff}
 
 /* Tipo da aula: ícone de produto + nome (os tipos não se distinguem por cor) */
 .tipo-aula{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em}

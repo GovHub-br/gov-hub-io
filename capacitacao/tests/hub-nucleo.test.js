@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { nivelPadrao, papelVisual, buscarAulas, corrigirQuiz, perguntasDaTrilha, normalizarBusca, niveisConcluidos, pdfDaAula, pdfDaTrilha } from '../assets/hub-nucleo.js';
+import { nivelPadrao, papelVisual, buscarAulas, corrigirQuiz, perguntasDaTrilha, normalizarBusca, niveisConcluidos, pdfDaAula, pdfDaTrilha, idsObrigatorios } from '../assets/hub-nucleo.js';
 
 const NIVEIS = [
   { numero: 0, titulo: 'Base', itens: [{ id: 'a', titulo: 'Por que fazer um dashboard?', doc: 'docs/a.md' }, { id: 'b', titulo: 'Glossário', doc: 'docs/b.md' }] },
@@ -14,9 +14,11 @@ test('nivelPadrao: o primeiro nível com aula pendente; tudo feito volta ao prim
   assert.equal(nivelPadrao({}, []), 0);
 });
 
-test('papelVisual: cinco papéis da trilha em três marcações do mapa', () => {
+test('papelVisual: cada papel da trilha com a sua marcação no mapa', () => {
   assert.equal(papelVisual('core'), 'essencial');
-  for (const p of ['support', 'optional', 'advanced']) assert.equal(papelVisual(p), 'apoio');
+  assert.equal(papelVisual('support'), 'apoio');
+  assert.equal(papelVisual('optional'), 'opcional');
+  assert.equal(papelVisual('advanced'), 'avancado');
   assert.equal(papelVisual('capstone'), 'marco');
 });
 
@@ -65,4 +67,20 @@ test('nível em breve: não conta no andamento nem é aberto por padrão', () =>
   assert.deepEqual(niveisConcluidos({ a: true, b: true, c: true }, COM_EM_BREVE), { feitos: 2, total: 2, percentual: 100 });
   assert.equal(nivelPadrao({ a: true, b: true, c: true }, COM_EM_BREVE), 0);
   assert.equal(nivelPadrao({ a: true, b: true }, COM_EM_BREVE), 1);
+});
+
+test('nível opcional: fora do andamento, da conclusão e da revisão; só abre por padrão para quem não começou', () => {
+  const niveis = [
+    { numero: 0, titulo: 'Fundamentos', opcional: true, itens: [{ id: 'f', titulo: 'Fundamento', doc: 'docs/f.md' }] },
+    { numero: 1, titulo: 'Base', itens: [{ id: 'a', titulo: 'A', doc: 'docs/a.md' }, { id: 'b', titulo: 'B', doc: 'docs/b.md' }] },
+    { numero: 2, titulo: 'Gráficos', itens: [{ id: 'c', titulo: 'C', doc: 'docs/c.md' }] },
+  ];
+  assert.equal(nivelPadrao({}, niveis), 0);                  // quem não começou vê o nível iniciante primeiro
+  assert.equal(nivelPadrao({ f: true }, niveis), 1);         // terminou o opcional: segue para o 1
+  assert.equal(nivelPadrao({ a: true }, niveis), 1);         // pulou o opcional: não volta para ele
+  assert.deepEqual(idsObrigatorios(niveis), ['a', 'b', 'c']);
+  const nv = niveisConcluidos({ a: true, b: true, c: true }, niveis);
+  assert.deepEqual([nv.feitos, nv.total, nv.percentual], [2, 2, 100]);
+  const perguntas = perguntasDaTrilha(niveis, { f: { pergunta: 'F?' }, a: { pergunta: 'A?' } });
+  assert.deepEqual(perguntas.map((p) => p.id), ['a']);
 });

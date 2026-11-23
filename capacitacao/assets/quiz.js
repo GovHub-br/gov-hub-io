@@ -4,7 +4,7 @@ import { progresso } from './progresso.js';
 import { montarTopo } from './topo.js';
 import { carregarCatalogo, carregarTrilha, carregarQuiz, escolherTrilha } from './trilha.js';
 import { todosFeitos } from './progresso-nucleo.js';
-import { perguntasDaTrilha, corrigirQuiz } from './hub-nucleo.js';
+import { perguntasDaTrilha, corrigirQuiz, idsObrigatorios } from './hub-nucleo.js';
 import { el, svg, ICONES } from './dom.js';
 
 const $ = (id) => document.getElementById(id);
@@ -36,7 +36,7 @@ if (!trilha || !banco) {
   document.title = 'Quiz de revisão · ' + trilha.titulo + ' · Gov Hub';
   $('quiz-titulo').textContent = 'Quiz de revisão: ' + trilha.titulo;
   const perguntas = perguntasDaTrilha(trilha.niveis, banco.perguntas);
-  const ids = trilha.niveis.flatMap((n) => n.itens.map((i) => i.id));
+  const ids = idsObrigatorios(trilha.niveis);
   let montado = false;
 
   function montar() {

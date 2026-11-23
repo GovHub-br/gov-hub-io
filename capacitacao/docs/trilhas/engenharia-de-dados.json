@@ -2,10 +2,14 @@
   "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
   "slug": "engenharia-de-dados",
   "titulo": "Engenharia de Dados no Gov Hub",
-  "descricao": "Dos conceitos e da preparação do ambiente à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.",
+  "descricao": "Dos fundamentos, num cenário fictício, à contribuição de uma base nova ao projeto, com PostgreSQL, Python, Airflow e dbt.",
   "categoria": "tecnica",
-  "chamada": "Um indicador confiável começa antes do gráfico. Entenda o Gov Hub, prepare o ambiente, aprenda a coletar, organizar e testar dados e, no fim, adicione uma base nova à aplicação.",
+  "chamada": "Um indicador confiável começa antes do gráfico. Se a área é nova para você, comece pelos fundamentos, num cenário fictício. Depois, entenda o Gov Hub, prepare o ambiente, aprenda a coletar, organizar e testar dados e, no fim, adicione uma base nova à aplicação.",
   "etapas": [
+    {
+      "rotulo": "Fundamentos",
+      "caixa": "Pipeline num cenário fictício"
+    },
     {
       "rotulo": "Base",
       "caixa": "Conceitos e projeto"
@@ -27,16 +31,108 @@
       "caixa": "Contribuir com uma base nova"
     }
   ],
-  "etapas_subtitulo": "Cinco etapas: do contexto do projeto à contribuição de uma base nova",
-  "etapas_nota": "**Preparação antes da prática.** Conclua o nível de ambiente local antes de executar consultas e coletas. Use data-application-gov-hub; este site apresenta o material de estudo.",
+  "etapas_subtitulo": "Seis etapas: dos fundamentos, fora do Gov Hub, à contribuição de uma base nova",
+  "etapas_nota": "**Comece pelo nível 0 se a engenharia de dados é nova para você.** Ele é opcional e roda no navegador, sem o Gov Hub. A partir do nível 1, conclua o ambiente local antes de executar consultas e coletas. Use data-application-gov-hub; este site apresenta o material de estudo.",
   "quiz": "quiz/engenharia-de-dados.json",
   "niveis": [
+    {
+      "numero": 0,
+      "titulo": "Fundamentos: um pipeline de ponta a ponta",
+      "descricao": "Construa, em notebooks e com dados fictícios de um sistema de bicicletas compartilhadas, um pipeline completo: coleta de uma API, gravação sem duplicar, camadas em SQL, testes e orquestração. Nada para instalar além do Python, e nada do Gov Hub ainda.",
+      "etapa": "Fundamentos",
+      "icone": "assets/icones/beaker-sober.svg",
+      "selo": "iniciante",
+      "opcional": true,
+      "itens": [
+        {
+          "id": "explicacao/engenharia-fundamentos-cenario",
+          "titulo": "O cenário: um sistema de bicicletas compartilhadas",
+          "doc": "docs/explicacao/engenharia-fundamentos-cenario.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "guias/engenharia-fundamentos-jupyter",
+          "titulo": "Preparar o Jupyter e olhar os dados",
+          "doc": "docs/guias/engenharia-fundamentos-jupyter.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-fundamentos-coleta",
+          "titulo": "Prática: coletar de uma API",
+          "doc": "docs/tutoriais/engenharia-fundamentos-coleta.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-fundamentos-gravar",
+          "titulo": "Prática: gravar sem duplicar",
+          "doc": "docs/tutoriais/engenharia-fundamentos-gravar.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-fundamentos-camadas",
+          "titulo": "Prática: transformar em camadas",
+          "doc": "docs/tutoriais/engenharia-fundamentos-camadas.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-fundamentos-testes",
+          "titulo": "Prática: testar o dado",
+          "doc": "docs/tutoriais/engenharia-fundamentos-testes.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "tutoriais/engenharia-fundamentos-orquestrar",
+          "titulo": "Prática: orquestrar o pipeline",
+          "doc": "docs/tutoriais/engenharia-fundamentos-orquestrar.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        },
+        {
+          "id": "explicacao/engenharia-fundamentos-ferramentas",
+          "titulo": "Do notebook às ferramentas do Gov Hub",
+          "doc": "docs/explicacao/engenharia-fundamentos-ferramentas.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        }
+      ]
+    },
     {
       "numero": 1,
       "titulo": "Base e conceitos",
       "descricao": "Entenda o papel da engenharia de dados, o contexto do Gov Hub, ETL/ELT e a arquitetura macro da aplicação.",
       "etapa": "Base",
       "icone": "assets/icones/light-bulb-sober.svg",
+      "selo": "essencial",
       "itens": [
         {
           "id": "explicacao/engenharia-papel",
@@ -96,6 +192,7 @@
       "descricao": "Prepare e valide o ambiente da aplicação: requisitos, configuração, serviços, Airflow, acessos, prática dbt e rotina local.",
       "etapa": "Ambiente",
       "icone": "assets/icones/server-sober.svg",
+      "selo": "essencial",
       "itens": [
         {
           "id": "referencia/engenharia-requisitos-ambiente",
@@ -175,6 +272,7 @@
       "descricao": "Construa, com uma base de estudo que imita os contratos do Gov Hub, uma tabela que responde quanto foi contratado e pago: população, especificação, camadas, granularidade, formas de entrega, regras reutilizáveis, histórico e validação.",
       "etapa": "Dado",
       "icone": "assets/icones/database-sober.svg",
+      "selo": "essencial",
       "itens": [
         {
           "id": "tutoriais/engenharia-sql",
@@ -274,6 +372,7 @@
       "descricao": "Entenda os três trabalhos de um pipeline e faça cada um com dados reais do PNCP: coleta em Python, gravação no banco sem duplicar, DAG no Airflow, reprocessamento e modelos dbt até a gold.",
       "etapa": "Pipeline",
       "icone": "assets/icones/deploy-sober.svg",
+      "selo": "essencial",
       "itens": [
         {
           "id": "explicacao/engenharia-ingestao",
@@ -393,6 +492,7 @@
       "descricao": "Leve uma fonte nova da issue ao pull request, do cliente em Python à gold no dbt: avalie a fonte, escreva os testes antes do código, proteja o dado pessoal, confira o resultado e prepare a revisão. O exemplo são os contratos publicados no PNCP.",
       "etapa": "Evolução",
       "icone": "assets/icones/rectangle-group-sober.svg",
+      "selo": "avancado",
       "itens": [
         {
           "id": "explicacao/engenharia-base-nova",

@@ -42,6 +42,9 @@ body.sem-nivel .layout{grid-template-columns:minmax(0,1fr);max-width:920px}   /*
 .conteudo .btn-notebook:hover{background:var(--bg-soft);color:var(--dark-navy)}
 .conteudo .btn-notebook:focus-visible{outline:3px solid var(--primary-purple);outline-offset:3px}
 .btn-notebook svg{width:17px;height:17px}
+.cartao-notebook-botoes{display:flex;gap:10px;flex-wrap:wrap}
+.conteudo .btn-notebook.secundario{background:transparent;color:#fff;box-shadow:0 0 0 1.5px #fff inset}
+.conteudo .btn-notebook.secundario:hover{background:rgba(255,255,255,.12);color:#fff}
 .conteudo{line-height:1.7;color:var(--text-body);font-size:15.5px}
 .conteudo:focus{outline:none}
 .conteudo h1{font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.15;color:var(--dark-navy);margin:0 0 .7em}

@@ -6,13 +6,14 @@ Profissionais de TI com familiaridade com programação, terminal e Git. A trilh
 
 | Nível | Foco | Aulas |
 |---|---|---|
+| 0 — Fundamentos (iniciante, opcional) | Um pipeline de ponta a ponta num cenário fictício, em notebooks: coleta, gravação, camadas, testes e orquestração, sem o Gov Hub | 8 |
 | 1 — Base e conceitos | Engenharia de dados, projeto, ETL/ELT, arquitetura macro e glossário | 5 |
 | 2 — Preparação do ambiente local | Requisitos, configuração, inicialização, Airflow, acessos, prática dbt e rotina | 7 |
 | 3 — Modelagem e construção das camadas de dados | Uma base de estudo de contratos, do SQL à entrega: população, especificação, camadas, granularidade, formas de entrega, regras no dbt, histórico e validação | 9 |
 | 4 — Ingestão, orquestração e transformação | Coleta em Python, gravação em bancos, cargas repetíveis, Airflow, reprocessamento e dbt | 11 |
 | 5 — Adicionar uma base nova | Avaliar a fonte, cliente, DAG, domínio dbt, bronze, silver, gold, documentação, pull request e desafio | 12 |
 
-O nível 1 é conceitual; conclua a preparação do nível 2 antes de executar as práticas. Cargas e reprocessamento ficam junto da implementação e da operação no nível 4. Os exemplos usam dados sintéticos ou públicos e não exigem fontes protegidas nem publicação em produção.
+O nível 0 é opcional e roda no navegador (Colab) ou em qualquer Python, com dados fictícios; ele não conta para concluir a trilha. O nível 1 é conceitual; conclua a preparação do nível 2 antes de executar as práticas. Cargas e reprocessamento ficam junto da implementação e da operação no nível 4. Os exemplos usam dados sintéticos ou públicos e não exigem fontes protegidas nem publicação em produção.
 
 ## Referências de preparação
 

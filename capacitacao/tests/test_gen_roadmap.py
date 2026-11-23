@@ -204,6 +204,19 @@ class NivelEmBreve(unittest.TestCase):
         with self.assertRaises(SystemExit):   # oculta vale para a trilha, não para o nível
             self.gerar(CORPO + "\n## Nível 1 · X\nStatus: oculta\n")
 
+    def test_selo_do_nivel(self):
+        corpo = CORPO.replace("## Nível 0 · Base\n", "## Nível 0 · Base\nSelo: iniciante\n")
+        trilha, _ = self.gerar(corpo + "\n## Nível 1 · Mais\nSelo: avancado\n"
+                                       "- [explanation] **Mais** — core — `docs/explicacao/mais.md`\n")
+        n0, n1 = trilha["niveis"]
+        self.assertEqual((n0["selo"], n0["opcional"]), ("iniciante", True))   # iniciante fica fora do progresso
+        self.assertEqual(n1["selo"], "avancado")
+        self.assertNotIn("opcional", n1)
+
+    def test_selo_conhecido(self):
+        with self.assertRaises(SystemExit):
+            self.gerar(CORPO.replace("## Nível 0 · Base\n", "## Nível 0 · Base\nSelo: basico\n"))
+
 
 if __name__ == "__main__":
     unittest.main()

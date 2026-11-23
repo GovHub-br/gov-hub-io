@@ -335,7 +335,12 @@ function explicarComandos(raiz) {
     let pre = c.nextSibling;
     while (pre && pre.nodeType === Node.TEXT_NODE && !pre.textContent.trim()) pre = pre.nextSibling;
     if (!m || !pre || pre.tagName !== 'PRE') return;
-    const titulo = quantosComandos(pre) > 1 ? 'O que estes comandos fazem' : 'O que este comando faz';
+    // Terminal: "comando(s)". Qualquer outra linguagem (Python, SQL...): "código", porque um bloco
+    // de várias linhas de Python não é uma lista de comandos.
+    const linguagem = (pre.querySelector('code')?.className.match(/language-(\w+)/) || [])[1];
+    const terminal = !linguagem || /^(bash|sh|shell|zsh|console)$/.test(linguagem);
+    const titulo = !terminal ? 'O que este código faz'
+      : quantosComandos(pre) > 1 ? 'O que estes comandos fazem' : 'O que este comando faz';
     const balao = el('div', { class: 'explica-balao', id: `explica-${i + 1}`, hidden: '' },
       el('strong', { class: 'explica-titulo' }, titulo));
     const texto = el('p', {});
@@ -377,20 +382,30 @@ function tirarLinhaDeTipo(raiz) {
 
 // Uma prática com notebook declara "> Notebook: [arquivo](caminho.ipynb)" no Markdown. A linha vira
 // um cartão de download no corpo da aula e um botão ao lado do PDF. Roda depois de corrigirLinks,
-// com o href já resolvido a partir da pasta da aula.
+// com o href já resolvido a partir da pasta da aula. Se a linha terminar com "· Colab", o notebook
+// não depende do ambiente do Gov Hub e o cartão ganha o botão que o abre no Google Colab, lido do
+// GitHub (só funciona depois que o arquivo chega à main).
+const COLAB = 'https://colab.research.google.com/github/GovHub-br/gov-hub-io/blob/main/capacitacao/notebooks/';
 function cartaoDeNotebook(raiz) {
   const q = [...raiz.querySelectorAll('blockquote')].find((b) => /^\s*Notebook:/.test(b.textContent));
   const link = q && q.querySelector('a[href$=".ipynb"]');
   if (!link) return;
   const href = link.getAttribute('href');
   const nome = href.slice(href.lastIndexOf('/') + 1);
+  const pasta = href.indexOf('notebooks/');
+  const colab = /·\s*Colab\s*$/.test(q.textContent) && pasta >= 0 ? COLAB + href.slice(pasta + 'notebooks/'.length) : null;
   q.replaceWith(el('aside', { class: 'cartao-notebook', 'aria-label': 'Notebook desta prática' },
     el('div', { class: 'cartao-notebook-texto' },
       el('span', { class: 'cartao-notebook-rotulo' }, 'Prática em notebook'),
       el('strong', {}, 'Faça esta prática no Jupyter'),
-      el('span', {}, 'O mesmo passo a passo, pronto para executar na sua máquina, com conferências a cada etapa. '
-        + 'Abra no JupyterLab, no VS Code ou no Jupyter da aplicação.')),
-    el('a', { class: 'btn-notebook', href, download: nome }, svg(ICONES.baixar), 'Baixar notebook (.ipynb)')));
+      el('span', {}, colab
+        ? 'O notebook traz os dados, o código e uma conferência a cada passo. Abra no Colab, sem instalar nada, '
+          + 'ou baixe e rode no JupyterLab ou no VS Code.'
+        : 'O mesmo passo a passo, pronto para executar na sua máquina, com conferências a cada etapa. '
+          + 'Abra no JupyterLab, no VS Code ou no Jupyter da aplicação.')),
+    el('div', { class: 'cartao-notebook-botoes' },
+      colab ? el('a', { class: 'btn-notebook', href: colab, target: '_blank', rel: 'noopener' }, svg(ICONES.externo), 'Abrir no Colab') : null,
+      el('a', { class: 'btn-notebook' + (colab ? ' secundario' : ''), href, download: nome }, svg(ICONES.baixar), 'Baixar notebook (.ipynb)'))));
   $('aula-meta').append(el('a', { class: 'btn-pdf', href, download: nome, 'aria-label': 'Baixar o notebook desta prática' },
     svg(ICONES.baixar), 'Notebook'));
 }

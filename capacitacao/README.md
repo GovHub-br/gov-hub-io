@@ -140,6 +140,11 @@ Um nível em breve é declarado em `trilhas/<slug>.md` com a linha `Status: em-b
 título do nível e não tem aulas: aparece no mapa como "Em breve", não conta no andamento e fica fora
 do PDF. Quando os vídeos existirem, basta tirar a linha e listar as aulas.
 
+Cada nível pode ter um selo, com a linha `Selo: iniciante`, `Selo: essencial` ou `Selo: avancado` logo
+abaixo do título. O mapa mostra o selo ao lado da etapa. Um nível `iniciante` é **opcional**: aparece
+como "Iniciante · opcional", fica fora do andamento da trilha, da conclusão e do quiz de revisão, e só
+abre por padrão para quem ainda não começou a trilha. O gerador falha com um selo desconhecido.
+
 Em cada nível, faça primeiro os itens **essenciais**; os de **apoio/opcionais** vêm quando forem
 necessários.
 
@@ -290,6 +295,20 @@ estuda baixar e executar na própria máquina. A aula declara o notebook logo ab
 
 O leitor (`assets/leitor.js`) troca essa linha por um cartão de download no topo da aula e põe um botão
 **Notebook** ao lado do **Baixar PDF**; no PDF, ela continua como link para o arquivo no site.
+
+Quando o notebook não depende do ambiente do Gov Hub, a linha termina com `· Colab`, e o cartão ganha o
+botão **Abrir no Colab**, que lê o arquivo da `main` no GitHub:
+
+```markdown
+> Notebook: [engenharia-fundamentos-coleta.ipynb](../../notebooks/engenharia-fundamentos-coleta.ipynb) · Colab
+```
+
+Os notebooks do nível 0 de Engenharia de Dados (`engenharia-fundamentos-*.ipynb`) seguem um formato
+próprio: cada um recria o cenário fictício e o ponto de partida das aulas anteriores na Preparação, e as
+células de código começam por `# Rode e observe`, `# Sua vez` ou `# Confira`. A resposta de cada
+"Sua vez" fica nos metadados da célula (`govhub.resposta`), e `tests/test_notebooks.py` executa os seis
+notebooks com e sem as respostas. Ele precisa de `duckdb httpx pandas matplotlib nbclient nbformat ipykernel`
+e é pulado quando eles faltam.
 
 O texto da aula e o notebook trazem o mesmo passo a passo: ao mudar um, mude o outro. Os notebooks são
 publicados **sem saídas**, para rodar do zero, e seguem a identidade visual do Gov Hub com HTML inline
