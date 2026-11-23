@@ -1,0 +1,270 @@
+{
+  "_aviso": "Gerado por tools/gen_roadmap.py a partir de trilhas/ - nao edite a mao.",
+  "slug": "seguranca-dags",
+  "titulo": "Desenvolvimento seguro de DAGs",
+  "descricao": "SAST e SCA na prática, com Bandit e Trivy, para quem escreve DAGs do Airflow no GovHub.",
+  "categoria": "tecnica",
+  "chamada": "Uma DAG é código que roda sozinho, em agenda, com as credenciais do data warehouse, e muitas vezes toca dado pessoal. Aprenda a escaneá-la, a corrigir o que as ferramentas apontam e a enxergar o que elas não enxergam.",
+  "etapas": [
+    {
+      "rotulo": "Por quê",
+      "caixa": "Segurança no ciclo da DAG"
+    },
+    {
+      "rotulo": "O quê",
+      "caixa": "O que as ferramentas enxergam"
+    },
+    {
+      "rotulo": "Prática",
+      "caixa": "Do scan à correção"
+    },
+    {
+      "rotulo": "Como",
+      "caixa": "Resolver no dia a dia"
+    },
+    {
+      "rotulo": "Consultar",
+      "caixa": "Consultar e revisar"
+    }
+  ],
+  "etapas_subtitulo": "Cinco etapas em sequência: do \"por quê\" à consulta no dia a dia",
+  "etapas_nota": "**Dado pessoal** nos valores das tabelas é o ponto cego do Bandit e do Trivy: o nível 2 e o guia de dado pessoal cobrem essa lacuna.",
+  "quiz": "quiz/seguranca-dags.json",
+  "niveis": [
+    {
+      "numero": 1,
+      "titulo": "Segurança no ciclo da DAG",
+      "descricao": "Por que segurança não é uma etapa no fim: o ciclo seguro de desenvolvimento aplicado a uma DAG e a superfície de ataque que ela expõe.",
+      "etapa": "Por quê",
+      "icone": "assets/icones/light-bulb-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/seguranca-no-ciclo-da-dag",
+          "titulo": "Segurança no ciclo de desenvolvimento da DAG",
+          "doc": "docs/explicacao/seguranca-no-ciclo-da-dag.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/superficie-de-ataque-de-uma-dag",
+          "titulo": "Superfície de ataque de uma DAG",
+          "doc": "docs/explicacao/superficie-de-ataque-de-uma-dag.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "O que as ferramentas enxergam",
+      "descricao": "SAST, SCA, segredos e misconfiguration: que pergunta cada técnica responde e onde está o ponto cego, que é o dado pessoal nos valores.",
+      "etapa": "O quê",
+      "icone": "assets/icones/shield-check-sober.svg",
+      "itens": [
+        {
+          "id": "explicacao/o-que-cada-ferramenta-enxerga",
+          "titulo": "O que SAST, SCA, segredos e misconfig enxergam (e o que não enxergam)",
+          "doc": "docs/explicacao/o-que-cada-ferramenta-enxerga.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "explicacao/dado-pessoal-nos-valores",
+          "titulo": "Dado pessoal nos valores: o que nenhuma ferramenta vê",
+          "doc": "docs/explicacao/dado-pessoal-nos-valores.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Do scan à correção",
+      "descricao": "Laboratório guiado de ponta a ponta: uma DAG insegura de propósito, os dois scans, a correção e a descoberta do que as ferramentas deixaram passar.",
+      "etapa": "Prática",
+      "icone": "assets/icones/beaker-sober.svg",
+      "itens": [
+        {
+          "id": "tutoriais/laboratorio-do-scan-a-correcao",
+          "titulo": "Laboratório: do scan à correção",
+          "doc": "docs/tutoriais/laboratorio-do-scan-a-correcao.md",
+          "tipo": "tutorial",
+          "tipo_nome": "Tutorial",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/book-open-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Resolver no dia a dia",
+      "descricao": "Guias para os problemas concretos que aparecem no trabalho: ler o relatório, decidir o que fazer com cada achado, tratar credenciais e dependências, proteger dado pessoal, automatizar os scans e reagir a um vazamento.",
+      "etapa": "Como",
+      "icone": "assets/icones/wrench-sober.svg",
+      "itens": [
+        {
+          "id": "guias/rodar-bandit-e-trivy-e-ler-o-relatorio",
+          "titulo": "Rodar Bandit e Trivy e ler o relatório",
+          "doc": "docs/guias/rodar-bandit-e-trivy-e-ler-o-relatorio.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/decidir-o-que-fazer-com-um-achado",
+          "titulo": "Decidir o que fazer com um achado",
+          "doc": "docs/guias/decidir-o-que-fazer-com-um-achado.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/tratar-credenciais-em-dags",
+          "titulo": "Tratar credenciais em DAGs",
+          "doc": "docs/guias/tratar-credenciais-em-dags.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/corrigir-uma-dependencia-vulneravel",
+          "titulo": "Corrigir uma dependência vulnerável",
+          "doc": "docs/guias/corrigir-uma-dependencia-vulneravel.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/manter-dado-pessoal-fora-de-logs-xcom-e-repositorio",
+          "titulo": "Manter dado pessoal fora de logs, XCom e repositório",
+          "doc": "docs/guias/manter-dado-pessoal-fora-de-logs-xcom-e-repositorio.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/encaixar-os-scans-no-fluxo",
+          "titulo": "Encaixar os scans no fluxo: pre-commit, PR e CI",
+          "doc": "docs/guias/encaixar-os-scans-no-fluxo.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/wrench-sober.svg"
+        },
+        {
+          "id": "guias/responder-a-um-segredo-ou-dado-pessoal-commitado",
+          "titulo": "Responder a um segredo ou dado pessoal commitado",
+          "doc": "docs/guias/responder-a-um-segredo-ou-dado-pessoal-commitado.md",
+          "tipo": "guia",
+          "tipo_nome": "Guia",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/wrench-sober.svg"
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Consultar e revisar",
+      "descricao": "O que consultar enquanto trabalha (comandos, regras, checklist, glossário), a autoavaliação, as lacunas que a trilha ainda não cobre e o exercício final, antes e depois.",
+      "etapa": "Consultar",
+      "icone": "assets/icones/clipboard-document-list-sober.svg",
+      "itens": [
+        {
+          "id": "referencia/checklist-pre-pr",
+          "titulo": "Checklist pré-PR",
+          "doc": "docs/referencia/checklist-pre-pr.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "core",
+          "papel_nome": "Essencial",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/comandos-do-bandit-e-do-trivy",
+          "titulo": "Comandos do Bandit e do Trivy",
+          "doc": "docs/referencia/comandos-do-bandit-e-do-trivy.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/regras-do-bandit-mais-comuns-em-dags",
+          "titulo": "Regras do Bandit mais comuns em DAGs",
+          "doc": "docs/referencia/regras-do-bandit-mais-comuns-em-dags.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/glossario-de-seguranca-de-dags",
+          "titulo": "Glossário de segurança de DAGs",
+          "doc": "docs/referencia/glossario-de-seguranca-de-dags.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "referencia/autoavaliacao",
+          "titulo": "Autoavaliação",
+          "doc": "docs/referencia/autoavaliacao.md",
+          "tipo": "referencia",
+          "tipo_nome": "Referência",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/document-text-sober.svg"
+        },
+        {
+          "id": "explicacao/recomendacoes-e-proximos-passos",
+          "titulo": "Recomendações e próximos passos",
+          "doc": "docs/explicacao/recomendacoes-e-proximos-passos.md",
+          "tipo": "explicacao",
+          "tipo_nome": "Explicação",
+          "papel": "support",
+          "papel_nome": "Apoio",
+          "icone": "assets/icones/light-bulb-sober.svg"
+        },
+        {
+          "id": "desafios/triagem-de-uma-dag-real",
+          "titulo": "Exercício final: triagem de uma DAG real (antes e depois)",
+          "doc": "docs/desafios/triagem-de-uma-dag-real.md",
+          "tipo": "desafio",
+          "tipo_nome": "Desafio",
+          "papel": "capstone",
+          "papel_nome": "Capstone",
+          "icone": "assets/icones/trophy-sober.svg"
+        }
+      ]
+    }
+  ]
+}

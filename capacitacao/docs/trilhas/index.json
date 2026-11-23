@@ -154,6 +154,34 @@
         "referencia/engenharia-checklist-base-nova",
         "desafios/engenharia-desafio"
       ]
+    },
+    {
+      "slug": "seguranca-dags",
+      "titulo": "Desenvolvimento seguro de DAGs",
+      "descricao": "SAST e SCA na prática, com Bandit e Trivy, para quem escreve DAGs do Airflow no GovHub.",
+      "categoria": "tecnica",
+      "niveis": 5,
+      "aulas": [
+        "explicacao/seguranca-no-ciclo-da-dag",
+        "explicacao/superficie-de-ataque-de-uma-dag",
+        "explicacao/o-que-cada-ferramenta-enxerga",
+        "explicacao/dado-pessoal-nos-valores",
+        "tutoriais/laboratorio-do-scan-a-correcao",
+        "guias/rodar-bandit-e-trivy-e-ler-o-relatorio",
+        "guias/decidir-o-que-fazer-com-um-achado",
+        "guias/tratar-credenciais-em-dags",
+        "guias/corrigir-uma-dependencia-vulneravel",
+        "guias/manter-dado-pessoal-fora-de-logs-xcom-e-repositorio",
+        "guias/encaixar-os-scans-no-fluxo",
+        "guias/responder-a-um-segredo-ou-dado-pessoal-commitado",
+        "referencia/checklist-pre-pr",
+        "referencia/comandos-do-bandit-e-do-trivy",
+        "referencia/regras-do-bandit-mais-comuns-em-dags",
+        "referencia/glossario-de-seguranca-de-dags",
+        "referencia/autoavaliacao",
+        "explicacao/recomendacoes-e-proximos-passos",
+        "desafios/triagem-de-uma-dag-real"
+      ]
     }
   ]
 }
